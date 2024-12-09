@@ -11,7 +11,7 @@ BioGITOM is a specialized ontology matching system developed to address the incr
 - `Experiments/`: This section holds the experimental results, demonstrating the rationale behind the selection of the BERT model, the optimal number of negative examples in the training set, and findings from the ablation study.
 - `Tasks/`: This directory includes the various tasks of the Bio-ML track, encompassing data, scripts in .py and .ipynb formats, and the corresponding results documented in .md files.
 - `download_data.py`: This script automates the process of downloading, extracting, and organizing the required data for the project from a remote server. 
-- `run_biogitom.py`: 
+- `run_biogitom.py`: This script facilitates the execution of task-specific Python scripts in the BioGITOM framework. Each task resides in its dedicated directory within the Tasks/ folder, and the script dynamically loads and executes the relevant task script based on user input.
 - `requirements.txt`: Required libraries for the project.
 - `dictionary.json`: Contains the links to entities.
 
