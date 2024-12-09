@@ -2,7 +2,7 @@
 
 **BioGITOM** is a specialized ontology matching system designed to tackle the increasing complexity and heterogeneity of biomedical ontologies. While these ontologies are essential for organizing and standardizing domain knowledge, their structural, semantic, and terminological disparities often pose significant challenges to data integration and knowledge alignment.
 
-To address these challenges, BioGITOM enhances domain-specific embeddings extracted using the SapBERT model with structural features derived from the Graph Isomorphism Transformer (GIT)—a hybrid model that combines Graph Neural Networks (GNNs) and Graph Transformers. This dual-focus approach effectively captures both structural and semantic intricacies, enabling the generation of more accurate concept representations and, consequently, relevaant and precise ontology mappings.
+To address these challenges, BioGITOM enhances domain-specific embeddings extracted using the SapBERT model with structural features derived from the Graph Isomorphism Transformer (GIT)—a hybrid model that integrates Graph Neural Networks (GNNs) and Graph Transformers. This dual-focus approach effectively captures both structural and semantic intricacies, enabling the generation of more accurate concept representations and, consequently, relevant and precise ontology mappings.
 
 ## Repository Structure
 
