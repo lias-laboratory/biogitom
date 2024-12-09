@@ -8,7 +8,7 @@ BioGITOM is a specialized OM system developed to address the increasing complexi
 
 - `Codes/`: This directory contains Jupyter notebooks for key stages of the workflow, including candidate generation, training set creation, and embeddings generation using SapBERT.
 - `Datasets/`: This folder includes the Bio-ML datasets, comprising ontologies and their corresponding reference alignments.
-= `Experiments/`: This section holds the experimental results, demonstrating the rationale behind the selection of the BERT model, the optimal number of negative examples in the training set, and findings from the ablation study.
+- `Experiments/`: This section holds the experimental results, demonstrating the rationale behind the selection of the BERT model, the optimal number of negative examples in the training set, and findings from the ablation study.
 - Tasks/`: contains on task-specific data, results, and notebooks.
 - `download_data.py`: Script to download the required data for the project.
 - `run_biogitom.py`: Main script to execute the full pipeline.
