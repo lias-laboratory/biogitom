@@ -12,7 +12,7 @@ BioGITOM is a specialized ontology matching system developed to address the incr
 - `Tasks/`: This directory includes the various tasks of the Bio-ML track, encompassing data, scripts in .py and .ipynb formats, and the corresponding results documented in .md files.
 - `download_data.py`: This script automates the process of downloading, extracting, and organizing the required data for the project from a remote server. 
 - `run_biogitom.py`: This script facilitates the execution of task-specific Python scripts in the BioGITOM framework. Each task resides in its dedicated directory within the Tasks/ folder, and the script dynamically loads and executes the relevant task script based on user input.
-- `requirements.txt`: Required libraries for the project.
+- `requirements.txt`: This file lists all the Python packages and their specific versions required to run the BioGITOM framework. It ensures compatibility and consistency across environments.
 - `dictionary.json`: Contains the links to entities.
 
 
