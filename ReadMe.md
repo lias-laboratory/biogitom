@@ -9,7 +9,7 @@ BioGITOM is a specialized ontology matching system developed to address the incr
 - `Codes/`: This directory contains Jupyter notebooks for key stages of the workflow, including candidate generation, training set creation, and embeddings generation using SapBERT.
 - `Datasets/`: This folder includes the Bio-ML datasets, comprising ontologies and their corresponding reference alignments.
 - `Experiments/`: This section holds the experimental results, demonstrating the rationale behind the selection of the BERT model, the optimal number of negative examples in the training set, and findings from the ablation study.
-- `Tasks/`: contains on task-specific data, results, and notebooks.
+- `Tasks/`: This directory includes the various tasks of the Bio-ML track, encompassing data, scripts in .py and .ipynb formats, and the corresponding results documented in .md files.
 - `download_data.py`: Script to download the required data for the project.
 - `run_biogitom.py`: Main script to execute the full pipeline.
 - `requirements.txt`: Required libraries for the project.
