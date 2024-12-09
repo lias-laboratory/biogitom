@@ -1,8 +1,8 @@
 # BioGITOM: Matching Biomedical Ontologies with Graph Isomorphism Transformer
 
+**BioGITOM** is a specialized ontology matching system designed to tackle the increasing complexity and heterogeneity of biomedical ontologies. While these ontologies are essential for organizing and standardizing domain knowledge, their structural, semantic, and terminological disparities often pose significant challenges to data integration and knowledge alignment.
 
-
-BioGITOM is a specialized ontology matching system developed to address the increasing complexity and heterogeneity in biomedical ontologies. Its core purpose is to ensure effective integration and alignment of disparate ontologies, which is essential for improving data interoperability in biomedical research. BioGITOM is particularly designed to manage the unique challenges posed by the biomedical field, where ontologies often differ in structure and semantics. By combining advanced graph-based techniques, BioGITOM is able to produce more accurate mappings between concepts from different ontologies, thereby supporting enhanced data sharing and collaboration across systems.
+To address these challenges, BioGITOM enhances domain-specific embeddings extracted using the SapBERT model with structural features derived from the Graph Isomorphism Transformer (GIT)—a hybrid model that combines Graph Neural Networks (GNNs) and Graph Transformers. This dual-focus approach effectively captures both structural and semantic intricacies, enabling the generation of more accurate concept representations and, consequently, precise ontology mappings.
 
 ## Repository Structure
 
@@ -71,12 +71,12 @@ python run_biogitom.py --task omim2ordo --src_ent omim --tgt_ent ordo
 BioGITOM includes the following predefined ontology matching tasks:
 
 1. **`omim2ordo`**: Aligns the **OMIM** ontology with the **ORDO** ontology.  
-2. **`body`**: Matches the **SNOMED.body** ontology with **FMA.body**.  
+2. **`body`**: Matches the **SNOMED.body** ontology with the **FMA.body** ontology.  
 3. **`ncit2doid`**: Maps the **NCIT** ontology to the **DOID** ontology.  
-4. **`neoplas`**: Aligns the **SNOMED.neoplas** ontology with **NCIT.neoplas**.  
-5. **`pharm`**: Matches the **SNOMED.pharm** ontology with **NCIT.pharm**.  
-
-Each task is located in the Tasks/ directory and includes all necessary resources, including data, scripts, and results.
+4. **`neoplas`**: Aligns the **SNOMED.neoplas** ontology with the **NCIT.neoplas** ontology.  
+5. **`pharm`**: Matches the **SNOMED.pharm** ontology with the **NCIT.pharm** ontology.
+   
+Each task is organized under the Tasks/ directory, containing all necessary resources such as implementation scripts, and results.
 
 ## Usage
 
