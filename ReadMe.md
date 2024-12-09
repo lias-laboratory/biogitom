@@ -81,4 +81,4 @@ BioGITOM is released under the MIT License. See [LICENSE](LICENSE) for more info
 
 ## Contact
 
-For more information about BioGITOM, please contact [soulefki@usthb.dz](soulefki@usthb.dz).
+For more information about BioGITOM, please contact [soulefki@usthb.dz](mailto:soulefki@usthb.dz).
