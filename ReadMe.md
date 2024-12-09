@@ -6,10 +6,10 @@ BioGITOM is a specialized OM system developed to address the increasing complexi
 
 ## Repository Structure
 
-- `Codes/`: Jupyter notebooks for various stages like candidate generation, training, and SapBERT integration.
-- `Datasets/`: Contains biomedical ontology datasets and references for equivalence and subsumption.
-- `Experiments/`: Organized experiment-specific results and models.
-- `Tasks/`: Focused on task-specific data, results, and notebooks.
+- `Codes/`: Jupyter notebooks for various stages like candidate generation, train set generation, and embeddings generation using SapBERT.
+- `Datasets/`: Contains Bio-ML datasets incluging ontologies and reference alignments.
+- `Experiments/`: Contains results justifying choices for BERT model, negative example number for the train set and the ablation study .
+- `Tasks/`: contains on task-specific data, results, and notebooks.
 - `download_data.py`: Script to download the required data for the project.
 - `run_biogitom.py`: Main script to execute the full pipeline.
 - `requirements.txt`: Required libraries for the project.
