@@ -131,7 +131,7 @@ weight_train = 80.0
 thres = 0.50
 
 # %%
-dir = "../../"
+dir = "../../samir/biogitom/"
 
 # Define the directory for the dataset containing source and target ontologies
 dataset_dir = f"{dir}/Datasets/{task}"

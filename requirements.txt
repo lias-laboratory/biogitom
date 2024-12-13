@@ -3,7 +3,7 @@ deeponto==0.9.2
 lxml==5.2.1
 matplotlib==3.8.4
 networkx==3.3
-numpy==2.0.2
+numpy<2.0
 owlready2==0.47
 pandas==2.2.2
 rdflib==7.0.0

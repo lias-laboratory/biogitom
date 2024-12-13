@@ -125,13 +125,13 @@ print(f"Running task: {task} from {src_ent} to {tgt_ent}")
 # Define the weight for the training data
 # This weight is likely used to balance the training process, giving more emphasis to certain examples.
 # For instance, a weight of 10.0 could be applied to penalize errors in certain types of predictions more heavily.
-weight_train = 10.0
+weight_train = 20.0
 
 # Define the similarity threshold for validating matches
 thres = 0.20
 
 # %%
-dir = "../../"
+dir = "../../samir/biogitom/"
 
 # Define the directory for the dataset containing source and target ontologies
 dataset_dir = f"{dir}/Datasets/{task}"
