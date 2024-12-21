@@ -73,4 +73,4 @@ python download_data.py
 
 ---
 
-By following these steps, **BioGITOM** will be ready for use! For guidance on executing tasks and running experiments, refer to the [Reproducibility Guide](./BioGITOM_Usage.md)) section.
+By following these steps, **BioGITOM** will be ready for use! For guidance on executing tasks and running experiments, refer to the [Reproducibility Guide](./BioGITOM_Usage.md) section.
