@@ -7,7 +7,7 @@ root_dir = "./"
 output_tar = "data_biogitom.tar.gz"
 
 # Define allowed extensions
-allowed_extensions = {".owl", ".tsv", ".csv"}
+allowed_extensions = {".owl", ".tsv", ".csv", ".json"}
 
 # Create a list of files to add to the tar file
 files_to_add = []
