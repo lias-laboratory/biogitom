@@ -67,43 +67,43 @@ torchversion = torch.__version__
     Collecting triton==2.0.0 (from torch==2.0.0)
       Downloading triton-2.0.0-1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.0 kB)
     Requirement already satisfied: setuptools in /usr/local/lib/python3.10/dist-packages (from nvidia-cublas-cu11==11.10.3.66->torch==2.0.0) (75.1.0)
-    Requirement already satisfied: wheel in /usr/local/lib/python3.10/dist-packages (from nvidia-cublas-cu11==11.10.3.66->torch==2.0.0) (0.45.0)
+    Requirement already satisfied: wheel in /usr/local/lib/python3.10/dist-packages (from nvidia-cublas-cu11==11.10.3.66->torch==2.0.0) (0.45.1)
     Collecting cmake (from triton==2.0.0->torch==2.0.0)
-      Downloading cmake-3.31.0.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
+      Downloading cmake-3.31.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.5 kB)
     Collecting lit (from triton==2.0.0->torch==2.0.0)
       Downloading lit-18.1.8-py3-none-any.whl.metadata (2.5 kB)
     Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2->torch==2.0.0) (3.0.2)
     Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from sympy->torch==2.0.0) (1.3.0)
     Downloading torch-2.0.0-cp310-cp310-manylinux1_x86_64.whl (619.9 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m619.9/619.9 MB[0m [31m944.0 kB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m619.9/619.9 MB[0m [31m580.5 kB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cublas_cu11-11.10.3.66-py3-none-manylinux1_x86_64.whl (317.1 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m317.1/317.1 MB[0m [31m1.4 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m317.1/317.1 MB[0m [31m3.3 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cuda_cupti_cu11-11.7.101-py3-none-manylinux1_x86_64.whl (11.8 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m11.8/11.8 MB[0m [31m78.5 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m11.8/11.8 MB[0m [31m107.4 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cuda_nvrtc_cu11-11.7.99-2-py3-none-manylinux1_x86_64.whl (21.0 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m21.0/21.0 MB[0m [31m76.7 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m21.0/21.0 MB[0m [31m84.8 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cuda_runtime_cu11-11.7.99-py3-none-manylinux1_x86_64.whl (849 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m849.3/849.3 kB[0m [31m32.7 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m849.3/849.3 kB[0m [31m44.5 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cudnn_cu11-8.5.0.96-2-py3-none-manylinux1_x86_64.whl (557.1 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m557.1/557.1 MB[0m [31m1.7 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m557.1/557.1 MB[0m [31m1.8 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cufft_cu11-10.9.0.58-py3-none-manylinux2014_x86_64.whl (168.4 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m168.4/168.4 MB[0m [31m6.4 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m168.4/168.4 MB[0m [31m6.2 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_curand_cu11-10.2.10.91-py3-none-manylinux1_x86_64.whl (54.6 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m54.6/54.6 MB[0m [31m22.8 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m54.6/54.6 MB[0m [31m21.8 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cusolver_cu11-11.4.0.1-2-py3-none-manylinux1_x86_64.whl (102.6 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m102.6/102.6 MB[0m [31m10.8 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m102.6/102.6 MB[0m [31m10.9 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cusparse_cu11-11.7.4.91-py3-none-manylinux1_x86_64.whl (173.2 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m173.2/173.2 MB[0m [31m6.1 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m173.2/173.2 MB[0m [31m6.2 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_nccl_cu11-2.14.3-py3-none-manylinux1_x86_64.whl (177.1 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m177.1/177.1 MB[0m [31m6.1 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m177.1/177.1 MB[0m [31m6.0 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_nvtx_cu11-11.7.91-py3-none-manylinux1_x86_64.whl (98 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m98.6/98.6 kB[0m [31m5.7 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m98.6/98.6 kB[0m [31m6.9 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading triton-2.0.0-1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (63.3 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.3/63.3 MB[0m [31m17.8 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading cmake-3.31.0.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (27.8 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m27.8/27.8 MB[0m [31m56.6 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.3/63.3 MB[0m [31m18.9 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading cmake-3.31.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (27.8 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m27.8/27.8 MB[0m [31m56.4 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading lit-18.1.8-py3-none-any.whl (96 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m96.4/96.4 kB[0m [31m6.4 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m96.4/96.4 kB[0m [31m5.4 MB/s[0m eta [36m0:00:00[0m
     [?25hInstalling collected packages: lit, nvidia-nvtx-cu11, nvidia-nccl-cu11, nvidia-cusparse-cu11, nvidia-curand-cu11, nvidia-cufft-cu11, nvidia-cuda-runtime-cu11, nvidia-cuda-nvrtc-cu11, nvidia-cuda-cupti-cu11, nvidia-cublas-cu11, cmake, nvidia-cusolver-cu11, nvidia-cudnn-cu11, triton, torch
       Attempting uninstall: torch
         Found existing installation: torch 2.5.1+cpu
@@ -112,71 +112,71 @@ torchversion = torch.__version__
     [31mERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
     torchaudio 2.5.1+cpu requires torch==2.5.1, but you have torch 2.0.0 which is incompatible.
     torchvision 0.20.1+cpu requires torch==2.5.1, but you have torch 2.0.0 which is incompatible.[0m[31m
-    [0mSuccessfully installed cmake-3.31.0.1 lit-18.1.8 nvidia-cublas-cu11-11.10.3.66 nvidia-cuda-cupti-cu11-11.7.101 nvidia-cuda-nvrtc-cu11-11.7.99 nvidia-cuda-runtime-cu11-11.7.99 nvidia-cudnn-cu11-8.5.0.96 nvidia-cufft-cu11-10.9.0.58 nvidia-curand-cu11-10.2.10.91 nvidia-cusolver-cu11-11.4.0.1 nvidia-cusparse-cu11-11.7.4.91 nvidia-nccl-cu11-2.14.3 nvidia-nvtx-cu11-11.7.91 torch-2.0.0 triton-2.0.0
+    [0mSuccessfully installed cmake-3.31.2 lit-18.1.8 nvidia-cublas-cu11-11.10.3.66 nvidia-cuda-cupti-cu11-11.7.101 nvidia-cuda-nvrtc-cu11-11.7.99 nvidia-cuda-runtime-cu11-11.7.99 nvidia-cudnn-cu11-8.5.0.96 nvidia-cufft-cu11-10.9.0.58 nvidia-curand-cu11-10.2.10.91 nvidia-cusolver-cu11-11.4.0.1 nvidia-cusparse-cu11-11.7.4.91 nvidia-nccl-cu11-2.14.3 nvidia-nvtx-cu11-11.7.91 torch-2.0.0 triton-2.0.0
     Collecting torch-geometric==2.4.0
       Downloading torch_geometric-2.4.0-py3-none-any.whl.metadata (63 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.9/63.9 kB[0m [31m1.2 MB/s[0m eta [36m0:00:00[0m
-    [?25hRequirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (4.66.6)
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.9/63.9 kB[0m [31m1.9 MB/s[0m eta [36m0:00:00[0m
+    [?25hRequirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (4.67.1)
     Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (1.26.4)
     Requirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (1.13.1)
     Requirement already satisfied: jinja2 in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (3.1.4)
     Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (2.32.3)
     Requirement already satisfied: pyparsing in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (3.2.0)
-    Requirement already satisfied: scikit-learn in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (1.5.2)
+    Requirement already satisfied: scikit-learn in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (1.6.0)
     Requirement already satisfied: psutil>=5.8.0 in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (5.9.5)
     Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2->torch-geometric==2.4.0) (3.0.2)
     Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric==2.4.0) (3.4.0)
     Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric==2.4.0) (3.10)
     Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric==2.4.0) (2.2.3)
-    Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric==2.4.0) (2024.8.30)
+    Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric==2.4.0) (2024.12.14)
     Requirement already satisfied: joblib>=1.2.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->torch-geometric==2.4.0) (1.4.2)
     Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->torch-geometric==2.4.0) (3.5.0)
     Downloading torch_geometric-2.4.0-py3-none-any.whl (1.0 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.0/1.0 MB[0m [31m11.9 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.0/1.0 MB[0m [31m17.3 MB/s[0m eta [36m0:00:00[0m
     [?25hInstalling collected packages: torch-geometric
     Successfully installed torch-geometric-2.4.0
     Looking in links: https://data.pyg.org/whl/torch-2.0.0+cpu.html
     Collecting torch-scatter
       Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_scatter-2.1.2%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (494 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m494.1/494.1 kB[0m [31m4.3 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m494.1/494.1 kB[0m [31m6.3 MB/s[0m eta [36m0:00:00[0m
     [?25hCollecting torch-sparse
       Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_sparse-0.6.18%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (1.2 MB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.2/1.2 MB[0m [31m24.6 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.2/1.2 MB[0m [31m9.4 MB/s[0m eta [36m0:00:00[0m
     [?25hCollecting torch-cluster
       Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_cluster-1.6.3%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (751 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m751.3/751.3 kB[0m [31m35.6 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m751.3/751.3 kB[0m [31m33.1 MB/s[0m eta [36m0:00:00[0m
     [?25hCollecting torch-spline-conv
       Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_spline_conv-1.2.2%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (208 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m208.1/208.1 kB[0m [31m10.5 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m208.1/208.1 kB[0m [31m9.4 MB/s[0m eta [36m0:00:00[0m
     [?25hRequirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from torch-sparse) (1.13.1)
     Requirement already satisfied: numpy<2.3,>=1.22.4 in /usr/local/lib/python3.10/dist-packages (from scipy->torch-sparse) (1.26.4)
     Installing collected packages: torch-spline-conv, torch-scatter, torch-sparse, torch-cluster
     Successfully installed torch-cluster-1.6.3+pt20cpu torch-scatter-2.1.2+pt20cpu torch-sparse-0.6.18+pt20cpu torch-spline-conv-1.2.2+pt20cpu
     Requirement already satisfied: torch-geometric in /usr/local/lib/python3.10/dist-packages (2.4.0)
-    Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (4.66.6)
+    Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (4.67.1)
     Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (1.26.4)
     Requirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (1.13.1)
     Requirement already satisfied: jinja2 in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (3.1.4)
     Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (2.32.3)
     Requirement already satisfied: pyparsing in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (3.2.0)
-    Requirement already satisfied: scikit-learn in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (1.5.2)
+    Requirement already satisfied: scikit-learn in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (1.6.0)
     Requirement already satisfied: psutil>=5.8.0 in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (5.9.5)
     Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2->torch-geometric) (3.0.2)
     Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric) (3.4.0)
     Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric) (3.10)
     Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric) (2.2.3)
-    Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric) (2024.8.30)
+    Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric) (2024.12.14)
     Requirement already satisfied: joblib>=1.2.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->torch-geometric) (1.4.2)
     Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->torch-geometric) (3.5.0)
       Installing build dependencies ... [?25l[?25hdone
       Getting requirements to build wheel ... [?25l[?25hdone
       Preparing metadata (pyproject.toml) ... [?25l[?25hdone
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m66.6/66.6 kB[0m [31m2.6 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m27.3 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m241.9/241.9 kB[0m [31m15.0 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m124.6/124.6 kB[0m [31m8.3 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m208.9/208.9 kB[0m [31m12.4 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m319.2/319.2 kB[0m [31m19.8 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m69.2/69.2 kB[0m [31m2.5 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m28.0 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m241.9/241.9 kB[0m [31m14.0 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m124.6/124.6 kB[0m [31m8.0 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m205.1/205.1 kB[0m [31m12.5 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m319.7/319.7 kB[0m [31m21.6 MB/s[0m eta [36m0:00:00[0m
     [?25h  Building wheel for torch-geometric (pyproject.toml) ... [?25l[?25hdone
     Collecting deeponto
       Downloading deeponto-0.9.2-py3-none-any.whl.metadata (15 kB)
@@ -192,10 +192,10 @@ torchversion = torch.__version__
       Downloading dill-0.3.9-py3-none-any.whl.metadata (10 kB)
     Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (from deeponto) (2.2.2)
     Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from deeponto) (1.26.4)
-    Requirement already satisfied: scikit-learn in /usr/local/lib/python3.10/dist-packages (from deeponto) (1.5.2)
-    Requirement already satisfied: transformers[torch] in /usr/local/lib/python3.10/dist-packages (from deeponto) (4.46.2)
+    Requirement already satisfied: scikit-learn in /usr/local/lib/python3.10/dist-packages (from deeponto) (1.6.0)
+    Requirement already satisfied: transformers[torch] in /usr/local/lib/python3.10/dist-packages (from deeponto) (4.47.0)
     Collecting datasets (from deeponto)
-      Downloading datasets-3.1.0-py3-none-any.whl.metadata (20 kB)
+      Downloading datasets-3.2.0-py3-none-any.whl.metadata (20 kB)
     Requirement already satisfied: spacy in /usr/local/lib/python3.10/dist-packages (from deeponto) (3.7.5)
     Collecting pprintpp (from deeponto)
       Downloading pprintpp-0.4.0-py2.py3-none-any.whl.metadata (7.9 kB)
@@ -207,25 +207,25 @@ torchversion = torch.__version__
     Requirement already satisfied: ipywidgets in /usr/local/lib/python3.10/dist-packages (from deeponto) (7.7.1)
     Requirement already satisfied: ipykernel in /usr/local/lib/python3.10/dist-packages (from deeponto) (5.5.6)
     Collecting enlighten (from deeponto)
-      Downloading enlighten-1.12.4-py2.py3-none-any.whl.metadata (18 kB)
+      Downloading enlighten-1.13.0-py2.py3-none-any.whl.metadata (18 kB)
     Collecting rdflib (from deeponto)
       Downloading rdflib-7.1.1-py3-none-any.whl.metadata (11 kB)
     Requirement already satisfied: nltk in /usr/local/lib/python3.10/dist-packages (from deeponto) (3.9.1)
-    Requirement already satisfied: six in /usr/local/lib/python3.10/dist-packages (from anytree->deeponto) (1.16.0)
+    Requirement already satisfied: six in /usr/local/lib/python3.10/dist-packages (from anytree->deeponto) (1.17.0)
     Requirement already satisfied: filelock in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (3.16.1)
-    Requirement already satisfied: pyarrow>=15.0.0 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (18.0.0)
+    Requirement already satisfied: pyarrow>=15.0.0 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (18.1.0)
     Collecting dill (from deeponto)
       Downloading dill-0.3.8-py3-none-any.whl.metadata (10 kB)
     Requirement already satisfied: requests>=2.32.2 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (2.32.3)
-    Requirement already satisfied: tqdm>=4.66.3 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (4.66.6)
+    Requirement already satisfied: tqdm>=4.66.3 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (4.67.1)
     Collecting xxhash (from datasets->deeponto)
       Downloading xxhash-3.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
     Collecting multiprocess<0.70.17 (from datasets->deeponto)
       Downloading multiprocess-0.70.16-py310-none-any.whl.metadata (7.2 kB)
     Collecting fsspec<=2024.9.0,>=2023.1.0 (from fsspec[http]<=2024.9.0,>=2023.1.0->datasets->deeponto)
       Downloading fsspec-2024.9.0-py3-none-any.whl.metadata (11 kB)
-    Requirement already satisfied: aiohttp in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (3.11.6)
-    Requirement already satisfied: huggingface-hub>=0.23.0 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (0.26.2)
+    Requirement already satisfied: aiohttp in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (3.11.11)
+    Requirement already satisfied: huggingface-hub>=0.23.0 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (0.27.0)
     Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (24.2)
     Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (6.0.2)
     Collecting blessed>=1.17.7 (from enlighten->deeponto)
@@ -251,19 +251,19 @@ torchversion = torch.__version__
     Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->deeponto) (3.5.0)
     Requirement already satisfied: spacy-legacy<3.1.0,>=3.0.11 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (3.0.12)
     Requirement already satisfied: spacy-loggers<2.0.0,>=1.0.0 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (1.0.5)
-    Requirement already satisfied: murmurhash<1.1.0,>=0.28.0 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (1.0.10)
-    Requirement already satisfied: cymem<2.1.0,>=2.0.2 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (2.0.8)
+    Requirement already satisfied: murmurhash<1.1.0,>=0.28.0 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (1.0.11)
+    Requirement already satisfied: cymem<2.1.0,>=2.0.2 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (2.0.10)
     Requirement already satisfied: preshed<3.1.0,>=3.0.2 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (3.0.9)
     Requirement already satisfied: thinc<8.3.0,>=8.2.2 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (8.2.5)
     Requirement already satisfied: wasabi<1.2.0,>=0.9.1 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (1.1.3)
-    Requirement already satisfied: srsly<3.0.0,>=2.4.3 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (2.4.8)
+    Requirement already satisfied: srsly<3.0.0,>=2.4.3 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (2.5.0)
     Requirement already satisfied: catalogue<2.1.0,>=2.0.6 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (2.0.10)
     Requirement already satisfied: weasel<0.5.0,>=0.1.0 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (0.4.1)
-    Requirement already satisfied: typer<1.0.0,>=0.3.0 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (0.13.0)
-    Requirement already satisfied: pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (2.9.2)
+    Requirement already satisfied: typer<1.0.0,>=0.3.0 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (0.15.1)
+    Requirement already satisfied: pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (2.10.3)
     Requirement already satisfied: jinja2 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (3.1.4)
     Requirement already satisfied: setuptools in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (75.1.0)
-    Requirement already satisfied: langcodes<4.0.0,>=3.2.0 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (3.4.1)
+    Requirement already satisfied: langcodes<4.0.0,>=3.2.0 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (3.5.0)
     Requirement already satisfied: typing-extensions in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (4.12.2)
     Requirement already satisfied: sympy in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (1.13.1)
     Requirement already satisfied: nvidia-cuda-nvrtc-cu11==11.7.99 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (11.7.99)
@@ -278,22 +278,22 @@ torchversion = torch.__version__
     Requirement already satisfied: nvidia-nccl-cu11==2.14.3 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (2.14.3)
     Requirement already satisfied: nvidia-nvtx-cu11==11.7.91 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (11.7.91)
     Requirement already satisfied: triton==2.0.0 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (2.0.0)
-    Requirement already satisfied: wheel in /usr/local/lib/python3.10/dist-packages (from nvidia-cublas-cu11==11.10.3.66->torch->deeponto) (0.45.0)
-    Requirement already satisfied: cmake in /usr/local/lib/python3.10/dist-packages (from triton==2.0.0->torch->deeponto) (3.31.0.1)
+    Requirement already satisfied: wheel in /usr/local/lib/python3.10/dist-packages (from nvidia-cublas-cu11==11.10.3.66->torch->deeponto) (0.45.1)
+    Requirement already satisfied: cmake in /usr/local/lib/python3.10/dist-packages (from triton==2.0.0->torch->deeponto) (3.31.2)
     Requirement already satisfied: lit in /usr/local/lib/python3.10/dist-packages (from triton==2.0.0->torch->deeponto) (18.1.8)
+    Requirement already satisfied: tokenizers<0.22,>=0.21 in /usr/local/lib/python3.10/dist-packages (from transformers[torch]->deeponto) (0.21.0)
     Requirement already satisfied: safetensors>=0.4.1 in /usr/local/lib/python3.10/dist-packages (from transformers[torch]->deeponto) (0.4.5)
-    Requirement already satisfied: tokenizers<0.21,>=0.20 in /usr/local/lib/python3.10/dist-packages (from transformers[torch]->deeponto) (0.20.3)
-    Requirement already satisfied: accelerate>=0.26.0 in /usr/local/lib/python3.10/dist-packages (from transformers[torch]->deeponto) (1.1.1)
+    Requirement already satisfied: accelerate>=0.26.0 in /usr/local/lib/python3.10/dist-packages (from transformers[torch]->deeponto) (1.2.1)
     Requirement already satisfied: psutil in /usr/local/lib/python3.10/dist-packages (from accelerate>=0.26.0->transformers[torch]->deeponto) (5.9.5)
     Requirement already satisfied: wcwidth>=0.1.4 in /usr/local/lib/python3.10/dist-packages (from blessed>=1.17.7->enlighten->deeponto) (0.2.13)
-    Requirement already satisfied: aiohappyeyeballs>=2.3.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (2.4.3)
-    Requirement already satisfied: aiosignal>=1.1.2 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (1.3.1)
-    Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (24.2.0)
+    Requirement already satisfied: aiohappyeyeballs>=2.3.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (2.4.4)
+    Requirement already satisfied: aiosignal>=1.1.2 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (1.3.2)
+    Requirement already satisfied: async-timeout<6.0,>=4.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (5.0.1)
+    Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (24.3.0)
     Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (1.5.0)
     Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (6.1.0)
-    Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (0.2.0)
-    Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (1.17.2)
-    Requirement already satisfied: async-timeout<6.0,>=4.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (5.0.1)
+    Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (0.2.1)
+    Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (1.18.3)
     Collecting jedi>=0.16 (from ipython>=5.0.0->ipykernel->deeponto)
       Downloading jedi-0.19.2-py2.py3-none-any.whl.metadata (22 kB)
     Requirement already satisfied: decorator in /usr/local/lib/python3.10/dist-packages (from ipython>=5.0.0->ipykernel->deeponto) (5.1.1)
@@ -303,13 +303,13 @@ torchversion = torch.__version__
     Requirement already satisfied: backcall in /usr/local/lib/python3.10/dist-packages (from ipython>=5.0.0->ipykernel->deeponto) (0.2.0)
     Requirement already satisfied: matplotlib-inline in /usr/local/lib/python3.10/dist-packages (from ipython>=5.0.0->ipykernel->deeponto) (0.1.7)
     Requirement already satisfied: pexpect>4.3 in /usr/local/lib/python3.10/dist-packages (from ipython>=5.0.0->ipykernel->deeponto) (4.9.0)
-    Requirement already satisfied: language-data>=1.2 in /usr/local/lib/python3.10/dist-packages (from langcodes<4.0.0,>=3.2.0->spacy->deeponto) (1.2.0)
+    Requirement already satisfied: language-data>=1.2 in /usr/local/lib/python3.10/dist-packages (from langcodes<4.0.0,>=3.2.0->spacy->deeponto) (1.3.0)
     Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.10/dist-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy->deeponto) (0.7.0)
-    Requirement already satisfied: pydantic-core==2.23.4 in /usr/local/lib/python3.10/dist-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy->deeponto) (2.23.4)
+    Requirement already satisfied: pydantic-core==2.27.1 in /usr/local/lib/python3.10/dist-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy->deeponto) (2.27.1)
     Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.2->datasets->deeponto) (3.4.0)
     Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.2->datasets->deeponto) (3.10)
     Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.2->datasets->deeponto) (2.2.3)
-    Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.2->datasets->deeponto) (2024.8.30)
+    Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.2->datasets->deeponto) (2024.12.14)
     Requirement already satisfied: blis<0.8.0,>=0.7.8 in /usr/local/lib/python3.10/dist-packages (from thinc<8.3.0,>=8.2.2->spacy->deeponto) (0.7.11)
     Requirement already satisfied: confection<1.0.0,>=0.0.1 in /usr/local/lib/python3.10/dist-packages (from thinc<8.3.0,>=8.2.2->spacy->deeponto) (0.1.5)
     Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.10/dist-packages (from typer<1.0.0,>=0.3.0->spacy->deeponto) (1.5.4)
@@ -323,14 +323,14 @@ torchversion = torch.__version__
     Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from sympy->torch->deeponto) (1.3.0)
     Requirement already satisfied: parso<0.9.0,>=0.8.4 in /usr/local/lib/python3.10/dist-packages (from jedi>=0.16->ipython>=5.0.0->ipykernel->deeponto) (0.8.4)
     Requirement already satisfied: platformdirs>=2.5 in /usr/local/lib/python3.10/dist-packages (from jupyter-core>=4.6.0->jupyter-client->ipykernel->deeponto) (4.3.6)
-    Requirement already satisfied: marisa-trie>=0.7.7 in /usr/local/lib/python3.10/dist-packages (from language-data>=1.2->langcodes<4.0.0,>=3.2.0->spacy->deeponto) (1.2.1)
+    Requirement already satisfied: marisa-trie>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from language-data>=1.2->langcodes<4.0.0,>=3.2.0->spacy->deeponto) (1.2.1)
     Requirement already satisfied: argon2-cffi in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (23.1.0)
     Requirement already satisfied: nbformat in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (5.10.4)
     Requirement already satisfied: nbconvert>=5 in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (7.16.4)
     Requirement already satisfied: nest-asyncio>=1.5 in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.6.0)
     Requirement already satisfied: Send2Trash>=1.8.0 in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.8.3)
     Requirement already satisfied: terminado>=0.8.3 in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.18.1)
-    Requirement already satisfied: prometheus-client in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.21.0)
+    Requirement already satisfied: prometheus-client in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.21.1)
     Requirement already satisfied: nbclassic>=0.4.7 in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.1.0)
     Requirement already satisfied: ptyprocess>=0.5 in /usr/local/lib/python3.10/dist-packages (from pexpect>4.3->ipython>=5.0.0->ipykernel->deeponto) (0.7.0)
     Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.10/dist-packages (from rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy->deeponto) (3.0.0)
@@ -342,16 +342,16 @@ torchversion = torch.__version__
     Requirement already satisfied: defusedxml in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.7.1)
     Requirement already satisfied: jupyterlab-pygments in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.3.0)
     Requirement already satisfied: mistune<4,>=2.0.3 in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (3.0.2)
-    Requirement already satisfied: nbclient>=0.5.0 in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.10.0)
+    Requirement already satisfied: nbclient>=0.5.0 in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.10.1)
     Requirement already satisfied: pandocfilters>=1.4.1 in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.5.1)
     Requirement already satisfied: tinycss2 in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.4.0)
-    Requirement already satisfied: fastjsonschema>=2.15 in /usr/local/lib/python3.10/dist-packages (from nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (2.20.0)
+    Requirement already satisfied: fastjsonschema>=2.15 in /usr/local/lib/python3.10/dist-packages (from nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (2.21.1)
     Requirement already satisfied: jsonschema>=2.6 in /usr/local/lib/python3.10/dist-packages (from nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (4.23.0)
     Requirement already satisfied: argon2-cffi-bindings in /usr/local/lib/python3.10/dist-packages (from argon2-cffi->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (21.2.0)
     Requirement already satisfied: webencodings in /usr/local/lib/python3.10/dist-packages (from bleach!=5.0.0->nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.5.1)
     Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=2.6->nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (2024.10.1)
     Requirement already satisfied: referencing>=0.28.4 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=2.6->nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.35.1)
-    Requirement already satisfied: rpds-py>=0.7.1 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=2.6->nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.21.0)
+    Requirement already satisfied: rpds-py>=0.7.1 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=2.6->nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.22.3)
     Requirement already satisfied: jupyter-server<3,>=1.8 in /usr/local/lib/python3.10/dist-packages (from notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.24.0)
     Requirement already satisfied: cffi>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from argon2-cffi-bindings->argon2-cffi->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.17.1)
     Requirement already satisfied: soupsieve>1.2 in /usr/local/lib/python3.10/dist-packages (from beautifulsoup4->nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (2.6)
@@ -361,42 +361,42 @@ torchversion = torch.__version__
     Requirement already satisfied: sniffio>=1.1 in /usr/local/lib/python3.10/dist-packages (from anyio<4,>=3.1.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.3.1)
     Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.10/dist-packages (from anyio<4,>=3.1.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.2.2)
     Downloading deeponto-0.9.2-py3-none-any.whl (89.7 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m89.7/89.7 MB[0m [31m12.5 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m89.7/89.7 MB[0m [31m8.8 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading anytree-2.12.1-py3-none-any.whl (44 kB)
     [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m44.9/44.9 kB[0m [31m2.9 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading datasets-3.1.0-py3-none-any.whl (480 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m480.6/480.6 kB[0m [31m30.3 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading datasets-3.2.0-py3-none-any.whl (480 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m480.6/480.6 kB[0m [31m31.6 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading dill-0.3.8-py3-none-any.whl (116 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m116.3/116.3 kB[0m [31m8.5 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading enlighten-1.12.4-py2.py3-none-any.whl (41 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m41.9/41.9 kB[0m [31m2.9 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m116.3/116.3 kB[0m [31m9.2 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading enlighten-1.13.0-py2.py3-none-any.whl (42 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m42.0/42.0 kB[0m [31m3.1 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading jpype1-1.5.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (493 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m493.8/493.8 kB[0m [31m25.9 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m493.8/493.8 kB[0m [31m32.5 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading lxml-5.3.0-cp310-cp310-manylinux_2_28_x86_64.whl (5.0 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.0/5.0 MB[0m [31m91.7 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.0/5.0 MB[0m [31m100.0 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading pprintpp-0.4.0-py2.py3-none-any.whl (16 kB)
     Downloading rdflib-7.1.1-py3-none-any.whl (562 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m562.4/562.4 kB[0m [31m30.6 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m562.4/562.4 kB[0m [31m32.3 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading textdistance-4.6.3-py3-none-any.whl (31 kB)
     Downloading yacs-0.1.8-py3-none-any.whl (14 kB)
     Downloading blessed-1.20.0-py2.py3-none-any.whl (58 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m58.4/58.4 kB[0m [31m4.0 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m58.4/58.4 kB[0m [31m4.1 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading fsspec-2024.9.0-py3-none-any.whl (179 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m179.3/179.3 kB[0m [31m11.6 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m179.3/179.3 kB[0m [31m14.3 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading isodate-0.7.2-py3-none-any.whl (22 kB)
     Downloading multiprocess-0.70.16-py310-none-any.whl (134 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m134.8/134.8 kB[0m [31m9.5 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m134.8/134.8 kB[0m [31m10.1 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading prefixed-0.9.0-py2.py3-none-any.whl (13 kB)
     Downloading xxhash-3.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (194 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m194.1/194.1 kB[0m [31m13.2 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m194.1/194.1 kB[0m [31m14.8 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m51.7 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m64.8 MB/s[0m eta [36m0:00:00[0m
     [?25hInstalling collected packages: prefixed, pprintpp, yacs, xxhash, textdistance, lxml, JPype1, jedi, isodate, fsspec, dill, blessed, anytree, rdflib, multiprocess, enlighten, datasets, deeponto
       Attempting uninstall: fsspec
         Found existing installation: fsspec 2024.10.0
         Uninstalling fsspec-2024.10.0:
           Successfully uninstalled fsspec-2024.10.0
-    Successfully installed JPype1-1.5.1 anytree-2.12.1 blessed-1.20.0 datasets-3.1.0 deeponto-0.9.2 dill-0.3.8 enlighten-1.12.4 fsspec-2024.9.0 isodate-0.7.2 jedi-0.19.2 lxml-5.3.0 multiprocess-0.70.16 pprintpp-0.4.0 prefixed-0.9.0 rdflib-7.1.1 textdistance-4.6.3 xxhash-3.5.0 yacs-0.1.8
+    Successfully installed JPype1-1.5.1 anytree-2.12.1 blessed-1.20.0 datasets-3.2.0 deeponto-0.9.2 dill-0.3.8 enlighten-1.13.0 fsspec-2024.9.0 isodate-0.7.2 jedi-0.19.2 lxml-5.3.0 multiprocess-0.70.16 pprintpp-0.4.0 prefixed-0.9.0 rdflib-7.1.1 textdistance-4.6.3 xxhash-3.5.0 yacs-0.1.8
     /bin/bash: line 1: username: No such file or directory
 
 
@@ -498,11 +498,30 @@ from deeponto.align.mapping import ReferenceMapping, EntityMapping
 # Import utility function for reading tables (e.g., TSV, CSV) from DeepOnto.
 from deeponto.utils import read_table
 
+# Importing the train_test_split function from sklearn's model_selection module.
 from sklearn.model_selection import train_test_split
 ```
 
     Please enter the maximum memory located to JVM [8g]: 8g
     
+
+
+
+```python
+import subprocess
+
+# Command to list installed packages
+installed_packages = subprocess.check_output(['pip', 'freeze']).decode('utf-8')
+
+# Write the output to a requirements.txt file
+with open('requirements.txt', 'w') as file:
+    file.write(installed_packages)
+
+print("requirements.txt has been generated!")
+
+```
+
+    requirements.txt has been generated!
 
 
 # **Paths Definition**
@@ -524,21 +543,21 @@ drive.mount('/content/gdrive')
 
 ```python
 # Define the source ontology name
-src_ent = "snomed.body"
+src_ent = "omim"
 
 # Define the target ontology name
-tgt_ent = "fma.body"
+tgt_ent = "ordo"
 
 # Define the task name for this ontology matching process
-task = "body"
+task = "omim2ordo"
 
 # Define the weight for the training data
 # This weight is likely used to balance the training process, giving more emphasis to certain examples.
 # For instance, a weight of 10.0 could be applied to penalize errors in certain types of predictions more heavily.
-weight_train= 100.0
+weight_train = 10.0
 
 # Define the similarity threshold for validating matches
-thres = 0.50
+thres = 0.20
 ```
 
 
@@ -567,11 +586,11 @@ tgt_onto = Ontology(f"{dataset_dir}/{tgt_ent}.owl")
 
 # Define the file path for the Source embeddings CSV file
 # Embeddings for the source ontology entities are stored in this file.
-src_Emb = f"{data_dir}/{src_ent}_emb.csv"
+src_Emb = f"{data_dir}/{src_ent}_BERT_Hybrid_emb.csv"
 
 # Define the file path for the Target embeddings CSV file
 # Embeddings for the target ontology entities are stored in this file.
-tgt_Emb = f"{data_dir}/{tgt_ent}_emb.csv"
+tgt_Emb = f"{data_dir}/{tgt_ent}_BERT_Hybrid_emb.csv"
 
 # Define the file path for the Source adjacency matrix
 # This file represents the relationships (edges) between entities in the source ontology.
@@ -803,61 +822,26 @@ class RGIT_mod(torch.nn.Module):
 
 
 ```python
-# Define the GatedCombination class for combining two pairs of embeddings using a gating mechanism
 class GatedCombination(nn.Module):
     def __init__(self, input_dim):
-        """
-        Initialize the GatedCombination model.
-
-        Args:
-            input_dim (int): The dimensionality of the input embeddings (x1, x2, x3, x4).
-        """
         super(GatedCombination, self).__init__()
-
-        # Define a linear layer (gate) for combining embeddings x1 and x2 (first pair)
         self.gate_A_fc = nn.Linear(input_dim, input_dim)
-
-        # Define a linear layer (gate) for combining embeddings x3 and x4 (second pair)
         self.gate_B_fc = nn.Linear(input_dim, input_dim)
-
-        # A final fully connected layer that outputs a single neuron (binary classification)
         self.fc = nn.Linear(1, 1)
 
-    def forward(self, x1, x2, x3, x4):
-        """
-        Forward pass through the gating mechanism and cosine similarity.
-
-        Args:
-            x1 (torch.Tensor): First set of embeddings (source embeddings after update).
-            x2 (torch.Tensor): Second set of embeddings (original source embeddings).
-            x3 (torch.Tensor): Third set of embeddings (target embeddings after update).
-            x4 (torch.Tensor): Fourth set of embeddings (original target embeddings).
-
-        Returns:
-            torch.Tensor: Output of the model (probability score for binary classification).
-        """
-        # Compute gate values for the first pair (x1 and x2) using a sigmoid activation
+    def forward(self, x1, x2, x3, x4, return_embeddings=False):
         gate_values1 = torch.sigmoid(self.gate_A_fc(x1))
-
-        # Combine x1 and x2 using the gate values
-        # The result is a weighted combination of x1 and x2
         a = x1 * gate_values1 + x2 * (1 - gate_values1)
 
-        # Compute gate values for the second pair (x3 and x4) using a sigmoid activation
         gate_values2 = torch.sigmoid(self.gate_B_fc(x3))
-
-        # Combine x3 and x4 using the gate values
-        # The result is a weighted combination of x3 and x4
         b = x3 * gate_values2 + x4 * (1 - gate_values2)
 
-        # Compute cosine similarity between the combined vectors a and b
+        if return_embeddings:
+            return a, b
+
         x = torch.cosine_similarity(a, b, dim=1)
-
-        # Pass the cosine similarity result through a fully connected layer (fc) for classification
-        # Use a sigmoid activation to output a probability for binary classification
-        out = torch.sigmoid(self.fc(x.unsqueeze(1)))  # unsqueeze(1) to match the input shape for the fc layer
+        out = torch.sigmoid(self.fc(x.unsqueeze(1)))
         return out
-
 
 ```
 
@@ -1424,115 +1408,115 @@ trained_model = train_model_gnn(
 )
 ```
 
-    Epoch [10/1000], Training Loss: 0.0013717383844777942
-    Epoch [20/1000], Training Loss: 0.001110379002057016
-    Epoch [30/1000], Training Loss: 0.0009761464898474514
-    Epoch [40/1000], Training Loss: 0.0008774214657023549
-    Epoch [50/1000], Training Loss: 0.0008082325221039355
-    Epoch [60/1000], Training Loss: 0.0007530332077294588
-    Epoch [70/1000], Training Loss: 0.0007055823225528002
-    Epoch [80/1000], Training Loss: 0.0006662214291281998
-    Epoch [90/1000], Training Loss: 0.0006325297872535884
-    Epoch [100/1000], Training Loss: 0.0006031045923009515
-    Epoch [110/1000], Training Loss: 0.0005776911275461316
-    Epoch [120/1000], Training Loss: 0.0005559250130318105
-    Epoch [130/1000], Training Loss: 0.0005367874400690198
-    Epoch [140/1000], Training Loss: 0.0005203309119679034
-    Epoch [150/1000], Training Loss: 0.0005061074043624103
-    Epoch [160/1000], Training Loss: 0.0004937771591357887
-    Epoch [170/1000], Training Loss: 0.0004831877595279366
-    Epoch [180/1000], Training Loss: 0.00047402404015883803
-    Epoch [190/1000], Training Loss: 0.0004664634761866182
-    Epoch [200/1000], Training Loss: 0.0004598867380991578
-    Epoch [210/1000], Training Loss: 0.00045421632239595056
-    Epoch [220/1000], Training Loss: 0.00044938857899978757
-    Epoch [230/1000], Training Loss: 0.0004452406719792634
-    Epoch [240/1000], Training Loss: 0.0004416513256728649
-    Epoch [250/1000], Training Loss: 0.00043860377627424896
-    Epoch [260/1000], Training Loss: 0.000435837748227641
-    Epoch [270/1000], Training Loss: 0.0004334764671511948
-    Epoch [280/1000], Training Loss: 0.00043136737076565623
-    Epoch [290/1000], Training Loss: 0.00042946203029714525
-    Epoch [300/1000], Training Loss: 0.00042779665091075003
-    Epoch [310/1000], Training Loss: 0.0004263305163476616
-    Epoch [320/1000], Training Loss: 0.00042500434210523963
-    Epoch [330/1000], Training Loss: 0.00042379219667054713
-    Epoch [340/1000], Training Loss: 0.00042268060497008264
-    Epoch [350/1000], Training Loss: 0.00042161502642557025
-    Epoch [360/1000], Training Loss: 0.00042072290671058
-    Epoch [370/1000], Training Loss: 0.00041985520510934293
-    Epoch [380/1000], Training Loss: 0.00041904058889485896
-    Epoch [390/1000], Training Loss: 0.0004183081618975848
-    Epoch [400/1000], Training Loss: 0.0004176002985332161
-    Epoch [410/1000], Training Loss: 0.000416928727645427
-    Epoch [420/1000], Training Loss: 0.0004163230478297919
-    Epoch [430/1000], Training Loss: 0.00041577173396945
-    Epoch [440/1000], Training Loss: 0.00041522717219777405
-    Epoch [450/1000], Training Loss: 0.00041473645251244307
-    Epoch [460/1000], Training Loss: 0.00041426936513744295
-    Epoch [470/1000], Training Loss: 0.0004138512595091015
-    Epoch [480/1000], Training Loss: 0.00041341365431435406
-    Epoch [490/1000], Training Loss: 0.0004129736335016787
-    Epoch [500/1000], Training Loss: 0.0004125102423131466
-    Epoch [510/1000], Training Loss: 0.0004119867808185518
-    Epoch [520/1000], Training Loss: 0.00041139574022963643
-    Epoch [530/1000], Training Loss: 0.00041079657967202365
-    Epoch [540/1000], Training Loss: 0.00041019037598744035
-    Epoch [550/1000], Training Loss: 0.0004095669719390571
-    Epoch [560/1000], Training Loss: 0.00040895710117183626
-    Epoch [570/1000], Training Loss: 0.00040836891275830567
-    Epoch [580/1000], Training Loss: 0.0004077912599314004
-    Epoch [590/1000], Training Loss: 0.00040724195423536
-    Epoch [600/1000], Training Loss: 0.00040669747977517545
-    Epoch [610/1000], Training Loss: 0.00040613242890685797
-    Epoch [620/1000], Training Loss: 0.00040559747139923275
-    Epoch [630/1000], Training Loss: 0.00040506478399038315
-    Epoch [640/1000], Training Loss: 0.0004045355599373579
-    Epoch [650/1000], Training Loss: 0.0004040237981826067
-    Epoch [660/1000], Training Loss: 0.00040351616917178035
-    Epoch [670/1000], Training Loss: 0.0004030248674098402
-    Epoch [680/1000], Training Loss: 0.0004025369416922331
-    Epoch [690/1000], Training Loss: 0.0004020308842882514
-    Epoch [700/1000], Training Loss: 0.00040154100861400366
-    Epoch [710/1000], Training Loss: 0.00040106038795784116
-    Epoch [720/1000], Training Loss: 0.0004005933296866715
-    Epoch [730/1000], Training Loss: 0.00040013573016040027
-    Epoch [740/1000], Training Loss: 0.00039967981865629554
-    Epoch [750/1000], Training Loss: 0.00039922166615724564
-    Epoch [760/1000], Training Loss: 0.0003987889795098454
-    Epoch [770/1000], Training Loss: 0.00039836083305999637
-    Epoch [780/1000], Training Loss: 0.0003979435423389077
-    Epoch [790/1000], Training Loss: 0.0003975606814492494
-    Epoch [800/1000], Training Loss: 0.0003971974365413189
-    Epoch [810/1000], Training Loss: 0.00039685011142864823
-    Epoch [820/1000], Training Loss: 0.0003965421055909246
-    Epoch [830/1000], Training Loss: 0.00039625473436899483
-    Epoch [840/1000], Training Loss: 0.00039600557647645473
-    Epoch [850/1000], Training Loss: 0.0003957900044042617
-    Epoch [860/1000], Training Loss: 0.00039556456613354385
-    Epoch [870/1000], Training Loss: 0.00039534008828923106
-    Epoch [880/1000], Training Loss: 0.00039503650623373687
-    Epoch [890/1000], Training Loss: 0.00039464837755076587
-    Epoch [900/1000], Training Loss: 0.00039418283267877996
-    Epoch [910/1000], Training Loss: 0.0003936505818273872
-    Epoch [920/1000], Training Loss: 0.00039311288855969906
-    Epoch [930/1000], Training Loss: 0.0003925740020349622
-    Epoch [940/1000], Training Loss: 0.00039205074426718056
-    Epoch [950/1000], Training Loss: 0.0003915262932423502
-    Epoch [960/1000], Training Loss: 0.00039100972935557365
-    Epoch [970/1000], Training Loss: 0.0003904876357410103
-    Epoch [980/1000], Training Loss: 0.00038997404044494033
-    Epoch [990/1000], Training Loss: 0.00038948128349147737
-    Epoch [1000/1000], Training Loss: 0.00038900881190784276
+    Epoch [10/1000], Training Loss: 0.0031576675828546286
+    Epoch [20/1000], Training Loss: 0.002619890496134758
+    Epoch [30/1000], Training Loss: 0.0023016927298158407
+    Epoch [40/1000], Training Loss: 0.002068696077913046
+    Epoch [50/1000], Training Loss: 0.0018954896368086338
+    Epoch [60/1000], Training Loss: 0.0017570620402693748
+    Epoch [70/1000], Training Loss: 0.0016409886302426457
+    Epoch [80/1000], Training Loss: 0.0015419129049405456
+    Epoch [90/1000], Training Loss: 0.0014567255275323987
+    Epoch [100/1000], Training Loss: 0.0013823629124090075
+    Epoch [110/1000], Training Loss: 0.0013164514675736427
+    Epoch [120/1000], Training Loss: 0.0012573145795613527
+    Epoch [130/1000], Training Loss: 0.0012038416462019086
+    Epoch [140/1000], Training Loss: 0.0011552688665688038
+    Epoch [150/1000], Training Loss: 0.0011106152087450027
+    Epoch [160/1000], Training Loss: 0.0010698396945372224
+    Epoch [170/1000], Training Loss: 0.001032143598422408
+    Epoch [180/1000], Training Loss: 0.0009970745304599404
+    Epoch [190/1000], Training Loss: 0.0009642566437833011
+    Epoch [200/1000], Training Loss: 0.000933176779653877
+    Epoch [210/1000], Training Loss: 0.0009040742879733443
+    Epoch [220/1000], Training Loss: 0.0008761758217588067
+    Epoch [230/1000], Training Loss: 0.0008497292874380946
+    Epoch [240/1000], Training Loss: 0.00082461501006037
+    Epoch [250/1000], Training Loss: 0.0008007602882571518
+    Epoch [260/1000], Training Loss: 0.0007779918378219008
+    Epoch [270/1000], Training Loss: 0.0007562455721199512
+    Epoch [280/1000], Training Loss: 0.0007354799308814108
+    Epoch [290/1000], Training Loss: 0.0007155483472160995
+    Epoch [300/1000], Training Loss: 0.0006965813809074461
+    Epoch [310/1000], Training Loss: 0.0006783647695556283
+    Epoch [320/1000], Training Loss: 0.0006608697003684938
+    Epoch [330/1000], Training Loss: 0.0006440700963139534
+    Epoch [340/1000], Training Loss: 0.000627838191576302
+    Epoch [350/1000], Training Loss: 0.0006122165941633284
+    Epoch [360/1000], Training Loss: 0.0005971613572910428
+    Epoch [370/1000], Training Loss: 0.0005827118875458837
+    Epoch [380/1000], Training Loss: 0.0005686904187314212
+    Epoch [390/1000], Training Loss: 0.0005551688955165446
+    Epoch [400/1000], Training Loss: 0.0005421825917437673
+    Epoch [410/1000], Training Loss: 0.0005296882591210306
+    Epoch [420/1000], Training Loss: 0.0005177143611945212
+    Epoch [430/1000], Training Loss: 0.0005062090931460261
+    Epoch [440/1000], Training Loss: 0.0004951638984493911
+    Epoch [450/1000], Training Loss: 0.0004845105286221951
+    Epoch [460/1000], Training Loss: 0.00047423990326933563
+    Epoch [470/1000], Training Loss: 0.00046436485718004405
+    Epoch [480/1000], Training Loss: 0.00045488422620110214
+    Epoch [490/1000], Training Loss: 0.00044580342364497483
+    Epoch [500/1000], Training Loss: 0.00043706686119548976
+    Epoch [510/1000], Training Loss: 0.00042866470175795257
+    Epoch [520/1000], Training Loss: 0.00042056298116222024
+    Epoch [530/1000], Training Loss: 0.0004128141445107758
+    Epoch [540/1000], Training Loss: 0.0004053816373925656
+    Epoch [550/1000], Training Loss: 0.0003982133639510721
+    Epoch [560/1000], Training Loss: 0.0003913240216206759
+    Epoch [570/1000], Training Loss: 0.0003846508916467428
+    Epoch [580/1000], Training Loss: 0.0003781509294640273
+    Epoch [590/1000], Training Loss: 0.000371834757970646
+    Epoch [600/1000], Training Loss: 0.00036571064265444875
+    Epoch [610/1000], Training Loss: 0.0003597379254642874
+    Epoch [620/1000], Training Loss: 0.00035395074519328773
+    Epoch [630/1000], Training Loss: 0.00034830195363610983
+    Epoch [640/1000], Training Loss: 0.0003427649789955467
+    Epoch [650/1000], Training Loss: 0.0003373928484506905
+    Epoch [660/1000], Training Loss: 0.0003320834075566381
+    Epoch [670/1000], Training Loss: 0.0003268623840995133
+    Epoch [680/1000], Training Loss: 0.0003218711935915053
+    Epoch [690/1000], Training Loss: 0.00031667956500314176
+    Epoch [700/1000], Training Loss: 0.0003115568542852998
+    Epoch [710/1000], Training Loss: 0.0003063418553210795
+    Epoch [720/1000], Training Loss: 0.0003013960085809231
+    Epoch [730/1000], Training Loss: 0.00029600333073176444
+    Epoch [740/1000], Training Loss: 0.0002908977912738919
+    Epoch [750/1000], Training Loss: 0.00028565022512339056
+    Epoch [760/1000], Training Loss: 0.00028008612571284175
+    Epoch [770/1000], Training Loss: 0.0002754103916231543
+    Epoch [780/1000], Training Loss: 0.00026960126706399024
+    Epoch [790/1000], Training Loss: 0.0002650571404956281
+    Epoch [800/1000], Training Loss: 0.0002599454892333597
+    Epoch [810/1000], Training Loss: 0.000254484242759645
+    Epoch [820/1000], Training Loss: 0.00025013808044604957
+    Epoch [830/1000], Training Loss: 0.0002457788505125791
+    Epoch [840/1000], Training Loss: 0.00024088610371109098
+    Epoch [850/1000], Training Loss: 0.00023783893266227096
+    Epoch [860/1000], Training Loss: 0.00023329562100116163
+    Epoch [870/1000], Training Loss: 0.00022928230464458466
+    Epoch [880/1000], Training Loss: 0.0002268758398713544
+    Epoch [890/1000], Training Loss: 0.00022405703202821314
+    Epoch [900/1000], Training Loss: 0.00021951546659693122
+    Epoch [910/1000], Training Loss: 0.0002167864586226642
+    Epoch [920/1000], Training Loss: 0.00021394083159975708
+    Epoch [930/1000], Training Loss: 0.00021176273003220558
+    Epoch [940/1000], Training Loss: 0.00020884860714431852
+    Epoch [950/1000], Training Loss: 0.00020935464999638498
+    Epoch [960/1000], Training Loss: 0.00020472043252084404
+    Epoch [970/1000], Training Loss: 0.00020256931020412594
+    Epoch [980/1000], Training Loss: 0.00020040167146362364
+    Epoch [990/1000], Training Loss: 0.00019919774786103517
+    Epoch [1000/1000], Training Loss: 0.00019647605950012803
 
 
 
     
-![png](output_36_1.png)
+![png](output_37_1.png)
     
 
 
-    Training complete! Total training time: 5152.27 seconds
+    Training complete! Total training time: 652.31 seconds
 
 
 # GIT Application
@@ -1625,11 +1609,14 @@ positive_weight = len(tensor_score_train) / (weight_train * tensor_score_train.s
 
 
 ```python
+from sklearn.metrics import f1_score
+
 def train_gated_combination_model(X1_t, X2_t, X3_t, X4_t, tensor_score_o,
                                   X1_val, X2_val, X3_val, X4_val, tensor_score_val,
                                   epochs=120, batch_size=32, learning_rate=0.001, weight_decay=1e-5):
     """
     Trains the GatedCombination model with training and validation data, using ReduceLROnPlateau scheduler.
+    Also calculates and displays F1-score during training and validation.
     """
 
     # Create datasets and DataLoaders
@@ -1645,48 +1632,73 @@ def train_gated_combination_model(X1_t, X2_t, X3_t, X4_t, tensor_score_o,
     # Use ReduceLROnPlateau scheduler
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, verbose=True)
 
-    criterion = WeightedBCELoss(pos_weight=positive_weight).to(device)
-
     train_losses, val_losses = [], []
 
     start_time = time.time()
 
     for epoch in range(epochs):
         model.train()
-        total_train_loss, y_true_train, y_pred_train = 0.0, [], []
+        total_train_loss = 0.0
+        y_true_train, y_pred_train = [], []
 
         for batch_X1, batch_X2, batch_X3, batch_X4, batch_y in train_loader:
-            batch_X1, batch_X2, batch_X3, batch_X4, batch_y = (batch_X1.to(device), batch_X2.to(device),
-                                                               batch_X3.to(device), batch_X4.to(device), batch_y.to(device))
+            batch_X1, batch_X2, batch_X3, batch_X4, batch_y = (
+                batch_X1.to(device),
+                batch_X2.to(device),
+                batch_X3.to(device),
+                batch_X4.to(device),
+                batch_y.to(device),
+            )
             optimizer.zero_grad()
+
+            # Forward pass
             outputs = model(batch_X1, batch_X2, batch_X3, batch_X4)
-            loss = criterion(outputs, batch_y.unsqueeze(1).float())
+
+            # Compute loss
+            loss = F.binary_cross_entropy(outputs, batch_y.unsqueeze(1).float())
             loss.backward()
             optimizer.step()
             total_train_loss += loss.item()
-            y_true_train.extend(batch_y.cpu().numpy())
-            y_pred_train.extend((outputs > 0.2).float().cpu().numpy())
 
-        train_f1 = f1_score(y_true_train, y_pred_train)
+            # Store true labels and predictions for F1-score
+            y_true_train.extend(batch_y.cpu().numpy())
+            y_pred_train.extend((outputs > 0.5).float().cpu().numpy())
+
         train_loss = total_train_loss / len(train_loader)
         train_losses.append(train_loss)
 
+        # Calculate F1-score for training
+        train_f1 = f1_score(y_true_train, y_pred_train)
+
         # Validation phase
         model.eval()
-        total_val_loss, y_true_val, y_pred_val = 0.0, [], []
+        total_val_loss = 0.0
+        y_true_val, y_pred_val = [], []
+
         with torch.no_grad():
             for batch_X1, batch_X2, batch_X3, batch_X4, batch_y in val_loader:
-                batch_X1, batch_X2, batch_X3, batch_X4, batch_y = (batch_X1.to(device), batch_X2.to(device),
-                                                                   batch_X3.to(device), batch_X4.to(device), batch_y.to(device))
+                batch_X1, batch_X2, batch_X3, batch_X4, batch_y = (
+                    batch_X1.to(device),
+                    batch_X2.to(device),
+                    batch_X3.to(device),
+                    batch_X4.to(device),
+                    batch_y.to(device),
+                )
                 outputs = model(batch_X1, batch_X2, batch_X3, batch_X4)
-                val_loss = criterion(outputs, batch_y.unsqueeze(1).float())
-                total_val_loss += val_loss.item()
-                y_true_val.extend(batch_y.cpu().numpy())
-                y_pred_val.extend((outputs > 0.4).float().cpu().numpy())
 
-        val_f1 = f1_score(y_true_val, y_pred_val)
+                # Compute loss
+                val_loss = F.binary_cross_entropy(outputs, batch_y.unsqueeze(1).float())
+                total_val_loss += val_loss.item()
+
+                # Store true labels and predictions for F1-score
+                y_true_val.extend(batch_y.cpu().numpy())
+                y_pred_val.extend((outputs > 0.5).float().cpu().numpy())
+
         avg_val_loss = total_val_loss / len(val_loader)
         val_losses.append(avg_val_loss)
+
+        # Calculate F1-score for validation
+        val_f1 = f1_score(y_true_val, y_pred_val)
 
         # Step the scheduler with validation loss
         scheduler.step(avg_val_loss)
@@ -1697,7 +1709,7 @@ def train_gated_combination_model(X1_t, X2_t, X3_t, X4_t, tensor_score_o,
 
     end_time = time.time()
 
-    # Plotting
+    # Plotting training and validation loss
     plt.figure(figsize=(10, 5))
     plt.plot(train_losses, label="Training Loss", marker='o')
     plt.plot(val_losses, label="Validation Loss", marker='x')
@@ -1708,6 +1720,8 @@ def train_gated_combination_model(X1_t, X2_t, X3_t, X4_t, tensor_score_o,
 
     print(f"Training complete! Total time: {end_time - start_time:.2f} seconds")
     return model
+
+
 ```
 
 
@@ -1729,120 +1743,119 @@ trained_model = train_gated_combination_model(
     epochs=100,        # Number of epochs (iterations over the entire training dataset)
     batch_size=32,     # Number of training samples processed in one forward/backward pass
     learning_rate=0.001, # Learning rate for the optimizer (controls step size during optimization)
-    weight_decay=1e-5  # Weight decay (L2 regularization) to prevent overfitting
+    weight_decay=1e-4 # Weight decay (L2 regularization) to prevent overfitting
 )
 ```
 
-    Epoch [1/100] Training Loss: 0.1500, F1 Score: 0.0225 | Validation Loss: 0.0567, F1 Score: 0.0000
-    Epoch [2/100] Training Loss: 0.0403, F1 Score: 0.0080 | Validation Loss: 0.0321, F1 Score: 0.0000
-    Epoch [3/100] Training Loss: 0.0258, F1 Score: 0.6950 | Validation Loss: 0.0212, F1 Score: 0.3423
-    Epoch [4/100] Training Loss: 0.0175, F1 Score: 0.9508 | Validation Loss: 0.0146, F1 Score: 0.8768
-    Epoch [5/100] Training Loss: 0.0124, F1 Score: 0.9655 | Validation Loss: 0.0106, F1 Score: 0.9327
-    Epoch [6/100] Training Loss: 0.0093, F1 Score: 0.9659 | Validation Loss: 0.0082, F1 Score: 0.9564
-    Epoch [7/100] Training Loss: 0.0075, F1 Score: 0.9625 | Validation Loss: 0.0066, F1 Score: 0.9674
-    Epoch [8/100] Training Loss: 0.0063, F1 Score: 0.9610 | Validation Loss: 0.0056, F1 Score: 0.9698
-    Epoch [9/100] Training Loss: 0.0056, F1 Score: 0.9607 | Validation Loss: 0.0051, F1 Score: 0.9753
-    Epoch [10/100] Training Loss: 0.0051, F1 Score: 0.9576 | Validation Loss: 0.0049, F1 Score: 0.9667
-    Epoch [11/100] Training Loss: 0.0047, F1 Score: 0.9586 | Validation Loss: 0.0043, F1 Score: 0.9714
-    Epoch [12/100] Training Loss: 0.0045, F1 Score: 0.9582 | Validation Loss: 0.0040, F1 Score: 0.9737
-    Epoch [13/100] Training Loss: 0.0043, F1 Score: 0.9586 | Validation Loss: 0.0039, F1 Score: 0.9738
-    Epoch [14/100] Training Loss: 0.0041, F1 Score: 0.9580 | Validation Loss: 0.0036, F1 Score: 0.9754
-    Epoch [15/100] Training Loss: 0.0040, F1 Score: 0.9564 | Validation Loss: 0.0035, F1 Score: 0.9761
-    Epoch [16/100] Training Loss: 0.0038, F1 Score: 0.9577 | Validation Loss: 0.0034, F1 Score: 0.9761
-    Epoch [17/100] Training Loss: 0.0038, F1 Score: 0.9586 | Validation Loss: 0.0033, F1 Score: 0.9762
-    Epoch [18/100] Training Loss: 0.0037, F1 Score: 0.9596 | Validation Loss: 0.0032, F1 Score: 0.9753
-    Epoch [19/100] Training Loss: 0.0036, F1 Score: 0.9574 | Validation Loss: 0.0032, F1 Score: 0.9754
-    Epoch [20/100] Training Loss: 0.0036, F1 Score: 0.9568 | Validation Loss: 0.0031, F1 Score: 0.9768
-    Epoch [22/100] Training Loss: 0.0035, F1 Score: 0.9548 | Validation Loss: 0.0030, F1 Score: 0.9776
-    Epoch [23/100] Training Loss: 0.0034, F1 Score: 0.9589 | Validation Loss: 0.0030, F1 Score: 0.9761
-    Epoch [24/100] Training Loss: 0.0034, F1 Score: 0.9571 | Validation Loss: 0.0029, F1 Score: 0.9776
-    Epoch [25/100] Training Loss: 0.0034, F1 Score: 0.9583 | Validation Loss: 0.0031, F1 Score: 0.9777
-    Epoch [26/100] Training Loss: 0.0034, F1 Score: 0.9557 | Validation Loss: 0.0030, F1 Score: 0.9776
-    Epoch [27/100] Training Loss: 0.0033, F1 Score: 0.9554 | Validation Loss: 0.0031, F1 Score: 0.9725
-    Epoch [28/100] Training Loss: 0.0033, F1 Score: 0.9570 | Validation Loss: 0.0029, F1 Score: 0.9770
-    Epoch [29/100] Training Loss: 0.0033, F1 Score: 0.9583 | Validation Loss: 0.0029, F1 Score: 0.9799
-    Epoch [30/100] Training Loss: 0.0033, F1 Score: 0.9577 | Validation Loss: 0.0028, F1 Score: 0.9768
-    Epoch [31/100] Training Loss: 0.0033, F1 Score: 0.9580 | Validation Loss: 0.0030, F1 Score: 0.9748
-    Epoch [32/100] Training Loss: 0.0033, F1 Score: 0.9564 | Validation Loss: 0.0028, F1 Score: 0.9776
-    Epoch [33/100] Training Loss: 0.0032, F1 Score: 0.9583 | Validation Loss: 0.0028, F1 Score: 0.9768
-    Epoch [34/100] Training Loss: 0.0032, F1 Score: 0.9574 | Validation Loss: 0.0029, F1 Score: 0.9784
-    Epoch [35/100] Training Loss: 0.0032, F1 Score: 0.9554 | Validation Loss: 0.0028, F1 Score: 0.9777
-    Epoch [36/100] Training Loss: 0.0032, F1 Score: 0.9561 | Validation Loss: 0.0028, F1 Score: 0.9741
-    Epoch [37/100] Training Loss: 0.0032, F1 Score: 0.9558 | Validation Loss: 0.0028, F1 Score: 0.9768
-    Epoch [38/100] Training Loss: 0.0032, F1 Score: 0.9551 | Validation Loss: 0.0028, F1 Score: 0.9754
-    Epoch [39/100] Training Loss: 0.0032, F1 Score: 0.9570 | Validation Loss: 0.0028, F1 Score: 0.9760
-    Epoch [40/100] Training Loss: 0.0032, F1 Score: 0.9593 | Validation Loss: 0.0027, F1 Score: 0.9761
-    Epoch [41/100] Training Loss: 0.0032, F1 Score: 0.9583 | Validation Loss: 0.0029, F1 Score: 0.9791
-    Epoch [42/100] Training Loss: 0.0032, F1 Score: 0.9567 | Validation Loss: 0.0031, F1 Score: 0.9714
-    Epoch [43/100] Training Loss: 0.0032, F1 Score: 0.9568 | Validation Loss: 0.0027, F1 Score: 0.9785
-    Epoch [44/100] Training Loss: 0.0031, F1 Score: 0.9558 | Validation Loss: 0.0027, F1 Score: 0.9747
-    Epoch [45/100] Training Loss: 0.0031, F1 Score: 0.9584 | Validation Loss: 0.0028, F1 Score: 0.9746
-    Epoch [46/100] Training Loss: 0.0031, F1 Score: 0.9567 | Validation Loss: 0.0028, F1 Score: 0.9762
-    Epoch [47/100] Training Loss: 0.0031, F1 Score: 0.9589 | Validation Loss: 0.0028, F1 Score: 0.9754
-    Epoch [48/100] Training Loss: 0.0031, F1 Score: 0.9567 | Validation Loss: 0.0026, F1 Score: 0.9769
-    Epoch [49/100] Training Loss: 0.0031, F1 Score: 0.9574 | Validation Loss: 0.0027, F1 Score: 0.9760
-    Epoch [50/100] Training Loss: 0.0031, F1 Score: 0.9589 | Validation Loss: 0.0031, F1 Score: 0.9698
-    Epoch [51/100] Training Loss: 0.0031, F1 Score: 0.9551 | Validation Loss: 0.0028, F1 Score: 0.9760
-    Epoch [52/100] Training Loss: 0.0031, F1 Score: 0.9593 | Validation Loss: 0.0027, F1 Score: 0.9785
-    Epoch [53/100] Training Loss: 0.0031, F1 Score: 0.9574 | Validation Loss: 0.0028, F1 Score: 0.9741
-    Epoch [54/100] Training Loss: 0.0031, F1 Score: 0.9564 | Validation Loss: 0.0026, F1 Score: 0.9762
-    Epoch [55/100] Training Loss: 0.0031, F1 Score: 0.9561 | Validation Loss: 0.0027, F1 Score: 0.9738
-    Epoch [56/100] Training Loss: 0.0031, F1 Score: 0.9573 | Validation Loss: 0.0027, F1 Score: 0.9784
-    Epoch [57/100] Training Loss: 0.0031, F1 Score: 0.9554 | Validation Loss: 0.0027, F1 Score: 0.9784
-    Epoch [58/100] Training Loss: 0.0031, F1 Score: 0.9583 | Validation Loss: 0.0028, F1 Score: 0.9761
-    Epoch [59/100] Training Loss: 0.0031, F1 Score: 0.9589 | Validation Loss: 0.0026, F1 Score: 0.9761
-    Epoch [60/100] Training Loss: 0.0031, F1 Score: 0.9578 | Validation Loss: 0.0027, F1 Score: 0.9761
-    Epoch [61/100] Training Loss: 0.0031, F1 Score: 0.9583 | Validation Loss: 0.0028, F1 Score: 0.9747
-    Epoch [62/100] Training Loss: 0.0031, F1 Score: 0.9580 | Validation Loss: 0.0028, F1 Score: 0.9733
-    Epoch [63/100] Training Loss: 0.0031, F1 Score: 0.9567 | Validation Loss: 0.0026, F1 Score: 0.9784
-    Epoch [64/100] Training Loss: 0.0031, F1 Score: 0.9555 | Validation Loss: 0.0026, F1 Score: 0.9784
-    Epoch [65/100] Training Loss: 0.0031, F1 Score: 0.9567 | Validation Loss: 0.0027, F1 Score: 0.9776
-    Epoch [66/100] Training Loss: 0.0031, F1 Score: 0.9576 | Validation Loss: 0.0028, F1 Score: 0.9747
-    Epoch [67/100] Training Loss: 0.0031, F1 Score: 0.9577 | Validation Loss: 0.0027, F1 Score: 0.9768
-    Epoch [68/100] Training Loss: 0.0031, F1 Score: 0.9561 | Validation Loss: 0.0026, F1 Score: 0.9776
-    Epoch [69/100] Training Loss: 0.0031, F1 Score: 0.9590 | Validation Loss: 0.0027, F1 Score: 0.9776
-    Epoch [70/100] Training Loss: 0.0031, F1 Score: 0.9579 | Validation Loss: 0.0027, F1 Score: 0.9762
-    Epoch [71/100] Training Loss: 0.0031, F1 Score: 0.9577 | Validation Loss: 0.0026, F1 Score: 0.9762
-    Epoch [72/100] Training Loss: 0.0031, F1 Score: 0.9574 | Validation Loss: 0.0026, F1 Score: 0.9770
-    Epoch [73/100] Training Loss: 0.0031, F1 Score: 0.9580 | Validation Loss: 0.0027, F1 Score: 0.9784
-    Epoch [74/100] Training Loss: 0.0031, F1 Score: 0.9580 | Validation Loss: 0.0026, F1 Score: 0.9776
-    Epoch [75/100] Training Loss: 0.0031, F1 Score: 0.9564 | Validation Loss: 0.0027, F1 Score: 0.9762
-    Epoch [76/100] Training Loss: 0.0031, F1 Score: 0.9558 | Validation Loss: 0.0027, F1 Score: 0.9784
-    Epoch [77/100] Training Loss: 0.0031, F1 Score: 0.9583 | Validation Loss: 0.0028, F1 Score: 0.9777
-    Epoch [78/100] Training Loss: 0.0031, F1 Score: 0.9577 | Validation Loss: 0.0028, F1 Score: 0.9756
-    Epoch [79/100] Training Loss: 0.0031, F1 Score: 0.9589 | Validation Loss: 0.0027, F1 Score: 0.9754
-    Epoch [80/100] Training Loss: 0.0031, F1 Score: 0.9596 | Validation Loss: 0.0026, F1 Score: 0.9755
-    Epoch [81/100] Training Loss: 0.0031, F1 Score: 0.9554 | Validation Loss: 0.0026, F1 Score: 0.9776
-    Epoch [82/100] Training Loss: 0.0031, F1 Score: 0.9574 | Validation Loss: 0.0027, F1 Score: 0.9745
-    Epoch 00083: reducing learning rate of group 0 to 1.0000e-04.
-    Epoch [83/100] Training Loss: 0.0031, F1 Score: 0.9580 | Validation Loss: 0.0027, F1 Score: 0.9771
-    Epoch [84/100] Training Loss: 0.0029, F1 Score: 0.9565 | Validation Loss: 0.0025, F1 Score: 0.9777
-    Epoch [85/100] Training Loss: 0.0029, F1 Score: 0.9565 | Validation Loss: 0.0025, F1 Score: 0.9784
-    Epoch [86/100] Training Loss: 0.0029, F1 Score: 0.9574 | Validation Loss: 0.0025, F1 Score: 0.9777
-    Epoch [87/100] Training Loss: 0.0029, F1 Score: 0.9574 | Validation Loss: 0.0025, F1 Score: 0.9776
-    Epoch [88/100] Training Loss: 0.0029, F1 Score: 0.9577 | Validation Loss: 0.0025, F1 Score: 0.9776
-    Epoch [89/100] Training Loss: 0.0029, F1 Score: 0.9580 | Validation Loss: 0.0025, F1 Score: 0.9776
-    Epoch [90/100] Training Loss: 0.0029, F1 Score: 0.9596 | Validation Loss: 0.0025, F1 Score: 0.9769
-    Epoch [91/100] Training Loss: 0.0029, F1 Score: 0.9580 | Validation Loss: 0.0026, F1 Score: 0.9769
-    Epoch [92/100] Training Loss: 0.0029, F1 Score: 0.9584 | Validation Loss: 0.0025, F1 Score: 0.9769
-    Epoch [93/100] Training Loss: 0.0029, F1 Score: 0.9602 | Validation Loss: 0.0026, F1 Score: 0.9776
-    Epoch [94/100] Training Loss: 0.0029, F1 Score: 0.9590 | Validation Loss: 0.0025, F1 Score: 0.9769
-    Epoch [95/100] Training Loss: 0.0029, F1 Score: 0.9593 | Validation Loss: 0.0025, F1 Score: 0.9769
-    Epoch 00096: reducing learning rate of group 0 to 1.0000e-05.
-    Epoch [96/100] Training Loss: 0.0029, F1 Score: 0.9590 | Validation Loss: 0.0026, F1 Score: 0.9769
-    Epoch [97/100] Training Loss: 0.0028, F1 Score: 0.9602 | Validation Loss: 0.0026, F1 Score: 0.9769
-    Epoch [98/100] Training Loss: 0.0028, F1 Score: 0.9602 | Validation Loss: 0.0025, F1 Score: 0.9776
-    Epoch [99/100] Training Loss: 0.0028, F1 Score: 0.9605 | Validation Loss: 0.0025, F1 Score: 0.9784
-    Epoch [100/100] Training Loss: 0.0028, F1 Score: 0.9605 | Validation Loss: 0.0025, F1 Score: 0.9784
+    Epoch [1/100] Training Loss: 0.2404, F1 Score: 0.0000 | Validation Loss: 0.1387, F1 Score: 0.0000
+    Epoch [2/100] Training Loss: 0.1163, F1 Score: 0.0000 | Validation Loss: 0.1111, F1 Score: 0.0000
+    Epoch [3/100] Training Loss: 0.1079, F1 Score: 0.0000 | Validation Loss: 0.1083, F1 Score: 0.0000
+    Epoch [4/100] Training Loss: 0.1033, F1 Score: 0.0000 | Validation Loss: 0.1073, F1 Score: 0.0000
+    Epoch [5/100] Training Loss: 0.1027, F1 Score: 0.0000 | Validation Loss: 0.1071, F1 Score: 0.0000
+    Epoch [6/100] Training Loss: 0.1022, F1 Score: 0.0000 | Validation Loss: 0.1063, F1 Score: 0.0000
+    Epoch [7/100] Training Loss: 0.1015, F1 Score: 0.0000 | Validation Loss: 0.1058, F1 Score: 0.0000
+    Epoch [8/100] Training Loss: 0.1008, F1 Score: 0.0000 | Validation Loss: 0.1048, F1 Score: 0.0000
+    Epoch [9/100] Training Loss: 0.1000, F1 Score: 0.0000 | Validation Loss: 0.1039, F1 Score: 0.0000
+    Epoch [10/100] Training Loss: 0.0992, F1 Score: 0.0000 | Validation Loss: 0.1030, F1 Score: 0.0000
+    Epoch [11/100] Training Loss: 0.0982, F1 Score: 0.0000 | Validation Loss: 0.1019, F1 Score: 0.0000
+    Epoch [12/100] Training Loss: 0.0972, F1 Score: 0.0000 | Validation Loss: 0.1007, F1 Score: 0.0000
+    Epoch [13/100] Training Loss: 0.0960, F1 Score: 0.0000 | Validation Loss: 0.0988, F1 Score: 0.0000
+    Epoch [14/100] Training Loss: 0.0917, F1 Score: 0.0000 | Validation Loss: 0.0920, F1 Score: 0.0000
+    Epoch [15/100] Training Loss: 0.0850, F1 Score: 0.0000 | Validation Loss: 0.0848, F1 Score: 0.0000
+    Epoch [16/100] Training Loss: 0.0783, F1 Score: 0.0000 | Validation Loss: 0.0778, F1 Score: 0.0000
+    Epoch [17/100] Training Loss: 0.0717, F1 Score: 0.0000 | Validation Loss: 0.0708, F1 Score: 0.0000
+    Epoch [18/100] Training Loss: 0.0653, F1 Score: 0.0000 | Validation Loss: 0.0642, F1 Score: 0.0000
+    Epoch [19/100] Training Loss: 0.0593, F1 Score: 0.0000 | Validation Loss: 0.0580, F1 Score: 0.0000
+    Epoch [20/100] Training Loss: 0.0537, F1 Score: 0.0000 | Validation Loss: 0.0527, F1 Score: 0.0000
+    Epoch [21/100] Training Loss: 0.0486, F1 Score: 0.0000 | Validation Loss: 0.0474, F1 Score: 0.0000
+    Epoch [22/100] Training Loss: 0.0441, F1 Score: 0.0823 | Validation Loss: 0.0427, F1 Score: 0.1192
+    Epoch [23/100] Training Loss: 0.0403, F1 Score: 0.2463 | Validation Loss: 0.0388, F1 Score: 0.3277
+    Epoch [24/100] Training Loss: 0.0368, F1 Score: 0.4258 | Validation Loss: 0.0359, F1 Score: 0.4978
+    Epoch [25/100] Training Loss: 0.0340, F1 Score: 0.5518 | Validation Loss: 0.0329, F1 Score: 0.6064
+    Epoch [26/100] Training Loss: 0.0314, F1 Score: 0.6644 | Validation Loss: 0.0303, F1 Score: 0.6641
+    Epoch [27/100] Training Loss: 0.0294, F1 Score: 0.7015 | Validation Loss: 0.0286, F1 Score: 0.7299
+    Epoch [28/100] Training Loss: 0.0275, F1 Score: 0.7474 | Validation Loss: 0.0263, F1 Score: 0.7646
+    Epoch [29/100] Training Loss: 0.0261, F1 Score: 0.7697 | Validation Loss: 0.0251, F1 Score: 0.7966
+    Epoch [30/100] Training Loss: 0.0248, F1 Score: 0.7849 | Validation Loss: 0.0239, F1 Score: 0.8149
+    Epoch [31/100] Training Loss: 0.0237, F1 Score: 0.8040 | Validation Loss: 0.0228, F1 Score: 0.8169
+    Epoch [32/100] Training Loss: 0.0227, F1 Score: 0.8176 | Validation Loss: 0.0218, F1 Score: 0.8269
+    Epoch [33/100] Training Loss: 0.0220, F1 Score: 0.8323 | Validation Loss: 0.0213, F1 Score: 0.8367
+    Epoch [34/100] Training Loss: 0.0213, F1 Score: 0.8363 | Validation Loss: 0.0200, F1 Score: 0.8444
+    Epoch [35/100] Training Loss: 0.0207, F1 Score: 0.8432 | Validation Loss: 0.0198, F1 Score: 0.8539
+    Epoch [36/100] Training Loss: 0.0202, F1 Score: 0.8462 | Validation Loss: 0.0195, F1 Score: 0.8650
+    Epoch [37/100] Training Loss: 0.0197, F1 Score: 0.8504 | Validation Loss: 0.0186, F1 Score: 0.8613
+    Epoch [38/100] Training Loss: 0.0194, F1 Score: 0.8553 | Validation Loss: 0.0190, F1 Score: 0.8728
+    Epoch [39/100] Training Loss: 0.0191, F1 Score: 0.8588 | Validation Loss: 0.0179, F1 Score: 0.8650
+    Epoch [40/100] Training Loss: 0.0187, F1 Score: 0.8574 | Validation Loss: 0.0178, F1 Score: 0.8650
+    Epoch [41/100] Training Loss: 0.0184, F1 Score: 0.8679 | Validation Loss: 0.0177, F1 Score: 0.8706
+    Epoch [42/100] Training Loss: 0.0183, F1 Score: 0.8642 | Validation Loss: 0.0171, F1 Score: 0.8836
+    Epoch [43/100] Training Loss: 0.0181, F1 Score: 0.8670 | Validation Loss: 0.0175, F1 Score: 0.8850
+    Epoch [44/100] Training Loss: 0.0178, F1 Score: 0.8683 | Validation Loss: 0.0170, F1 Score: 0.8836
+    Epoch [45/100] Training Loss: 0.0178, F1 Score: 0.8668 | Validation Loss: 0.0165, F1 Score: 0.8871
+    Epoch [46/100] Training Loss: 0.0175, F1 Score: 0.8757 | Validation Loss: 0.0164, F1 Score: 0.8800
+    Epoch [47/100] Training Loss: 0.0174, F1 Score: 0.8739 | Validation Loss: 0.0164, F1 Score: 0.8889
+    Epoch [48/100] Training Loss: 0.0173, F1 Score: 0.8703 | Validation Loss: 0.0163, F1 Score: 0.8836
+    Epoch [49/100] Training Loss: 0.0171, F1 Score: 0.8765 | Validation Loss: 0.0161, F1 Score: 0.8818
+    Epoch [50/100] Training Loss: 0.0171, F1 Score: 0.8725 | Validation Loss: 0.0163, F1 Score: 0.8854
+    Epoch [51/100] Training Loss: 0.0170, F1 Score: 0.8773 | Validation Loss: 0.0162, F1 Score: 0.8924
+    Epoch [52/100] Training Loss: 0.0169, F1 Score: 0.8783 | Validation Loss: 0.0159, F1 Score: 0.8871
+    Epoch [53/100] Training Loss: 0.0168, F1 Score: 0.8829 | Validation Loss: 0.0158, F1 Score: 0.8871
+    Epoch [54/100] Training Loss: 0.0167, F1 Score: 0.8795 | Validation Loss: 0.0158, F1 Score: 0.8800
+    Epoch [55/100] Training Loss: 0.0167, F1 Score: 0.8775 | Validation Loss: 0.0162, F1 Score: 0.8959
+    Epoch [56/100] Training Loss: 0.0166, F1 Score: 0.8797 | Validation Loss: 0.0156, F1 Score: 0.8924
+    Epoch [57/100] Training Loss: 0.0166, F1 Score: 0.8819 | Validation Loss: 0.0155, F1 Score: 0.8906
+    Epoch [58/100] Training Loss: 0.0165, F1 Score: 0.8802 | Validation Loss: 0.0156, F1 Score: 0.8889
+    Epoch [59/100] Training Loss: 0.0165, F1 Score: 0.8799 | Validation Loss: 0.0156, F1 Score: 0.8924
+    Epoch [60/100] Training Loss: 0.0165, F1 Score: 0.8801 | Validation Loss: 0.0154, F1 Score: 0.8871
+    Epoch [61/100] Training Loss: 0.0164, F1 Score: 0.8846 | Validation Loss: 0.0155, F1 Score: 0.8836
+    Epoch [62/100] Training Loss: 0.0164, F1 Score: 0.8846 | Validation Loss: 0.0156, F1 Score: 0.8818
+    Epoch [63/100] Training Loss: 0.0163, F1 Score: 0.8823 | Validation Loss: 0.0152, F1 Score: 0.8906
+    Epoch [64/100] Training Loss: 0.0163, F1 Score: 0.8862 | Validation Loss: 0.0156, F1 Score: 0.8706
+    Epoch [65/100] Training Loss: 0.0163, F1 Score: 0.8851 | Validation Loss: 0.0151, F1 Score: 0.8906
+    Epoch [66/100] Training Loss: 0.0163, F1 Score: 0.8807 | Validation Loss: 0.0155, F1 Score: 0.9028
+    Epoch [67/100] Training Loss: 0.0163, F1 Score: 0.8854 | Validation Loss: 0.0153, F1 Score: 0.8889
+    Epoch [68/100] Training Loss: 0.0163, F1 Score: 0.8815 | Validation Loss: 0.0154, F1 Score: 0.9028
+    Epoch [69/100] Training Loss: 0.0162, F1 Score: 0.8823 | Validation Loss: 0.0154, F1 Score: 0.8959
+    Epoch [70/100] Training Loss: 0.0162, F1 Score: 0.8850 | Validation Loss: 0.0150, F1 Score: 0.8942
+    Epoch [71/100] Training Loss: 0.0162, F1 Score: 0.8846 | Validation Loss: 0.0153, F1 Score: 0.8889
+    Epoch [72/100] Training Loss: 0.0161, F1 Score: 0.8901 | Validation Loss: 0.0151, F1 Score: 0.8871
+    Epoch [73/100] Training Loss: 0.0162, F1 Score: 0.8818 | Validation Loss: 0.0158, F1 Score: 0.9045
+    Epoch [74/100] Training Loss: 0.0162, F1 Score: 0.8856 | Validation Loss: 0.0150, F1 Score: 0.8871
+    Epoch [75/100] Training Loss: 0.0162, F1 Score: 0.8839 | Validation Loss: 0.0149, F1 Score: 0.8924
+    Epoch [76/100] Training Loss: 0.0161, F1 Score: 0.8864 | Validation Loss: 0.0149, F1 Score: 0.8889
+    Epoch [77/100] Training Loss: 0.0161, F1 Score: 0.8816 | Validation Loss: 0.0155, F1 Score: 0.9011
+    Epoch [78/100] Training Loss: 0.0161, F1 Score: 0.8864 | Validation Loss: 0.0151, F1 Score: 0.8871
+    Epoch [79/100] Training Loss: 0.0162, F1 Score: 0.8840 | Validation Loss: 0.0150, F1 Score: 0.8942
+    Epoch [80/100] Training Loss: 0.0161, F1 Score: 0.8886 | Validation Loss: 0.0150, F1 Score: 0.8942
+    Epoch [81/100] Training Loss: 0.0163, F1 Score: 0.8864 | Validation Loss: 0.0154, F1 Score: 0.8959
+    Epoch [82/100] Training Loss: 0.0162, F1 Score: 0.8854 | Validation Loss: 0.0152, F1 Score: 0.8994
+    Epoch [83/100] Training Loss: 0.0161, F1 Score: 0.8850 | Validation Loss: 0.0151, F1 Score: 0.8924
+    Epoch [84/100] Training Loss: 0.0161, F1 Score: 0.8818 | Validation Loss: 0.0151, F1 Score: 0.8924
+    Epoch [85/100] Training Loss: 0.0160, F1 Score: 0.8850 | Validation Loss: 0.0149, F1 Score: 0.8924
+    Epoch [86/100] Training Loss: 0.0161, F1 Score: 0.8870 | Validation Loss: 0.0151, F1 Score: 0.8976
+    Epoch [87/100] Training Loss: 0.0161, F1 Score: 0.8870 | Validation Loss: 0.0150, F1 Score: 0.8994
+    Epoch [88/100] Training Loss: 0.0161, F1 Score: 0.8862 | Validation Loss: 0.0152, F1 Score: 0.8906
+    Epoch [89/100] Training Loss: 0.0160, F1 Score: 0.8823 | Validation Loss: 0.0154, F1 Score: 0.8997
+    Epoch [90/100] Training Loss: 0.0162, F1 Score: 0.8807 | Validation Loss: 0.0148, F1 Score: 0.8871
+    Epoch [91/100] Training Loss: 0.0161, F1 Score: 0.8856 | Validation Loss: 0.0150, F1 Score: 0.8976
+    Epoch [92/100] Training Loss: 0.0160, F1 Score: 0.8829 | Validation Loss: 0.0155, F1 Score: 0.9014
+    Epoch [93/100] Training Loss: 0.0161, F1 Score: 0.8848 | Validation Loss: 0.0152, F1 Score: 0.8997
+    Epoch [94/100] Training Loss: 0.0161, F1 Score: 0.8846 | Validation Loss: 0.0152, F1 Score: 0.8994
+    Epoch [95/100] Training Loss: 0.0161, F1 Score: 0.8856 | Validation Loss: 0.0151, F1 Score: 0.8906
+    Epoch [96/100] Training Loss: 0.0160, F1 Score: 0.8854 | Validation Loss: 0.0148, F1 Score: 0.8927
+    Epoch [97/100] Training Loss: 0.0160, F1 Score: 0.8872 | Validation Loss: 0.0154, F1 Score: 0.8959
+    Epoch [98/100] Training Loss: 0.0161, F1 Score: 0.8834 | Validation Loss: 0.0149, F1 Score: 0.8818
+    Epoch [99/100] Training Loss: 0.0161, F1 Score: 0.8831 | Validation Loss: 0.0154, F1 Score: 0.8906
+    Epoch [100/100] Training Loss: 0.0160, F1 Score: 0.8818 | Validation Loss: 0.0148, F1 Score: 0.8924
 
 
 
     
-![png](output_44_1.png)
+![png](output_45_1.png)
     
 
 
-    Training complete! Total time: 2725.88 seconds
+    Training complete! Total time: 733.17 seconds
 
 
 # **Mappings Selector**
@@ -1908,8 +1921,8 @@ Prediction_with_candidates(
 )
 ```
 
-    Predicting time: 22.53 seconds
-    Predictions saved to /content/gdrive/My Drive/BioGITOM-VLDB//body/Results/body_all_predictions.tsv
+    Predicting time: 12.30 seconds
+    Predictions saved to /content/gdrive/My Drive/BioGITOM-VLDB//omim2ordo/Results/omim2ordo_all_predictions.tsv
 
 
 
@@ -1921,7 +1934,7 @@ matching_results_df = filter_highest_predictions(
 )
 ```
 
-    Number of Positive Predictions : 4507
+    Number of Positive Predictions : 2463
 
 
 # **Evaluation**
@@ -1951,14 +1964,14 @@ refs2 = [r.to_tuple() for r in refs]
 
 correct= len(set(preds2).intersection(set(refs2)))
 
-print(f"Number of Correct Predictions : {correct}")
+print(f"Number of Correct Predictions: {correct}")
 
 # Print the computed precision, recall, and F1-score metrics
 print(results)
 ```
 
-    Number of Correct Predictions : 3871
-    {'P': 0.859, 'R': 0.762, 'F1': 0.808}
+    Number of Correct Predictions: 2103
+    {'P': 0.854, 'R': 0.807, 'F1': 0.83}
 
 
 # Ranked-based metrics calculation
@@ -2014,8 +2027,8 @@ Prediction_with_candidates(
 )
 ```
 
-    Predicting time: 21.23 seconds
-    Predictions saved to /content/gdrive/My Drive/BioGITOM-VLDB//body/Results/body_all_predictions_ranked.tsv
+    Predicting time: 11.40 seconds
+    Predictions saved to /content/gdrive/My Drive/BioGITOM-VLDB//omim2ordo/Results/omim2ordo_all_predictions_ranked.tsv
 
 
 
@@ -2035,7 +2048,7 @@ print(results)  # Output the Mean Reciprocal Rank (MRR) and Hits@k metrics
 ```
 
     MRR and Hits@k Results:
-    {'MRR': 0.9119369651982531, 'Hits@k': {1: 0.861980704863162, 5: 0.974010632014176, 10: 0.9897617641267966}}
+    {'MRR': 0.8784377967329045, 'Hits@k': {1: 0.819961612284069, 5: 0.9512476007677543, 10: 0.9765834932821497}}
 
 
 
@@ -2048,5 +2061,5 @@ print(results)
 ```
 
     Ranking Evaluation Results at K=1, 5, and 10:
-    {'MRR': 0.9119369651982531, 'Hits@1': 0.861980704863162, 'Hits@5': 0.974010632014176, 'Hits@10': 0.9897617641267966}
+    {'MRR': 0.8784377967329045, 'Hits@1': 0.819961612284069, 'Hits@5': 0.9512476007677543, 'Hits@10': 0.9765834932821497}
 

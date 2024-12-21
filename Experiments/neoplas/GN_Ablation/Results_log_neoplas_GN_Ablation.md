@@ -69,41 +69,41 @@ torchversion = torch.__version__
     Requirement already satisfied: setuptools in /usr/local/lib/python3.10/dist-packages (from nvidia-cublas-cu11==11.10.3.66->torch==2.0.0) (75.1.0)
     Requirement already satisfied: wheel in /usr/local/lib/python3.10/dist-packages (from nvidia-cublas-cu11==11.10.3.66->torch==2.0.0) (0.45.0)
     Collecting cmake (from triton==2.0.0->torch==2.0.0)
-      Downloading cmake-3.31.0.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
+      Downloading cmake-3.31.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.5 kB)
     Collecting lit (from triton==2.0.0->torch==2.0.0)
       Downloading lit-18.1.8-py3-none-any.whl.metadata (2.5 kB)
     Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2->torch==2.0.0) (3.0.2)
     Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from sympy->torch==2.0.0) (1.3.0)
     Downloading torch-2.0.0-cp310-cp310-manylinux1_x86_64.whl (619.9 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m619.9/619.9 MB[0m [31m618.5 kB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m619.9/619.9 MB[0m [31m600.0 kB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cublas_cu11-11.10.3.66-py3-none-manylinux1_x86_64.whl (317.1 MB)
     [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m317.1/317.1 MB[0m [31m3.2 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cuda_cupti_cu11-11.7.101-py3-none-manylinux1_x86_64.whl (11.8 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m11.8/11.8 MB[0m [31m86.3 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m11.8/11.8 MB[0m [31m2.2 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cuda_nvrtc_cu11-11.7.99-2-py3-none-manylinux1_x86_64.whl (21.0 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m21.0/21.0 MB[0m [31m69.7 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m21.0/21.0 MB[0m [31m64.7 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cuda_runtime_cu11-11.7.99-py3-none-manylinux1_x86_64.whl (849 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m849.3/849.3 kB[0m [31m33.9 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m849.3/849.3 kB[0m [31m39.2 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cudnn_cu11-8.5.0.96-2-py3-none-manylinux1_x86_64.whl (557.1 MB)
     [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m557.1/557.1 MB[0m [31m1.8 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cufft_cu11-10.9.0.58-py3-none-manylinux2014_x86_64.whl (168.4 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m168.4/168.4 MB[0m [31m6.1 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m168.4/168.4 MB[0m [31m6.2 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_curand_cu11-10.2.10.91-py3-none-manylinux1_x86_64.whl (54.6 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m54.6/54.6 MB[0m [31m21.2 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m54.6/54.6 MB[0m [31m22.5 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cusolver_cu11-11.4.0.1-2-py3-none-manylinux1_x86_64.whl (102.6 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m102.6/102.6 MB[0m [31m10.4 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m102.6/102.6 MB[0m [31m10.3 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cusparse_cu11-11.7.4.91-py3-none-manylinux1_x86_64.whl (173.2 MB)
     [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m173.2/173.2 MB[0m [31m6.1 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_nccl_cu11-2.14.3-py3-none-manylinux1_x86_64.whl (177.1 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m177.1/177.1 MB[0m [31m3.8 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m177.1/177.1 MB[0m [31m6.0 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_nvtx_cu11-11.7.91-py3-none-manylinux1_x86_64.whl (98 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m98.6/98.6 kB[0m [31m8.0 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m98.6/98.6 kB[0m [31m7.1 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading triton-2.0.0-1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (63.3 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.3/63.3 MB[0m [31m18.1 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading cmake-3.31.0.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (27.8 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m27.8/27.8 MB[0m [31m51.5 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.3/63.3 MB[0m [31m18.5 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading cmake-3.31.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (27.8 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m27.8/27.8 MB[0m [31m56.2 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading lit-18.1.8-py3-none-any.whl (96 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m96.4/96.4 kB[0m [31m7.0 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m96.4/96.4 kB[0m [31m5.8 MB/s[0m eta [36m0:00:00[0m
     [?25hInstalling collected packages: lit, nvidia-nvtx-cu11, nvidia-nccl-cu11, nvidia-cusparse-cu11, nvidia-curand-cu11, nvidia-cufft-cu11, nvidia-cuda-runtime-cu11, nvidia-cuda-nvrtc-cu11, nvidia-cuda-cupti-cu11, nvidia-cublas-cu11, cmake, nvidia-cusolver-cu11, nvidia-cudnn-cu11, triton, torch
       Attempting uninstall: torch
         Found existing installation: torch 2.5.1+cpu
@@ -112,10 +112,10 @@ torchversion = torch.__version__
     [31mERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
     torchaudio 2.5.1+cpu requires torch==2.5.1, but you have torch 2.0.0 which is incompatible.
     torchvision 0.20.1+cpu requires torch==2.5.1, but you have torch 2.0.0 which is incompatible.[0m[31m
-    [0mSuccessfully installed cmake-3.31.0.1 lit-18.1.8 nvidia-cublas-cu11-11.10.3.66 nvidia-cuda-cupti-cu11-11.7.101 nvidia-cuda-nvrtc-cu11-11.7.99 nvidia-cuda-runtime-cu11-11.7.99 nvidia-cudnn-cu11-8.5.0.96 nvidia-cufft-cu11-10.9.0.58 nvidia-curand-cu11-10.2.10.91 nvidia-cusolver-cu11-11.4.0.1 nvidia-cusparse-cu11-11.7.4.91 nvidia-nccl-cu11-2.14.3 nvidia-nvtx-cu11-11.7.91 torch-2.0.0 triton-2.0.0
+    [0mSuccessfully installed cmake-3.31.1 lit-18.1.8 nvidia-cublas-cu11-11.10.3.66 nvidia-cuda-cupti-cu11-11.7.101 nvidia-cuda-nvrtc-cu11-11.7.99 nvidia-cuda-runtime-cu11-11.7.99 nvidia-cudnn-cu11-8.5.0.96 nvidia-cufft-cu11-10.9.0.58 nvidia-curand-cu11-10.2.10.91 nvidia-cusolver-cu11-11.4.0.1 nvidia-cusparse-cu11-11.7.4.91 nvidia-nccl-cu11-2.14.3 nvidia-nvtx-cu11-11.7.91 torch-2.0.0 triton-2.0.0
     Collecting torch-geometric==2.4.0
       Downloading torch_geometric-2.4.0-py3-none-any.whl.metadata (63 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.9/63.9 kB[0m [31m1.2 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.9/63.9 kB[0m [31m1.9 MB/s[0m eta [36m0:00:00[0m
     [?25hRequirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (4.66.6)
     Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (1.26.4)
     Requirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (1.13.1)
@@ -132,7 +132,7 @@ torchversion = torch.__version__
     Requirement already satisfied: joblib>=1.2.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->torch-geometric==2.4.0) (1.4.2)
     Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->torch-geometric==2.4.0) (3.5.0)
     Downloading torch_geometric-2.4.0-py3-none-any.whl (1.0 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.0/1.0 MB[0m [31m11.7 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.0/1.0 MB[0m [31m16.8 MB/s[0m eta [36m0:00:00[0m
     [?25hInstalling collected packages: torch-geometric
     Successfully installed torch-geometric-2.4.0
     Looking in links: https://data.pyg.org/whl/torch-2.0.0+cpu.html
@@ -141,13 +141,13 @@ torchversion = torch.__version__
     [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m494.1/494.1 kB[0m [31m6.5 MB/s[0m eta [36m0:00:00[0m
     [?25hCollecting torch-sparse
       Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_sparse-0.6.18%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (1.2 MB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.2/1.2 MB[0m [31m28.3 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.2/1.2 MB[0m [31m30.2 MB/s[0m eta [36m0:00:00[0m
     [?25hCollecting torch-cluster
       Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_cluster-1.6.3%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (751 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m751.3/751.3 kB[0m [31m32.5 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m751.3/751.3 kB[0m [31m14.2 MB/s[0m eta [36m0:00:00[0m
     [?25hCollecting torch-spline-conv
       Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_spline_conv-1.2.2%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (208 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m208.1/208.1 kB[0m [31m8.6 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m208.1/208.1 kB[0m [31m11.3 MB/s[0m eta [36m0:00:00[0m
     [?25hRequirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from torch-sparse) (1.13.1)
     Requirement already satisfied: numpy<2.3,>=1.22.4 in /usr/local/lib/python3.10/dist-packages (from scipy->torch-sparse) (1.26.4)
     Installing collected packages: torch-spline-conv, torch-scatter, torch-sparse, torch-cluster
@@ -171,12 +171,12 @@ torchversion = torch.__version__
       Installing build dependencies ... [?25l[?25hdone
       Getting requirements to build wheel ... [?25l[?25hdone
       Preparing metadata (pyproject.toml) ... [?25l[?25hdone
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m66.6/66.6 kB[0m [31m2.6 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m28.4 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m241.9/241.9 kB[0m [31m16.9 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m67.7/67.7 kB[0m [31m727.7 kB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m22.2 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m241.9/241.9 kB[0m [31m15.0 MB/s[0m eta [36m0:00:00[0m
     [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m124.6/124.6 kB[0m [31m8.3 MB/s[0m eta [36m0:00:00[0m
     [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m208.9/208.9 kB[0m [31m14.0 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m319.2/319.2 kB[0m [31m18.3 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m319.4/319.4 kB[0m [31m19.2 MB/s[0m eta [36m0:00:00[0m
     [?25h  Building wheel for torch-geometric (pyproject.toml) ... [?25l[?25hdone
     Collecting deeponto
       Downloading deeponto-0.9.2-py3-none-any.whl.metadata (15 kB)
@@ -224,7 +224,7 @@ torchversion = torch.__version__
       Downloading multiprocess-0.70.16-py310-none-any.whl.metadata (7.2 kB)
     Collecting fsspec<=2024.9.0,>=2023.1.0 (from fsspec[http]<=2024.9.0,>=2023.1.0->datasets->deeponto)
       Downloading fsspec-2024.9.0-py3-none-any.whl.metadata (11 kB)
-    Requirement already satisfied: aiohttp in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (3.11.6)
+    Requirement already satisfied: aiohttp in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (3.11.7)
     Requirement already satisfied: huggingface-hub>=0.23.0 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (0.26.2)
     Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (24.2)
     Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (6.0.2)
@@ -279,7 +279,7 @@ torchversion = torch.__version__
     Requirement already satisfied: nvidia-nvtx-cu11==11.7.91 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (11.7.91)
     Requirement already satisfied: triton==2.0.0 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (2.0.0)
     Requirement already satisfied: wheel in /usr/local/lib/python3.10/dist-packages (from nvidia-cublas-cu11==11.10.3.66->torch->deeponto) (0.45.0)
-    Requirement already satisfied: cmake in /usr/local/lib/python3.10/dist-packages (from triton==2.0.0->torch->deeponto) (3.31.0.1)
+    Requirement already satisfied: cmake in /usr/local/lib/python3.10/dist-packages (from triton==2.0.0->torch->deeponto) (3.31.1)
     Requirement already satisfied: lit in /usr/local/lib/python3.10/dist-packages (from triton==2.0.0->torch->deeponto) (18.1.8)
     Requirement already satisfied: safetensors>=0.4.1 in /usr/local/lib/python3.10/dist-packages (from transformers[torch]->deeponto) (0.4.5)
     Requirement already satisfied: tokenizers<0.21,>=0.20 in /usr/local/lib/python3.10/dist-packages (from transformers[torch]->deeponto) (0.20.3)
@@ -288,12 +288,12 @@ torchversion = torch.__version__
     Requirement already satisfied: wcwidth>=0.1.4 in /usr/local/lib/python3.10/dist-packages (from blessed>=1.17.7->enlighten->deeponto) (0.2.13)
     Requirement already satisfied: aiohappyeyeballs>=2.3.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (2.4.3)
     Requirement already satisfied: aiosignal>=1.1.2 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (1.3.1)
+    Requirement already satisfied: async-timeout<6.0,>=4.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (5.0.1)
     Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (24.2.0)
     Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (1.5.0)
     Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (6.1.0)
     Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (0.2.0)
-    Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (1.17.2)
-    Requirement already satisfied: async-timeout<6.0,>=4.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (5.0.1)
+    Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (1.18.0)
     Collecting jedi>=0.16 (from ipython>=5.0.0->ipykernel->deeponto)
       Downloading jedi-0.19.2-py2.py3-none-any.whl.metadata (22 kB)
     Requirement already satisfied: decorator in /usr/local/lib/python3.10/dist-packages (from ipython>=5.0.0->ipykernel->deeponto) (5.1.1)
@@ -361,36 +361,36 @@ torchversion = torch.__version__
     Requirement already satisfied: sniffio>=1.1 in /usr/local/lib/python3.10/dist-packages (from anyio<4,>=3.1.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.3.1)
     Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.10/dist-packages (from anyio<4,>=3.1.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.2.2)
     Downloading deeponto-0.9.2-py3-none-any.whl (89.7 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m89.7/89.7 MB[0m [31m12.2 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m89.7/89.7 MB[0m [31m11.7 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading anytree-2.12.1-py3-none-any.whl (44 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m44.9/44.9 kB[0m [31m1.1 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m44.9/44.9 kB[0m [31m2.4 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading datasets-3.1.0-py3-none-any.whl (480 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m480.6/480.6 kB[0m [31m30.0 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m480.6/480.6 kB[0m [31m28.7 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading dill-0.3.8-py3-none-any.whl (116 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m116.3/116.3 kB[0m [31m8.2 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m116.3/116.3 kB[0m [31m8.3 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading enlighten-1.12.4-py2.py3-none-any.whl (41 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m41.9/41.9 kB[0m [31m2.3 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m41.9/41.9 kB[0m [31m2.9 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading jpype1-1.5.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (493 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m493.8/493.8 kB[0m [31m29.2 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m493.8/493.8 kB[0m [31m30.5 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading lxml-5.3.0-cp310-cp310-manylinux_2_28_x86_64.whl (5.0 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.0/5.0 MB[0m [31m99.4 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.0/5.0 MB[0m [31m92.3 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading pprintpp-0.4.0-py2.py3-none-any.whl (16 kB)
     Downloading rdflib-7.1.1-py3-none-any.whl (562 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m562.4/562.4 kB[0m [31m34.0 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m562.4/562.4 kB[0m [31m34.7 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading textdistance-4.6.3-py3-none-any.whl (31 kB)
     Downloading yacs-0.1.8-py3-none-any.whl (14 kB)
     Downloading blessed-1.20.0-py2.py3-none-any.whl (58 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m58.4/58.4 kB[0m [31m3.4 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m58.4/58.4 kB[0m [31m3.9 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading fsspec-2024.9.0-py3-none-any.whl (179 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m179.3/179.3 kB[0m [31m13.1 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m179.3/179.3 kB[0m [31m11.5 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading isodate-0.7.2-py3-none-any.whl (22 kB)
     Downloading multiprocess-0.70.16-py310-none-any.whl (134 kB)
     [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m134.8/134.8 kB[0m [31m8.9 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading prefixed-0.9.0-py2.py3-none-any.whl (13 kB)
     Downloading xxhash-3.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (194 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m194.1/194.1 kB[0m [31m12.8 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m194.1/194.1 kB[0m [31m11.8 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m54.6 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m53.0 MB/s[0m eta [36m0:00:00[0m
     [?25hInstalling collected packages: prefixed, pprintpp, yacs, xxhash, textdistance, lxml, JPype1, jedi, isodate, fsspec, dill, blessed, anytree, rdflib, multiprocess, enlighten, datasets, deeponto
       Attempting uninstall: fsspec
         Found existing installation: fsspec 2024.10.0
@@ -498,6 +498,7 @@ from deeponto.align.mapping import ReferenceMapping, EntityMapping
 # Import utility function for reading tables (e.g., TSV, CSV) from DeepOnto.
 from deeponto.utils import read_table
 
+# Importing the train_test_split function from sklearn's model_selection module.
 from sklearn.model_selection import train_test_split
 ```
 
@@ -524,28 +525,37 @@ drive.mount('/content/gdrive')
 
 ```python
 # Define the source ontology name
-src_ent = "omim"
+src_ent = "snomed.neoplas"
 
 # Define the target ontology name
-tgt_ent = "ordo"
+tgt_ent = "ncit.neoplas"
 
 # Define the task name for this ontology matching process
-task = "omim2ordo"
+task = "neoplas"
 
+# Define the weight for the training data
+# This weight is likely used to balance the training process, giving more emphasis to certain examples.
+# For instance, a weight of 10.0 could be applied to penalize errors in certain types of predictions more heavily.
+weight_train= 50.0
+
+# Define the similarity threshold for validating matches
+thres = 0.50
 ```
 
 
 ```python
-dir = "/content/gdrive/My Drive/BioGITOM-VLDB/"
+dir = f"/content/gdrive/My Drive/BioGITOM-VLDB/Experiments/{task}"
+
+dataset="/content/gdrive/My Drive/BioGITOM-VLDB/"
 
 # Define the directory for the dataset containing source and target ontologies
-dataset_dir = f"{dir}/Datasets/{task}"
+dataset_dir = f"{dataset}/Datasets/{task}"
 
 # Define the data directory for storing embeddings, adjacency matrices, and related files
-data_dir = f"{dir}/{task}/Data"
+data_dir = f"{dir}/Data"
 
 # Define the directory for storing the results
-results_dir = f"{dir}/{task}/Results"
+results_dir = f"{dir}/GN_Ablation/Results"
 ```
 
 
@@ -583,7 +593,7 @@ src_class = f"{data_dir}/{src_ent}_classes.json"
 tgt_class = f"{data_dir}/{tgt_ent}_classes.json"
 
 # Define the file path for the train data
-train_file = f"{data_dir}/{task}_train.csv"
+train_file = f"{data_dir}/{task}_train_100.csv"
 
 # Define the file path for the test data
 # The test file contains reference mappings (ground truth) between the source and target ontologies.
@@ -1105,12 +1115,13 @@ def Prediction_with_candidates(model, X1_tt, X2_tt, X3_tt, X4_tt, src_entity_ten
 
 
 ```python
-def filter_highest_predictions(input_file_path, output_file_path, threshold=0.2):
+def filter_highest_predictions(input_file_path, output_file_path, threshold=0.5):
     # Load the all predictions file
     df = pd.read_csv(input_file_path, sep='\t')
 
-    # Extract the similarity score from the list in the 'Score' column
-    df['Score'] = df['Score'].apply(lambda x: float(x.strip('[]')))
+    # Ensure 'Score' is treated as a numeric column
+    if not pd.api.types.is_numeric_dtype(df['Score']):
+        df['Score'] = df['Score'].apply(float)
 
     # Sorting the dataframe by similarity score in descending order
     df_sorted = df.sort_values(by='Score', ascending=False).reset_index(drop=True)
@@ -1141,9 +1152,10 @@ def filter_highest_predictions(input_file_path, output_file_path, threshold=0.2)
     matching_results_df_threshold.to_csv(output_file_path, sep='\t', index=False)
 
     # Print the number of predictions saved
-    print(f"Number of predictions saved to {output_file_path}: {len(matching_results_df_threshold)}")
+    print(f"Number of Positive Predictions : {len(matching_results_df_threshold)}")
 
     return matching_results_df_threshold, len(matching_results_df_threshold)
+
 ```
 
 
@@ -1209,6 +1221,40 @@ def compute_mrr_and_hits(reference_file, predicted_file, output_file, k_values=[
     hits_at_k = {k: hits / total_entities for k, hits in hits_at_k.items()}
 
     return {"MRR": mrr, "Hits@k": hits_at_k}
+```
+
+
+```python
+def Prediction_with_git(embeddings_src, embeddings_tgt, src_entity_tensor_o, tgt_entity_tensor_o,
+                        indexed_dict_src, indexed_dict_tgt, all_predictions_path):
+    """
+    Directly predicts similarity scores using GIT model embeddings and cosine similarity.
+    """
+    # Ensure embeddings are on CPU
+    embeddings_src = embeddings_src.cpu()
+    embeddings_tgt = embeddings_tgt.cpu()
+
+    # Select rows for source and target entities
+    src_embeddings = select_rows_by_index(embeddings_src, src_entity_tensor_o)
+    tgt_embeddings = select_rows_by_index(embeddings_tgt, tgt_entity_tensor_o)
+
+    # Compute cosine similarity
+    with torch.no_grad():
+        similarity_scores = F.cosine_similarity(src_embeddings, tgt_embeddings, dim=1).cpu().numpy()
+
+    # Prepare results
+    results = []
+    for i in range(len(similarity_scores)):
+        src_uri = indexed_dict_src.get(int(src_entity_tensor_o[i].item()), "Unknown URI")
+        tgt_uri = indexed_dict_tgt.get(int(tgt_entity_tensor_o[i].item()), "Unknown URI")
+        score = similarity_scores[i]
+        results.append({'SrcEntity': src_uri, 'TgtEntity': tgt_uri, 'Score': score})
+
+    # Save results to a TSV file
+    df_results = pd.DataFrame(results)
+    df_results.to_csv(all_predictions_path, sep='\t', index=False)
+    print(f"Predictions saved to {all_predictions_path}")
+
 ```
 
 # **Main Code**
@@ -1417,115 +1463,115 @@ trained_model = train_model_gnn(
 )
 ```
 
-    Epoch [10/1000], Training Loss: 0.22471314668655396
-    Epoch [20/1000], Training Loss: 0.12053973972797394
-    Epoch [30/1000], Training Loss: 0.07354842126369476
-    Epoch [40/1000], Training Loss: 0.04885029420256615
-    Epoch [50/1000], Training Loss: 0.03670162335038185
-    Epoch [60/1000], Training Loss: 0.026779785752296448
-    Epoch [70/1000], Training Loss: 0.02178446762263775
-    Epoch [80/1000], Training Loss: 0.01800531893968582
-    Epoch [90/1000], Training Loss: 0.015624230727553368
-    Epoch [100/1000], Training Loss: 0.014162757433950901
-    Epoch [110/1000], Training Loss: 0.013118856586515903
-    Epoch [120/1000], Training Loss: 0.01233171857893467
-    Epoch [130/1000], Training Loss: 0.01171478908509016
-    Epoch [140/1000], Training Loss: 0.011207737028598785
-    Epoch [150/1000], Training Loss: 0.01078308280557394
-    Epoch [160/1000], Training Loss: 0.0104232057929039
-    Epoch [170/1000], Training Loss: 0.010110722854733467
-    Epoch [180/1000], Training Loss: 0.00983789935708046
-    Epoch [190/1000], Training Loss: 0.009599526412785053
-    Epoch [200/1000], Training Loss: 0.009393219836056232
-    Epoch [210/1000], Training Loss: 0.009215903468430042
-    Epoch [220/1000], Training Loss: 0.00906318984925747
-    Epoch [230/1000], Training Loss: 0.008930198848247528
-    Epoch [240/1000], Training Loss: 0.008812502026557922
-    Epoch [250/1000], Training Loss: 0.008707180619239807
-    Epoch [260/1000], Training Loss: 0.008612072095274925
-    Epoch [270/1000], Training Loss: 0.008524937555193901
-    Epoch [280/1000], Training Loss: 0.008444441482424736
-    Epoch [290/1000], Training Loss: 0.008369723334908485
-    Epoch [300/1000], Training Loss: 0.008299292996525764
-    Epoch [310/1000], Training Loss: 0.008232571184635162
-    Epoch [320/1000], Training Loss: 0.008169126696884632
-    Epoch [330/1000], Training Loss: 0.008108378387987614
-    Epoch [340/1000], Training Loss: 0.008049774914979935
-    Epoch [350/1000], Training Loss: 0.00799317006021738
-    Epoch [360/1000], Training Loss: 0.007938800379633904
-    Epoch [370/1000], Training Loss: 0.00788646936416626
-    Epoch [380/1000], Training Loss: 0.007836620323359966
-    Epoch [390/1000], Training Loss: 0.0077892025001347065
-    Epoch [400/1000], Training Loss: 0.0077440752647817135
-    Epoch [410/1000], Training Loss: 0.0077012283727526665
-    Epoch [420/1000], Training Loss: 0.0076605635695159435
-    Epoch [430/1000], Training Loss: 0.007622049655765295
-    Epoch [440/1000], Training Loss: 0.007585589308291674
-    Epoch [450/1000], Training Loss: 0.007550944574177265
-    Epoch [460/1000], Training Loss: 0.007517912890762091
-    Epoch [470/1000], Training Loss: 0.007486244663596153
-    Epoch [480/1000], Training Loss: 0.007455745246261358
-    Epoch [490/1000], Training Loss: 0.007426256779581308
-    Epoch [500/1000], Training Loss: 0.007397518493235111
-    Epoch [510/1000], Training Loss: 0.007369400002062321
-    Epoch [520/1000], Training Loss: 0.007341776043176651
-    Epoch [530/1000], Training Loss: 0.007314783055335283
-    Epoch [540/1000], Training Loss: 0.007288149558007717
-    Epoch [550/1000], Training Loss: 0.0072617600671947
-    Epoch [560/1000], Training Loss: 0.007235467433929443
-    Epoch [570/1000], Training Loss: 0.007209334522485733
-    Epoch [580/1000], Training Loss: 0.0071834418922662735
-    Epoch [590/1000], Training Loss: 0.007157671265304089
-    Epoch [600/1000], Training Loss: 0.007131912745535374
-    Epoch [610/1000], Training Loss: 0.007106289267539978
-    Epoch [620/1000], Training Loss: 0.007080807350575924
-    Epoch [630/1000], Training Loss: 0.0070554292760789394
-    Epoch [640/1000], Training Loss: 0.007030101493000984
-    Epoch [650/1000], Training Loss: 0.00700480118393898
-    Epoch [660/1000], Training Loss: 0.006979544647037983
-    Epoch [670/1000], Training Loss: 0.006954297423362732
-    Epoch [680/1000], Training Loss: 0.006929248571395874
-    Epoch [690/1000], Training Loss: 0.0069042774848639965
-    Epoch [700/1000], Training Loss: 0.006879366468638182
-    Epoch [710/1000], Training Loss: 0.006854507140815258
-    Epoch [720/1000], Training Loss: 0.00682973163202405
-    Epoch [730/1000], Training Loss: 0.006805045530200005
-    Epoch [740/1000], Training Loss: 0.00678045442327857
-    Epoch [750/1000], Training Loss: 0.006755981594324112
-    Epoch [760/1000], Training Loss: 0.006731763016432524
-    Epoch [770/1000], Training Loss: 0.00670771487057209
-    Epoch [780/1000], Training Loss: 0.00668384088203311
-    Epoch [790/1000], Training Loss: 0.006660144310444593
-    Epoch [800/1000], Training Loss: 0.006636663340032101
-    Epoch [810/1000], Training Loss: 0.006613404490053654
-    Epoch [820/1000], Training Loss: 0.006590348202735186
-    Epoch [830/1000], Training Loss: 0.006567475385963917
-    Epoch [840/1000], Training Loss: 0.006544824689626694
-    Epoch [850/1000], Training Loss: 0.006522388197481632
-    Epoch [860/1000], Training Loss: 0.006500170566141605
-    Epoch [870/1000], Training Loss: 0.006478155963122845
-    Epoch [880/1000], Training Loss: 0.0064562601037323475
-    Epoch [890/1000], Training Loss: 0.00643448531627655
-    Epoch [900/1000], Training Loss: 0.006412793416529894
-    Epoch [910/1000], Training Loss: 0.00639118067920208
-    Epoch [920/1000], Training Loss: 0.006369628477841616
-    Epoch [930/1000], Training Loss: 0.006348108872771263
-    Epoch [940/1000], Training Loss: 0.006326605100184679
-    Epoch [950/1000], Training Loss: 0.006305147428065538
-    Epoch [960/1000], Training Loss: 0.006283686496317387
-    Epoch [970/1000], Training Loss: 0.006262212060391903
-    Epoch [980/1000], Training Loss: 0.006240649614483118
-    Epoch [990/1000], Training Loss: 0.006218931637704372
-    Epoch [1000/1000], Training Loss: 0.006197180598974228
+    Epoch [10/1000], Training Loss: 0.0016712708165869117
+    Epoch [20/1000], Training Loss: 0.0014094123616814613
+    Epoch [30/1000], Training Loss: 0.0012607572134584188
+    Epoch [40/1000], Training Loss: 0.001158032682724297
+    Epoch [50/1000], Training Loss: 0.001077420311048627
+    Epoch [60/1000], Training Loss: 0.0010102245723828673
+    Epoch [70/1000], Training Loss: 0.0009530358365736902
+    Epoch [80/1000], Training Loss: 0.0009031285881064832
+    Epoch [90/1000], Training Loss: 0.0008599116117693484
+    Epoch [100/1000], Training Loss: 0.0008215750567615032
+    Epoch [110/1000], Training Loss: 0.0007878413307480514
+    Epoch [120/1000], Training Loss: 0.0007579987868666649
+    Epoch [130/1000], Training Loss: 0.0007318439311347902
+    Epoch [140/1000], Training Loss: 0.0007084478274919093
+    Epoch [150/1000], Training Loss: 0.0006879005813971162
+    Epoch [160/1000], Training Loss: 0.0006692704046145082
+    Epoch [170/1000], Training Loss: 0.0006528531666845083
+    Epoch [180/1000], Training Loss: 0.000638019060716033
+    Epoch [190/1000], Training Loss: 0.0006249377620406449
+    Epoch [200/1000], Training Loss: 0.0006131154950708151
+    Epoch [210/1000], Training Loss: 0.0006024641334079206
+    Epoch [220/1000], Training Loss: 0.0005929061444476247
+    Epoch [230/1000], Training Loss: 0.0005840306403115392
+    Epoch [240/1000], Training Loss: 0.0005759295891039073
+    Epoch [250/1000], Training Loss: 0.0005684875650331378
+    Epoch [260/1000], Training Loss: 0.0005615610862150788
+    Epoch [270/1000], Training Loss: 0.0005552042275667191
+    Epoch [280/1000], Training Loss: 0.0005492367199622095
+    Epoch [290/1000], Training Loss: 0.0005435856292024255
+    Epoch [300/1000], Training Loss: 0.0005382148665376008
+    Epoch [310/1000], Training Loss: 0.0005331399734131992
+    Epoch [320/1000], Training Loss: 0.0005283502978272736
+    Epoch [330/1000], Training Loss: 0.0005238704616203904
+    Epoch [340/1000], Training Loss: 0.0005196126294322312
+    Epoch [350/1000], Training Loss: 0.0005155053222551942
+    Epoch [360/1000], Training Loss: 0.0005115197272971272
+    Epoch [370/1000], Training Loss: 0.0005077189416624606
+    Epoch [380/1000], Training Loss: 0.0005039898678660393
+    Epoch [390/1000], Training Loss: 0.0005002503166906536
+    Epoch [400/1000], Training Loss: 0.0004965748521499336
+    Epoch [410/1000], Training Loss: 0.0004930297145619988
+    Epoch [420/1000], Training Loss: 0.0004895235761068761
+    Epoch [430/1000], Training Loss: 0.00048608818906359375
+    Epoch [440/1000], Training Loss: 0.00048271831474266946
+    Epoch [450/1000], Training Loss: 0.00047951171291060746
+    Epoch [460/1000], Training Loss: 0.00047641806304454803
+    Epoch [470/1000], Training Loss: 0.00047332202666439116
+    Epoch [480/1000], Training Loss: 0.00047034176532179117
+    Epoch [490/1000], Training Loss: 0.0004674073134083301
+    Epoch [500/1000], Training Loss: 0.00046446637134067714
+    Epoch [510/1000], Training Loss: 0.00046145819942466915
+    Epoch [520/1000], Training Loss: 0.0004584711277857423
+    Epoch [530/1000], Training Loss: 0.0004554564075078815
+    Epoch [540/1000], Training Loss: 0.00045241325278766453
+    Epoch [550/1000], Training Loss: 0.0004494234162848443
+    Epoch [560/1000], Training Loss: 0.0004465184756554663
+    Epoch [570/1000], Training Loss: 0.0004436260787770152
+    Epoch [580/1000], Training Loss: 0.00044073231401853263
+    Epoch [590/1000], Training Loss: 0.00043786157038994133
+    Epoch [600/1000], Training Loss: 0.0004349817172624171
+    Epoch [610/1000], Training Loss: 0.0004321289306972176
+    Epoch [620/1000], Training Loss: 0.0004291947989258915
+    Epoch [630/1000], Training Loss: 0.0004262780712451786
+    Epoch [640/1000], Training Loss: 0.0004234297957736999
+    Epoch [650/1000], Training Loss: 0.00042066321475431323
+    Epoch [660/1000], Training Loss: 0.0004179232055321336
+    Epoch [670/1000], Training Loss: 0.0004153630288783461
+    Epoch [680/1000], Training Loss: 0.0004128249711357057
+    Epoch [690/1000], Training Loss: 0.0004103686660528183
+    Epoch [700/1000], Training Loss: 0.00040791623177938163
+    Epoch [710/1000], Training Loss: 0.00040542386705055833
+    Epoch [720/1000], Training Loss: 0.0004030531272292137
+    Epoch [730/1000], Training Loss: 0.00040072898264043033
+    Epoch [740/1000], Training Loss: 0.00039842238766141236
+    Epoch [750/1000], Training Loss: 0.000396231742342934
+    Epoch [760/1000], Training Loss: 0.00039409034070558846
+    Epoch [770/1000], Training Loss: 0.0003919380542356521
+    Epoch [780/1000], Training Loss: 0.0003896332927979529
+    Epoch [790/1000], Training Loss: 0.00038737821159884334
+    Epoch [800/1000], Training Loss: 0.0003854768583551049
+    Epoch [810/1000], Training Loss: 0.00038313213735818863
+    Epoch [820/1000], Training Loss: 0.0003810780181083828
+    Epoch [830/1000], Training Loss: 0.00037872555549256504
+    Epoch [840/1000], Training Loss: 0.0003767276357393712
+    Epoch [850/1000], Training Loss: 0.00037433148827403784
+    Epoch [860/1000], Training Loss: 0.00037197256460785866
+    Epoch [870/1000], Training Loss: 0.00036935191019438207
+    Epoch [880/1000], Training Loss: 0.00036693571018986404
+    Epoch [890/1000], Training Loss: 0.0003644235257524997
+    Epoch [900/1000], Training Loss: 0.00036188834928907454
+    Epoch [910/1000], Training Loss: 0.00035931306774728
+    Epoch [920/1000], Training Loss: 0.0003567437524907291
+    Epoch [930/1000], Training Loss: 0.0003544101200532168
+    Epoch [940/1000], Training Loss: 0.0003520420868881047
+    Epoch [950/1000], Training Loss: 0.00035002428921870887
+    Epoch [960/1000], Training Loss: 0.0003478334110695869
+    Epoch [970/1000], Training Loss: 0.0003456070553511381
+    Epoch [980/1000], Training Loss: 0.0003431134100537747
+    Epoch [990/1000], Training Loss: 0.0003408135671634227
+    Epoch [1000/1000], Training Loss: 0.0003386490570846945
 
 
 
     
-![png](output_36_1.png)
+![png](output_37_1.png)
     
 
 
-    Training complete! Total training time: 340.26 seconds
+    Training complete! Total training time: 1757.58 seconds
 
 
 # GIT Application
@@ -1561,281 +1607,6 @@ embeddings_src = embeddings_src.detach().cpu()  # Source graph embeddings
 
 # At this point, embeddings_tgt and embeddings_src contain the updated embeddings, ready for downstream tasks
 ```
-
-# Selecting embedding pairs to train the Gated Network
-
-
-```python
-# Read the training pairs from a CSV file into a pandas DataFrame
-df_embeddings = pd.read_csv(train_file, index_col=0)
-
-# Extract columns and convert to NumPy arrays
-tensor_term1 = df_embeddings['SrcEntity'].values.astype(int)  # Source entity indices
-tensor_term2 = df_embeddings['TgtEntity'].values.astype(int)  # Target entity indices
-tensor_score = df_embeddings['Score'].values.astype(float)  # Matching scores
-
-# Split data into training and validation sets
-tensor_term1_train, tensor_term1_val, tensor_term2_train, tensor_term2_val, tensor_score_train, tensor_score_val = train_test_split(
-    tensor_term1, tensor_term2, tensor_score, test_size=0.3, random_state=42
-)
-
-# Convert split data to PyTorch tensors
-tensor_term1_train = torch.from_numpy(tensor_term1_train).type(torch.LongTensor)
-tensor_term2_train = torch.from_numpy(tensor_term2_train).type(torch.LongTensor)
-tensor_score_train = torch.from_numpy(tensor_score_train).type(torch.FloatTensor)
-
-tensor_term1_val = torch.from_numpy(tensor_term1_val).type(torch.LongTensor)
-tensor_term2_val = torch.from_numpy(tensor_term2_val).type(torch.LongTensor)
-tensor_score_val = torch.from_numpy(tensor_score_val).type(torch.FloatTensor)
-
-# Move the embeddings back to the CPU if not already there
-x_tgt = x_tgt.cpu()  # Target node embeddings
-x_src = x_src.cpu()  # Source node embeddings
-
-# Select embeddings for the training set
-X1_train = select_rows_by_index(embeddings_src, tensor_term1_train)
-X2_train = select_rows_by_index(x_src, tensor_term1_train)
-X3_train = select_rows_by_index(embeddings_tgt, tensor_term2_train)
-X4_train = select_rows_by_index(x_tgt, tensor_term2_train)
-
-# Select embeddings for the validation set
-X1_val = select_rows_by_index(embeddings_src, tensor_term1_val)
-X2_val = select_rows_by_index(x_src, tensor_term1_val)
-X3_val = select_rows_by_index(embeddings_tgt, tensor_term2_val)
-X4_val = select_rows_by_index(x_tgt, tensor_term2_val)
-
-# Now you have:
-# - Training tensors: X1_train, X2_train, X3_train, X4_train, tensor_score_train
-# - Validation tensors: X1_val, X2_val, X3_val, X4_val, tensor_score_val
-```
-
-
-```python
-positive_weight = len(tensor_score_train) / (10.0 * tensor_score_train.sum())
-```
-
-# Gated Network Training
-
-
-```python
-def train_gated_combination_model(X1_t, X2_t, X3_t, X4_t, tensor_score_o,
-                                  X1_val, X2_val, X3_val, X4_val, tensor_score_val,
-                                  epochs=120, batch_size=32, learning_rate=0.001, weight_decay=1e-5):
-    """
-    Trains the GatedCombination model with training and validation data, using ReduceLROnPlateau scheduler.
-    """
-
-    # Create datasets and DataLoaders
-    train_dataset = TensorDataset(X1_t, X2_t, X3_t, X4_t, tensor_score_o)
-    val_dataset = TensorDataset(X1_val, X2_val, X3_val, X4_val, tensor_score_val)
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    val_loader = DataLoader(val_dataset, batch_size=batch_size)
-
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = GatedCombination(X1_t.shape[1]).to(device)
-    optimizer = optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
-
-    # Use ReduceLROnPlateau scheduler
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, verbose=True)
-
-    criterion = WeightedBCELoss(pos_weight=positive_weight).to(device)
-
-    train_losses, val_losses = [], []
-
-    start_time = time.time()
-
-    for epoch in range(epochs):
-        model.train()
-        total_train_loss, y_true_train, y_pred_train = 0.0, [], []
-
-        for batch_X1, batch_X2, batch_X3, batch_X4, batch_y in train_loader:
-            batch_X1, batch_X2, batch_X3, batch_X4, batch_y = (batch_X1.to(device), batch_X2.to(device),
-                                                               batch_X3.to(device), batch_X4.to(device), batch_y.to(device))
-            optimizer.zero_grad()
-            outputs = model(batch_X1, batch_X2, batch_X3, batch_X4)
-            loss = criterion(outputs, batch_y.unsqueeze(1).float())
-            loss.backward()
-            optimizer.step()
-            total_train_loss += loss.item()
-            y_true_train.extend(batch_y.cpu().numpy())
-            y_pred_train.extend((outputs > 0.2).float().cpu().numpy())
-
-        train_f1 = f1_score(y_true_train, y_pred_train)
-        train_loss = total_train_loss / len(train_loader)
-        train_losses.append(train_loss)
-
-        # Validation phase
-        model.eval()
-        total_val_loss, y_true_val, y_pred_val = 0.0, [], []
-        with torch.no_grad():
-            for batch_X1, batch_X2, batch_X3, batch_X4, batch_y in val_loader:
-                batch_X1, batch_X2, batch_X3, batch_X4, batch_y = (batch_X1.to(device), batch_X2.to(device),
-                                                                   batch_X3.to(device), batch_X4.to(device), batch_y.to(device))
-                outputs = model(batch_X1, batch_X2, batch_X3, batch_X4)
-                val_loss = criterion(outputs, batch_y.unsqueeze(1).float())
-                total_val_loss += val_loss.item()
-                y_true_val.extend(batch_y.cpu().numpy())
-                y_pred_val.extend((outputs > 0.4).float().cpu().numpy())
-
-        val_f1 = f1_score(y_true_val, y_pred_val)
-        avg_val_loss = total_val_loss / len(val_loader)
-        val_losses.append(avg_val_loss)
-
-        # Step the scheduler with validation loss
-        scheduler.step(avg_val_loss)
-
-        # Print training and validation metrics
-        print(f"Epoch [{epoch + 1}/{epochs}] Training Loss: {train_loss:.4f}, F1 Score: {train_f1:.4f} | "
-              f"Validation Loss: {avg_val_loss:.4f}, F1 Score: {val_f1:.4f}")
-
-    end_time = time.time()
-
-    # Plotting
-    plt.figure(figsize=(10, 5))
-    plt.plot(train_losses, label="Training Loss", marker='o')
-    plt.plot(val_losses, label="Validation Loss", marker='x')
-    plt.xlabel('Epoch')
-    plt.ylabel('Loss')
-    plt.legend()
-    plt.show()
-
-    print(f"Training complete! Total time: {end_time - start_time:.2f} seconds")
-    return model
-```
-
-
-```python
-# Train the GatedCombination model using training and validation data
-trained_model = train_gated_combination_model(
-    X1_train,          # Updated source embeddings (after applying the GNN model)
-    X2_train,          # Original source embeddings (before applying the GNN model)
-    X3_train,          # Updated target embeddings (after applying the GNN model)
-    X4_train,          # Original target embeddings (before applying the GNN model)
-    tensor_score_train, # Ground truth labels for the training set (1 for matched pairs, 0 for unmatched pairs)
-
-    X1_val,            # Updated source embeddings for the validation set
-    X2_val,            # Original source embeddings for the validation set
-    X3_val,            # Updated target embeddings for the validation set
-    X4_val,            # Original target embeddings for the validation set
-    tensor_score_val,  # Ground truth labels for the validation set (1 for matched pairs, 0 for unmatched pairs)
-
-    epochs=100,        # Number of epochs (iterations over the entire training dataset)
-    batch_size=32,     # Number of training samples processed in one forward/backward pass
-    learning_rate=0.001, # Learning rate for the optimizer (controls step size during optimization)
-    weight_decay=1e-5  # Weight decay (L2 regularization) to prevent overfitting
-)
-```
-
-    Epoch [1/100] Training Loss: 0.6631, F1 Score: 0.0379 | Validation Loss: 0.4734, F1 Score: 0.2335
-    Epoch [2/100] Training Loss: 0.3783, F1 Score: 0.0486 | Validation Loss: 0.3200, F1 Score: 0.0340
-    Epoch [3/100] Training Loss: 0.2743, F1 Score: 0.4922 | Validation Loss: 0.2456, F1 Score: 0.4369
-    Epoch [4/100] Training Loss: 0.2168, F1 Score: 0.7508 | Validation Loss: 0.1987, F1 Score: 0.7487
-    Epoch [5/100] Training Loss: 0.1792, F1 Score: 0.7778 | Validation Loss: 0.1665, F1 Score: 0.8214
-    Epoch [6/100] Training Loss: 0.1530, F1 Score: 0.8002 | Validation Loss: 0.1437, F1 Score: 0.8833
-    Epoch [7/100] Training Loss: 0.1341, F1 Score: 0.8073 | Validation Loss: 0.1266, F1 Score: 0.9096
-    Epoch [8/100] Training Loss: 0.1195, F1 Score: 0.8084 | Validation Loss: 0.1131, F1 Score: 0.9135
-    Epoch [9/100] Training Loss: 0.1078, F1 Score: 0.8082 | Validation Loss: 0.1021, F1 Score: 0.9150
-    Epoch [10/100] Training Loss: 0.0981, F1 Score: 0.8028 | Validation Loss: 0.0936, F1 Score: 0.9156
-    Epoch [11/100] Training Loss: 0.0904, F1 Score: 0.8077 | Validation Loss: 0.0855, F1 Score: 0.9115
-    Epoch [12/100] Training Loss: 0.0838, F1 Score: 0.8009 | Validation Loss: 0.0791, F1 Score: 0.9120
-    Epoch [13/100] Training Loss: 0.0784, F1 Score: 0.8017 | Validation Loss: 0.0736, F1 Score: 0.9122
-    Epoch [14/100] Training Loss: 0.0736, F1 Score: 0.8013 | Validation Loss: 0.0699, F1 Score: 0.9117
-    Epoch [15/100] Training Loss: 0.0697, F1 Score: 0.8081 | Validation Loss: 0.0658, F1 Score: 0.9124
-    Epoch [16/100] Training Loss: 0.0662, F1 Score: 0.8002 | Validation Loss: 0.0623, F1 Score: 0.9140
-    Epoch [17/100] Training Loss: 0.0631, F1 Score: 0.8095 | Validation Loss: 0.0596, F1 Score: 0.9144
-    Epoch [18/100] Training Loss: 0.0605, F1 Score: 0.8002 | Validation Loss: 0.0567, F1 Score: 0.9150
-    Epoch [19/100] Training Loss: 0.0580, F1 Score: 0.8074 | Validation Loss: 0.0547, F1 Score: 0.9188
-    Epoch [20/100] Training Loss: 0.0562, F1 Score: 0.8074 | Validation Loss: 0.0526, F1 Score: 0.9188
-    Epoch [21/100] Training Loss: 0.0544, F1 Score: 0.8079 | Validation Loss: 0.0507, F1 Score: 0.9170
-    Epoch [22/100] Training Loss: 0.0529, F1 Score: 0.8068 | Validation Loss: 0.0496, F1 Score: 0.9205
-    Epoch [23/100] Training Loss: 0.0516, F1 Score: 0.8066 | Validation Loss: 0.0479, F1 Score: 0.9177
-    Epoch [24/100] Training Loss: 0.0503, F1 Score: 0.8074 | Validation Loss: 0.0473, F1 Score: 0.9144
-    Epoch [25/100] Training Loss: 0.0492, F1 Score: 0.8066 | Validation Loss: 0.0459, F1 Score: 0.9201
-    Epoch [26/100] Training Loss: 0.0481, F1 Score: 0.8092 | Validation Loss: 0.0452, F1 Score: 0.9103
-    Epoch [27/100] Training Loss: 0.0471, F1 Score: 0.8121 | Validation Loss: 0.0439, F1 Score: 0.9220
-    Epoch [28/100] Training Loss: 0.0462, F1 Score: 0.8101 | Validation Loss: 0.0432, F1 Score: 0.9226
-    Epoch [29/100] Training Loss: 0.0453, F1 Score: 0.8179 | Validation Loss: 0.0436, F1 Score: 0.9056
-    Epoch [30/100] Training Loss: 0.0446, F1 Score: 0.8085 | Validation Loss: 0.0423, F1 Score: 0.9209
-    Epoch [31/100] Training Loss: 0.0442, F1 Score: 0.8164 | Validation Loss: 0.0413, F1 Score: 0.9118
-    Epoch [32/100] Training Loss: 0.0434, F1 Score: 0.8150 | Validation Loss: 0.0404, F1 Score: 0.9091
-    Epoch [33/100] Training Loss: 0.0427, F1 Score: 0.8152 | Validation Loss: 0.0396, F1 Score: 0.9129
-    Epoch [34/100] Training Loss: 0.0423, F1 Score: 0.8079 | Validation Loss: 0.0394, F1 Score: 0.9205
-    Epoch [35/100] Training Loss: 0.0418, F1 Score: 0.8132 | Validation Loss: 0.0388, F1 Score: 0.9118
-    Epoch [36/100] Training Loss: 0.0412, F1 Score: 0.8170 | Validation Loss: 0.0389, F1 Score: 0.9205
-    Epoch [37/100] Training Loss: 0.0407, F1 Score: 0.8140 | Validation Loss: 0.0381, F1 Score: 0.9182
-    Epoch [38/100] Training Loss: 0.0403, F1 Score: 0.8116 | Validation Loss: 0.0375, F1 Score: 0.9169
-    Epoch [39/100] Training Loss: 0.0398, F1 Score: 0.8148 | Validation Loss: 0.0374, F1 Score: 0.9205
-    Epoch [40/100] Training Loss: 0.0395, F1 Score: 0.8161 | Validation Loss: 0.0374, F1 Score: 0.9056
-    Epoch [41/100] Training Loss: 0.0391, F1 Score: 0.8178 | Validation Loss: 0.0368, F1 Score: 0.9108
-    Epoch [42/100] Training Loss: 0.0388, F1 Score: 0.8143 | Validation Loss: 0.0364, F1 Score: 0.9171
-    Epoch [43/100] Training Loss: 0.0385, F1 Score: 0.8174 | Validation Loss: 0.0365, F1 Score: 0.9131
-    Epoch [44/100] Training Loss: 0.0381, F1 Score: 0.8112 | Validation Loss: 0.0357, F1 Score: 0.9182
-    Epoch [45/100] Training Loss: 0.0380, F1 Score: 0.8118 | Validation Loss: 0.0361, F1 Score: 0.9220
-    Epoch [46/100] Training Loss: 0.0376, F1 Score: 0.8143 | Validation Loss: 0.0356, F1 Score: 0.9098
-    Epoch [47/100] Training Loss: 0.0372, F1 Score: 0.8172 | Validation Loss: 0.0354, F1 Score: 0.9220
-    Epoch [48/100] Training Loss: 0.0369, F1 Score: 0.8189 | Validation Loss: 0.0349, F1 Score: 0.9144
-    Epoch [49/100] Training Loss: 0.0368, F1 Score: 0.8176 | Validation Loss: 0.0348, F1 Score: 0.9259
-    Epoch [50/100] Training Loss: 0.0364, F1 Score: 0.8167 | Validation Loss: 0.0347, F1 Score: 0.9205
-    Epoch [51/100] Training Loss: 0.0364, F1 Score: 0.8161 | Validation Loss: 0.0357, F1 Score: 0.9086
-    Epoch [52/100] Training Loss: 0.0359, F1 Score: 0.8165 | Validation Loss: 0.0345, F1 Score: 0.9086
-    Epoch [53/100] Training Loss: 0.0359, F1 Score: 0.8217 | Validation Loss: 0.0341, F1 Score: 0.9111
-    Epoch [54/100] Training Loss: 0.0355, F1 Score: 0.8170 | Validation Loss: 0.0339, F1 Score: 0.9167
-    Epoch [55/100] Training Loss: 0.0352, F1 Score: 0.8183 | Validation Loss: 0.0338, F1 Score: 0.9106
-    Epoch [56/100] Training Loss: 0.0350, F1 Score: 0.8145 | Validation Loss: 0.0344, F1 Score: 0.9255
-    Epoch [57/100] Training Loss: 0.0350, F1 Score: 0.8211 | Validation Loss: 0.0332, F1 Score: 0.9174
-    Epoch [58/100] Training Loss: 0.0348, F1 Score: 0.8170 | Validation Loss: 0.0333, F1 Score: 0.9144
-    Epoch [59/100] Training Loss: 0.0345, F1 Score: 0.8207 | Validation Loss: 0.0334, F1 Score: 0.9074
-    Epoch [60/100] Training Loss: 0.0346, F1 Score: 0.8203 | Validation Loss: 0.0329, F1 Score: 0.9146
-    Epoch [61/100] Training Loss: 0.0343, F1 Score: 0.8209 | Validation Loss: 0.0333, F1 Score: 0.9212
-    Epoch [62/100] Training Loss: 0.0338, F1 Score: 0.8174 | Validation Loss: 0.0326, F1 Score: 0.9131
-    Epoch [63/100] Training Loss: 0.0340, F1 Score: 0.8204 | Validation Loss: 0.0330, F1 Score: 0.9272
-    Epoch [64/100] Training Loss: 0.0338, F1 Score: 0.8194 | Validation Loss: 0.0325, F1 Score: 0.9171
-    Epoch [65/100] Training Loss: 0.0334, F1 Score: 0.8176 | Validation Loss: 0.0324, F1 Score: 0.9012
-    Epoch [66/100] Training Loss: 0.0333, F1 Score: 0.8205 | Validation Loss: 0.0321, F1 Score: 0.9101
-    Epoch [67/100] Training Loss: 0.0333, F1 Score: 0.8192 | Validation Loss: 0.0320, F1 Score: 0.9136
-    Epoch [68/100] Training Loss: 0.0332, F1 Score: 0.8160 | Validation Loss: 0.0320, F1 Score: 0.9239
-    Epoch [69/100] Training Loss: 0.0327, F1 Score: 0.8203 | Validation Loss: 0.0320, F1 Score: 0.9212
-    Epoch [70/100] Training Loss: 0.0326, F1 Score: 0.8173 | Validation Loss: 0.0325, F1 Score: 0.9213
-    Epoch [71/100] Training Loss: 0.0325, F1 Score: 0.8228 | Validation Loss: 0.0319, F1 Score: 0.9051
-    Epoch [72/100] Training Loss: 0.0326, F1 Score: 0.8165 | Validation Loss: 0.0320, F1 Score: 0.9186
-    Epoch [73/100] Training Loss: 0.0322, F1 Score: 0.8176 | Validation Loss: 0.0320, F1 Score: 0.9030
-    Epoch [74/100] Training Loss: 0.0322, F1 Score: 0.8214 | Validation Loss: 0.0322, F1 Score: 0.9188
-    Epoch [75/100] Training Loss: 0.0319, F1 Score: 0.8221 | Validation Loss: 0.0318, F1 Score: 0.9126
-    Epoch [76/100] Training Loss: 0.0322, F1 Score: 0.8189 | Validation Loss: 0.0317, F1 Score: 0.9171
-    Epoch [77/100] Training Loss: 0.0318, F1 Score: 0.8233 | Validation Loss: 0.0317, F1 Score: 0.9096
-    Epoch [78/100] Training Loss: 0.0315, F1 Score: 0.8160 | Validation Loss: 0.0314, F1 Score: 0.9186
-    Epoch [79/100] Training Loss: 0.0316, F1 Score: 0.8226 | Validation Loss: 0.0325, F1 Score: 0.9017
-    Epoch [80/100] Training Loss: 0.0315, F1 Score: 0.8153 | Validation Loss: 0.0313, F1 Score: 0.9176
-    Epoch [81/100] Training Loss: 0.0312, F1 Score: 0.8241 | Validation Loss: 0.0314, F1 Score: 0.9042
-    Epoch [82/100] Training Loss: 0.0313, F1 Score: 0.8173 | Validation Loss: 0.0309, F1 Score: 0.9079
-    Epoch [83/100] Training Loss: 0.0313, F1 Score: 0.8228 | Validation Loss: 0.0313, F1 Score: 0.9086
-    Epoch [84/100] Training Loss: 0.0309, F1 Score: 0.8215 | Validation Loss: 0.0310, F1 Score: 0.9111
-    Epoch [85/100] Training Loss: 0.0313, F1 Score: 0.8287 | Validation Loss: 0.0306, F1 Score: 0.9188
-    Epoch [86/100] Training Loss: 0.0309, F1 Score: 0.8142 | Validation Loss: 0.0306, F1 Score: 0.9186
-    Epoch [87/100] Training Loss: 0.0306, F1 Score: 0.8180 | Validation Loss: 0.0312, F1 Score: 0.9220
-    Epoch [88/100] Training Loss: 0.0308, F1 Score: 0.8271 | Validation Loss: 0.0309, F1 Score: 0.9074
-    Epoch [89/100] Training Loss: 0.0305, F1 Score: 0.8229 | Validation Loss: 0.0340, F1 Score: 0.8682
-    Epoch [90/100] Training Loss: 0.0306, F1 Score: 0.8134 | Validation Loss: 0.0310, F1 Score: 0.9155
-    Epoch [91/100] Training Loss: 0.0302, F1 Score: 0.8315 | Validation Loss: 0.0326, F1 Score: 0.8819
-    Epoch [92/100] Training Loss: 0.0301, F1 Score: 0.8229 | Validation Loss: 0.0310, F1 Score: 0.9061
-    Epoch [93/100] Training Loss: 0.0301, F1 Score: 0.8182 | Validation Loss: 0.0316, F1 Score: 0.9098
-    Epoch [94/100] Training Loss: 0.0301, F1 Score: 0.8191 | Validation Loss: 0.0306, F1 Score: 0.9076
-    Epoch [95/100] Training Loss: 0.0299, F1 Score: 0.8211 | Validation Loss: 0.0303, F1 Score: 0.9064
-    Epoch [96/100] Training Loss: 0.0298, F1 Score: 0.8189 | Validation Loss: 0.0305, F1 Score: 0.9126
-    Epoch [97/100] Training Loss: 0.0299, F1 Score: 0.8247 | Validation Loss: 0.0306, F1 Score: 0.9027
-    Epoch [98/100] Training Loss: 0.0301, F1 Score: 0.8152 | Validation Loss: 0.0309, F1 Score: 0.9194
-    Epoch [99/100] Training Loss: 0.0295, F1 Score: 0.8276 | Validation Loss: 0.0317, F1 Score: 0.8978
-    Epoch [100/100] Training Loss: 0.0295, F1 Score: 0.8211 | Validation Loss: 0.0302, F1 Score: 0.9199
-
-
-
-    
-![png](output_44_1.png)
-    
-
-
-    Training complete! Total time: 587.92 seconds
-
 
 # **Mappings Selector**
 
@@ -1885,23 +1656,20 @@ X4_tt = select_rows_by_index(x_tgt, tgt_entity_tenso_or)
 
 
 ```python
-# Generate predictions for candidate mappings using the trained GatedCombination model
-Prediction_with_candidates(
-    model=trained_model,             # The trained GatedCombination model used to evaluate similarity
-    X1_tt=X1_tt,                     # Updated source embeddings (after applying the GIT model)
-    X2_tt=X2_tt,                     # Original source embeddings (before applying the GIT model)
-    X3_tt=X3_tt,                     # Updated target embeddings (after applying the GIT model)
-    X4_tt=X4_tt,                     # Original target embeddings (before applying the GIT model)
-    src_entity_tensor_o=src_entity_tensor_o,  # Tensor of source entity indices used for evaluation
-    tgt_entity_tensor_o=tgt_entity_tenso_or,  # Tensor of target entity indices used for evaluation
-    indexed_dict_src=indexed_dict_src,        # Dictionary mapping source entity indices to their URIs
-    indexed_dict_tgt=indexed_dict_tgt,        # Dictionary mapping target entity indices to their URIs
-    all_predictions_path=all_predictions_path # Path to save all predictions with similarity scores in TSV format
+# Generate predictions for candidate mappings using the GIT model outputs directly
+Prediction_with_git(
+    embeddings_src=embeddings_src,          # Updated source embeddings from GIT
+    embeddings_tgt=embeddings_tgt,          # Updated target embeddings from GIT
+    src_entity_tensor_o=src_entity_tensor_o, # Tensor of source entity indices
+    tgt_entity_tensor_o=tgt_entity_tenso_or, # Tensor of target entity indices
+    indexed_dict_src=indexed_dict_src,       # Source entity URI mapping
+    indexed_dict_tgt=indexed_dict_tgt,       # Target entity URI mapping
+    all_predictions_path=all_predictions_path # Path to save predictions
 )
+
 ```
 
-    Predicting time: 9.71 seconds
-    Predictions saved to /content/gdrive/My Drive/BioGITOM-VLDB//omim2ordo/Results/omim2ordo_all_predictions.tsv
+    Predictions saved to /content/gdrive/My Drive/BioGITOM-VLDB/Experiments/neoplas/GN_Ablation/Results/neoplas_all_predictions.tsv
 
 
 
@@ -1913,7 +1681,7 @@ matching_results_df = filter_highest_predictions(
 )
 ```
 
-    Number of predictions saved to /content/gdrive/My Drive/BioGITOM-VLDB//omim2ordo/Results/omim2ordo_matching_results.tsv: 2562
+    Number of Positive Predictions : 2488
 
 
 # **Evaluation**
@@ -1943,14 +1711,14 @@ refs2 = [r.to_tuple() for r in refs]
 
 correct= len(set(preds2).intersection(set(refs2)))
 
-print(f"Number of Instances Predicted as Positive: {correct}")
+print(f"Number of Correct Predictions : {correct}")
 
 # Print the computed precision, recall, and F1-score metrics
 print(results)
 ```
 
-    Number of Instances Predicted as Positive: 2068
-    {'P': 0.807, 'R': 0.794, 'F1': 0.8}
+    Number of Correct Predictions : 1509
+    {'P': 0.607, 'R': 0.567, 'F1': 0.586}
 
 
 # Ranked-based metrics calculation
@@ -2006,10 +1774,6 @@ Prediction_with_candidates(
 )
 ```
 
-    Predicting time: 9.41 seconds
-    Predictions saved to /content/gdrive/My Drive/BioGITOM-VLDB//omim2ordo/Results/omim2ordo_all_predictions_ranked.tsv
-
-
 
 ```python
 # Compute MRR and Hits@k metrics
@@ -2026,10 +1790,6 @@ print("MRR and Hits@k Results:")
 print(results)  # Output the Mean Reciprocal Rank (MRR) and Hits@k metrics
 ```
 
-    MRR and Hits@k Results:
-    {'MRR': 0.8542809701295451, 'Hits@k': {1: 0.7911708253358926, 5: 0.9339731285988484, 10: 0.963531669865643}}
-
-
 
 ```python
 # Call the ranking evaluation function, passing the path to the formatted predictions file.
@@ -2038,7 +1798,3 @@ results = ranking_eval(formatted_predictions_path, Ks=[1, 5, 10])
 print("Ranking Evaluation Results at K=1, 5, and 10:")
 print(results)
 ```
-
-    Ranking Evaluation Results at K=1, 5, and 10:
-    {'MRR': 0.8542809701295451, 'Hits@1': 0.7911708253358926, 'Hits@5': 0.9339731285988484, 'Hits@10': 0.963531669865643}
-

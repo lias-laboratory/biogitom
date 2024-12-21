@@ -1,13 +1,9 @@
-# %% [markdown]
-# # **Package Installation**
+# Package Installation
 
-# %%
 import torch
 
 import os
-os.environ["JAVA_OPTS"] = "-Xmx8g"
 
-# %%
 # Import pandas for data manipulation and analysis, such as loading, processing, and saving tabular data.
 import pandas as pd
 
@@ -107,10 +103,17 @@ from deeponto.utils import read_table
 # Importing the train_test_split function from sklearn's model_selection module.
 from sklearn.model_selection import train_test_split
 
-# %% [markdown]
-# # **Paths Definition**
+import random
 
-# %%
+# Set the seed for PyTorch's random number generator to ensure reproducibility
+torch.manual_seed(42)
+
+# Set the seed for NumPy's random number generator to ensure reproducibility
+np.random.seed(42)
+
+# Set the seed for Python's built-in random module to ensure reproducibility
+random.seed(42)
+
 # Define the source ontology name
 src_ent = "snomed.neoplas"
 
@@ -120,18 +123,18 @@ tgt_ent = "ncit.neoplas"
 # Define the task name for this ontology matching process
 task = "neoplas"
 
-print(f"Running task: {task} from {src_ent} to {tgt_ent}")
-
-# Define the weight for the training data
-# This weight is likely used to balance the training process, giving more emphasis to certain examples.
-# For instance, a weight of 10.0 could be applied to penalize errors in certain types of predictions more heavily.
-weight_train = 50.0
-
 # Define the similarity threshold for validating matches
-thres = 0.50
+thres = 0.20
 
-# %%
-dir = "../../"
+print(f"Matching {src_ent}.owl and {tgt_ent}.owl:")
+
+# Sets the relative path to the root directory of the BioGITOM project.
+# This path points three levels up from the current working directory
+# and navigates to the 'biogitom' folder. Adjust this path if the 
+# directory structure changes or the script is executed from a different location.
+
+dir = "../biogitom"
+
 
 # Define the directory for the dataset containing source and target ontologies
 dataset_dir = f"{dir}/Datasets/{task}"
@@ -142,7 +145,6 @@ data_dir = f"{dir}/Tasks/{task}/Data"
 # Define the directory for storing the results
 results_dir = f"{dir}/Tasks/{task}/Results"
 
-# %%
 # Load the Source ontology using the Ontology class from DeepOnto
 # This initializes the source ontology by loading its .owl file.
 src_onto = Ontology(f"{dataset_dir}/{src_ent}.owl")
@@ -153,11 +155,11 @@ tgt_onto = Ontology(f"{dataset_dir}/{tgt_ent}.owl")
 
 # Define the file path for the Source embeddings CSV file
 # Embeddings for the source ontology entities are stored in this file.
-src_Emb = f"{data_dir}/{src_ent}_emb.csv"
+src_Emb = f"{data_dir}/{src_ent}_BERT_Hybrid_emb.csv"
 
 # Define the file path for the Target embeddings CSV file
 # Embeddings for the target ontology entities are stored in this file.
-tgt_Emb = f"{data_dir}/{tgt_ent}_emb.csv"
+tgt_Emb = f"{data_dir}/{tgt_ent}_BERT_Hybrid_emb.csv"
 
 # Define the file path for the Source adjacency matrix
 # This file represents the relationships (edges) between entities in the source ontology.
@@ -210,11 +212,8 @@ all_predictions_path_ranked = f"{results_dir}/{task}_all_predictions_ranked.tsv"
 # This file will contain predictions formatted for evaluation using ranking-based metrics.
 formatted_predictions_path = f"{results_dir}/{task}_formatted_predictions.tsv"
 
-# %% [markdown]
-# # **GIT Architecture**
-# 
+# GIT Architecture
 
-# %%
 # RGIT class definition which inherits from PyTorch Geometric's MessagePassing class
 class RGIT(MessagePassing):
 
@@ -344,7 +343,6 @@ class RGIT(MessagePassing):
         return (f'{self.__class__.__name__}({self.in_channels}, '
                 f'{self.out_channels}, heads={self.heads})')
 
-# %%
 # Define the RGIT_mod class, a multi-layer GNN that uses both RGIT and linear layers
 class RGIT_mod(torch.nn.Module):
     """Multi-layer RGIT with optional linear layers"""
@@ -380,132 +378,69 @@ class RGIT_mod(torch.nn.Module):
 
         return x  # Return the final node embeddings after all layers
 
+# Gated Network Architecture
 
-# %% [markdown]
-# # **Gated Network Architecture**
-
-# %%
-# Define the GatedCombination class for combining two pairs of embeddings using a gating mechanism
 class GatedCombination(nn.Module):
+    """
+    A neural network module for combining embeddings using a gating mechanism
+    and evaluating their similarity. This class is particularly useful for
+    ontology matching tasks.
+    
+    Args:
+        input_dim (int): Dimensionality of the input embeddings.
+    """
     def __init__(self, input_dim):
-        """
-        Initialize the GatedCombination model.
-
-        Args:
-            input_dim (int): The dimensionality of the input embeddings (x1, x2, x3, x4).
-        """
         super(GatedCombination, self).__init__()
-
-        # Define a linear layer (gate) for combining embeddings x1 and x2 (first pair)
+        
+        # Fully connected layer for gating mechanism on the first embedding pair (x1, x2)
         self.gate_A_fc = nn.Linear(input_dim, input_dim)
-
-        # Define a linear layer (gate) for combining embeddings x3 and x4 (second pair)
+        
+        # Fully connected layer for gating mechanism on the second embedding pair (x3, x4)
         self.gate_B_fc = nn.Linear(input_dim, input_dim)
-
-        # A final fully connected layer that outputs a single neuron (binary classification)
+        
+        # Fully connected layer for final similarity classification
         self.fc = nn.Linear(1, 1)
 
-    def forward(self, x1, x2, x3, x4):
+    def forward(self, x1, x2, x3, x4, return_embeddings=False):
         """
-        Forward pass through the gating mechanism and cosine similarity.
-
+        Forward pass through the GatedCombination model.
+        
         Args:
-            x1 (torch.Tensor): First set of embeddings (source embeddings after update).
-            x2 (torch.Tensor): Second set of embeddings (original source embeddings).
-            x3 (torch.Tensor): Third set of embeddings (target embeddings after update).
-            x4 (torch.Tensor): Fourth set of embeddings (original target embeddings).
-
+            x1 (torch.Tensor): First set of embeddings (e.g., updated source embeddings).
+            x2 (torch.Tensor): Second set of embeddings (e.g., original source embeddings).
+            x3 (torch.Tensor): Third set of embeddings (e.g., updated target embeddings).
+            x4 (torch.Tensor): Fourth set of embeddings (e.g., original target embeddings).
+            return_embeddings (bool): Whether to return the intermediate combined embeddings (a, b).
+        
         Returns:
-            torch.Tensor: Output of the model (probability score for binary classification).
+            torch.Tensor: Probability score for binary classification if return_embeddings is False.
+            Tuple[torch.Tensor, torch.Tensor]: Intermediate embeddings (a, b) if return_embeddings is True.
         """
-        # Compute gate values for the first pair (x1 and x2) using a sigmoid activation
+        # Compute gating weights for the first pair of embeddings (x1, x2)
         gate_values1 = torch.sigmoid(self.gate_A_fc(x1))
-
-        # Combine x1 and x2 using the gate values
-        # The result is a weighted combination of x1 and x2
+        
+        # Blend x1 and x2 using the computed gating weights
         a = x1 * gate_values1 + x2 * (1 - gate_values1)
 
-        # Compute gate values for the second pair (x3 and x4) using a sigmoid activation
+        # Compute gating weights for the second pair of embeddings (x3, x4)
         gate_values2 = torch.sigmoid(self.gate_B_fc(x3))
-
-        # Combine x3 and x4 using the gate values
-        # The result is a weighted combination of x3 and x4
+        
+        # Blend x3 and x4 using the computed gating weights
         b = x3 * gate_values2 + x4 * (1 - gate_values2)
 
-        # Compute cosine similarity between the combined vectors a and b
-        x = torch.cosine_similarity(a, b, dim=1)
+        # If return_embeddings is True, return the intermediate blended embeddings
+        if return_embeddings:
+            return a, b
 
-        # Pass the cosine similarity result through a fully connected layer (fc) for classification
-        # Use a sigmoid activation to output a probability for binary classification
-        out = torch.sigmoid(self.fc(x.unsqueeze(1)))  # unsqueeze(1) to match the input shape for the fc layer
+        # Compute cosine similarity between the blended embeddings a and b
+        x = torch.cosine_similarity(a, b, dim=1)
+        
+        # Apply a fully connected layer and sigmoid activation for classification
+        out = torch.sigmoid(self.fc(x.unsqueeze(1)))
         return out
 
+# Utility functions
 
-
-# %%
-class WeightedBCELoss(nn.Module):
-    def __init__(self, pos_weight):
-        """
-        Weighted Binary Cross-Entropy Loss.
-
-        Args:
-            pos_weight (float): Weight for the positive class.
-        """
-        super(WeightedBCELoss, self).__init__()
-        self.pos_weight = pos_weight
-
-    def forward(self, outputs, targets):
-        """
-        Args:
-            outputs (torch.Tensor): Predicted probabilities from the model (after sigmoid).
-            targets (torch.Tensor): Ground truth labels (0 or 1).
-
-        Returns:
-            torch.Tensor: Computed weighted binary cross-entropy loss.
-        """
-        # Compute weighted BCE loss
-        loss = - (self.pos_weight * targets * torch.log(outputs + 1e-8) +
-                  (1 - targets) * torch.log(1 - outputs + 1e-8))
-        return loss.mean()
-
-# %%
-class FocalLoss(nn.Module):
-    def __init__(self, alpha=0.25, gamma=2):
-        """
-        Focal Loss for binary classification.
-
-        Args:
-            alpha (float): Balancing factor for positive/negative classes.
-            gamma (float): Focusing parameter for hard examples.
-        """
-        super(FocalLoss, self).__init__()
-        self.alpha = alpha
-        self.gamma = gamma
-
-    def forward(self, outputs, targets):
-        """
-        Args:
-            outputs (torch.Tensor): Predicted probabilities from the model (after sigmoid).
-            targets (torch.Tensor): Ground truth labels (0 or 1).
-
-        Returns:
-            torch.Tensor: Computed focal loss.
-        """
-        # Compute binary cross-entropy loss
-        bce_loss = F.binary_cross_entropy(outputs, targets, reduction='none')
-
-        # Compute modulating factor (1 - p_t)^gamma
-        pt = torch.where(targets == 1, outputs, 1 - outputs)  # pt = p if y==1 else 1-p
-        modulating_factor = (1 - pt) ** self.gamma
-
-        # Apply alpha and modulating factor
-        focal_loss = self.alpha * modulating_factor * bce_loss
-        return focal_loss.mean()
-
-# %% [markdown]
-# # **Utility functions**
-
-# %%
 def adjacency_matrix_to_undirected_edge_index(adjacency_matrix):
     """
     Converts an adjacency matrix into an undirected edge index for use in graph-based neural networks.
@@ -530,7 +465,7 @@ def adjacency_matrix_to_undirected_edge_index(adjacency_matrix):
 
     return edge_index_undirected  # Return the undirected edge index
 
-# %%
+
 def build_indexed_dict(file_path):
     """
     Builds a dictionary with numeric indexes for each key from a JSON file.
@@ -550,7 +485,6 @@ def build_indexed_dict(file_path):
 
     return indexed_dict  # Return the newly created dictionary
 
-# %%
 def select_rows_by_index(embedding_vector, index_vector):
     """
     Select rows from an embedding vector using an index vector.
@@ -567,7 +501,6 @@ def select_rows_by_index(embedding_vector, index_vector):
 
     return new_tensor
 
-# %%
 def contrastive_loss(source_embeddings, target_embeddings, labels, margin=1.0):
     """
     Computes the contrastive loss, a type of loss function used to train models in tasks like matching or similarity learning.
@@ -595,8 +528,6 @@ def contrastive_loss(source_embeddings, target_embeddings, labels, margin=1.0):
 
     return loss  # Return the computed contrastive loss
 
-
-# %%
 def Prediction_with_candidates(model, X1_tt, X2_tt, X3_tt, X4_tt, src_entity_tensor_o, tgt_entity_tensor_o,
                                    indexed_dict_src, indexed_dict_tgt, all_predictions_path):
     """
@@ -678,7 +609,6 @@ def Prediction_with_candidates(model, X1_tt, X2_tt, X3_tt, X4_tt, src_entity_ten
 
     print(f"Predictions saved to {all_predictions_path}")
 
-# %%
 def filter_highest_predictions(input_file_path, output_file_path, threshold=thres):
     # Load the all predictions file
     df = pd.read_csv(input_file_path, sep='\t')
@@ -719,7 +649,6 @@ def filter_highest_predictions(input_file_path, output_file_path, threshold=thre
 
     return matching_results_df_threshold, len(matching_results_df_threshold)
 
-# %%
 def compute_mrr_and_hits(reference_file, predicted_file, output_file, k_values=[1, 5, 10]):
     """
     Compute MRR and Hits@k for ontology matching predictions based on a reference file.
@@ -782,18 +711,12 @@ def compute_mrr_and_hits(reference_file, predicted_file, output_file, k_values=[
 
     return {"MRR": mrr, "Hits@k": hits_at_k}
 
-# %% [markdown]
-# # **Main Code**
-# 
-# 
-# 
+# Main Code
 
-# %% [markdown]
-# 
-# 
-# # Reading semantic node embeddings provided by the ENE
+# Reading semantic node embeddings provided by the CNE
 
-# %%
+print("Reading semantic concepts embeddings provided by the CNE...")
+
 # Read the source embeddings from a CSV file into a pandas DataFrame
 df_embbedings_src = pd.read_csv(src_Emb, index_col=0)
 
@@ -803,7 +726,6 @@ numpy_array = df_embbedings_src.to_numpy()
 # Convert the NumPy array into a PyTorch FloatTensor, which is the format required for PyTorch operations
 x_src = torch.FloatTensor(numpy_array)
 
-# %%
 # Read the target embeddings from a CSV file into a pandas DataFrame
 df_embbedings_tgt = pd.read_csv(tgt_Emb, index_col=0)
 
@@ -813,37 +735,33 @@ numpy_array = df_embbedings_tgt.to_numpy()
 # Convert the NumPy array into a PyTorch FloatTensor, which is required for PyTorch operations
 x_tgt = torch.FloatTensor(numpy_array)
 
-# %% [markdown]
-# # Reading adjacency Matrix
 
-# %%
+# Reading adjacency Matrix
+
 # Read the source adjacency matrix from a CSV file into a pandas DataFrame
 df_ma1 = pd.read_csv(src_Adjacence, index_col=0)
 
 # Convert the DataFrame to a list of lists (Python native list format)
 ma1 = df_ma1.values.tolist()
 
-# %%
 # Read the target adjacency matrix from a CSV file into a pandas DataFrame
 df_ma2 = pd.read_csv(tgt_Adjacence, index_col=0)
 
 # Convert the DataFrame to a list of lists (Python native list format)
 ma2 = df_ma2.values.tolist()
 
-# %% [markdown]
-# # Convert Adjacency matrix (in list format) to an undirected edge index
+# Convert Adjacency matrix (in list format) to an undirected edge index
 
-# %%
 # Convert the source adjacency matrix (in list format) to an undirected edge index for PyTorch Geometric
 edge_src = adjacency_matrix_to_undirected_edge_index(ma1)
 
 # Convert the target adjacency matrix (in list format) to an undirected edge index for PyTorch Geometric
 edge_tgt = adjacency_matrix_to_undirected_edge_index(ma2)
 
-# %% [markdown]
-# # GIT Training
+# GIT Training
 
-# %%
+print("GIT Training...")
+
 def train_model_gnn(model, x_src, edge_src, x_tgt, edge_tgt,
                     tensor_term1, tensor_term2, tensor_score,
                     learning_rate, weight_decay_value, num_epochs, print_interval=10):
@@ -936,13 +854,11 @@ def train_model_gnn(model, x_src, edge_src, x_tgt, edge_tgt,
     # Step 8: Return the trained model
     return model
 
-# %%
 # Initialize the GIT_mod model with the dimensionality of the target embeddings
 # The first argument is the dimensionality of the target node embeddings (x_tgt.shape[1])
 # The second argument (1) represents the number of RGIT layers in the model
 GIT_model = RGIT_mod(x_tgt.shape[1], 1)
 
-# %%
 # Reading the training pairs from a CSV file into a pandas DataFrame
 df_embbedings = pd.read_csv(train_file, index_col=0)
 
@@ -958,7 +874,6 @@ tensor_term1_o = torch.from_numpy(tensor_term1).type(torch.LongTensor)  # Source
 tensor_term2_o = torch.from_numpy(tensor_term2).type(torch.LongTensor)  # Target entity tensor
 tensor_score_o = torch.from_numpy(tensor_score).type(torch.FloatTensor)  # Score tensor
 
-# %%
 # Train the GNN model using the provided source and target graph embeddings, edges, and training data
 trained_model = train_model_gnn(
     model=GIT_model,                # The GNN model to be trained (initialized earlier)
@@ -975,15 +890,12 @@ trained_model = train_model_gnn(
     print_interval=10               # Interval at which to print training progress (every 10 epochs)
 )
 
-# %% [markdown]
-# # GIT Application
+# GIT Application
 
-# %%
 # Determine if a GPU is available and move the computations to it; otherwise, use the CPU
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Assuming the model has been trained and hyperparameters (x_src, edge_src, x_tgt, edge_tgt) are set
-
 # Move the trained GIT_model to the device (GPU or CPU)
 GIT_model.to(device)
 
@@ -1007,11 +919,7 @@ embeddings_tgt = embeddings_tgt.detach().cpu()  # Target graph embeddings
 embeddings_src = embeddings_src.detach().cpu()  # Source graph embeddings
 
 # At this point, embeddings_tgt and embeddings_src contain the updated embeddings, ready for downstream tasks
-
-# %% [markdown]
-# # Selecting embedding pairs to train the Gated Network
-
-# %%
+# Selecting embedding pairs to train the Gated Network
 # Read the training pairs from a CSV file into a pandas DataFrame
 df_embeddings = pd.read_csv(train_file, index_col=0)
 
@@ -1050,22 +958,19 @@ X2_val = select_rows_by_index(x_src, tensor_term1_val)
 X3_val = select_rows_by_index(embeddings_tgt, tensor_term2_val)
 X4_val = select_rows_by_index(x_tgt, tensor_term2_val)
 
-# Now you have:
+# Now we have:
 # - Training tensors: X1_train, X2_train, X3_train, X4_train, tensor_score_train
 # - Validation tensors: X1_val, X2_val, X3_val, X4_val, tensor_score_val
 
-# %%
-positive_weight = len(tensor_score_train) / (weight_train * tensor_score_train.sum())
+# Gated Network Training
+print("Gated Network Training...")
 
-# %% [markdown]
-# # Gated Network Training
-
-# %%
 def train_gated_combination_model(X1_t, X2_t, X3_t, X4_t, tensor_score_o,
                                   X1_val, X2_val, X3_val, X4_val, tensor_score_val,
                                   epochs=120, batch_size=32, learning_rate=0.001, weight_decay=1e-5):
     """
     Trains the GatedCombination model with training and validation data, using ReduceLROnPlateau scheduler.
+    Also calculates and displays F1-score during training and validation.
     """
 
     # Create datasets and DataLoaders
@@ -1081,48 +986,73 @@ def train_gated_combination_model(X1_t, X2_t, X3_t, X4_t, tensor_score_o,
     # Use ReduceLROnPlateau scheduler
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, verbose=True)
 
-    criterion = WeightedBCELoss(pos_weight=positive_weight).to(device)
-
     train_losses, val_losses = [], []
 
     start_time = time.time()
 
     for epoch in range(epochs):
         model.train()
-        total_train_loss, y_true_train, y_pred_train = 0.0, [], []
+        total_train_loss = 0.0
+        y_true_train, y_pred_train = [], []
 
         for batch_X1, batch_X2, batch_X3, batch_X4, batch_y in train_loader:
-            batch_X1, batch_X2, batch_X3, batch_X4, batch_y = (batch_X1.to(device), batch_X2.to(device),
-                                                               batch_X3.to(device), batch_X4.to(device), batch_y.to(device))
+            batch_X1, batch_X2, batch_X3, batch_X4, batch_y = (
+                batch_X1.to(device),
+                batch_X2.to(device),
+                batch_X3.to(device),
+                batch_X4.to(device),
+                batch_y.to(device),
+            )
             optimizer.zero_grad()
+
+            # Forward pass
             outputs = model(batch_X1, batch_X2, batch_X3, batch_X4)
-            loss = criterion(outputs, batch_y.unsqueeze(1).float())
+
+            # Compute loss
+            loss = F.binary_cross_entropy(outputs, batch_y.unsqueeze(1).float())
             loss.backward()
             optimizer.step()
             total_train_loss += loss.item()
-            y_true_train.extend(batch_y.cpu().numpy())
-            y_pred_train.extend((outputs > 0.2).float().cpu().numpy())
 
-        train_f1 = f1_score(y_true_train, y_pred_train)
+            # Store true labels and predictions for F1-score
+            y_true_train.extend(batch_y.cpu().numpy())
+            y_pred_train.extend((outputs > 0.5).float().cpu().numpy())
+
         train_loss = total_train_loss / len(train_loader)
         train_losses.append(train_loss)
 
+        # Calculate F1-score for training
+        train_f1 = f1_score(y_true_train, y_pred_train)
+
         # Validation phase
         model.eval()
-        total_val_loss, y_true_val, y_pred_val = 0.0, [], []
+        total_val_loss = 0.0
+        y_true_val, y_pred_val = [], []
+
         with torch.no_grad():
             for batch_X1, batch_X2, batch_X3, batch_X4, batch_y in val_loader:
-                batch_X1, batch_X2, batch_X3, batch_X4, batch_y = (batch_X1.to(device), batch_X2.to(device),
-                                                                   batch_X3.to(device), batch_X4.to(device), batch_y.to(device))
+                batch_X1, batch_X2, batch_X3, batch_X4, batch_y = (
+                    batch_X1.to(device),
+                    batch_X2.to(device),
+                    batch_X3.to(device),
+                    batch_X4.to(device),
+                    batch_y.to(device),
+                )
                 outputs = model(batch_X1, batch_X2, batch_X3, batch_X4)
-                val_loss = criterion(outputs, batch_y.unsqueeze(1).float())
-                total_val_loss += val_loss.item()
-                y_true_val.extend(batch_y.cpu().numpy())
-                y_pred_val.extend((outputs > 0.4).float().cpu().numpy())
 
-        val_f1 = f1_score(y_true_val, y_pred_val)
+                # Compute loss
+                val_loss = F.binary_cross_entropy(outputs, batch_y.unsqueeze(1).float())
+                total_val_loss += val_loss.item()
+
+                # Store true labels and predictions for F1-score
+                y_true_val.extend(batch_y.cpu().numpy())
+                y_pred_val.extend((outputs > 0.5).float().cpu().numpy())
+
         avg_val_loss = total_val_loss / len(val_loader)
         val_losses.append(avg_val_loss)
+
+        # Calculate F1-score for validation
+        val_f1 = f1_score(y_true_val, y_pred_val)
 
         # Step the scheduler with validation loss
         scheduler.step(avg_val_loss)
@@ -1133,7 +1063,7 @@ def train_gated_combination_model(X1_t, X2_t, X3_t, X4_t, tensor_score_o,
 
     end_time = time.time()
 
-    # Plotting
+    # Plotting training and validation loss
     plt.figure(figsize=(10, 5))
     plt.plot(train_losses, label="Training Loss", marker='o')
     plt.plot(val_losses, label="Validation Loss", marker='x')
@@ -1145,7 +1075,6 @@ def train_gated_combination_model(X1_t, X2_t, X3_t, X4_t, tensor_score_o,
     print(f"Training complete! Total time: {end_time - start_time:.2f} seconds")
     return model
 
-# %%
 # Train the GatedCombination model using training and validation data
 trained_model = train_gated_combination_model(
     X1_train,          # Updated source embeddings (after applying the GNN model)
@@ -1163,13 +1092,11 @@ trained_model = train_gated_combination_model(
     epochs=100,        # Number of epochs (iterations over the entire training dataset)
     batch_size=32,     # Number of training samples processed in one forward/backward pass
     learning_rate=0.001, # Learning rate for the optimizer (controls step size during optimization)
-    weight_decay=1e-5  # Weight decay (L2 regularization) to prevent overfitting
+    weight_decay=1e-4  # Weight decay (L2 regularization) to prevent overfitting
 )
 
-# %% [markdown]
-# # **Mappings Selector**
-
-# %%
+# Mappings Selector
+print("Scoring Mappings...")
 # Build an indexed dictionary for the source ontology classes
 # src_class is the file path to the JSON file containing the source ontology classes
 indexed_dict_src = build_indexed_dict(src_class)
@@ -1178,7 +1105,6 @@ indexed_dict_src = build_indexed_dict(src_class)
 # tgt_class is the file path to the JSON file containing the target ontology classes
 indexed_dict_tgt = build_indexed_dict(tgt_class)
 
-# %%
 # Read the candidate pairs from a Candidates CSV file into a pandas DataFrame
 df_embbedings = pd.read_csv(candidates_Prediction, index_col=0)
 
@@ -1194,7 +1120,6 @@ src_entity_tensor_o = torch.from_numpy(tensor_term1).type(torch.LongTensor)
 # Convert the target entity indices to a PyTorch LongTensor
 tgt_entity_tenso_or = torch.from_numpy(tensor_term2).type(torch.LongTensor)
 
-# %%
 # Select rows from the updated source embeddings based on the indices in src_entity_tensor_o
 X1_tt = select_rows_by_index(embeddings_src, src_entity_tensor_o)
 
@@ -1207,7 +1132,6 @@ X3_tt = select_rows_by_index(embeddings_tgt, tgt_entity_tenso_or)
 # Select rows from the original target embeddings based on the indices in tgt_entity_tenso_or
 X4_tt = select_rows_by_index(x_tgt, tgt_entity_tenso_or)
 
-# %%
 # Generate predictions for candidate mappings using the trained GatedCombination model
 Prediction_with_candidates(
     model=trained_model,             # The trained GatedCombination model used to evaluate similarity
@@ -1222,20 +1146,19 @@ Prediction_with_candidates(
     all_predictions_path=all_predictions_path # Path to save all predictions with similarity scores in TSV format
 )
 
-# %%
 # Filter the highest scoring predictions from the predictions file and save the results to a new file
+print("Filtring Mappings...")
 matching_results_df = filter_highest_predictions(
     all_predictions_path,  # Path to the file containing all predictions with scores for all candidate pairs
     prediction_path        # Path where the filtered predictions with highest scores will be saved
 )
 
-# %% [markdown]
-# # **Evaluation**
+# Evaluation
+print("Evaluation...")
 
-# %% [markdown]
-# # Global metrics calculation
+# Global metrics calculation
+print("Global metrics calculation...")
 
-# %%
 # Retrieve the indices of the ignored classes (from source and target ontologies)
 ignored_class_index = get_ignored_class_index(src_onto)  # Get ignored class indices from source ontology
 ignored_class_index.update(get_ignored_class_index(tgt_onto))  # Update with ignored class indices from target ontology
@@ -1257,15 +1180,13 @@ refs2 = [r.to_tuple() for r in refs]
 
 correct= len(set(preds2).intersection(set(refs2)))
 
-print(f"Number of Instances Correct Predictions: {correct}")
+print(f"Number of Correct Predictions: {correct}")
 
 # Print the computed precision, recall, and F1-score metrics
 print(results)
 
-# %% [markdown]
-# # Ranked-based metrics calculation
-
-# %%
+# Ranked-based metrics calculation
+print("Ranked-based metrics calculation...")
 # Read the candidate pairs from a Candidates CSV file into a pandas DataFrame
 df_embbedings = pd.read_csv(candidates_Rank, index_col=0)
 
@@ -1281,7 +1202,6 @@ src_entity_tensor_o = torch.from_numpy(tensor_term1).type(torch.LongTensor)
 # Convert the target entity indices to a PyTorch LongTensor
 tgt_entity_tenso_or = torch.from_numpy(tensor_term2).type(torch.LongTensor)
 
-# %%
 # Select rows from the updated source embeddings based on the indices in src_entity_tensor_o
 X1_tt = select_rows_by_index(embeddings_src, src_entity_tensor_o)
 
@@ -1294,7 +1214,6 @@ X3_tt = select_rows_by_index(embeddings_tgt, tgt_entity_tenso_or)
 # Select rows from the original target embeddings based on the indices in tgt_entity_tenso_or
 X4_tt = select_rows_by_index(x_tgt, tgt_entity_tenso_or)
 
-# %%
 # Perform ranking-based predictions using the trained GatedCombination model
 # Generate predictions for candidate mappings using the trained GatedCombination model
 Prediction_with_candidates(
@@ -1310,7 +1229,6 @@ Prediction_with_candidates(
     all_predictions_path=all_predictions_path_ranked, # Path where the ranked predictions will be saved in TSV format
 )
 
-# %%
 # Compute MRR and Hits@k metrics
 # This function evaluates the predicted rankings against the reference mappings
 results = compute_mrr_and_hits(
@@ -1324,11 +1242,9 @@ results = compute_mrr_and_hits(
 print("MRR and Hits@k Results:")
 print(results)  # Output the Mean Reciprocal Rank (MRR) and Hits@k metrics
 
-# %%
 # Call the ranking evaluation function, passing the path to the formatted predictions file.
 # Ks specifies the evaluation levels, checking if the correct target is within the top K candidates.
+print("Ranked-based metrics calculation using DeepOnto...")
 results = ranking_eval(formatted_predictions_path, Ks=[1, 5, 10])
 print("Ranking Evaluation Results at K=1, 5, and 10:")
 print(results)
-
-
