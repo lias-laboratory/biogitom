@@ -4,14 +4,14 @@
    To execute a specific task using BioGITOM, run the following command in your terminal:
 
    ```bash
-   python run_biogitom.py --task <task> --src_ent <src_ent> --tgt_ent <tgt_ent>
+   python run_biogitom.py --task <task>
    ```
-    Replace <task>, <src_ent>, and <tgt_ent> with the appropriate task name and source/target ontology names.
+    Replace <task> with the appropriate task name.
 
    Example:
 
    ```bash
-   python run_biogitom.py --task omim2ordo --src_ent omim --tgt_ent ordo
+   python run_biogitom.py --task omim2ordo 
    ```
 
    ### List of Predefined Tasks

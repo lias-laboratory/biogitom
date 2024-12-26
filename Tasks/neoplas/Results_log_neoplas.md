@@ -593,11 +593,11 @@ tgt_onto = Ontology(f"{dataset_dir}/{tgt_ent}.owl")
 
 # Define the file path for the Source embeddings CSV file
 # Embeddings for the source ontology entities are stored in this file.
-src_Emb = f"{data_dir}/{src_ent}_BERT_Hybrid_emb.csv"
+src_Emb = f"{data_dir}/{src_ent}_Sentence_SapBERT_emb.csv"
 
 # Define the file path for the Target embeddings CSV file
 # Embeddings for the target ontology entities are stored in this file.
-tgt_Emb = f"{data_dir}/{tgt_ent}_BERT_Hybrid_emb.csv"
+tgt_Emb = f"{data_dir}/{tgt_ent}_Sentence_SapBERT_emb.csv"
 
 # Define the file path for the Source adjacency matrix
 # This file represents the relationships (edges) between entities in the source ontology.

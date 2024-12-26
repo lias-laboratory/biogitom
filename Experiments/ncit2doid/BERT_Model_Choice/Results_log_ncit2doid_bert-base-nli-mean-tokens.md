@@ -75,35 +75,35 @@ torchversion = torch.__version__
     Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2->torch==2.0.0) (3.0.2)
     Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from sympy->torch==2.0.0) (1.3.0)
     Downloading torch-2.0.0-cp310-cp310-manylinux1_x86_64.whl (619.9 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m619.9/619.9 MB[0m [31m761.4 kB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m619.9/619.9 MB[0m [31m1.6 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cublas_cu11-11.10.3.66-py3-none-manylinux1_x86_64.whl (317.1 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m317.1/317.1 MB[0m [31m2.8 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m317.1/317.1 MB[0m [31m3.3 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cuda_cupti_cu11-11.7.101-py3-none-manylinux1_x86_64.whl (11.8 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m11.8/11.8 MB[0m [31m28.1 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m11.8/11.8 MB[0m [31m110.9 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cuda_nvrtc_cu11-11.7.99-2-py3-none-manylinux1_x86_64.whl (21.0 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m21.0/21.0 MB[0m [31m15.0 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m21.0/21.0 MB[0m [31m79.6 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cuda_runtime_cu11-11.7.99-py3-none-manylinux1_x86_64.whl (849 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m849.3/849.3 kB[0m [31m17.7 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m849.3/849.3 kB[0m [31m37.2 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cudnn_cu11-8.5.0.96-2-py3-none-manylinux1_x86_64.whl (557.1 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m557.1/557.1 MB[0m [31m678.1 kB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m557.1/557.1 MB[0m [31m445.9 kB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cufft_cu11-10.9.0.58-py3-none-manylinux2014_x86_64.whl (168.4 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m168.4/168.4 MB[0m [31m5.3 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m168.4/168.4 MB[0m [31m6.3 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_curand_cu11-10.2.10.91-py3-none-manylinux1_x86_64.whl (54.6 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m54.6/54.6 MB[0m [31m9.2 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m54.6/54.6 MB[0m [31m22.2 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cusolver_cu11-11.4.0.1-2-py3-none-manylinux1_x86_64.whl (102.6 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m102.6/102.6 MB[0m [31m8.0 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m102.6/102.6 MB[0m [31m10.8 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_cusparse_cu11-11.7.4.91-py3-none-manylinux1_x86_64.whl (173.2 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m173.2/173.2 MB[0m [31m4.2 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m173.2/173.2 MB[0m [31m6.2 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_nccl_cu11-2.14.3-py3-none-manylinux1_x86_64.whl (177.1 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m177.1/177.1 MB[0m [31m5.0 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m177.1/177.1 MB[0m [31m5.6 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading nvidia_nvtx_cu11-11.7.91-py3-none-manylinux1_x86_64.whl (98 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m98.6/98.6 kB[0m [31m6.1 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m98.6/98.6 kB[0m [31m5.9 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading triton-2.0.0-1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (63.3 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.3/63.3 MB[0m [31m7.0 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.3/63.3 MB[0m [31m18.7 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading cmake-3.31.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (27.8 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m27.8/27.8 MB[0m [31m15.1 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m27.8/27.8 MB[0m [31m54.0 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading lit-18.1.8-py3-none-any.whl (96 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m96.4/96.4 kB[0m [31m7.4 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m96.4/96.4 kB[0m [31m5.9 MB/s[0m eta [36m0:00:00[0m
     [?25hInstalling collected packages: lit, nvidia-nvtx-cu11, nvidia-nccl-cu11, nvidia-cusparse-cu11, nvidia-curand-cu11, nvidia-cufft-cu11, nvidia-cuda-runtime-cu11, nvidia-cuda-nvrtc-cu11, nvidia-cuda-cupti-cu11, nvidia-cublas-cu11, cmake, nvidia-cusolver-cu11, nvidia-cudnn-cu11, triton, torch
       Attempting uninstall: torch
         Found existing installation: torch 2.5.1+cpu
@@ -115,7 +115,7 @@ torchversion = torch.__version__
     [0mSuccessfully installed cmake-3.31.2 lit-18.1.8 nvidia-cublas-cu11-11.10.3.66 nvidia-cuda-cupti-cu11-11.7.101 nvidia-cuda-nvrtc-cu11-11.7.99 nvidia-cuda-runtime-cu11-11.7.99 nvidia-cudnn-cu11-8.5.0.96 nvidia-cufft-cu11-10.9.0.58 nvidia-curand-cu11-10.2.10.91 nvidia-cusolver-cu11-11.4.0.1 nvidia-cusparse-cu11-11.7.4.91 nvidia-nccl-cu11-2.14.3 nvidia-nvtx-cu11-11.7.91 torch-2.0.0 triton-2.0.0
     Collecting torch-geometric==2.4.0
       Downloading torch_geometric-2.4.0-py3-none-any.whl.metadata (63 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.9/63.9 kB[0m [31m916.3 kB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.9/63.9 kB[0m [31m1.7 MB/s[0m eta [36m0:00:00[0m
     [?25hRequirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (4.67.1)
     Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (1.26.4)
     Requirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (1.13.1)
@@ -132,22 +132,22 @@ torchversion = torch.__version__
     Requirement already satisfied: joblib>=1.2.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->torch-geometric==2.4.0) (1.4.2)
     Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->torch-geometric==2.4.0) (3.5.0)
     Downloading torch_geometric-2.4.0-py3-none-any.whl (1.0 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.0/1.0 MB[0m [31m16.9 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.0/1.0 MB[0m [31m16.0 MB/s[0m eta [36m0:00:00[0m
     [?25hInstalling collected packages: torch-geometric
     Successfully installed torch-geometric-2.4.0
     Looking in links: https://data.pyg.org/whl/torch-2.0.0+cpu.html
     Collecting torch-scatter
       Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_scatter-2.1.2%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (494 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m494.1/494.1 kB[0m [31m6.2 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m494.1/494.1 kB[0m [31m4.8 MB/s[0m eta [36m0:00:00[0m
     [?25hCollecting torch-sparse
       Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_sparse-0.6.18%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (1.2 MB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.2/1.2 MB[0m [31m9.7 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.2/1.2 MB[0m [31m17.5 MB/s[0m eta [36m0:00:00[0m
     [?25hCollecting torch-cluster
       Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_cluster-1.6.3%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (751 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m751.3/751.3 kB[0m [31m9.3 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m751.3/751.3 kB[0m [31m32.9 MB/s[0m eta [36m0:00:00[0m
     [?25hCollecting torch-spline-conv
       Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_spline_conv-1.2.2%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (208 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m208.1/208.1 kB[0m [31m8.4 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m208.1/208.1 kB[0m [31m3.0 MB/s[0m eta [36m0:00:00[0m
     [?25hRequirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from torch-sparse) (1.13.1)
     Requirement already satisfied: numpy<2.3,>=1.22.4 in /usr/local/lib/python3.10/dist-packages (from scipy->torch-sparse) (1.26.4)
     Installing collected packages: torch-spline-conv, torch-scatter, torch-sparse, torch-cluster
@@ -171,12 +171,12 @@ torchversion = torch.__version__
       Installing build dependencies ... [?25l[?25hdone
       Getting requirements to build wheel ... [?25l[?25hdone
       Preparing metadata (pyproject.toml) ... [?25l[?25hdone
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m69.2/69.2 kB[0m [31m2.0 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m24.4 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m241.9/241.9 kB[0m [31m16.3 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m124.6/124.6 kB[0m [31m9.5 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m205.1/205.1 kB[0m [31m12.9 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m319.7/319.7 kB[0m [31m17.2 MB/s[0m eta [36m0:00:00[0m
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m69.2/69.2 kB[0m [31m2.8 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m27.4 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m241.9/241.9 kB[0m [31m14.9 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m124.6/124.6 kB[0m [31m8.9 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m205.1/205.1 kB[0m [31m13.8 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m319.7/319.7 kB[0m [31m20.2 MB/s[0m eta [36m0:00:00[0m
     [?25h  Building wheel for torch-geometric (pyproject.toml) ... [?25l[?25hdone
     Collecting deeponto
       Downloading deeponto-0.9.2-py3-none-any.whl.metadata (15 kB)
@@ -193,7 +193,7 @@ torchversion = torch.__version__
     Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (from deeponto) (2.2.2)
     Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from deeponto) (1.26.4)
     Requirement already satisfied: scikit-learn in /usr/local/lib/python3.10/dist-packages (from deeponto) (1.6.0)
-    Requirement already satisfied: transformers[torch] in /usr/local/lib/python3.10/dist-packages (from deeponto) (4.47.0)
+    Requirement already satisfied: transformers[torch] in /usr/local/lib/python3.10/dist-packages (from deeponto) (4.47.1)
     Collecting datasets (from deeponto)
       Downloading datasets-3.2.0-py3-none-any.whl.metadata (20 kB)
     Requirement already satisfied: spacy in /usr/local/lib/python3.10/dist-packages (from deeponto) (3.7.5)
@@ -315,7 +315,7 @@ torchversion = torch.__version__
     Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.10/dist-packages (from typer<1.0.0,>=0.3.0->spacy->deeponto) (1.5.4)
     Requirement already satisfied: rich>=10.11.0 in /usr/local/lib/python3.10/dist-packages (from typer<1.0.0,>=0.3.0->spacy->deeponto) (13.9.4)
     Requirement already satisfied: cloudpathlib<1.0.0,>=0.7.0 in /usr/local/lib/python3.10/dist-packages (from weasel<0.5.0,>=0.1.0->spacy->deeponto) (0.20.0)
-    Requirement already satisfied: smart-open<8.0.0,>=5.2.1 in /usr/local/lib/python3.10/dist-packages (from weasel<0.5.0,>=0.1.0->spacy->deeponto) (7.0.5)
+    Requirement already satisfied: smart-open<8.0.0,>=5.2.1 in /usr/local/lib/python3.10/dist-packages (from weasel<0.5.0,>=0.1.0->spacy->deeponto) (7.1.0)
     Requirement already satisfied: notebook>=4.4.1 in /usr/local/lib/python3.10/dist-packages (from widgetsnbextension~=3.6.0->ipywidgets->deeponto) (6.5.5)
     Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2->spacy->deeponto) (3.0.2)
     Requirement already satisfied: jupyter-core>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-client->ipykernel->deeponto) (5.7.2)
@@ -361,36 +361,36 @@ torchversion = torch.__version__
     Requirement already satisfied: sniffio>=1.1 in /usr/local/lib/python3.10/dist-packages (from anyio<4,>=3.1.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.3.1)
     Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.10/dist-packages (from anyio<4,>=3.1.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.2.2)
     Downloading deeponto-0.9.2-py3-none-any.whl (89.7 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m89.7/89.7 MB[0m [31m12.0 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m89.7/89.7 MB[0m [31m12.5 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading anytree-2.12.1-py3-none-any.whl (44 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m44.9/44.9 kB[0m [31m2.9 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m44.9/44.9 kB[0m [31m2.1 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading datasets-3.2.0-py3-none-any.whl (480 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m480.6/480.6 kB[0m [31m27.6 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m480.6/480.6 kB[0m [31m30.8 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading dill-0.3.8-py3-none-any.whl (116 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m116.3/116.3 kB[0m [31m7.4 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m116.3/116.3 kB[0m [31m6.6 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading enlighten-1.13.0-py2.py3-none-any.whl (42 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m42.0/42.0 kB[0m [31m2.3 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m42.0/42.0 kB[0m [31m2.0 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading jpype1-1.5.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (493 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m493.8/493.8 kB[0m [31m26.8 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m493.8/493.8 kB[0m [31m29.0 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading lxml-5.3.0-cp310-cp310-manylinux_2_28_x86_64.whl (5.0 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.0/5.0 MB[0m [31m94.4 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.0/5.0 MB[0m [31m86.8 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading pprintpp-0.4.0-py2.py3-none-any.whl (16 kB)
     Downloading rdflib-7.1.1-py3-none-any.whl (562 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m562.4/562.4 kB[0m [31m26.8 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m562.4/562.4 kB[0m [31m36.3 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading textdistance-4.6.3-py3-none-any.whl (31 kB)
     Downloading yacs-0.1.8-py3-none-any.whl (14 kB)
     Downloading blessed-1.20.0-py2.py3-none-any.whl (58 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m58.4/58.4 kB[0m [31m3.8 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m58.4/58.4 kB[0m [31m3.1 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading fsspec-2024.9.0-py3-none-any.whl (179 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m179.3/179.3 kB[0m [31m11.3 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m179.3/179.3 kB[0m [31m9.6 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading isodate-0.7.2-py3-none-any.whl (22 kB)
     Downloading multiprocess-0.70.16-py310-none-any.whl (134 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m134.8/134.8 kB[0m [31m7.7 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m134.8/134.8 kB[0m [31m7.9 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading prefixed-0.9.0-py2.py3-none-any.whl (13 kB)
     Downloading xxhash-3.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (194 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m194.1/194.1 kB[0m [31m11.1 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m194.1/194.1 kB[0m [31m12.4 MB/s[0m eta [36m0:00:00[0m
     [?25hDownloading jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m55.9 MB/s[0m eta [36m0:00:00[0m
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m55.2 MB/s[0m eta [36m0:00:00[0m
     [?25hInstalling collected packages: prefixed, pprintpp, yacs, xxhash, textdistance, lxml, JPype1, jedi, isodate, fsspec, dill, blessed, anytree, rdflib, multiprocess, enlighten, datasets, deeponto
       Attempting uninstall: fsspec
         Found existing installation: fsspec 2024.10.0
@@ -506,6 +506,20 @@ from sklearn.model_selection import train_test_split
     
 
 
+
+```python
+import random
+
+# Set the seed for PyTorch's random number generator to ensure reproducibility
+torch.manual_seed(42)
+
+# Set the seed for NumPy's random number generator to ensure reproducibility
+np.random.seed(42)
+
+# Set the seed for Python's built-in random module to ensure reproducibility
+random.seed(42)
+```
+
 # **Paths Definition**
 
 
@@ -563,11 +577,11 @@ tgt_onto = Ontology(f"{dataset_dir}/{tgt_ent}.owl")
 
 # Define the file path for the Source embeddings CSV file
 # Embeddings for the source ontology entities are stored in this file.
-src_Emb = f"{data_dir}/{src_ent}_BERT_Hybrid_emb.csv"
+src_Emb = f"{data_dir}/{src_ent}_bert-base-nli-mean-tokens_emb.csv"
 
 # Define the file path for the Target embeddings CSV file
 # Embeddings for the target ontology entities are stored in this file.
-tgt_Emb = f"{data_dir}/{tgt_ent}_BERT_Hybrid_emb.csv"
+tgt_Emb = f"{data_dir}/{tgt_ent}_bert-base-nli-mean-tokens_emb.csv"
 
 # Define the file path for the Source adjacency matrix
 # This file represents the relationships (edges) between entities in the source ontology.
@@ -1356,115 +1370,115 @@ trained_model = train_model_gnn(
 )
 ```
 
-    Epoch [10/1000], Training Loss: 0.002295828890055418
-    Epoch [20/1000], Training Loss: 0.0017963878344744444
-    Epoch [30/1000], Training Loss: 0.001512985210865736
-    Epoch [40/1000], Training Loss: 0.0013124378165230155
-    Epoch [50/1000], Training Loss: 0.0011714603751897812
-    Epoch [60/1000], Training Loss: 0.0010636855149641633
-    Epoch [70/1000], Training Loss: 0.000975198345258832
-    Epoch [80/1000], Training Loss: 0.0009006476611830294
-    Epoch [90/1000], Training Loss: 0.0008367788977921009
-    Epoch [100/1000], Training Loss: 0.000781284470576793
-    Epoch [110/1000], Training Loss: 0.0007330962107516825
-    Epoch [120/1000], Training Loss: 0.0006905605550855398
-    Epoch [130/1000], Training Loss: 0.0006524539785459638
-    Epoch [140/1000], Training Loss: 0.0006186321843415499
-    Epoch [150/1000], Training Loss: 0.0005880582029931247
-    Epoch [160/1000], Training Loss: 0.0005607636994682252
-    Epoch [170/1000], Training Loss: 0.0005364239332266152
-    Epoch [180/1000], Training Loss: 0.0005147302872501314
-    Epoch [190/1000], Training Loss: 0.0004953136667609215
-    Epoch [200/1000], Training Loss: 0.00047765843919478357
-    Epoch [210/1000], Training Loss: 0.00046204758109524846
-    Epoch [220/1000], Training Loss: 0.0004476669419091195
-    Epoch [230/1000], Training Loss: 0.00043456206913106143
-    Epoch [240/1000], Training Loss: 0.00042254713480360806
-    Epoch [250/1000], Training Loss: 0.000411756569519639
-    Epoch [260/1000], Training Loss: 0.000401982048060745
-    Epoch [270/1000], Training Loss: 0.0003930771490558982
-    Epoch [280/1000], Training Loss: 0.0003850819484796375
-    Epoch [290/1000], Training Loss: 0.0003778151876758784
-    Epoch [300/1000], Training Loss: 0.0003711078315973282
-    Epoch [310/1000], Training Loss: 0.00036505426396615803
-    Epoch [320/1000], Training Loss: 0.00035957590444013476
-    Epoch [330/1000], Training Loss: 0.00035450898576527834
-    Epoch [340/1000], Training Loss: 0.0003497801080811769
-    Epoch [350/1000], Training Loss: 0.00034527474781498313
-    Epoch [360/1000], Training Loss: 0.00034104299265891314
-    Epoch [370/1000], Training Loss: 0.00033704371890053153
-    Epoch [380/1000], Training Loss: 0.0003331996558699757
-    Epoch [390/1000], Training Loss: 0.00032955469214357436
-    Epoch [400/1000], Training Loss: 0.00032608804758638144
-    Epoch [410/1000], Training Loss: 0.00032275408739224076
-    Epoch [420/1000], Training Loss: 0.00031962417415343225
-    Epoch [430/1000], Training Loss: 0.0003166378301102668
-    Epoch [440/1000], Training Loss: 0.00031379779102280736
-    Epoch [450/1000], Training Loss: 0.0003110630495939404
-    Epoch [460/1000], Training Loss: 0.00030847213929519057
-    Epoch [470/1000], Training Loss: 0.0003059347509406507
-    Epoch [480/1000], Training Loss: 0.00030346453422680497
-    Epoch [490/1000], Training Loss: 0.00030105121550150216
-    Epoch [500/1000], Training Loss: 0.0002986365288961679
-    Epoch [510/1000], Training Loss: 0.00029621602152474225
-    Epoch [520/1000], Training Loss: 0.00029377147438935935
-    Epoch [530/1000], Training Loss: 0.00029136883676983416
-    Epoch [540/1000], Training Loss: 0.00028900435427203774
-    Epoch [550/1000], Training Loss: 0.00028674359782598913
-    Epoch [560/1000], Training Loss: 0.00028456110158003867
-    Epoch [570/1000], Training Loss: 0.00028245922294445336
-    Epoch [580/1000], Training Loss: 0.0002803984680213034
-    Epoch [590/1000], Training Loss: 0.0002783536328934133
-    Epoch [600/1000], Training Loss: 0.0002763358934316784
-    Epoch [610/1000], Training Loss: 0.00027431026683188975
-    Epoch [620/1000], Training Loss: 0.00027222276548855007
-    Epoch [630/1000], Training Loss: 0.00027007379685528576
-    Epoch [640/1000], Training Loss: 0.0002678211312741041
-    Epoch [650/1000], Training Loss: 0.00026552396593615413
-    Epoch [660/1000], Training Loss: 0.000263198307948187
-    Epoch [670/1000], Training Loss: 0.0002609113580547273
-    Epoch [680/1000], Training Loss: 0.00025868185912258923
-    Epoch [690/1000], Training Loss: 0.0002565684262663126
-    Epoch [700/1000], Training Loss: 0.0002545573515817523
-    Epoch [710/1000], Training Loss: 0.00025270070182159543
-    Epoch [720/1000], Training Loss: 0.00025093182921409607
-    Epoch [730/1000], Training Loss: 0.0002492507337592542
-    Epoch [740/1000], Training Loss: 0.0002476828231010586
-    Epoch [750/1000], Training Loss: 0.0002461750991642475
-    Epoch [760/1000], Training Loss: 0.00024470192147418857
-    Epoch [770/1000], Training Loss: 0.00024329037114512175
-    Epoch [780/1000], Training Loss: 0.0002419281518086791
-    Epoch [790/1000], Training Loss: 0.00024061527801677585
-    Epoch [800/1000], Training Loss: 0.00023933738702908158
-    Epoch [810/1000], Training Loss: 0.00023810921993572265
-    Epoch [820/1000], Training Loss: 0.00023684540065005422
-    Epoch [830/1000], Training Loss: 0.00023559766123071313
-    Epoch [840/1000], Training Loss: 0.0002345831599086523
-    Epoch [850/1000], Training Loss: 0.00023328265524469316
-    Epoch [860/1000], Training Loss: 0.00023203843738883734
-    Epoch [870/1000], Training Loss: 0.00023060418607201427
-    Epoch [880/1000], Training Loss: 0.00022963641094975173
-    Epoch [890/1000], Training Loss: 0.00022816989803686738
-    Epoch [900/1000], Training Loss: 0.00022668896417599171
-    Epoch [910/1000], Training Loss: 0.0002253766724606976
-    Epoch [920/1000], Training Loss: 0.00022423797054216266
-    Epoch [930/1000], Training Loss: 0.00022262521088123322
-    Epoch [940/1000], Training Loss: 0.00022133722086437047
-    Epoch [950/1000], Training Loss: 0.00022047545644454658
-    Epoch [960/1000], Training Loss: 0.00021902738080825657
-    Epoch [970/1000], Training Loss: 0.0002178246941184625
-    Epoch [980/1000], Training Loss: 0.00021701579680666327
-    Epoch [990/1000], Training Loss: 0.00021613802528008819
-    Epoch [1000/1000], Training Loss: 0.00021494855172932148
+    Epoch [10/1000], Training Loss: 0.003204772714525461
+    Epoch [20/1000], Training Loss: 0.002626558067277074
+    Epoch [30/1000], Training Loss: 0.002290579490363598
+    Epoch [40/1000], Training Loss: 0.0020647726487368345
+    Epoch [50/1000], Training Loss: 0.0019000191241502762
+    Epoch [60/1000], Training Loss: 0.0017706947401165962
+    Epoch [70/1000], Training Loss: 0.001665206509642303
+    Epoch [80/1000], Training Loss: 0.001576867769472301
+    Epoch [90/1000], Training Loss: 0.0015018335543572903
+    Epoch [100/1000], Training Loss: 0.0014365923125296831
+    Epoch [110/1000], Training Loss: 0.001379305380396545
+    Epoch [120/1000], Training Loss: 0.0013285564491525292
+    Epoch [130/1000], Training Loss: 0.0012828792678192258
+    Epoch [140/1000], Training Loss: 0.0012415193486958742
+    Epoch [150/1000], Training Loss: 0.0012034391984343529
+    Epoch [160/1000], Training Loss: 0.001168292947113514
+    Epoch [170/1000], Training Loss: 0.0011353022418916225
+    Epoch [180/1000], Training Loss: 0.0011043068952858448
+    Epoch [190/1000], Training Loss: 0.0010749021312221885
+    Epoch [200/1000], Training Loss: 0.0010471887653693557
+    Epoch [210/1000], Training Loss: 0.0010208252351731062
+    Epoch [220/1000], Training Loss: 0.000995556591078639
+    Epoch [230/1000], Training Loss: 0.0009712380124256015
+    Epoch [240/1000], Training Loss: 0.0009478034917265177
+    Epoch [250/1000], Training Loss: 0.0009252240415662527
+    Epoch [260/1000], Training Loss: 0.0009034972172230482
+    Epoch [270/1000], Training Loss: 0.0008826545672491193
+    Epoch [280/1000], Training Loss: 0.0008625315385870636
+    Epoch [290/1000], Training Loss: 0.0008432791801169515
+    Epoch [300/1000], Training Loss: 0.0008246665820479393
+    Epoch [310/1000], Training Loss: 0.0008068063762038946
+    Epoch [320/1000], Training Loss: 0.0007895796443335712
+    Epoch [330/1000], Training Loss: 0.0007732962840236723
+    Epoch [340/1000], Training Loss: 0.000757454487029463
+    Epoch [350/1000], Training Loss: 0.0007422241033054888
+    Epoch [360/1000], Training Loss: 0.0007272879593074322
+    Epoch [370/1000], Training Loss: 0.000714156951289624
+    Epoch [380/1000], Training Loss: 0.0007007308304309845
+    Epoch [390/1000], Training Loss: 0.0006895030965097249
+    Epoch [400/1000], Training Loss: 0.0006764399004168808
+    Epoch [410/1000], Training Loss: 0.0006637271144427359
+    Epoch [420/1000], Training Loss: 0.0006513511762022972
+    Epoch [430/1000], Training Loss: 0.0006408685585483909
+    Epoch [440/1000], Training Loss: 0.000632571114692837
+    Epoch [450/1000], Training Loss: 0.000621955085080117
+    Epoch [460/1000], Training Loss: 0.000610609888099134
+    Epoch [470/1000], Training Loss: 0.0006002605659887195
+    Epoch [480/1000], Training Loss: 0.0005934387445449829
+    Epoch [490/1000], Training Loss: 0.0005849519511684775
+    Epoch [500/1000], Training Loss: 0.0005749930278398097
+    Epoch [510/1000], Training Loss: 0.0005654789856635034
+    Epoch [520/1000], Training Loss: 0.0005627706996165216
+    Epoch [530/1000], Training Loss: 0.0005525387823581696
+    Epoch [540/1000], Training Loss: 0.0005449026357382536
+    Epoch [550/1000], Training Loss: 0.0005355211324058473
+    Epoch [560/1000], Training Loss: 0.0005347743863239884
+    Epoch [570/1000], Training Loss: 0.000522811315022409
+    Epoch [580/1000], Training Loss: 0.0005158556159585714
+    Epoch [590/1000], Training Loss: 0.0005114634404890239
+    Epoch [600/1000], Training Loss: 0.000503042945638299
+    Epoch [610/1000], Training Loss: 0.0005020973039790988
+    Epoch [620/1000], Training Loss: 0.0004964473773725331
+    Epoch [630/1000], Training Loss: 0.0004860912449657917
+    Epoch [640/1000], Training Loss: 0.00048032632912509143
+    Epoch [650/1000], Training Loss: 0.00047668308252468705
+    Epoch [660/1000], Training Loss: 0.0004688828776124865
+    Epoch [670/1000], Training Loss: 0.00046428252244368196
+    Epoch [680/1000], Training Loss: 0.00045942518045194447
+    Epoch [690/1000], Training Loss: 0.0004536127671599388
+    Epoch [700/1000], Training Loss: 0.0004472730215638876
+    Epoch [710/1000], Training Loss: 0.00044418207835406065
+    Epoch [720/1000], Training Loss: 0.00044138258090242743
+    Epoch [730/1000], Training Loss: 0.00043489105883054435
+    Epoch [740/1000], Training Loss: 0.0004314278776291758
+    Epoch [750/1000], Training Loss: 0.00042774536996148527
+    Epoch [760/1000], Training Loss: 0.00042361131636425853
+    Epoch [770/1000], Training Loss: 0.00042362595559097826
+    Epoch [780/1000], Training Loss: 0.0004183030978310853
+    Epoch [790/1000], Training Loss: 0.0004128097207285464
+    Epoch [800/1000], Training Loss: 0.0004127555585000664
+    Epoch [810/1000], Training Loss: 0.00040650475420989096
+    Epoch [820/1000], Training Loss: 0.00040543320938013494
+    Epoch [830/1000], Training Loss: 0.0004018010513391346
+    Epoch [840/1000], Training Loss: 0.0003970628313254565
+    Epoch [850/1000], Training Loss: 0.0003958674205932766
+    Epoch [860/1000], Training Loss: 0.0003947981749661267
+    Epoch [870/1000], Training Loss: 0.0003896780835930258
+    Epoch [880/1000], Training Loss: 0.0003907312056981027
+    Epoch [890/1000], Training Loss: 0.0003860814031213522
+    Epoch [900/1000], Training Loss: 0.00038171536289155483
+    Epoch [910/1000], Training Loss: 0.00038359384052455425
+    Epoch [920/1000], Training Loss: 0.00037828992935828865
+    Epoch [930/1000], Training Loss: 0.0003741580294445157
+    Epoch [940/1000], Training Loss: 0.00037310775951482356
+    Epoch [950/1000], Training Loss: 0.00036988197825849056
+    Epoch [960/1000], Training Loss: 0.00036797189386561513
+    Epoch [970/1000], Training Loss: 0.00036417253431864083
+    Epoch [980/1000], Training Loss: 0.00036189609090797603
+    Epoch [990/1000], Training Loss: 0.00036015038494952023
+    Epoch [1000/1000], Training Loss: 0.0003551135305315256
 
 
 
     
-![png](output_34_1.png)
+![png](output_35_1.png)
     
 
 
-    Training complete! Total training time: 766.19 seconds
+    Training complete! Total training time: 773.89 seconds
 
 
 # GIT Application
@@ -1688,117 +1702,115 @@ trained_model = train_gated_combination_model(
 )
 ```
 
-    Epoch [1/100] Training Loss: 0.4193, F1 Score: 0.0241 | Validation Loss: 0.2019, F1 Score: 0.0000
-    Epoch [2/100] Training Loss: 0.1516, F1 Score: 0.0000 | Validation Loss: 0.1260, F1 Score: 0.0000
-    Epoch [3/100] Training Loss: 0.1159, F1 Score: 0.0000 | Validation Loss: 0.1126, F1 Score: 0.0000
-    Epoch [4/100] Training Loss: 0.1103, F1 Score: 0.0000 | Validation Loss: 0.1115, F1 Score: 0.0000
-    Epoch [5/100] Training Loss: 0.1097, F1 Score: 0.0000 | Validation Loss: 0.1109, F1 Score: 0.0000
-    Epoch [6/100] Training Loss: 0.1092, F1 Score: 0.0000 | Validation Loss: 0.1104, F1 Score: 0.0000
-    Epoch [7/100] Training Loss: 0.1084, F1 Score: 0.0000 | Validation Loss: 0.1096, F1 Score: 0.0000
-    Epoch [8/100] Training Loss: 0.1074, F1 Score: 0.0000 | Validation Loss: 0.1086, F1 Score: 0.0000
-    Epoch [9/100] Training Loss: 0.1063, F1 Score: 0.0000 | Validation Loss: 0.1075, F1 Score: 0.0000
-    Epoch [10/100] Training Loss: 0.1050, F1 Score: 0.0000 | Validation Loss: 0.1058, F1 Score: 0.0000
-    Epoch [11/100] Training Loss: 0.1033, F1 Score: 0.0000 | Validation Loss: 0.1039, F1 Score: 0.0000
-    Epoch [12/100] Training Loss: 0.1014, F1 Score: 0.0000 | Validation Loss: 0.1019, F1 Score: 0.0000
-    Epoch [13/100] Training Loss: 0.0991, F1 Score: 0.0000 | Validation Loss: 0.0993, F1 Score: 0.0000
-    Epoch [14/100] Training Loss: 0.0953, F1 Score: 0.0000 | Validation Loss: 0.0918, F1 Score: 0.0000
-    Epoch [15/100] Training Loss: 0.0848, F1 Score: 0.0000 | Validation Loss: 0.0803, F1 Score: 0.0000
-    Epoch [16/100] Training Loss: 0.0736, F1 Score: 0.0000 | Validation Loss: 0.0690, F1 Score: 0.0000
-    Epoch [17/100] Training Loss: 0.0630, F1 Score: 0.0000 | Validation Loss: 0.0589, F1 Score: 0.0000
-    Epoch [18/100] Training Loss: 0.0534, F1 Score: 0.0000 | Validation Loss: 0.0496, F1 Score: 0.0000
-    Epoch [19/100] Training Loss: 0.0451, F1 Score: 0.0000 | Validation Loss: 0.0418, F1 Score: 0.0000
-    Epoch [20/100] Training Loss: 0.0380, F1 Score: 0.2473 | Validation Loss: 0.0354, F1 Score: 0.4632
-    Epoch [21/100] Training Loss: 0.0323, F1 Score: 0.5464 | Validation Loss: 0.0303, F1 Score: 0.6445
-    Epoch [22/100] Training Loss: 0.0276, F1 Score: 0.7139 | Validation Loss: 0.0259, F1 Score: 0.7365
-    Epoch [23/100] Training Loss: 0.0240, F1 Score: 0.7804 | Validation Loss: 0.0232, F1 Score: 0.8174
-    Epoch [24/100] Training Loss: 0.0211, F1 Score: 0.8346 | Validation Loss: 0.0203, F1 Score: 0.8515
-    Epoch [25/100] Training Loss: 0.0188, F1 Score: 0.8690 | Validation Loss: 0.0182, F1 Score: 0.8679
-    Epoch [26/100] Training Loss: 0.0171, F1 Score: 0.8820 | Validation Loss: 0.0167, F1 Score: 0.8939
-    Epoch [27/100] Training Loss: 0.0156, F1 Score: 0.8994 | Validation Loss: 0.0154, F1 Score: 0.9009
-    Epoch [28/100] Training Loss: 0.0146, F1 Score: 0.9027 | Validation Loss: 0.0144, F1 Score: 0.9066
-    Epoch [29/100] Training Loss: 0.0137, F1 Score: 0.9136 | Validation Loss: 0.0137, F1 Score: 0.9109
-    Epoch [30/100] Training Loss: 0.0130, F1 Score: 0.9211 | Validation Loss: 0.0132, F1 Score: 0.9202
-    Epoch [31/100] Training Loss: 0.0124, F1 Score: 0.9241 | Validation Loss: 0.0127, F1 Score: 0.9202
-    Epoch [32/100] Training Loss: 0.0120, F1 Score: 0.9287 | Validation Loss: 0.0122, F1 Score: 0.9320
-    Epoch [33/100] Training Loss: 0.0116, F1 Score: 0.9323 | Validation Loss: 0.0118, F1 Score: 0.9294
-    Epoch [34/100] Training Loss: 0.0113, F1 Score: 0.9363 | Validation Loss: 0.0117, F1 Score: 0.9333
-    Epoch [35/100] Training Loss: 0.0110, F1 Score: 0.9369 | Validation Loss: 0.0114, F1 Score: 0.9333
-    Epoch [36/100] Training Loss: 0.0108, F1 Score: 0.9369 | Validation Loss: 0.0112, F1 Score: 0.9361
-    Epoch [37/100] Training Loss: 0.0106, F1 Score: 0.9392 | Validation Loss: 0.0111, F1 Score: 0.9307
-    Epoch [38/100] Training Loss: 0.0105, F1 Score: 0.9388 | Validation Loss: 0.0111, F1 Score: 0.9373
-    Epoch [39/100] Training Loss: 0.0103, F1 Score: 0.9404 | Validation Loss: 0.0109, F1 Score: 0.9361
-    Epoch [40/100] Training Loss: 0.0102, F1 Score: 0.9399 | Validation Loss: 0.0107, F1 Score: 0.9361
-    Epoch [41/100] Training Loss: 0.0101, F1 Score: 0.9393 | Validation Loss: 0.0107, F1 Score: 0.9399
-    Epoch [42/100] Training Loss: 0.0100, F1 Score: 0.9410 | Validation Loss: 0.0105, F1 Score: 0.9386
-    Epoch [43/100] Training Loss: 0.0100, F1 Score: 0.9404 | Validation Loss: 0.0103, F1 Score: 0.9386
-    Epoch [44/100] Training Loss: 0.0099, F1 Score: 0.9399 | Validation Loss: 0.0103, F1 Score: 0.9399
-    Epoch [45/100] Training Loss: 0.0098, F1 Score: 0.9449 | Validation Loss: 0.0104, F1 Score: 0.9373
-    Epoch [46/100] Training Loss: 0.0098, F1 Score: 0.9416 | Validation Loss: 0.0102, F1 Score: 0.9386
-    Epoch [47/100] Training Loss: 0.0098, F1 Score: 0.9417 | Validation Loss: 0.0103, F1 Score: 0.9373
-    Epoch [48/100] Training Loss: 0.0097, F1 Score: 0.9411 | Validation Loss: 0.0105, F1 Score: 0.9373
-    Epoch [49/100] Training Loss: 0.0097, F1 Score: 0.9416 | Validation Loss: 0.0103, F1 Score: 0.9399
-    Epoch [50/100] Training Loss: 0.0097, F1 Score: 0.9422 | Validation Loss: 0.0103, F1 Score: 0.9412
-    Epoch [51/100] Training Loss: 0.0097, F1 Score: 0.9421 | Validation Loss: 0.0102, F1 Score: 0.9361
-    Epoch [52/100] Training Loss: 0.0096, F1 Score: 0.9432 | Validation Loss: 0.0102, F1 Score: 0.9412
-    Epoch [53/100] Training Loss: 0.0096, F1 Score: 0.9439 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [54/100] Training Loss: 0.0096, F1 Score: 0.9400 | Validation Loss: 0.0103, F1 Score: 0.9399
-    Epoch [55/100] Training Loss: 0.0096, F1 Score: 0.9434 | Validation Loss: 0.0102, F1 Score: 0.9412
-    Epoch [56/100] Training Loss: 0.0096, F1 Score: 0.9406 | Validation Loss: 0.0102, F1 Score: 0.9424
-    Epoch [57/100] Training Loss: 0.0096, F1 Score: 0.9434 | Validation Loss: 0.0103, F1 Score: 0.9386
-    Epoch [58/100] Training Loss: 0.0096, F1 Score: 0.9439 | Validation Loss: 0.0102, F1 Score: 0.9386
-    Epoch [59/100] Training Loss: 0.0095, F1 Score: 0.9433 | Validation Loss: 0.0101, F1 Score: 0.9412
-    Epoch [60/100] Training Loss: 0.0095, F1 Score: 0.9450 | Validation Loss: 0.0102, F1 Score: 0.9386
-    Epoch [61/100] Training Loss: 0.0095, F1 Score: 0.9406 | Validation Loss: 0.0106, F1 Score: 0.9399
-    Epoch [62/100] Training Loss: 0.0095, F1 Score: 0.9455 | Validation Loss: 0.0100, F1 Score: 0.9386
-    Epoch [63/100] Training Loss: 0.0095, F1 Score: 0.9459 | Validation Loss: 0.0102, F1 Score: 0.9386
-    Epoch [64/100] Training Loss: 0.0095, F1 Score: 0.9450 | Validation Loss: 0.0101, F1 Score: 0.9386
-    Epoch [65/100] Training Loss: 0.0095, F1 Score: 0.9427 | Validation Loss: 0.0100, F1 Score: 0.9412
-    Epoch [66/100] Training Loss: 0.0095, F1 Score: 0.9422 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [67/100] Training Loss: 0.0095, F1 Score: 0.9417 | Validation Loss: 0.0103, F1 Score: 0.9386
-    Epoch [68/100] Training Loss: 0.0095, F1 Score: 0.9439 | Validation Loss: 0.0102, F1 Score: 0.9399
-    Epoch [69/100] Training Loss: 0.0095, F1 Score: 0.9411 | Validation Loss: 0.0101, F1 Score: 0.9373
-    Epoch [70/100] Training Loss: 0.0095, F1 Score: 0.9422 | Validation Loss: 0.0101, F1 Score: 0.9424
-    Epoch [71/100] Training Loss: 0.0095, F1 Score: 0.9439 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [72/100] Training Loss: 0.0095, F1 Score: 0.9416 | Validation Loss: 0.0103, F1 Score: 0.9386
-    Epoch [73/100] Training Loss: 0.0095, F1 Score: 0.9422 | Validation Loss: 0.0104, F1 Score: 0.9386
-    Epoch [74/100] Training Loss: 0.0095, F1 Score: 0.9428 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [75/100] Training Loss: 0.0095, F1 Score: 0.9433 | Validation Loss: 0.0101, F1 Score: 0.9412
-    Epoch [76/100] Training Loss: 0.0095, F1 Score: 0.9444 | Validation Loss: 0.0102, F1 Score: 0.9361
-    Epoch 00077: reducing learning rate of group 0 to 1.0000e-04.
-    Epoch [77/100] Training Loss: 0.0095, F1 Score: 0.9399 | Validation Loss: 0.0105, F1 Score: 0.9399
-    Epoch [78/100] Training Loss: 0.0094, F1 Score: 0.9494 | Validation Loss: 0.0100, F1 Score: 0.9450
-    Epoch [79/100] Training Loss: 0.0093, F1 Score: 0.9489 | Validation Loss: 0.0100, F1 Score: 0.9412
-    Epoch [80/100] Training Loss: 0.0093, F1 Score: 0.9478 | Validation Loss: 0.0100, F1 Score: 0.9424
-    Epoch [81/100] Training Loss: 0.0093, F1 Score: 0.9473 | Validation Loss: 0.0100, F1 Score: 0.9424
-    Epoch [82/100] Training Loss: 0.0093, F1 Score: 0.9461 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [83/100] Training Loss: 0.0093, F1 Score: 0.9467 | Validation Loss: 0.0100, F1 Score: 0.9412
-    Epoch [84/100] Training Loss: 0.0093, F1 Score: 0.9461 | Validation Loss: 0.0100, F1 Score: 0.9412
-    Epoch [85/100] Training Loss: 0.0094, F1 Score: 0.9461 | Validation Loss: 0.0100, F1 Score: 0.9412
-    Epoch [86/100] Training Loss: 0.0093, F1 Score: 0.9467 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [87/100] Training Loss: 0.0094, F1 Score: 0.9450 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [88/100] Training Loss: 0.0094, F1 Score: 0.9467 | Validation Loss: 0.0100, F1 Score: 0.9412
-    Epoch [89/100] Training Loss: 0.0094, F1 Score: 0.9467 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch 00090: reducing learning rate of group 0 to 1.0000e-05.
-    Epoch [90/100] Training Loss: 0.0094, F1 Score: 0.9456 | Validation Loss: 0.0100, F1 Score: 0.9412
-    Epoch [91/100] Training Loss: 0.0093, F1 Score: 0.9473 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [92/100] Training Loss: 0.0093, F1 Score: 0.9473 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [93/100] Training Loss: 0.0093, F1 Score: 0.9473 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [94/100] Training Loss: 0.0093, F1 Score: 0.9473 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [95/100] Training Loss: 0.0093, F1 Score: 0.9473 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [96/100] Training Loss: 0.0093, F1 Score: 0.9473 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [97/100] Training Loss: 0.0093, F1 Score: 0.9467 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [98/100] Training Loss: 0.0093, F1 Score: 0.9467 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [99/100] Training Loss: 0.0093, F1 Score: 0.9473 | Validation Loss: 0.0100, F1 Score: 0.9399
-    Epoch [100/100] Training Loss: 0.0093, F1 Score: 0.9467 | Validation Loss: 0.0100, F1 Score: 0.9399
+    Epoch [1/100] Training Loss: 0.2318, F1 Score: 0.0000 | Validation Loss: 0.1418, F1 Score: 0.0000
+    Epoch [2/100] Training Loss: 0.1213, F1 Score: 0.0000 | Validation Loss: 0.1126, F1 Score: 0.0000
+    Epoch [3/100] Training Loss: 0.1090, F1 Score: 0.0000 | Validation Loss: 0.1090, F1 Score: 0.0000
+    Epoch [4/100] Training Loss: 0.1070, F1 Score: 0.0000 | Validation Loss: 0.1080, F1 Score: 0.0000
+    Epoch [5/100] Training Loss: 0.1059, F1 Score: 0.0000 | Validation Loss: 0.1071, F1 Score: 0.0000
+    Epoch [6/100] Training Loss: 0.1047, F1 Score: 0.0000 | Validation Loss: 0.1057, F1 Score: 0.0000
+    Epoch [7/100] Training Loss: 0.1035, F1 Score: 0.0000 | Validation Loss: 0.1044, F1 Score: 0.0000
+    Epoch [8/100] Training Loss: 0.1022, F1 Score: 0.0000 | Validation Loss: 0.1030, F1 Score: 0.0000
+    Epoch [9/100] Training Loss: 0.1008, F1 Score: 0.0000 | Validation Loss: 0.1015, F1 Score: 0.0000
+    Epoch [10/100] Training Loss: 0.0993, F1 Score: 0.0000 | Validation Loss: 0.0999, F1 Score: 0.0000
+    Epoch [11/100] Training Loss: 0.0975, F1 Score: 0.0000 | Validation Loss: 0.0980, F1 Score: 0.0000
+    Epoch [12/100] Training Loss: 0.0955, F1 Score: 0.0000 | Validation Loss: 0.0957, F1 Score: 0.0000
+    Epoch [13/100] Training Loss: 0.0929, F1 Score: 0.0000 | Validation Loss: 0.0928, F1 Score: 0.0000
+    Epoch [14/100] Training Loss: 0.0899, F1 Score: 0.0000 | Validation Loss: 0.0898, F1 Score: 0.0000
+    Epoch [15/100] Training Loss: 0.0864, F1 Score: 0.0000 | Validation Loss: 0.0859, F1 Score: 0.0000
+    Epoch [16/100] Training Loss: 0.0827, F1 Score: 0.0000 | Validation Loss: 0.0818, F1 Score: 0.0000
+    Epoch [17/100] Training Loss: 0.0787, F1 Score: 0.0000 | Validation Loss: 0.0780, F1 Score: 0.0000
+    Epoch [18/100] Training Loss: 0.0747, F1 Score: 0.0000 | Validation Loss: 0.0740, F1 Score: 0.0000
+    Epoch [19/100] Training Loss: 0.0707, F1 Score: 0.0000 | Validation Loss: 0.0696, F1 Score: 0.0000
+    Epoch [20/100] Training Loss: 0.0667, F1 Score: 0.0000 | Validation Loss: 0.0658, F1 Score: 0.0000
+    Epoch [21/100] Training Loss: 0.0632, F1 Score: 0.0000 | Validation Loss: 0.0619, F1 Score: 0.0000
+    Epoch [22/100] Training Loss: 0.0598, F1 Score: 0.0000 | Validation Loss: 0.0591, F1 Score: 0.0000
+    Epoch [23/100] Training Loss: 0.0567, F1 Score: 0.0000 | Validation Loss: 0.0565, F1 Score: 0.0000
+    Epoch [24/100] Training Loss: 0.0540, F1 Score: 0.0000 | Validation Loss: 0.0544, F1 Score: 0.0000
+    Epoch [25/100] Training Loss: 0.0516, F1 Score: 0.0000 | Validation Loss: 0.0511, F1 Score: 0.0000
+    Epoch [26/100] Training Loss: 0.0493, F1 Score: 0.0000 | Validation Loss: 0.0500, F1 Score: 0.0000
+    Epoch [27/100] Training Loss: 0.0475, F1 Score: 0.0000 | Validation Loss: 0.0478, F1 Score: 0.0000
+    Epoch [28/100] Training Loss: 0.0457, F1 Score: 0.0767 | Validation Loss: 0.0467, F1 Score: 0.2914
+    Epoch [29/100] Training Loss: 0.0442, F1 Score: 0.3138 | Validation Loss: 0.0449, F1 Score: 0.3116
+    Epoch [30/100] Training Loss: 0.0429, F1 Score: 0.3673 | Validation Loss: 0.0432, F1 Score: 0.3314
+    Epoch [31/100] Training Loss: 0.0418, F1 Score: 0.4120 | Validation Loss: 0.0415, F1 Score: 0.4148
+    Epoch [32/100] Training Loss: 0.0407, F1 Score: 0.4386 | Validation Loss: 0.0409, F1 Score: 0.4294
+    Epoch [33/100] Training Loss: 0.0399, F1 Score: 0.4655 | Validation Loss: 0.0399, F1 Score: 0.4742
+    Epoch [34/100] Training Loss: 0.0390, F1 Score: 0.4996 | Validation Loss: 0.0401, F1 Score: 0.5241
+    Epoch [35/100] Training Loss: 0.0382, F1 Score: 0.5318 | Validation Loss: 0.0383, F1 Score: 0.5417
+    Epoch [36/100] Training Loss: 0.0376, F1 Score: 0.5574 | Validation Loss: 0.0384, F1 Score: 0.5748
+    Epoch [37/100] Training Loss: 0.0370, F1 Score: 0.5834 | Validation Loss: 0.0369, F1 Score: 0.5724
+    Epoch [38/100] Training Loss: 0.0365, F1 Score: 0.5971 | Validation Loss: 0.0365, F1 Score: 0.5700
+    Epoch [39/100] Training Loss: 0.0360, F1 Score: 0.6179 | Validation Loss: 0.0361, F1 Score: 0.5628
+    Epoch [40/100] Training Loss: 0.0356, F1 Score: 0.6232 | Validation Loss: 0.0368, F1 Score: 0.6084
+    Epoch [41/100] Training Loss: 0.0351, F1 Score: 0.6376 | Validation Loss: 0.0358, F1 Score: 0.6139
+    Epoch [42/100] Training Loss: 0.0348, F1 Score: 0.6432 | Validation Loss: 0.0368, F1 Score: 0.6306
+    Epoch [43/100] Training Loss: 0.0345, F1 Score: 0.6529 | Validation Loss: 0.0348, F1 Score: 0.6394
+    Epoch [44/100] Training Loss: 0.0342, F1 Score: 0.6525 | Validation Loss: 0.0352, F1 Score: 0.6240
+    Epoch [45/100] Training Loss: 0.0339, F1 Score: 0.6599 | Validation Loss: 0.0346, F1 Score: 0.6646
+    Epoch [46/100] Training Loss: 0.0336, F1 Score: 0.6621 | Validation Loss: 0.0339, F1 Score: 0.6697
+    Epoch [47/100] Training Loss: 0.0335, F1 Score: 0.6739 | Validation Loss: 0.0340, F1 Score: 0.6563
+    Epoch [48/100] Training Loss: 0.0332, F1 Score: 0.6774 | Validation Loss: 0.0335, F1 Score: 0.6604
+    Epoch [49/100] Training Loss: 0.0329, F1 Score: 0.6787 | Validation Loss: 0.0339, F1 Score: 0.6769
+    Epoch [50/100] Training Loss: 0.0327, F1 Score: 0.6818 | Validation Loss: 0.0335, F1 Score: 0.6820
+    Epoch [51/100] Training Loss: 0.0326, F1 Score: 0.6897 | Validation Loss: 0.0335, F1 Score: 0.6687
+    Epoch [52/100] Training Loss: 0.0324, F1 Score: 0.6910 | Validation Loss: 0.0330, F1 Score: 0.6909
+    Epoch [53/100] Training Loss: 0.0322, F1 Score: 0.6957 | Validation Loss: 0.0331, F1 Score: 0.6909
+    Epoch [54/100] Training Loss: 0.0321, F1 Score: 0.7005 | Validation Loss: 0.0333, F1 Score: 0.6839
+    Epoch [55/100] Training Loss: 0.0321, F1 Score: 0.6966 | Validation Loss: 0.0327, F1 Score: 0.6799
+    Epoch [56/100] Training Loss: 0.0319, F1 Score: 0.7013 | Validation Loss: 0.0324, F1 Score: 0.6947
+    Epoch [57/100] Training Loss: 0.0317, F1 Score: 0.7114 | Validation Loss: 0.0328, F1 Score: 0.6698
+    Epoch [58/100] Training Loss: 0.0317, F1 Score: 0.7051 | Validation Loss: 0.0327, F1 Score: 0.7198
+    Epoch [59/100] Training Loss: 0.0315, F1 Score: 0.7119 | Validation Loss: 0.0330, F1 Score: 0.6349
+    Epoch [60/100] Training Loss: 0.0314, F1 Score: 0.7160 | Validation Loss: 0.0323, F1 Score: 0.6987
+    Epoch [61/100] Training Loss: 0.0314, F1 Score: 0.7085 | Validation Loss: 0.0319, F1 Score: 0.6697
+    Epoch [62/100] Training Loss: 0.0313, F1 Score: 0.7144 | Validation Loss: 0.0316, F1 Score: 0.6718
+    Epoch [63/100] Training Loss: 0.0312, F1 Score: 0.7163 | Validation Loss: 0.0323, F1 Score: 0.6392
+    Epoch [64/100] Training Loss: 0.0311, F1 Score: 0.7156 | Validation Loss: 0.0317, F1 Score: 0.6947
+    Epoch [65/100] Training Loss: 0.0310, F1 Score: 0.7194 | Validation Loss: 0.0318, F1 Score: 0.7262
+    Epoch [66/100] Training Loss: 0.0310, F1 Score: 0.7185 | Validation Loss: 0.0318, F1 Score: 0.7064
+    Epoch [67/100] Training Loss: 0.0309, F1 Score: 0.7222 | Validation Loss: 0.0312, F1 Score: 0.6938
+    Epoch [68/100] Training Loss: 0.0309, F1 Score: 0.7164 | Validation Loss: 0.0313, F1 Score: 0.7083
+    Epoch [69/100] Training Loss: 0.0308, F1 Score: 0.7246 | Validation Loss: 0.0317, F1 Score: 0.7251
+    Epoch [70/100] Training Loss: 0.0308, F1 Score: 0.7259 | Validation Loss: 0.0318, F1 Score: 0.6839
+    Epoch [71/100] Training Loss: 0.0307, F1 Score: 0.7219 | Validation Loss: 0.0318, F1 Score: 0.7057
+    Epoch [72/100] Training Loss: 0.0306, F1 Score: 0.7239 | Validation Loss: 0.0318, F1 Score: 0.7094
+    Epoch [73/100] Training Loss: 0.0306, F1 Score: 0.7221 | Validation Loss: 0.0314, F1 Score: 0.7036
+    Epoch [74/100] Training Loss: 0.0306, F1 Score: 0.7288 | Validation Loss: 0.0320, F1 Score: 0.7262
+    Epoch [75/100] Training Loss: 0.0305, F1 Score: 0.7241 | Validation Loss: 0.0313, F1 Score: 0.7130
+    Epoch [76/100] Training Loss: 0.0305, F1 Score: 0.7267 | Validation Loss: 0.0315, F1 Score: 0.6829
+    Epoch [77/100] Training Loss: 0.0304, F1 Score: 0.7272 | Validation Loss: 0.0306, F1 Score: 0.7055
+    Epoch [78/100] Training Loss: 0.0305, F1 Score: 0.7293 | Validation Loss: 0.0308, F1 Score: 0.6899
+    Epoch [79/100] Training Loss: 0.0305, F1 Score: 0.7290 | Validation Loss: 0.0306, F1 Score: 0.7198
+    Epoch [80/100] Training Loss: 0.0302, F1 Score: 0.7258 | Validation Loss: 0.0307, F1 Score: 0.7160
+    Epoch [81/100] Training Loss: 0.0303, F1 Score: 0.7352 | Validation Loss: 0.0308, F1 Score: 0.6909
+    Epoch [82/100] Training Loss: 0.0303, F1 Score: 0.7316 | Validation Loss: 0.0312, F1 Score: 0.6738
+    Epoch [83/100] Training Loss: 0.0303, F1 Score: 0.7332 | Validation Loss: 0.0309, F1 Score: 0.6879
+    Epoch [84/100] Training Loss: 0.0302, F1 Score: 0.7300 | Validation Loss: 0.0310, F1 Score: 0.7278
+    Epoch [85/100] Training Loss: 0.0303, F1 Score: 0.7291 | Validation Loss: 0.0315, F1 Score: 0.7206
+    Epoch [86/100] Training Loss: 0.0303, F1 Score: 0.7326 | Validation Loss: 0.0304, F1 Score: 0.7113
+    Epoch [87/100] Training Loss: 0.0302, F1 Score: 0.7324 | Validation Loss: 0.0305, F1 Score: 0.6859
+    Epoch [88/100] Training Loss: 0.0301, F1 Score: 0.7372 | Validation Loss: 0.0319, F1 Score: 0.7235
+    Epoch [89/100] Training Loss: 0.0301, F1 Score: 0.7345 | Validation Loss: 0.0309, F1 Score: 0.6988
+    Epoch [90/100] Training Loss: 0.0300, F1 Score: 0.7377 | Validation Loss: 0.0306, F1 Score: 0.7225
+    Epoch [91/100] Training Loss: 0.0300, F1 Score: 0.7413 | Validation Loss: 0.0309, F1 Score: 0.6967
+    Epoch [92/100] Training Loss: 0.0301, F1 Score: 0.7377 | Validation Loss: 0.0306, F1 Score: 0.7179
+    Epoch [93/100] Training Loss: 0.0300, F1 Score: 0.7376 | Validation Loss: 0.0312, F1 Score: 0.7381
+    Epoch [94/100] Training Loss: 0.0301, F1 Score: 0.7319 | Validation Loss: 0.0314, F1 Score: 0.7189
+    Epoch [95/100] Training Loss: 0.0300, F1 Score: 0.7377 | Validation Loss: 0.0303, F1 Score: 0.7198
+    Epoch [96/100] Training Loss: 0.0301, F1 Score: 0.7287 | Validation Loss: 0.0309, F1 Score: 0.7092
+    Epoch [97/100] Training Loss: 0.0299, F1 Score: 0.7361 | Validation Loss: 0.0312, F1 Score: 0.7151
+    Epoch [98/100] Training Loss: 0.0299, F1 Score: 0.7368 | Validation Loss: 0.0307, F1 Score: 0.7064
+    Epoch [99/100] Training Loss: 0.0300, F1 Score: 0.7364 | Validation Loss: 0.0311, F1 Score: 0.7235
+    Epoch [100/100] Training Loss: 0.0300, F1 Score: 0.7331 | Validation Loss: 0.0307, F1 Score: 0.7103
 
 
 
     
-![png](output_41_1.png)
+![png](output_42_1.png)
     
 
 
-    Training complete! Total time: 861.18 seconds
+    Training complete! Total time: 849.26 seconds
 
 
 # **Mappings Selector**
@@ -1864,7 +1876,7 @@ Prediction_with_candidates(
 )
 ```
 
-    Predicting time: 15.49 seconds
+    Predicting time: 14.61 seconds
     Predictions saved to /content/gdrive/My Drive/BioGITOM-VLDB/ncit2doid/Results/ncit2doid_all_predictions.tsv
 
 
@@ -1877,7 +1889,7 @@ matching_results_df = filter_highest_predictions(
 )
 ```
 
-    Number of Positive predictions: 3217
+    Number of Positive predictions: 2899
 
 
 # **Evaluation**
@@ -1913,8 +1925,8 @@ print(f"Number of Correct Predictions: {correct}")
 print(results)
 ```
 
-    Number of Correct Predictions: 2946
-    {'P': 0.916, 'R': 0.898, 'F1': 0.907}
+    Number of Correct Predictions: 2195
+    {'P': 0.757, 'R': 0.669, 'F1': 0.71}
 
 
 # Ranked-based metrics calculation
@@ -1970,7 +1982,7 @@ Prediction_with_candidates(
 )
 ```
 
-    Predicting time: 14.64 seconds
+    Predicting time: 14.42 seconds
     Predictions saved to /content/gdrive/My Drive/BioGITOM-VLDB/ncit2doid/Results/ncit2doid_all_predictions_ranked.tsv
 
 
@@ -1991,7 +2003,7 @@ print(results)  # Output the Mean Reciprocal Rank (MRR) and Hits@k metrics
 ```
 
     MRR and Hits@k Results:
-    {'MRR': 0.9344311332059976, 'Hits@k': {1: 0.8957317073170732, 5: 0.9820121951219513, 10: 0.9917682926829269}}
+    {'MRR': 0.7365461701809539, 'Hits@k': {1: 0.6603658536585366, 5: 0.8289634146341464, 10: 0.8765243902439024}}
 
 
 
@@ -2004,5 +2016,5 @@ print(results)
 ```
 
     Ranking Evaluation Results at K=1, 5, and 10:
-    {'MRR': 0.9344311332059976, 'Hits@1': 0.8957317073170732, 'Hits@5': 0.9820121951219513, 'Hits@10': 0.9917682926829269}
+    {'MRR': 0.7365461701809539, 'Hits@1': 0.6603658536585366, 'Hits@5': 0.8289634146341464, 'Hits@10': 0.8765243902439024}
 

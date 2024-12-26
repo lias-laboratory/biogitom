@@ -1,7 +1,7 @@
 import os
 import argparse
 
-def execute_task_script(task_name, src_ent, tgt_ent):
+def execute_task_script(task_name):
     """
     Executes a task-specific script with the given arguments.
 
@@ -23,8 +23,7 @@ def execute_task_script(task_name, src_ent, tgt_ent):
 
     # Inject variables
     exec_globals = {
-        "src_ent": src_ent,
-        "tgt_ent": tgt_ent,
+       
         "task": task_name,
     }
     exec(script_content, exec_globals)
@@ -32,8 +31,6 @@ def execute_task_script(task_name, src_ent, tgt_ent):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run BioGITOM tasks")
     parser.add_argument("--task", type=str, required=True, help="Task name (e.g., 'omim2ordo')")
-    parser.add_argument("--src_ent", type=str, required=True, help="Source ontology name (e.g., 'omim')")
-    parser.add_argument("--tgt_ent", type=str, required=True, help="Target ontology name (e.g., 'ordo')")
     args = parser.parse_args()
 
-    execute_task_script(args.task, args.src_ent, args.tgt_ent)
+    execute_task_script(args.task)
