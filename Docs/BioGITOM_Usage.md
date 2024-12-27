@@ -6,9 +6,9 @@
    ```bash
    python run_biogitom.py --task <task>
    ```
-    Replace <task> with the appropriate task name.
+   Replace `<task>` with the appropriate task name. 
 
-   Example:
+   Example: To run the omim2ordo task:
 
    ```bash
    python run_biogitom.py --task omim2ordo 
@@ -44,7 +44,7 @@
        python Scripts/evaluate_global_metrics.py --task <task> --src_ent <src_ent> --tgt_ent <tgt_ent>
 
        ```
-      Replace <task>, <src_ent>, and <tgt_ent> with the corresponding task name, source ontology name, and target ontology name.
+      Replace `<task>`, `<src_ent>`, and `<tgt_ent>` with the corresponding task name, source ontology name, and target ontology name.
 
       Example:  
       ```bash
@@ -56,6 +56,7 @@
        ```bash
         python Scripts/evaluate_ranked_based_metrics.py --task <task> --src_ent <src_ent> --tgt_ent <tgt_ent> 
        ```
+      Replace `<task>`, `<src_ent>`, and `<tgt_ent>` with the corresponding task name, source ontology name, and target ontology name.
       Example:
       ```bash
        python Scripts/evaluate_ranked_based_metrics.py --task omim2ordo --src_ent omim --tgt_ent ordo
