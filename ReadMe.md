@@ -35,7 +35,7 @@ BioGITOM is released under the MIT License. See [LICENSE](LICENSE) for more info
 - Samira Oulefki, Dep. of Artificial Intelligence and Data Sciences, USTHB, Algeria
 - Lamia Berkani, Dep. of Artificial Intelligence and Data Sciences, USTHB, Algeria
 - Nassim Boudjenah, Dep. of Artificial Intelligence and Data Sciences, USTHB, Algeria
-- [Ladjel Bellatreche](https://www.lias-lab.fr/fr/members/bellatreche/), LIAS, ISAE-ENSMA, France
+- [Ladjel Bellatreche](https://www.lias-lab.fr/members/bellatreche/), LIAS, ISAE-ENSMA, France
 - Aicha Mokhtari, Dep. of Artificial Intelligence and Data Sciences, USTHB, Algeria
 
 ## Contact
