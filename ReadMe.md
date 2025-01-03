@@ -30,6 +30,14 @@ To reproduce the published results of BioGITOM, please consult the [Reproducibil
 
 BioGITOM is released under the MIT License. See [LICENSE](LICENSE) for more information.
 
+## Contributors
+
+- Samira Oulefki, Dep. of Artificial Intelligence and Data Sciences, USTHB, Algeria
+- Lamia Berkani, Dep. of Artificial Intelligence and Data Sciences, USTHB, Algeria
+- Nassim Boudjenah, Dep. of Artificial Intelligence and Data Sciences, USTHB, Algeria
+- [Ladjel Bellatreche](https://www.lias-lab.fr/fr/members/bellatreche/), LIAS, ISAE-ENSMA, France
+- Aicha Mokhtari, Dep. of Artificial Intelligence and Data Sciences, USTHB, Algeria
+
 ## Contact
 
 For more information about BioGITOM, please contact [soulefki@usthb.dz](mailto:soulefki@usthb.dz).
