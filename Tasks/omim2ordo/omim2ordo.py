@@ -712,9 +712,9 @@ def compute_mrr_and_hits(reference_file, predicted_file, output_file, k_values=[
 
 # Main Code
 
-# Reading semantic node embeddings provided by the CNE
+# Reading semantic node embeddings provided by the Concept Features Encoder (CFE)
 
-print("Reading semantic concepts embeddings provided by the CNE...")
+print("Reading semantic concepts embeddings provided by the Concept Features Encoder ...")
 
 # Read the source embeddings from a CSV file into a pandas DataFrame
 df_embbedings_src = pd.read_csv(src_Emb, index_col=0)

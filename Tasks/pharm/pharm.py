@@ -115,16 +115,16 @@ np.random.seed(42)
 random.seed(42)
 
 # Define the source ontology name
-src_ent = "snomed.neoplas"
+src_ent = "snomed.pharm"
 
 # Define the target ontology name
-tgt_ent = "ncit.neoplas"
+tgt_ent = "ncit.pharm"
 
 # Define the task name for this ontology matching process
-task = "neoplas"
+task = "pharm"
 
 # Define the similarity threshold for validating matches
-thres = 0.20
+thres = 0.19
 
 print(f"Matching {src_ent}.owl and {tgt_ent}.owl:")
 
@@ -134,7 +134,6 @@ print(f"Matching {src_ent}.owl and {tgt_ent}.owl:")
 # directory structure changes or the script is executed from a different location.
 
 dir = "../biogitom"
-
 
 # Define the directory for the dataset containing source and target ontologies
 dataset_dir = f"{dir}/Datasets/{task}"
@@ -1248,3 +1247,5 @@ print("Ranked-based metrics calculation using DeepOnto...")
 results = ranking_eval(formatted_predictions_path, Ks=[1, 5, 10])
 print("Ranking Evaluation Results at K=1, 5, and 10:")
 print(results)
+
+

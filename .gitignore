@@ -3,3 +3,4 @@
 *.owl
 *.json
 !dictionary.json
+data_biogitom.tar.gz
