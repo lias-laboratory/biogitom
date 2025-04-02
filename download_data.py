@@ -6,7 +6,7 @@ import shutil
 import time
 
 # URL of the compressed file
-DATA_URL = "https://www.lias-lab.fr/ftppublic/research/biogitom/data_biogitom.tar.gz"
+DATA_URL = "https://forge.lias-lab.fr/datasets/biogitom/data_biogitom.tar.gz"
 ZIP_FILE = "data_biogitom.tar.gz"
 TARGET_DIR = "temp"
 
