@@ -2,31 +2,15 @@ import os
 import argparse
 
 def execute_task_script(task_name):
-    """
-    Executes a task-specific script with the given arguments.
+    task_path = f"Tasks/{task_name}/{task_name}.py"
+    if not os.path.isfile(task_path):
+        print(f"Error: Task file '{task_path}' not found.")
+        return
 
-    Args:
-        task_name (str): Name of the task folder (e.g., 'omim2ordo').
-        src_ent (str): Source ontology name (e.g., 'omim').
-        tgt_ent (str): Target ontology name (e.g., 'ordo').
-    """
-    script_path = f"Tasks/{task_name}/{task_name}.py"
-    if not os.path.exists(script_path):
-        raise FileNotFoundError(f"Task script '{script_path}' not found.")
-    
-    # print the task name and path
-    print(f"Executing task '{task_name}' from '{script_path}'...")
-
-    # Build the script as a string with argument injection
-    with open(script_path, "r") as script_file:
+    with open(task_path, encoding='utf-8') as script_file:  # 🔧 FIX HERE
         script_content = script_file.read()
 
-    # Inject variables
-    exec_globals = {
-       
-        "task": task_name,
-    }
-    exec(script_content, exec_globals)
+    exec(script_content, globals())
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run BioGITOM tasks")

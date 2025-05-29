@@ -1,5 +1,6 @@
 import sys
 import os
+import pandas as pd
 import argparse  # Import argparse for command-line argument parsing
 try:
     # Import necessary modules from DeepOnto after starting the JVM
@@ -69,6 +70,52 @@ try:
         # Print the evaluation results
         print(f"Number of Correct Predictions: {correct}")
         print(f"Precision, Recall, F1-Score: {results}")
+   
+    
+    def evaluate_top1_metrics(task, src_ent, tgt_ent):
+  
+        print(f"\n🔍 Evaluating Precision@1, Recall@1, and F1@1 for task: {task}...")
+       # Définir les chemins
+        dataset_dir = f"Datasets/{task}"
+        top1_file = f"Tasks/{task}/Results/{task}_top_1_mappings_predictions.tsv"
+        test_file = f"{dataset_dir}/refs_equiv/test.tsv"
+
+        # Charger les fichiers
+        if not os.path.exists(top1_file):
+            print(f"Error: Top-1 predictions file not found at {top1_file}")
+            return
+        if not os.path.exists(test_file):
+            print(f"Error: Reference test file not found at {test_file}")
+            return
+
+        top1_df = pd.read_csv(top1_file, sep='\t')
+        test_df = pd.read_csv(test_file, sep='\t')
+
+    # Construire des ensembles ou dictionnaires pour comparaison
+        top1_dict = dict(zip(top1_df["SrcEntity"], top1_df["TgtEntity"]))
+        test_dict = dict(zip(test_df["SrcEntity"], test_df["TgtEntity"]))
+
+        tp = 0
+        total_pred = len(top1_dict)
+        total_refs = len(test_dict)
+
+        for src_uri, tgt_uri in top1_dict.items():
+            if src_uri in test_dict and test_dict[src_uri] == tgt_uri:
+               tp += 1
+
+        precision_at_1 = tp / total_pred if total_pred else 0.0
+        recall_at_1 = tp / total_refs if total_refs else 0.0
+        if precision_at_1 + recall_at_1 > 0:
+            f1_at_1 = 2 * precision_at_1 * recall_at_1 / (precision_at_1 + recall_at_1)
+        else:
+            f1_at_1 = 0.0
+
+        print(f"Precision@1: {precision_at_1:.4f}")
+        print(f"Recall@1:    {recall_at_1:.4f}")
+        print(f"F1@1:        {f1_at_1:.4f}")
+
+
+
 
     # Set up argument parser for command-line arguments
     parser = argparse.ArgumentParser(description="Run BioGITOM Ontology Matching Evaluation")
@@ -81,6 +128,7 @@ try:
 
     # Call the evaluation function with parsed arguments
     evaluate_Global_Metrics(args.task, args.src_ent, args.tgt_ent)
+    evaluate_top1_metrics(args.task, args.src_ent, args.tgt_ent)
 
 except Exception as e:
     # Handle and display any errors that occur during execution

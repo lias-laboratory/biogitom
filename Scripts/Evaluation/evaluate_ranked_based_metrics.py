@@ -25,7 +25,7 @@ try:
 
         # Load the predicted scores from the predictions file.
         predicted_data = pd.read_csv(predicted_file, sep="\t")
-        predicted_data["Score"] = predicted_data["Score"].apply(lambda x: float(x.strip("[]")))
+        predicted_data["Score"] = predicted_data["Score"].apply(lambda x: float(str(x).strip("[]")))
 
         # Create a dictionary to quickly look up scores for (source, target) pairs.
         score_lookup = {}
@@ -77,7 +77,7 @@ try:
             tgt_ent (str): Target ontology entity.
         """
         reference_file = f"Datasets/{task}/refs_equiv/test.cands.tsv"
-        predicted_file = f"Tasks/{task}/Results/{task}_all_predictions_ranked.tsv"
+        predicted_file = f"Tasks/{task}/Results/{task}_top_200_mappings_mrr_hit.tsv"
 
         print(f"Starting evaluation for ranked-based metrics in the ontology matching task: {task}...")
         metrics = compute_mrr_and_hits(reference_file, predicted_file)

@@ -2,534 +2,666 @@
 
 
 ```python
-# We assume that PyTorch is already installed in the environment.
-# If not, this command installs it.
-!pip install torch==2.0.0
-
-# Install PyTorch Geometric, a library for creating graph neural networks using PyTorch.
-!pip install torch-geometric==2.4.0
-
-# Import PyTorch to access its functionalities.
-import torch
-
-# Install additional PyTorch Geometric dependencies for graph processing (scatter, sparse, cluster, spline-conv).
-# These packages enable operations like sparse tensors and convolutions on graphs.
-!pip install torch-scatter torch-sparse torch-cluster torch-spline-conv -f https://data.pyg.org/whl/torch-2.0.0+cpu.html
-
-# Reinstall PyTorch Geometric to ensure all dependencies are correctly loaded.
-!pip install torch-geometric
-
-# Retrieve the installed version of PyTorch to ensure compatibility with other packages.
-torchversion = torch.__version__
-
-# Install the latest version of PyTorch Geometric directly from the GitHub repository.
-# This allows access to the most recent updates and features for graph-based neural networks.
-!pip install -q git+https://github.com/pyg-team/pytorch_geometric.git
-
-# Install DeepOnto, a package specifically designed for ontology matching, particularly useful in biomedical applications.
-!pip install deeponto
-
-# Install a custom version of DeepOnto from a GitHub repository.
-# The '<username>' part should be replaced with the actual GitHub username of the repository maintainer.
-!pip install git+https://github.com/<username>/deeponto.git
-
+# Reinstall a specific version of PyTorch (v2.6.0) and torchvision (v0.21.0)
+# The "--force-reinstall" flag ensures that the packages are reinstalled even if the correct version is already present.
+# This is useful to resolve environment issues or when dependencies need to be reset.
+!pip install torch==2.6.0 torchvision==0.21.0 --force-reinstall
 ```
 
-    Collecting torch==2.0.0
-      Downloading torch-2.0.0-cp310-cp310-manylinux1_x86_64.whl.metadata (24 kB)
-    Requirement already satisfied: filelock in /usr/local/lib/python3.10/dist-packages (from torch==2.0.0) (3.16.1)
-    Requirement already satisfied: typing-extensions in /usr/local/lib/python3.10/dist-packages (from torch==2.0.0) (4.12.2)
-    Requirement already satisfied: sympy in /usr/local/lib/python3.10/dist-packages (from torch==2.0.0) (1.13.1)
-    Requirement already satisfied: networkx in /usr/local/lib/python3.10/dist-packages (from torch==2.0.0) (3.4.2)
-    Requirement already satisfied: jinja2 in /usr/local/lib/python3.10/dist-packages (from torch==2.0.0) (3.1.4)
-    Collecting nvidia-cuda-nvrtc-cu11==11.7.99 (from torch==2.0.0)
-      Downloading nvidia_cuda_nvrtc_cu11-11.7.99-2-py3-none-manylinux1_x86_64.whl.metadata (1.5 kB)
-    Collecting nvidia-cuda-runtime-cu11==11.7.99 (from torch==2.0.0)
-      Downloading nvidia_cuda_runtime_cu11-11.7.99-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
-    Collecting nvidia-cuda-cupti-cu11==11.7.101 (from torch==2.0.0)
-      Downloading nvidia_cuda_cupti_cu11-11.7.101-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
-    Collecting nvidia-cudnn-cu11==8.5.0.96 (from torch==2.0.0)
-      Downloading nvidia_cudnn_cu11-8.5.0.96-2-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
-    Collecting nvidia-cublas-cu11==11.10.3.66 (from torch==2.0.0)
-      Downloading nvidia_cublas_cu11-11.10.3.66-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
-    Collecting nvidia-cufft-cu11==10.9.0.58 (from torch==2.0.0)
-      Downloading nvidia_cufft_cu11-10.9.0.58-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
-    Collecting nvidia-curand-cu11==10.2.10.91 (from torch==2.0.0)
-      Downloading nvidia_curand_cu11-10.2.10.91-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
-    Collecting nvidia-cusolver-cu11==11.4.0.1 (from torch==2.0.0)
-      Downloading nvidia_cusolver_cu11-11.4.0.1-2-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
-    Collecting nvidia-cusparse-cu11==11.7.4.91 (from torch==2.0.0)
-      Downloading nvidia_cusparse_cu11-11.7.4.91-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
-    Collecting nvidia-nccl-cu11==2.14.3 (from torch==2.0.0)
-      Downloading nvidia_nccl_cu11-2.14.3-py3-none-manylinux1_x86_64.whl.metadata (1.8 kB)
-    Collecting nvidia-nvtx-cu11==11.7.91 (from torch==2.0.0)
-      Downloading nvidia_nvtx_cu11-11.7.91-py3-none-manylinux1_x86_64.whl.metadata (1.7 kB)
-    Collecting triton==2.0.0 (from torch==2.0.0)
-      Downloading triton-2.0.0-1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.0 kB)
-    Requirement already satisfied: setuptools in /usr/local/lib/python3.10/dist-packages (from nvidia-cublas-cu11==11.10.3.66->torch==2.0.0) (75.1.0)
-    Requirement already satisfied: wheel in /usr/local/lib/python3.10/dist-packages (from nvidia-cublas-cu11==11.10.3.66->torch==2.0.0) (0.45.1)
-    Collecting cmake (from triton==2.0.0->torch==2.0.0)
-      Downloading cmake-3.31.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.5 kB)
-    Collecting lit (from triton==2.0.0->torch==2.0.0)
-      Downloading lit-18.1.8-py3-none-any.whl.metadata (2.5 kB)
-    Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2->torch==2.0.0) (3.0.2)
-    Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from sympy->torch==2.0.0) (1.3.0)
-    Downloading torch-2.0.0-cp310-cp310-manylinux1_x86_64.whl (619.9 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m619.9/619.9 MB[0m [31m1.6 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading nvidia_cublas_cu11-11.10.3.66-py3-none-manylinux1_x86_64.whl (317.1 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m317.1/317.1 MB[0m [31m2.5 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading nvidia_cuda_cupti_cu11-11.7.101-py3-none-manylinux1_x86_64.whl (11.8 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m11.8/11.8 MB[0m [31m99.9 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading nvidia_cuda_nvrtc_cu11-11.7.99-2-py3-none-manylinux1_x86_64.whl (21.0 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m21.0/21.0 MB[0m [31m81.5 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading nvidia_cuda_runtime_cu11-11.7.99-py3-none-manylinux1_x86_64.whl (849 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m849.3/849.3 kB[0m [31m30.9 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading nvidia_cudnn_cu11-8.5.0.96-2-py3-none-manylinux1_x86_64.whl (557.1 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m557.1/557.1 MB[0m [31m810.8 kB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading nvidia_cufft_cu11-10.9.0.58-py3-none-manylinux2014_x86_64.whl (168.4 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m168.4/168.4 MB[0m [31m6.3 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading nvidia_curand_cu11-10.2.10.91-py3-none-manylinux1_x86_64.whl (54.6 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m54.6/54.6 MB[0m [31m22.0 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading nvidia_cusolver_cu11-11.4.0.1-2-py3-none-manylinux1_x86_64.whl (102.6 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m102.6/102.6 MB[0m [31m10.5 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading nvidia_cusparse_cu11-11.7.4.91-py3-none-manylinux1_x86_64.whl (173.2 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m173.2/173.2 MB[0m [31m6.1 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading nvidia_nccl_cu11-2.14.3-py3-none-manylinux1_x86_64.whl (177.1 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m177.1/177.1 MB[0m [31m5.7 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading nvidia_nvtx_cu11-11.7.91-py3-none-manylinux1_x86_64.whl (98 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m98.6/98.6 kB[0m [31m6.4 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading triton-2.0.0-1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (63.3 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.3/63.3 MB[0m [31m18.6 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading cmake-3.31.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (27.8 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m27.8/27.8 MB[0m [31m55.7 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading lit-18.1.8-py3-none-any.whl (96 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m96.4/96.4 kB[0m [31m6.5 MB/s[0m eta [36m0:00:00[0m
-    [?25hInstalling collected packages: lit, nvidia-nvtx-cu11, nvidia-nccl-cu11, nvidia-cusparse-cu11, nvidia-curand-cu11, nvidia-cufft-cu11, nvidia-cuda-runtime-cu11, nvidia-cuda-nvrtc-cu11, nvidia-cuda-cupti-cu11, nvidia-cublas-cu11, cmake, nvidia-cusolver-cu11, nvidia-cudnn-cu11, triton, torch
-      Attempting uninstall: torch
-        Found existing installation: torch 2.5.1+cpu
-        Uninstalling torch-2.5.1+cpu:
-          Successfully uninstalled torch-2.5.1+cpu
-    [31mERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
-    torchaudio 2.5.1+cpu requires torch==2.5.1, but you have torch 2.0.0 which is incompatible.
-    torchvision 0.20.1+cpu requires torch==2.5.1, but you have torch 2.0.0 which is incompatible.[0m[31m
-    [0mSuccessfully installed cmake-3.31.2 lit-18.1.8 nvidia-cublas-cu11-11.10.3.66 nvidia-cuda-cupti-cu11-11.7.101 nvidia-cuda-nvrtc-cu11-11.7.99 nvidia-cuda-runtime-cu11-11.7.99 nvidia-cudnn-cu11-8.5.0.96 nvidia-cufft-cu11-10.9.0.58 nvidia-curand-cu11-10.2.10.91 nvidia-cusolver-cu11-11.4.0.1 nvidia-cusparse-cu11-11.7.4.91 nvidia-nccl-cu11-2.14.3 nvidia-nvtx-cu11-11.7.91 torch-2.0.0 triton-2.0.0
-    Collecting torch-geometric==2.4.0
-      Downloading torch_geometric-2.4.0-py3-none-any.whl.metadata (63 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.9/63.9 kB[0m [31m1.6 MB/s[0m eta [36m0:00:00[0m
-    [?25hRequirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (4.67.1)
-    Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (1.26.4)
-    Requirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (1.13.1)
-    Requirement already satisfied: jinja2 in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (3.1.4)
-    Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (2.32.3)
-    Requirement already satisfied: pyparsing in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (3.2.0)
-    Requirement already satisfied: scikit-learn in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (1.6.0)
-    Requirement already satisfied: psutil>=5.8.0 in /usr/local/lib/python3.10/dist-packages (from torch-geometric==2.4.0) (5.9.5)
-    Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2->torch-geometric==2.4.0) (3.0.2)
-    Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric==2.4.0) (3.4.0)
-    Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric==2.4.0) (3.10)
-    Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric==2.4.0) (2.2.3)
-    Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric==2.4.0) (2024.12.14)
-    Requirement already satisfied: joblib>=1.2.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->torch-geometric==2.4.0) (1.4.2)
-    Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->torch-geometric==2.4.0) (3.5.0)
-    Downloading torch_geometric-2.4.0-py3-none-any.whl (1.0 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.0/1.0 MB[0m [31m17.2 MB/s[0m eta [36m0:00:00[0m
-    [?25hInstalling collected packages: torch-geometric
-    Successfully installed torch-geometric-2.4.0
-    Looking in links: https://data.pyg.org/whl/torch-2.0.0+cpu.html
-    Collecting torch-scatter
-      Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_scatter-2.1.2%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (494 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m494.1/494.1 kB[0m [31m1.8 MB/s[0m eta [36m0:00:00[0m
-    [?25hCollecting torch-sparse
-      Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_sparse-0.6.18%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (1.2 MB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.2/1.2 MB[0m [31m31.6 MB/s[0m eta [36m0:00:00[0m
-    [?25hCollecting torch-cluster
-      Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_cluster-1.6.3%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (751 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m751.3/751.3 kB[0m [31m2.8 MB/s[0m eta [36m0:00:00[0m
-    [?25hCollecting torch-spline-conv
-      Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_spline_conv-1.2.2%2Bpt20cpu-cp310-cp310-linux_x86_64.whl (208 kB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m208.1/208.1 kB[0m [31m6.7 MB/s[0m eta [36m0:00:00[0m
-    [?25hRequirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from torch-sparse) (1.13.1)
-    Requirement already satisfied: numpy<2.3,>=1.22.4 in /usr/local/lib/python3.10/dist-packages (from scipy->torch-sparse) (1.26.4)
-    Installing collected packages: torch-spline-conv, torch-scatter, torch-sparse, torch-cluster
-    Successfully installed torch-cluster-1.6.3+pt20cpu torch-scatter-2.1.2+pt20cpu torch-sparse-0.6.18+pt20cpu torch-spline-conv-1.2.2+pt20cpu
-    Requirement already satisfied: torch-geometric in /usr/local/lib/python3.10/dist-packages (2.4.0)
-    Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (4.67.1)
-    Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (1.26.4)
-    Requirement already satisfied: scipy in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (1.13.1)
-    Requirement already satisfied: jinja2 in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (3.1.4)
-    Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (2.32.3)
-    Requirement already satisfied: pyparsing in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (3.2.0)
-    Requirement already satisfied: scikit-learn in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (1.6.0)
-    Requirement already satisfied: psutil>=5.8.0 in /usr/local/lib/python3.10/dist-packages (from torch-geometric) (5.9.5)
-    Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2->torch-geometric) (3.0.2)
-    Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric) (3.4.0)
-    Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric) (3.10)
-    Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric) (2.2.3)
-    Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests->torch-geometric) (2024.12.14)
-    Requirement already satisfied: joblib>=1.2.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->torch-geometric) (1.4.2)
-    Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->torch-geometric) (3.5.0)
-      Installing build dependencies ... [?25l[?25hdone
-      Getting requirements to build wheel ... [?25l[?25hdone
-      Preparing metadata (pyproject.toml) ... [?25l[?25hdone
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m69.2/69.2 kB[0m [31m1.9 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m25.2 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m241.9/241.9 kB[0m [31m15.4 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m124.6/124.6 kB[0m [31m7.9 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m205.1/205.1 kB[0m [31m12.0 MB/s[0m eta [36m0:00:00[0m
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m319.7/319.7 kB[0m [31m17.6 MB/s[0m eta [36m0:00:00[0m
-    [?25h  Building wheel for torch-geometric (pyproject.toml) ... [?25l[?25hdone
-    Collecting deeponto
-      Downloading deeponto-0.9.2-py3-none-any.whl.metadata (15 kB)
-    Collecting JPype1 (from deeponto)
-      Downloading jpype1-1.5.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
-    Collecting yacs (from deeponto)
-      Downloading yacs-0.1.8-py3-none-any.whl.metadata (639 bytes)
-    Requirement already satisfied: torch in /usr/local/lib/python3.10/dist-packages (from deeponto) (2.0.0)
-    Collecting anytree (from deeponto)
-      Downloading anytree-2.12.1-py3-none-any.whl.metadata (8.1 kB)
-    Requirement already satisfied: click in /usr/local/lib/python3.10/dist-packages (from deeponto) (8.1.7)
-    Collecting dill (from deeponto)
-      Downloading dill-0.3.9-py3-none-any.whl.metadata (10 kB)
-    Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (from deeponto) (2.2.2)
-    Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from deeponto) (1.26.4)
-    Requirement already satisfied: scikit-learn in /usr/local/lib/python3.10/dist-packages (from deeponto) (1.6.0)
-    Requirement already satisfied: transformers[torch] in /usr/local/lib/python3.10/dist-packages (from deeponto) (4.47.0)
-    Collecting datasets (from deeponto)
-      Downloading datasets-3.2.0-py3-none-any.whl.metadata (20 kB)
-    Requirement already satisfied: spacy in /usr/local/lib/python3.10/dist-packages (from deeponto) (3.7.5)
-    Collecting pprintpp (from deeponto)
-      Downloading pprintpp-0.4.0-py2.py3-none-any.whl.metadata (7.9 kB)
-    Requirement already satisfied: networkx in /usr/local/lib/python3.10/dist-packages (from deeponto) (3.4.2)
-    Collecting lxml (from deeponto)
-      Downloading lxml-5.3.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (3.8 kB)
-    Collecting textdistance (from deeponto)
-      Downloading textdistance-4.6.3-py3-none-any.whl.metadata (18 kB)
-    Requirement already satisfied: ipywidgets in /usr/local/lib/python3.10/dist-packages (from deeponto) (7.7.1)
-    Requirement already satisfied: ipykernel in /usr/local/lib/python3.10/dist-packages (from deeponto) (5.5.6)
-    Collecting enlighten (from deeponto)
-      Downloading enlighten-1.13.0-py2.py3-none-any.whl.metadata (18 kB)
-    Collecting rdflib (from deeponto)
-      Downloading rdflib-7.1.1-py3-none-any.whl.metadata (11 kB)
-    Requirement already satisfied: nltk in /usr/local/lib/python3.10/dist-packages (from deeponto) (3.9.1)
-    Requirement already satisfied: six in /usr/local/lib/python3.10/dist-packages (from anytree->deeponto) (1.17.0)
-    Requirement already satisfied: filelock in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (3.16.1)
-    Requirement already satisfied: pyarrow>=15.0.0 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (18.1.0)
-    Collecting dill (from deeponto)
-      Downloading dill-0.3.8-py3-none-any.whl.metadata (10 kB)
-    Requirement already satisfied: requests>=2.32.2 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (2.32.3)
-    Requirement already satisfied: tqdm>=4.66.3 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (4.67.1)
-    Collecting xxhash (from datasets->deeponto)
-      Downloading xxhash-3.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
-    Collecting multiprocess<0.70.17 (from datasets->deeponto)
-      Downloading multiprocess-0.70.16-py310-none-any.whl.metadata (7.2 kB)
-    Collecting fsspec<=2024.9.0,>=2023.1.0 (from fsspec[http]<=2024.9.0,>=2023.1.0->datasets->deeponto)
-      Downloading fsspec-2024.9.0-py3-none-any.whl.metadata (11 kB)
-    Requirement already satisfied: aiohttp in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (3.11.11)
-    Requirement already satisfied: huggingface-hub>=0.23.0 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (0.27.0)
-    Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (24.2)
-    Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.10/dist-packages (from datasets->deeponto) (6.0.2)
-    Collecting blessed>=1.17.7 (from enlighten->deeponto)
-      Downloading blessed-1.20.0-py2.py3-none-any.whl.metadata (13 kB)
-    Collecting prefixed>=0.3.2 (from enlighten->deeponto)
-      Downloading prefixed-0.9.0-py2.py3-none-any.whl.metadata (11 kB)
-    Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.10/dist-packages (from ipykernel->deeponto) (0.2.0)
-    Requirement already satisfied: ipython>=5.0.0 in /usr/local/lib/python3.10/dist-packages (from ipykernel->deeponto) (7.34.0)
-    Requirement already satisfied: traitlets>=4.1.0 in /usr/local/lib/python3.10/dist-packages (from ipykernel->deeponto) (5.7.1)
-    Requirement already satisfied: jupyter-client in /usr/local/lib/python3.10/dist-packages (from ipykernel->deeponto) (6.1.12)
-    Requirement already satisfied: tornado>=4.2 in /usr/local/lib/python3.10/dist-packages (from ipykernel->deeponto) (6.3.3)
-    Requirement already satisfied: widgetsnbextension~=3.6.0 in /usr/local/lib/python3.10/dist-packages (from ipywidgets->deeponto) (3.6.10)
-    Requirement already satisfied: jupyterlab-widgets>=1.0.0 in /usr/local/lib/python3.10/dist-packages (from ipywidgets->deeponto) (3.0.13)
-    Requirement already satisfied: joblib in /usr/local/lib/python3.10/dist-packages (from nltk->deeponto) (1.4.2)
-    Requirement already satisfied: regex>=2021.8.3 in /usr/local/lib/python3.10/dist-packages (from nltk->deeponto) (2024.11.6)
-    Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.10/dist-packages (from pandas->deeponto) (2.9.0.post0)
-    Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas->deeponto) (2024.2)
-    Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.10/dist-packages (from pandas->deeponto) (2024.2)
-    Collecting isodate<1.0.0,>=0.7.2 (from rdflib->deeponto)
-      Downloading isodate-0.7.2-py3-none-any.whl.metadata (11 kB)
-    Requirement already satisfied: pyparsing<4,>=2.1.0 in /usr/local/lib/python3.10/dist-packages (from rdflib->deeponto) (3.2.0)
-    Requirement already satisfied: scipy>=1.6.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->deeponto) (1.13.1)
-    Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.10/dist-packages (from scikit-learn->deeponto) (3.5.0)
-    Requirement already satisfied: spacy-legacy<3.1.0,>=3.0.11 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (3.0.12)
-    Requirement already satisfied: spacy-loggers<2.0.0,>=1.0.0 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (1.0.5)
-    Requirement already satisfied: murmurhash<1.1.0,>=0.28.0 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (1.0.11)
-    Requirement already satisfied: cymem<2.1.0,>=2.0.2 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (2.0.10)
-    Requirement already satisfied: preshed<3.1.0,>=3.0.2 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (3.0.9)
-    Requirement already satisfied: thinc<8.3.0,>=8.2.2 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (8.2.5)
-    Requirement already satisfied: wasabi<1.2.0,>=0.9.1 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (1.1.3)
-    Requirement already satisfied: srsly<3.0.0,>=2.4.3 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (2.5.0)
-    Requirement already satisfied: catalogue<2.1.0,>=2.0.6 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (2.0.10)
-    Requirement already satisfied: weasel<0.5.0,>=0.1.0 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (0.4.1)
-    Requirement already satisfied: typer<1.0.0,>=0.3.0 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (0.15.1)
-    Requirement already satisfied: pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (2.10.3)
-    Requirement already satisfied: jinja2 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (3.1.4)
-    Requirement already satisfied: setuptools in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (75.1.0)
-    Requirement already satisfied: langcodes<4.0.0,>=3.2.0 in /usr/local/lib/python3.10/dist-packages (from spacy->deeponto) (3.5.0)
-    Requirement already satisfied: typing-extensions in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (4.12.2)
-    Requirement already satisfied: sympy in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (1.13.1)
-    Requirement already satisfied: nvidia-cuda-nvrtc-cu11==11.7.99 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (11.7.99)
-    Requirement already satisfied: nvidia-cuda-runtime-cu11==11.7.99 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (11.7.99)
-    Requirement already satisfied: nvidia-cuda-cupti-cu11==11.7.101 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (11.7.101)
-    Requirement already satisfied: nvidia-cudnn-cu11==8.5.0.96 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (8.5.0.96)
-    Requirement already satisfied: nvidia-cublas-cu11==11.10.3.66 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (11.10.3.66)
-    Requirement already satisfied: nvidia-cufft-cu11==10.9.0.58 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (10.9.0.58)
-    Requirement already satisfied: nvidia-curand-cu11==10.2.10.91 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (10.2.10.91)
-    Requirement already satisfied: nvidia-cusolver-cu11==11.4.0.1 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (11.4.0.1)
-    Requirement already satisfied: nvidia-cusparse-cu11==11.7.4.91 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (11.7.4.91)
-    Requirement already satisfied: nvidia-nccl-cu11==2.14.3 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (2.14.3)
-    Requirement already satisfied: nvidia-nvtx-cu11==11.7.91 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (11.7.91)
-    Requirement already satisfied: triton==2.0.0 in /usr/local/lib/python3.10/dist-packages (from torch->deeponto) (2.0.0)
-    Requirement already satisfied: wheel in /usr/local/lib/python3.10/dist-packages (from nvidia-cublas-cu11==11.10.3.66->torch->deeponto) (0.45.1)
-    Requirement already satisfied: cmake in /usr/local/lib/python3.10/dist-packages (from triton==2.0.0->torch->deeponto) (3.31.2)
-    Requirement already satisfied: lit in /usr/local/lib/python3.10/dist-packages (from triton==2.0.0->torch->deeponto) (18.1.8)
-    Requirement already satisfied: tokenizers<0.22,>=0.21 in /usr/local/lib/python3.10/dist-packages (from transformers[torch]->deeponto) (0.21.0)
-    Requirement already satisfied: safetensors>=0.4.1 in /usr/local/lib/python3.10/dist-packages (from transformers[torch]->deeponto) (0.4.5)
-    Requirement already satisfied: accelerate>=0.26.0 in /usr/local/lib/python3.10/dist-packages (from transformers[torch]->deeponto) (1.2.1)
-    Requirement already satisfied: psutil in /usr/local/lib/python3.10/dist-packages (from accelerate>=0.26.0->transformers[torch]->deeponto) (5.9.5)
-    Requirement already satisfied: wcwidth>=0.1.4 in /usr/local/lib/python3.10/dist-packages (from blessed>=1.17.7->enlighten->deeponto) (0.2.13)
-    Requirement already satisfied: aiohappyeyeballs>=2.3.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (2.4.4)
-    Requirement already satisfied: aiosignal>=1.1.2 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (1.3.2)
-    Requirement already satisfied: async-timeout<6.0,>=4.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (5.0.1)
-    Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (24.3.0)
-    Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (1.5.0)
-    Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (6.1.0)
-    Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (0.2.1)
-    Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp->datasets->deeponto) (1.18.3)
-    Collecting jedi>=0.16 (from ipython>=5.0.0->ipykernel->deeponto)
-      Downloading jedi-0.19.2-py2.py3-none-any.whl.metadata (22 kB)
-    Requirement already satisfied: decorator in /usr/local/lib/python3.10/dist-packages (from ipython>=5.0.0->ipykernel->deeponto) (5.1.1)
-    Requirement already satisfied: pickleshare in /usr/local/lib/python3.10/dist-packages (from ipython>=5.0.0->ipykernel->deeponto) (0.7.5)
-    Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0 in /usr/local/lib/python3.10/dist-packages (from ipython>=5.0.0->ipykernel->deeponto) (3.0.48)
-    Requirement already satisfied: pygments in /usr/local/lib/python3.10/dist-packages (from ipython>=5.0.0->ipykernel->deeponto) (2.18.0)
-    Requirement already satisfied: backcall in /usr/local/lib/python3.10/dist-packages (from ipython>=5.0.0->ipykernel->deeponto) (0.2.0)
-    Requirement already satisfied: matplotlib-inline in /usr/local/lib/python3.10/dist-packages (from ipython>=5.0.0->ipykernel->deeponto) (0.1.7)
-    Requirement already satisfied: pexpect>4.3 in /usr/local/lib/python3.10/dist-packages (from ipython>=5.0.0->ipykernel->deeponto) (4.9.0)
-    Requirement already satisfied: language-data>=1.2 in /usr/local/lib/python3.10/dist-packages (from langcodes<4.0.0,>=3.2.0->spacy->deeponto) (1.3.0)
-    Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.10/dist-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy->deeponto) (0.7.0)
-    Requirement already satisfied: pydantic-core==2.27.1 in /usr/local/lib/python3.10/dist-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy->deeponto) (2.27.1)
-    Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.2->datasets->deeponto) (3.4.0)
-    Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.2->datasets->deeponto) (3.10)
-    Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.2->datasets->deeponto) (2.2.3)
-    Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests>=2.32.2->datasets->deeponto) (2024.12.14)
-    Requirement already satisfied: blis<0.8.0,>=0.7.8 in /usr/local/lib/python3.10/dist-packages (from thinc<8.3.0,>=8.2.2->spacy->deeponto) (0.7.11)
-    Requirement already satisfied: confection<1.0.0,>=0.0.1 in /usr/local/lib/python3.10/dist-packages (from thinc<8.3.0,>=8.2.2->spacy->deeponto) (0.1.5)
-    Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.10/dist-packages (from typer<1.0.0,>=0.3.0->spacy->deeponto) (1.5.4)
-    Requirement already satisfied: rich>=10.11.0 in /usr/local/lib/python3.10/dist-packages (from typer<1.0.0,>=0.3.0->spacy->deeponto) (13.9.4)
-    Requirement already satisfied: cloudpathlib<1.0.0,>=0.7.0 in /usr/local/lib/python3.10/dist-packages (from weasel<0.5.0,>=0.1.0->spacy->deeponto) (0.20.0)
-    Requirement already satisfied: smart-open<8.0.0,>=5.2.1 in /usr/local/lib/python3.10/dist-packages (from weasel<0.5.0,>=0.1.0->spacy->deeponto) (7.0.5)
-    Requirement already satisfied: notebook>=4.4.1 in /usr/local/lib/python3.10/dist-packages (from widgetsnbextension~=3.6.0->ipywidgets->deeponto) (6.5.5)
-    Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2->spacy->deeponto) (3.0.2)
-    Requirement already satisfied: jupyter-core>=4.6.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-client->ipykernel->deeponto) (5.7.2)
-    Requirement already satisfied: pyzmq>=13 in /usr/local/lib/python3.10/dist-packages (from jupyter-client->ipykernel->deeponto) (24.0.1)
-    Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from sympy->torch->deeponto) (1.3.0)
-    Requirement already satisfied: parso<0.9.0,>=0.8.4 in /usr/local/lib/python3.10/dist-packages (from jedi>=0.16->ipython>=5.0.0->ipykernel->deeponto) (0.8.4)
-    Requirement already satisfied: platformdirs>=2.5 in /usr/local/lib/python3.10/dist-packages (from jupyter-core>=4.6.0->jupyter-client->ipykernel->deeponto) (4.3.6)
-    Requirement already satisfied: marisa-trie>=1.1.0 in /usr/local/lib/python3.10/dist-packages (from language-data>=1.2->langcodes<4.0.0,>=3.2.0->spacy->deeponto) (1.2.1)
-    Requirement already satisfied: argon2-cffi in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (23.1.0)
-    Requirement already satisfied: nbformat in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (5.10.4)
-    Requirement already satisfied: nbconvert>=5 in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (7.16.4)
-    Requirement already satisfied: nest-asyncio>=1.5 in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.6.0)
-    Requirement already satisfied: Send2Trash>=1.8.0 in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.8.3)
-    Requirement already satisfied: terminado>=0.8.3 in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.18.1)
-    Requirement already satisfied: prometheus-client in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.21.1)
-    Requirement already satisfied: nbclassic>=0.4.7 in /usr/local/lib/python3.10/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.1.0)
-    Requirement already satisfied: ptyprocess>=0.5 in /usr/local/lib/python3.10/dist-packages (from pexpect>4.3->ipython>=5.0.0->ipykernel->deeponto) (0.7.0)
-    Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.10/dist-packages (from rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy->deeponto) (3.0.0)
-    Requirement already satisfied: wrapt in /usr/local/lib/python3.10/dist-packages (from smart-open<8.0.0,>=5.2.1->weasel<0.5.0,>=0.1.0->spacy->deeponto) (1.14.1)
-    Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.10/dist-packages (from markdown-it-py>=2.2.0->rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy->deeponto) (0.1.2)
-    Requirement already satisfied: notebook-shim>=0.2.3 in /usr/local/lib/python3.10/dist-packages (from nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.2.4)
-    Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (4.12.3)
-    Requirement already satisfied: bleach!=5.0.0 in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (6.2.0)
-    Requirement already satisfied: defusedxml in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.7.1)
-    Requirement already satisfied: jupyterlab-pygments in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.3.0)
-    Requirement already satisfied: mistune<4,>=2.0.3 in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (3.0.2)
-    Requirement already satisfied: nbclient>=0.5.0 in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.10.1)
-    Requirement already satisfied: pandocfilters>=1.4.1 in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.5.1)
-    Requirement already satisfied: tinycss2 in /usr/local/lib/python3.10/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.4.0)
-    Requirement already satisfied: fastjsonschema>=2.15 in /usr/local/lib/python3.10/dist-packages (from nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (2.21.1)
-    Requirement already satisfied: jsonschema>=2.6 in /usr/local/lib/python3.10/dist-packages (from nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (4.23.0)
-    Requirement already satisfied: argon2-cffi-bindings in /usr/local/lib/python3.10/dist-packages (from argon2-cffi->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (21.2.0)
-    Requirement already satisfied: webencodings in /usr/local/lib/python3.10/dist-packages (from bleach!=5.0.0->nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.5.1)
-    Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=2.6->nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (2024.10.1)
-    Requirement already satisfied: referencing>=0.28.4 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=2.6->nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.35.1)
-    Requirement already satisfied: rpds-py>=0.7.1 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=2.6->nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.22.3)
-    Requirement already satisfied: jupyter-server<3,>=1.8 in /usr/local/lib/python3.10/dist-packages (from notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.24.0)
-    Requirement already satisfied: cffi>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from argon2-cffi-bindings->argon2-cffi->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.17.1)
-    Requirement already satisfied: soupsieve>1.2 in /usr/local/lib/python3.10/dist-packages (from beautifulsoup4->nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (2.6)
-    Requirement already satisfied: pycparser in /usr/local/lib/python3.10/dist-packages (from cffi>=1.0.1->argon2-cffi-bindings->argon2-cffi->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (2.22)
-    Requirement already satisfied: anyio<4,>=3.1.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (3.7.1)
-    Requirement already satisfied: websocket-client in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.8.0)
-    Requirement already satisfied: sniffio>=1.1 in /usr/local/lib/python3.10/dist-packages (from anyio<4,>=3.1.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.3.1)
-    Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.10/dist-packages (from anyio<4,>=3.1.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.2.2)
-    Downloading deeponto-0.9.2-py3-none-any.whl (89.7 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m89.7/89.7 MB[0m [31m12.3 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading anytree-2.12.1-py3-none-any.whl (44 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m44.9/44.9 kB[0m [31m2.8 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading datasets-3.2.0-py3-none-any.whl (480 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m480.6/480.6 kB[0m [31m27.8 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading dill-0.3.8-py3-none-any.whl (116 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m116.3/116.3 kB[0m [31m6.9 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading enlighten-1.13.0-py2.py3-none-any.whl (42 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m42.0/42.0 kB[0m [31m2.1 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading jpype1-1.5.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (493 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m493.8/493.8 kB[0m [31m29.7 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading lxml-5.3.0-cp310-cp310-manylinux_2_28_x86_64.whl (5.0 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.0/5.0 MB[0m [31m98.5 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading pprintpp-0.4.0-py2.py3-none-any.whl (16 kB)
-    Downloading rdflib-7.1.1-py3-none-any.whl (562 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m562.4/562.4 kB[0m [31m37.7 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading textdistance-4.6.3-py3-none-any.whl (31 kB)
-    Downloading yacs-0.1.8-py3-none-any.whl (14 kB)
-    Downloading blessed-1.20.0-py2.py3-none-any.whl (58 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m58.4/58.4 kB[0m [31m4.3 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading fsspec-2024.9.0-py3-none-any.whl (179 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m179.3/179.3 kB[0m [31m12.2 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading isodate-0.7.2-py3-none-any.whl (22 kB)
-    Downloading multiprocess-0.70.16-py310-none-any.whl (134 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m134.8/134.8 kB[0m [31m8.2 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading prefixed-0.9.0-py2.py3-none-any.whl (13 kB)
-    Downloading xxhash-3.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (194 kB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m194.1/194.1 kB[0m [31m13.7 MB/s[0m eta [36m0:00:00[0m
-    [?25hDownloading jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m54.6 MB/s[0m eta [36m0:00:00[0m
-    [?25hInstalling collected packages: prefixed, pprintpp, yacs, xxhash, textdistance, lxml, JPype1, jedi, isodate, fsspec, dill, blessed, anytree, rdflib, multiprocess, enlighten, datasets, deeponto
+    Collecting torch==2.6.0
+      Downloading torch-2.6.0-cp311-cp311-manylinux1_x86_64.whl.metadata (28 kB)
+    Collecting torchvision==0.21.0
+      Downloading torchvision-0.21.0-cp311-cp311-manylinux1_x86_64.whl.metadata (6.1 kB)
+    Collecting filelock (from torch==2.6.0)
+      Downloading filelock-3.18.0-py3-none-any.whl.metadata (2.9 kB)
+    Collecting typing-extensions>=4.10.0 (from torch==2.6.0)
+      Downloading typing_extensions-4.13.2-py3-none-any.whl.metadata (3.0 kB)
+    Collecting networkx (from torch==2.6.0)
+      Downloading networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
+    Collecting jinja2 (from torch==2.6.0)
+      Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+    Collecting fsspec (from torch==2.6.0)
+      Downloading fsspec-2025.5.1-py3-none-any.whl.metadata (11 kB)
+    Collecting nvidia-cuda-nvrtc-cu12==12.4.127 (from torch==2.6.0)
+      Downloading nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+    Collecting nvidia-cuda-runtime-cu12==12.4.127 (from torch==2.6.0)
+      Downloading nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+    Collecting nvidia-cuda-cupti-cu12==12.4.127 (from torch==2.6.0)
+      Downloading nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+    Collecting nvidia-cudnn-cu12==9.1.0.70 (from torch==2.6.0)
+      Downloading nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+    Collecting nvidia-cublas-cu12==12.4.5.8 (from torch==2.6.0)
+      Downloading nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+    Collecting nvidia-cufft-cu12==11.2.1.3 (from torch==2.6.0)
+      Downloading nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+    Collecting nvidia-curand-cu12==10.3.5.147 (from torch==2.6.0)
+      Downloading nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+    Collecting nvidia-cusolver-cu12==11.6.1.9 (from torch==2.6.0)
+      Downloading nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+    Collecting nvidia-cusparse-cu12==12.3.1.170 (from torch==2.6.0)
+      Downloading nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+    Collecting nvidia-cusparselt-cu12==0.6.2 (from torch==2.6.0)
+      Downloading nvidia_cusparselt_cu12-0.6.2-py3-none-manylinux2014_x86_64.whl.metadata (6.8 kB)
+    Collecting nvidia-nccl-cu12==2.21.5 (from torch==2.6.0)
+      Downloading nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl.metadata (1.8 kB)
+    Collecting nvidia-nvtx-cu12==12.4.127 (from torch==2.6.0)
+      Downloading nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.7 kB)
+    Collecting nvidia-nvjitlink-cu12==12.4.127 (from torch==2.6.0)
+      Downloading nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+    Collecting triton==3.2.0 (from torch==2.6.0)
+      Downloading triton-3.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.4 kB)
+    Collecting sympy==1.13.1 (from torch==2.6.0)
+      Downloading sympy-1.13.1-py3-none-any.whl.metadata (12 kB)
+    Collecting numpy (from torchvision==0.21.0)
+      Downloading numpy-2.2.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m62.0/62.0 kB[0m [31m4.0 MB/s[0m eta [36m0:00:00[0m
+    [?25hCollecting pillow!=8.3.*,>=5.3.0 (from torchvision==0.21.0)
+      Downloading pillow-11.2.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (8.9 kB)
+    Collecting mpmath<1.4,>=1.1.0 (from sympy==1.13.1->torch==2.6.0)
+      Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+    Collecting MarkupSafe>=2.0 (from jinja2->torch==2.6.0)
+      Downloading MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+    Downloading torch-2.6.0-cp311-cp311-manylinux1_x86_64.whl (766.7 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m766.7/766.7 MB[0m [31m499.1 kB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading torchvision-0.21.0-cp311-cp311-manylinux1_x86_64.whl (7.2 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m7.2/7.2 MB[0m [31m118.5 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl (363.4 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m363.4/363.4 MB[0m [31m2.9 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (13.8 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m13.8/13.8 MB[0m [31m115.9 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (24.6 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m24.6/24.6 MB[0m [31m73.3 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (883 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m883.7/883.7 kB[0m [31m34.6 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl (664.8 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m664.8/664.8 MB[0m [31m1.6 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl (211.5 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m211.5/211.5 MB[0m [31m3.3 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl (56.3 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m56.3/56.3 MB[0m [31m23.0 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl (127.9 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m127.9/127.9 MB[0m [31m3.7 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl (207.5 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m207.5/207.5 MB[0m [31m1.1 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading nvidia_cusparselt_cu12-0.6.2-py3-none-manylinux2014_x86_64.whl (150.1 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m150.1/150.1 MB[0m [31m7.5 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl (188.7 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m188.7/188.7 MB[0m [31m5.9 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (21.1 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m21.1/21.1 MB[0m [31m96.2 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (99 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m99.1/99.1 kB[0m [31m5.6 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading sympy-1.13.1-py3-none-any.whl (6.2 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m6.2/6.2 MB[0m [31m113.2 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading triton-3.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (253.2 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m253.2/253.2 MB[0m [31m4.3 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading pillow-11.2.1-cp311-cp311-manylinux_2_28_x86_64.whl (4.6 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.6/4.6 MB[0m [31m105.3 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading typing_extensions-4.13.2-py3-none-any.whl (45 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m45.8/45.8 kB[0m [31m3.1 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading filelock-3.18.0-py3-none-any.whl (16 kB)
+    Downloading fsspec-2025.5.1-py3-none-any.whl (199 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m199.1/199.1 kB[0m [31m13.2 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m134.9/134.9 kB[0m [31m8.7 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading networkx-3.4.2-py3-none-any.whl (1.7 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.7/1.7 MB[0m [31m45.9 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading numpy-2.2.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m16.8/16.8 MB[0m [31m111.1 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+    Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m536.2/536.2 kB[0m [31m27.1 MB/s[0m eta [36m0:00:00[0m
+    [?25hInstalling collected packages: triton, nvidia-cusparselt-cu12, mpmath, typing-extensions, sympy, pillow, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, networkx, MarkupSafe, fsspec, filelock, nvidia-cusparse-cu12, nvidia-cudnn-cu12, jinja2, nvidia-cusolver-cu12, torch, torchvision
+      Attempting uninstall: mpmath
+        Found existing installation: mpmath 1.3.0
+        Uninstalling mpmath-1.3.0:
+          Successfully uninstalled mpmath-1.3.0
+      Attempting uninstall: typing-extensions
+        Found existing installation: typing_extensions 4.13.2
+        Uninstalling typing_extensions-4.13.2:
+          Successfully uninstalled typing_extensions-4.13.2
+      Attempting uninstall: sympy
+        Found existing installation: sympy 1.13.1
+        Uninstalling sympy-1.13.1:
+          Successfully uninstalled sympy-1.13.1
+      Attempting uninstall: pillow
+        Found existing installation: pillow 11.2.1
+        Uninstalling pillow-11.2.1:
+          Successfully uninstalled pillow-11.2.1
+      Attempting uninstall: numpy
+        Found existing installation: numpy 2.0.2
+        Uninstalling numpy-2.0.2:
+          Successfully uninstalled numpy-2.0.2
+      Attempting uninstall: networkx
+        Found existing installation: networkx 3.4.2
+        Uninstalling networkx-3.4.2:
+          Successfully uninstalled networkx-3.4.2
+      Attempting uninstall: MarkupSafe
+        Found existing installation: MarkupSafe 3.0.2
+        Uninstalling MarkupSafe-3.0.2:
+          Successfully uninstalled MarkupSafe-3.0.2
       Attempting uninstall: fsspec
-        Found existing installation: fsspec 2024.10.0
-        Uninstalling fsspec-2024.10.0:
-          Successfully uninstalled fsspec-2024.10.0
-    Successfully installed JPype1-1.5.1 anytree-2.12.1 blessed-1.20.0 datasets-3.2.0 deeponto-0.9.2 dill-0.3.8 enlighten-1.13.0 fsspec-2024.9.0 isodate-0.7.2 jedi-0.19.2 lxml-5.3.0 multiprocess-0.70.16 pprintpp-0.4.0 prefixed-0.9.0 rdflib-7.1.1 textdistance-4.6.3 xxhash-3.5.0 yacs-0.1.8
-    /bin/bash: line 1: username: No such file or directory
+        Found existing installation: fsspec 2025.3.2
+        Uninstalling fsspec-2025.3.2:
+          Successfully uninstalled fsspec-2025.3.2
+      Attempting uninstall: filelock
+        Found existing installation: filelock 3.18.0
+        Uninstalling filelock-3.18.0:
+          Successfully uninstalled filelock-3.18.0
+      Attempting uninstall: jinja2
+        Found existing installation: Jinja2 3.1.6
+        Uninstalling Jinja2-3.1.6:
+          Successfully uninstalled Jinja2-3.1.6
+      Attempting uninstall: torch
+        Found existing installation: torch 2.6.0+cpu
+        Uninstalling torch-2.6.0+cpu:
+          Successfully uninstalled torch-2.6.0+cpu
+      Attempting uninstall: torchvision
+        Found existing installation: torchvision 0.21.0+cpu
+        Uninstalling torchvision-0.21.0+cpu:
+          Successfully uninstalled torchvision-0.21.0+cpu
+    Successfully installed MarkupSafe-3.0.2 filelock-3.18.0 fsspec-2025.5.1 jinja2-3.1.6 mpmath-1.3.0 networkx-3.4.2 numpy-2.2.6 nvidia-cublas-cu12-12.4.5.8 nvidia-cuda-cupti-cu12-12.4.127 nvidia-cuda-nvrtc-cu12-12.4.127 nvidia-cuda-runtime-cu12-12.4.127 nvidia-cudnn-cu12-9.1.0.70 nvidia-cufft-cu12-11.2.1.3 nvidia-curand-cu12-10.3.5.147 nvidia-cusolver-cu12-11.6.1.9 nvidia-cusparse-cu12-12.3.1.170 nvidia-cusparselt-cu12-0.6.2 nvidia-nccl-cu12-2.21.5 nvidia-nvjitlink-cu12-12.4.127 nvidia-nvtx-cu12-12.4.127 pillow-11.2.1 sympy-1.13.1 torch-2.6.0 torchvision-0.21.0 triton-3.2.0 typing-extensions-4.13.2
+
+
 
 
 
 ```python
-# Import pandas for data manipulation and analysis, such as loading, processing, and saving tabular data.
+# === Base Libraries ===
+!pip install numpy --upgrade
+!pip install pandas
+!pip install optuna
+
+# === FAISS (for Approximate Nearest Neighbor Search) ===
+!pip install faiss-cpu        # CPU version (recommended unless using GPU)
+# !pip install faiss-gpu      # Uncomment if running on CUDA-enabled GPU
+
+# === PyTorch Geometric and dependencies ===
+!pip install torch-geometric==2.4.0
+!pip install torch-scatter torch-sparse torch-cluster torch-spline-conv -f https://data.pyg.org/whl/torch-2.0.0+cpu.html
+# Optional: latest dev version from GitHub
+!pip install -q git+https://github.com/pyg-team/pytorch_geometric.git
+
+# === DeepOnto (Ontology Matching Toolkit) ===
+!pip install deeponto
+# Optionally install custom version from a GitHub repository
+# !pip install git+https://github.com/<username>/deeponto.git
+
+```
+
+    Requirement already satisfied: numpy in /usr/local/lib/python3.11/dist-packages (2.2.6)
+    Requirement already satisfied: pandas in /usr/local/lib/python3.11/dist-packages (2.2.2)
+    Requirement already satisfied: numpy>=1.23.2 in /usr/local/lib/python3.11/dist-packages (from pandas) (2.2.6)
+    Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.11/dist-packages (from pandas) (2.9.0.post0)
+    Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas) (2025.2)
+    Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.11/dist-packages (from pandas) (2025.2)
+    Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)
+    Collecting optuna
+      Downloading optuna-4.3.0-py3-none-any.whl.metadata (17 kB)
+    Collecting alembic>=1.5.0 (from optuna)
+      Downloading alembic-1.16.1-py3-none-any.whl.metadata (7.3 kB)
+    Collecting colorlog (from optuna)
+      Downloading colorlog-6.9.0-py3-none-any.whl.metadata (10 kB)
+    Requirement already satisfied: numpy in /usr/local/lib/python3.11/dist-packages (from optuna) (2.2.6)
+    Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.11/dist-packages (from optuna) (25.0)
+    Collecting sqlalchemy>=1.4.2 (from optuna)
+      Downloading sqlalchemy-2.0.41-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+    Requirement already satisfied: tqdm in /usr/local/lib/python3.11/dist-packages (from optuna) (4.67.1)
+    Requirement already satisfied: PyYAML in /usr/local/lib/python3.11/dist-packages (from optuna) (6.0.2)
+    Requirement already satisfied: Mako in /usr/lib/python3/dist-packages (from alembic>=1.5.0->optuna) (1.1.3)
+    Requirement already satisfied: typing-extensions>=4.12 in /usr/local/lib/python3.11/dist-packages (from alembic>=1.5.0->optuna) (4.13.2)
+    Collecting greenlet>=1 (from sqlalchemy>=1.4.2->optuna)
+      Downloading greenlet-3.2.2-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (4.1 kB)
+    Downloading optuna-4.3.0-py3-none-any.whl (386 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m386.6/386.6 kB[0m [31m7.4 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading alembic-1.16.1-py3-none-any.whl (242 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m242.5/242.5 kB[0m [31m18.8 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading sqlalchemy-2.0.41-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3.3/3.3 MB[0m [31m65.7 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading colorlog-6.9.0-py3-none-any.whl (11 kB)
+    Downloading greenlet-3.2.2-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (583 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m583.9/583.9 kB[0m [31m34.0 MB/s[0m eta [36m0:00:00[0m
+    [?25hInstalling collected packages: greenlet, colorlog, sqlalchemy, alembic, optuna
+    Successfully installed alembic-1.16.1 colorlog-6.9.0 greenlet-3.2.2 optuna-4.3.0 sqlalchemy-2.0.41
+    Collecting faiss-cpu
+      Downloading faiss_cpu-1.11.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (4.8 kB)
+    Requirement already satisfied: numpy<3.0,>=1.25.0 in /usr/local/lib/python3.11/dist-packages (from faiss-cpu) (2.2.6)
+    Requirement already satisfied: packaging in /usr/local/lib/python3.11/dist-packages (from faiss-cpu) (25.0)
+    Downloading faiss_cpu-1.11.0-cp311-cp311-manylinux_2_28_x86_64.whl (31.3 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m31.3/31.3 MB[0m [31m52.9 MB/s[0m eta [36m0:00:00[0m
+    [?25hInstalling collected packages: faiss-cpu
+    Successfully installed faiss-cpu-1.11.0
+    Collecting torch-geometric==2.4.0
+      Downloading torch_geometric-2.4.0-py3-none-any.whl.metadata (63 kB)
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m63.9/63.9 kB[0m [31m1.8 MB/s[0m eta [36m0:00:00[0m
+    [?25hRequirement already satisfied: tqdm in /usr/local/lib/python3.11/dist-packages (from torch-geometric==2.4.0) (4.67.1)
+    Requirement already satisfied: numpy in /usr/local/lib/python3.11/dist-packages (from torch-geometric==2.4.0) (2.2.6)
+    Requirement already satisfied: scipy in /usr/local/lib/python3.11/dist-packages (from torch-geometric==2.4.0) (1.15.3)
+    Requirement already satisfied: jinja2 in /usr/local/lib/python3.11/dist-packages (from torch-geometric==2.4.0) (3.1.6)
+    Requirement already satisfied: requests in /usr/local/lib/python3.11/dist-packages (from torch-geometric==2.4.0) (2.32.3)
+    Requirement already satisfied: pyparsing in /usr/local/lib/python3.11/dist-packages (from torch-geometric==2.4.0) (3.2.3)
+    Requirement already satisfied: scikit-learn in /usr/local/lib/python3.11/dist-packages (from torch-geometric==2.4.0) (1.6.1)
+    Requirement already satisfied: psutil>=5.8.0 in /usr/local/lib/python3.11/dist-packages (from torch-geometric==2.4.0) (5.9.5)
+    Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.11/dist-packages (from jinja2->torch-geometric==2.4.0) (3.0.2)
+    Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.11/dist-packages (from requests->torch-geometric==2.4.0) (3.4.2)
+    Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.11/dist-packages (from requests->torch-geometric==2.4.0) (3.10)
+    Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.11/dist-packages (from requests->torch-geometric==2.4.0) (2.4.0)
+    Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests->torch-geometric==2.4.0) (2025.4.26)
+    Requirement already satisfied: joblib>=1.2.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn->torch-geometric==2.4.0) (1.5.0)
+    Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn->torch-geometric==2.4.0) (3.6.0)
+    Downloading torch_geometric-2.4.0-py3-none-any.whl (1.0 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.0/1.0 MB[0m [31m17.1 MB/s[0m eta [36m0:00:00[0m
+    [?25hInstalling collected packages: torch-geometric
+    Successfully installed torch-geometric-2.4.0
+    Looking in links: https://data.pyg.org/whl/torch-2.0.0+cpu.html
+    Collecting torch-scatter
+      Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_scatter-2.1.2%2Bpt20cpu-cp311-cp311-linux_x86_64.whl (494 kB)
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m494.0/494.0 kB[0m [31m6.1 MB/s[0m eta [36m0:00:00[0m
+    [?25hCollecting torch-sparse
+      Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_sparse-0.6.18%2Bpt20cpu-cp311-cp311-linux_x86_64.whl (1.2 MB)
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.2/1.2 MB[0m [31m32.1 MB/s[0m eta [36m0:00:00[0m
+    [?25hCollecting torch-cluster
+      Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_cluster-1.6.3%2Bpt20cpu-cp311-cp311-linux_x86_64.whl (750 kB)
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m750.9/750.9 kB[0m [31m35.6 MB/s[0m eta [36m0:00:00[0m
+    [?25hCollecting torch-spline-conv
+      Downloading https://data.pyg.org/whl/torch-2.0.0%2Bcpu/torch_spline_conv-1.2.2%2Bpt20cpu-cp311-cp311-linux_x86_64.whl (208 kB)
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m208.1/208.1 kB[0m [31m15.0 MB/s[0m eta [36m0:00:00[0m
+    [?25hRequirement already satisfied: scipy in /usr/local/lib/python3.11/dist-packages (from torch-sparse) (1.15.3)
+    Requirement already satisfied: numpy<2.5,>=1.23.5 in /usr/local/lib/python3.11/dist-packages (from scipy->torch-sparse) (2.2.6)
+    Installing collected packages: torch-spline-conv, torch-scatter, torch-sparse, torch-cluster
+    Successfully installed torch-cluster-1.6.3+pt20cpu torch-scatter-2.1.2+pt20cpu torch-sparse-0.6.18+pt20cpu torch-spline-conv-1.2.2+pt20cpu
+      Installing build dependencies ... [?25l[?25hdone
+      Getting requirements to build wheel ... [?25l[?25hdone
+      Preparing metadata (pyproject.toml) ... [?25l[?25hdone
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m194.8/194.8 kB[0m [31m4.2 MB/s[0m eta [36m0:00:00[0m
+    [?25h  Building wheel for torch-geometric (pyproject.toml) ... [?25l[?25hdone
+    Collecting deeponto
+      Downloading deeponto-0.9.3-py3-none-any.whl.metadata (16 kB)
+    Collecting JPype1 (from deeponto)
+      Downloading jpype1-1.5.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+    Collecting yacs (from deeponto)
+      Downloading yacs-0.1.8-py3-none-any.whl.metadata (639 bytes)
+    Requirement already satisfied: torch in /usr/local/lib/python3.11/dist-packages (from deeponto) (2.6.0)
+    Collecting anytree (from deeponto)
+      Downloading anytree-2.13.0-py3-none-any.whl.metadata (8.0 kB)
+    Requirement already satisfied: click in /usr/local/lib/python3.11/dist-packages (from deeponto) (8.2.0)
+    Collecting dill (from deeponto)
+      Downloading dill-0.4.0-py3-none-any.whl.metadata (10 kB)
+    Requirement already satisfied: pandas in /usr/local/lib/python3.11/dist-packages (from deeponto) (2.2.2)
+    Requirement already satisfied: numpy in /usr/local/lib/python3.11/dist-packages (from deeponto) (2.2.6)
+    Requirement already satisfied: scikit_learn in /usr/local/lib/python3.11/dist-packages (from deeponto) (1.6.1)
+    Requirement already satisfied: transformers[torch] in /usr/local/lib/python3.11/dist-packages (from deeponto) (4.51.3)
+    Collecting datasets (from deeponto)
+      Downloading datasets-3.6.0-py3-none-any.whl.metadata (19 kB)
+    Requirement already satisfied: spacy in /usr/local/lib/python3.11/dist-packages (from deeponto) (3.8.5)
+    Collecting pprintpp (from deeponto)
+      Downloading pprintpp-0.4.0-py2.py3-none-any.whl.metadata (7.9 kB)
+    Requirement already satisfied: networkx in /usr/local/lib/python3.11/dist-packages (from deeponto) (3.4.2)
+    Collecting lxml (from deeponto)
+      Downloading lxml-5.4.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.5 kB)
+    Collecting textdistance (from deeponto)
+      Downloading textdistance-4.6.3-py3-none-any.whl.metadata (18 kB)
+    Requirement already satisfied: ipywidgets in /usr/local/lib/python3.11/dist-packages (from deeponto) (7.7.1)
+    Requirement already satisfied: ipykernel in /usr/local/lib/python3.11/dist-packages (from deeponto) (6.17.1)
+    Collecting enlighten (from deeponto)
+      Downloading enlighten-1.14.1-py2.py3-none-any.whl.metadata (18 kB)
+    Collecting rdflib (from deeponto)
+      Downloading rdflib-7.1.4-py3-none-any.whl.metadata (11 kB)
+    Requirement already satisfied: nltk in /usr/local/lib/python3.11/dist-packages (from deeponto) (3.9.1)
+    Requirement already satisfied: filelock in /usr/local/lib/python3.11/dist-packages (from datasets->deeponto) (3.18.0)
+    Requirement already satisfied: pyarrow>=15.0.0 in /usr/local/lib/python3.11/dist-packages (from datasets->deeponto) (20.0.0)
+    Collecting dill (from deeponto)
+      Downloading dill-0.3.8-py3-none-any.whl.metadata (10 kB)
+    Requirement already satisfied: requests>=2.32.2 in /usr/local/lib/python3.11/dist-packages (from datasets->deeponto) (2.32.3)
+    Requirement already satisfied: tqdm>=4.66.3 in /usr/local/lib/python3.11/dist-packages (from datasets->deeponto) (4.67.1)
+    Requirement already satisfied: xxhash in /usr/local/lib/python3.11/dist-packages (from datasets->deeponto) (3.5.0)
+    Collecting multiprocess<0.70.17 (from datasets->deeponto)
+      Downloading multiprocess-0.70.16-py311-none-any.whl.metadata (7.2 kB)
+    Collecting fsspec<=2025.3.0,>=2023.1.0 (from fsspec[http]<=2025.3.0,>=2023.1.0->datasets->deeponto)
+      Downloading fsspec-2025.3.0-py3-none-any.whl.metadata (11 kB)
+    Requirement already satisfied: huggingface-hub>=0.24.0 in /usr/local/lib/python3.11/dist-packages (from datasets->deeponto) (0.31.2)
+    Requirement already satisfied: packaging in /usr/local/lib/python3.11/dist-packages (from datasets->deeponto) (25.0)
+    Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.11/dist-packages (from datasets->deeponto) (6.0.2)
+    Collecting blessed>=1.17.7 (from enlighten->deeponto)
+      Downloading blessed-1.21.0-py2.py3-none-any.whl.metadata (13 kB)
+    Collecting prefixed>=0.3.2 (from enlighten->deeponto)
+      Downloading prefixed-0.9.0-py2.py3-none-any.whl.metadata (11 kB)
+    Requirement already satisfied: debugpy>=1.0 in /usr/local/lib/python3.11/dist-packages (from ipykernel->deeponto) (1.8.0)
+    Requirement already satisfied: ipython>=7.23.1 in /usr/local/lib/python3.11/dist-packages (from ipykernel->deeponto) (7.34.0)
+    Requirement already satisfied: jupyter-client>=6.1.12 in /usr/local/lib/python3.11/dist-packages (from ipykernel->deeponto) (6.1.12)
+    Requirement already satisfied: matplotlib-inline>=0.1 in /usr/local/lib/python3.11/dist-packages (from ipykernel->deeponto) (0.1.7)
+    Requirement already satisfied: nest-asyncio in /usr/local/lib/python3.11/dist-packages (from ipykernel->deeponto) (1.6.0)
+    Requirement already satisfied: psutil in /usr/local/lib/python3.11/dist-packages (from ipykernel->deeponto) (5.9.5)
+    Requirement already satisfied: pyzmq>=17 in /usr/local/lib/python3.11/dist-packages (from ipykernel->deeponto) (24.0.1)
+    Requirement already satisfied: tornado>=6.1 in /usr/local/lib/python3.11/dist-packages (from ipykernel->deeponto) (6.4.2)
+    Requirement already satisfied: traitlets>=5.1.0 in /usr/local/lib/python3.11/dist-packages (from ipykernel->deeponto) (5.7.1)
+    Requirement already satisfied: ipython-genutils~=0.2.0 in /usr/local/lib/python3.11/dist-packages (from ipywidgets->deeponto) (0.2.0)
+    Requirement already satisfied: widgetsnbextension~=3.6.0 in /usr/local/lib/python3.11/dist-packages (from ipywidgets->deeponto) (3.6.10)
+    Requirement already satisfied: jupyterlab-widgets>=1.0.0 in /usr/local/lib/python3.11/dist-packages (from ipywidgets->deeponto) (3.0.15)
+    Requirement already satisfied: joblib in /usr/local/lib/python3.11/dist-packages (from nltk->deeponto) (1.5.0)
+    Requirement already satisfied: regex>=2021.8.3 in /usr/local/lib/python3.11/dist-packages (from nltk->deeponto) (2024.11.6)
+    Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.11/dist-packages (from pandas->deeponto) (2.9.0.post0)
+    Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas->deeponto) (2025.2)
+    Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.11/dist-packages (from pandas->deeponto) (2025.2)
+    Requirement already satisfied: pyparsing<4,>=2.1.0 in /usr/local/lib/python3.11/dist-packages (from rdflib->deeponto) (3.2.3)
+    Requirement already satisfied: scipy>=1.6.0 in /usr/local/lib/python3.11/dist-packages (from scikit_learn->deeponto) (1.15.3)
+    Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.11/dist-packages (from scikit_learn->deeponto) (3.6.0)
+    Requirement already satisfied: spacy-legacy<3.1.0,>=3.0.11 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (3.0.12)
+    Requirement already satisfied: spacy-loggers<2.0.0,>=1.0.0 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (1.0.5)
+    Requirement already satisfied: murmurhash<1.1.0,>=0.28.0 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (1.0.12)
+    Requirement already satisfied: cymem<2.1.0,>=2.0.2 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (2.0.11)
+    Requirement already satisfied: preshed<3.1.0,>=3.0.2 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (3.0.9)
+    Requirement already satisfied: thinc<8.4.0,>=8.3.4 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (8.3.6)
+    Requirement already satisfied: wasabi<1.2.0,>=0.9.1 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (1.1.3)
+    Requirement already satisfied: srsly<3.0.0,>=2.4.3 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (2.5.1)
+    Requirement already satisfied: catalogue<2.1.0,>=2.0.6 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (2.0.10)
+    Requirement already satisfied: weasel<0.5.0,>=0.1.0 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (0.4.1)
+    Requirement already satisfied: typer<1.0.0,>=0.3.0 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (0.15.3)
+    Requirement already satisfied: pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (2.11.4)
+    Requirement already satisfied: jinja2 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (3.1.6)
+    Requirement already satisfied: setuptools in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (75.2.0)
+    Requirement already satisfied: langcodes<4.0.0,>=3.2.0 in /usr/local/lib/python3.11/dist-packages (from spacy->deeponto) (3.5.0)
+    Requirement already satisfied: typing-extensions>=4.10.0 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (4.13.2)
+    Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (12.4.127)
+    Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (12.4.127)
+    Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (12.4.127)
+    Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (9.1.0.70)
+    Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (12.4.5.8)
+    Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (11.2.1.3)
+    Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (10.3.5.147)
+    Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (11.6.1.9)
+    Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (12.3.1.170)
+    Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (0.6.2)
+    Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (2.21.5)
+    Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (12.4.127)
+    Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (12.4.127)
+    Requirement already satisfied: triton==3.2.0 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (3.2.0)
+    Requirement already satisfied: sympy==1.13.1 in /usr/local/lib/python3.11/dist-packages (from torch->deeponto) (1.13.1)
+    Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.11/dist-packages (from sympy==1.13.1->torch->deeponto) (1.3.0)
+    Requirement already satisfied: tokenizers<0.22,>=0.21 in /usr/local/lib/python3.11/dist-packages (from transformers[torch]->deeponto) (0.21.1)
+    Requirement already satisfied: safetensors>=0.4.3 in /usr/local/lib/python3.11/dist-packages (from transformers[torch]->deeponto) (0.5.3)
+    Requirement already satisfied: accelerate>=0.26.0 in /usr/local/lib/python3.11/dist-packages (from transformers[torch]->deeponto) (1.6.0)
+    Requirement already satisfied: wcwidth>=0.1.4 in /usr/local/lib/python3.11/dist-packages (from blessed>=1.17.7->enlighten->deeponto) (0.2.13)
+    Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.11/dist-packages (from fsspec[http]<=2025.3.0,>=2023.1.0->datasets->deeponto) (3.11.15)
+    Collecting jedi>=0.16 (from ipython>=7.23.1->ipykernel->deeponto)
+      Downloading jedi-0.19.2-py2.py3-none-any.whl.metadata (22 kB)
+    Requirement already satisfied: decorator in /usr/local/lib/python3.11/dist-packages (from ipython>=7.23.1->ipykernel->deeponto) (5.2.1)
+    Requirement already satisfied: pickleshare in /usr/local/lib/python3.11/dist-packages (from ipython>=7.23.1->ipykernel->deeponto) (0.7.5)
+    Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0 in /usr/local/lib/python3.11/dist-packages (from ipython>=7.23.1->ipykernel->deeponto) (3.0.51)
+    Requirement already satisfied: pygments in /usr/local/lib/python3.11/dist-packages (from ipython>=7.23.1->ipykernel->deeponto) (2.19.1)
+    Requirement already satisfied: backcall in /usr/local/lib/python3.11/dist-packages (from ipython>=7.23.1->ipykernel->deeponto) (0.2.0)
+    Requirement already satisfied: pexpect>4.3 in /usr/local/lib/python3.11/dist-packages (from ipython>=7.23.1->ipykernel->deeponto) (4.9.0)
+    Requirement already satisfied: jupyter-core>=4.6.0 in /usr/local/lib/python3.11/dist-packages (from jupyter-client>=6.1.12->ipykernel->deeponto) (5.7.2)
+    Requirement already satisfied: language-data>=1.2 in /usr/local/lib/python3.11/dist-packages (from langcodes<4.0.0,>=3.2.0->spacy->deeponto) (1.3.0)
+    Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.11/dist-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy->deeponto) (0.7.0)
+    Requirement already satisfied: pydantic-core==2.33.2 in /usr/local/lib/python3.11/dist-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy->deeponto) (2.33.2)
+    Requirement already satisfied: typing-inspection>=0.4.0 in /usr/local/lib/python3.11/dist-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy->deeponto) (0.4.0)
+    Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil>=2.8.2->pandas->deeponto) (1.17.0)
+    Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.11/dist-packages (from requests>=2.32.2->datasets->deeponto) (3.4.2)
+    Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.11/dist-packages (from requests>=2.32.2->datasets->deeponto) (3.10)
+    Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.11/dist-packages (from requests>=2.32.2->datasets->deeponto) (2.4.0)
+    Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests>=2.32.2->datasets->deeponto) (2025.4.26)
+    Requirement already satisfied: blis<1.4.0,>=1.3.0 in /usr/local/lib/python3.11/dist-packages (from thinc<8.4.0,>=8.3.4->spacy->deeponto) (1.3.0)
+    Requirement already satisfied: confection<1.0.0,>=0.0.1 in /usr/local/lib/python3.11/dist-packages (from thinc<8.4.0,>=8.3.4->spacy->deeponto) (0.1.5)
+    Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.11/dist-packages (from typer<1.0.0,>=0.3.0->spacy->deeponto) (1.5.4)
+    Requirement already satisfied: rich>=10.11.0 in /usr/local/lib/python3.11/dist-packages (from typer<1.0.0,>=0.3.0->spacy->deeponto) (14.0.0)
+    Requirement already satisfied: cloudpathlib<1.0.0,>=0.7.0 in /usr/local/lib/python3.11/dist-packages (from weasel<0.5.0,>=0.1.0->spacy->deeponto) (0.21.0)
+    Requirement already satisfied: smart-open<8.0.0,>=5.2.1 in /usr/local/lib/python3.11/dist-packages (from weasel<0.5.0,>=0.1.0->spacy->deeponto) (7.1.0)
+    Requirement already satisfied: notebook>=4.4.1 in /usr/local/lib/python3.11/dist-packages (from widgetsnbextension~=3.6.0->ipywidgets->deeponto) (6.5.7)
+    Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.11/dist-packages (from jinja2->spacy->deeponto) (3.0.2)
+    Requirement already satisfied: aiohappyeyeballs>=2.3.0 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets->deeponto) (2.6.1)
+    Requirement already satisfied: aiosignal>=1.1.2 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets->deeponto) (1.3.2)
+    Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets->deeponto) (25.3.0)
+    Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets->deeponto) (1.6.0)
+    Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets->deeponto) (6.4.3)
+    Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets->deeponto) (0.3.1)
+    Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets->deeponto) (1.20.0)
+    Requirement already satisfied: parso<0.9.0,>=0.8.4 in /usr/local/lib/python3.11/dist-packages (from jedi>=0.16->ipython>=7.23.1->ipykernel->deeponto) (0.8.4)
+    Requirement already satisfied: platformdirs>=2.5 in /usr/local/lib/python3.11/dist-packages (from jupyter-core>=4.6.0->jupyter-client>=6.1.12->ipykernel->deeponto) (4.3.8)
+    Requirement already satisfied: marisa-trie>=1.1.0 in /usr/local/lib/python3.11/dist-packages (from language-data>=1.2->langcodes<4.0.0,>=3.2.0->spacy->deeponto) (1.2.1)
+    Requirement already satisfied: argon2-cffi in /usr/local/lib/python3.11/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (23.1.0)
+    Requirement already satisfied: nbformat in /usr/local/lib/python3.11/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (5.10.4)
+    Requirement already satisfied: nbconvert>=5 in /usr/local/lib/python3.11/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (7.16.6)
+    Requirement already satisfied: Send2Trash>=1.8.0 in /usr/local/lib/python3.11/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.8.3)
+    Requirement already satisfied: terminado>=0.8.3 in /usr/local/lib/python3.11/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.18.1)
+    Requirement already satisfied: prometheus-client in /usr/local/lib/python3.11/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.21.1)
+    Requirement already satisfied: nbclassic>=0.4.7 in /usr/local/lib/python3.11/dist-packages (from notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.3.1)
+    Requirement already satisfied: ptyprocess>=0.5 in /usr/local/lib/python3.11/dist-packages (from pexpect>4.3->ipython>=7.23.1->ipykernel->deeponto) (0.7.0)
+    Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.11/dist-packages (from rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy->deeponto) (3.0.0)
+    Requirement already satisfied: wrapt in /usr/local/lib/python3.11/dist-packages (from smart-open<8.0.0,>=5.2.1->weasel<0.5.0,>=0.1.0->spacy->deeponto) (1.17.2)
+    Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.11/dist-packages (from markdown-it-py>=2.2.0->rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy->deeponto) (0.1.2)
+    Requirement already satisfied: notebook-shim>=0.2.3 in /usr/local/lib/python3.11/dist-packages (from nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.2.4)
+    Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.11/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (4.13.4)
+    Requirement already satisfied: bleach!=5.0.0 in /usr/local/lib/python3.11/dist-packages (from bleach[css]!=5.0.0->nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (6.2.0)
+    Requirement already satisfied: defusedxml in /usr/local/lib/python3.11/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.7.1)
+    Requirement already satisfied: jupyterlab-pygments in /usr/local/lib/python3.11/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.3.0)
+    Requirement already satisfied: mistune<4,>=2.0.3 in /usr/local/lib/python3.11/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (3.1.3)
+    Requirement already satisfied: nbclient>=0.5.0 in /usr/local/lib/python3.11/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.10.2)
+    Requirement already satisfied: pandocfilters>=1.4.1 in /usr/local/lib/python3.11/dist-packages (from nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.5.1)
+    Requirement already satisfied: fastjsonschema>=2.15 in /usr/local/lib/python3.11/dist-packages (from nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (2.21.1)
+    Requirement already satisfied: jsonschema>=2.6 in /usr/local/lib/python3.11/dist-packages (from nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (4.23.0)
+    Requirement already satisfied: argon2-cffi-bindings in /usr/local/lib/python3.11/dist-packages (from argon2-cffi->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (21.2.0)
+    Requirement already satisfied: webencodings in /usr/local/lib/python3.11/dist-packages (from bleach!=5.0.0->bleach[css]!=5.0.0->nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.5.1)
+    Requirement already satisfied: tinycss2<1.5,>=1.1.0 in /usr/local/lib/python3.11/dist-packages (from bleach[css]!=5.0.0->nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.4.0)
+    Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /usr/local/lib/python3.11/dist-packages (from jsonschema>=2.6->nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (2025.4.1)
+    Requirement already satisfied: referencing>=0.28.4 in /usr/local/lib/python3.11/dist-packages (from jsonschema>=2.6->nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.36.2)
+    Requirement already satisfied: rpds-py>=0.7.1 in /usr/local/lib/python3.11/dist-packages (from jsonschema>=2.6->nbformat->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (0.24.0)
+    Requirement already satisfied: jupyter-server<3,>=1.8 in /usr/local/lib/python3.11/dist-packages (from notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.16.0)
+    Requirement already satisfied: cffi>=1.0.1 in /usr/local/lib/python3.11/dist-packages (from argon2-cffi-bindings->argon2-cffi->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.17.1)
+    Requirement already satisfied: soupsieve>1.2 in /usr/local/lib/python3.11/dist-packages (from beautifulsoup4->nbconvert>=5->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (2.7)
+    Requirement already satisfied: pycparser in /usr/local/lib/python3.11/dist-packages (from cffi>=1.0.1->argon2-cffi-bindings->argon2-cffi->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (2.22)
+    Requirement already satisfied: anyio>=3.1.0 in /usr/local/lib/python3.11/dist-packages (from jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (4.9.0)
+    Requirement already satisfied: websocket-client in /usr/local/lib/python3.11/dist-packages (from jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.8.0)
+    Requirement already satisfied: sniffio>=1.1 in /usr/local/lib/python3.11/dist-packages (from anyio>=3.1.0->jupyter-server<3,>=1.8->notebook-shim>=0.2.3->nbclassic>=0.4.7->notebook>=4.4.1->widgetsnbextension~=3.6.0->ipywidgets->deeponto) (1.3.1)
+    Downloading deeponto-0.9.3-py3-none-any.whl (89.7 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m89.7/89.7 MB[0m [31m13.3 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading anytree-2.13.0-py3-none-any.whl (45 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m45.1/45.1 kB[0m [31m2.5 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading datasets-3.6.0-py3-none-any.whl (491 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m491.5/491.5 kB[0m [31m23.3 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading dill-0.3.8-py3-none-any.whl (116 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m116.3/116.3 kB[0m [31m7.6 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading enlighten-1.14.1-py2.py3-none-any.whl (42 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m42.3/42.3 kB[0m [31m2.3 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading jpype1-1.5.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (494 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m494.1/494.1 kB[0m [31m23.2 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading lxml-5.4.0-cp311-cp311-manylinux_2_28_x86_64.whl (4.9 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.9/4.9 MB[0m [31m103.8 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading pprintpp-0.4.0-py2.py3-none-any.whl (16 kB)
+    Downloading rdflib-7.1.4-py3-none-any.whl (565 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m565.1/565.1 kB[0m [31m23.9 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading textdistance-4.6.3-py3-none-any.whl (31 kB)
+    Downloading yacs-0.1.8-py3-none-any.whl (14 kB)
+    Downloading blessed-1.21.0-py2.py3-none-any.whl (84 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m84.7/84.7 kB[0m [31m5.6 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading fsspec-2025.3.0-py3-none-any.whl (193 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m193.6/193.6 kB[0m [31m12.1 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading multiprocess-0.70.16-py311-none-any.whl (143 kB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m143.5/143.5 kB[0m [31m9.1 MB/s[0m eta [36m0:00:00[0m
+    [?25hDownloading prefixed-0.9.0-py2.py3-none-any.whl (13 kB)
+    Downloading jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/1.6 MB[0m [31m58.4 MB/s[0m eta [36m0:00:00[0m
+    [?25hInstalling collected packages: prefixed, pprintpp, yacs, textdistance, rdflib, lxml, JPype1, jedi, fsspec, dill, blessed, anytree, multiprocess, enlighten, datasets, deeponto
+      Attempting uninstall: fsspec
+        Found existing installation: fsspec 2025.5.1
+        Uninstalling fsspec-2025.5.1:
+          Successfully uninstalled fsspec-2025.5.1
+    Successfully installed JPype1-1.5.2 anytree-2.13.0 blessed-1.21.0 datasets-3.6.0 deeponto-0.9.3 dill-0.3.8 enlighten-1.14.1 fsspec-2025.3.0 jedi-0.19.2 lxml-5.4.0 multiprocess-0.70.16 pprintpp-0.4.0 prefixed-0.9.0 rdflib-7.1.4 textdistance-4.6.3 yacs-0.1.8
+
+
+
+```python
+# Import pandas for working with tabular data (e.g., CSV, TSV files)
 import pandas as pd
 
-# Import pickle for saving and loading serialized objects (e.g., trained models or preprocessed data).
-import pickle
-
-# Import function to convert a directed graph to an undirected one, useful for certain graph algorithms.
-from torch_geometric.utils import to_undirected
-
-# Import optimizer module from PyTorch for training models using gradient-based optimization techniques.
-import torch.optim as optim
-
-# Import PyTorch's modules for defining neural network architectures and operations:
-from torch.nn import (
-    Linear,       # For linear transformations (dense layers).
-    Sequential,   # For stacking layers sequentially.
-    BatchNorm1d,  # For normalizing input within mini-batches.
-    PReLU,        # Parametric ReLU activation function.
-    Dropout       # For regularization by randomly dropping connections during training.
-)
-
-# Import functional API from PyTorch for operations like activations and loss functions.
-import torch.nn.functional as F
-
-# Import Matplotlib for visualizations, such as plotting training loss curves.
-import matplotlib.pyplot as plt
-
-# Import PyTorch Geometric's graph convolutional layers:
-from torch_geometric.nn import GCNConv, GINConv
-
-# Import pooling operations for aggregating node embeddings to graph-level representations:
-from torch_geometric.nn import global_mean_pool, global_add_pool
-
-# Import NumPy for numerical operations, such as working with arrays and matrices.
+# Import numpy for numerical operations and efficient array handling
 import numpy as np
 
-# Import time module for measuring execution time of code blocks.
-import time
-
-# Import typing module for specifying types in function arguments and return values.
-from typing import Optional, Tuple, Union, Callable
-
-# Import PyTorch's DataLoader and TensorDataset for handling data batching and loading during training.
-from torch.utils.data import DataLoader, TensorDataset
-
-# Import PyTorch's Parameter class for defining learnable parameters in custom models.
-from torch.nn import Parameter
-
-# Import math module for performing mathematical computations.
-import math
-
-# Import Tensor type from PyTorch for defining and manipulating tensors.
-from torch import Tensor
-
-# Import PyTorch's nn module for defining and building neural network architectures.
-import torch.nn as nn
-
-# Import initialization utilities from PyTorch Geometric for resetting weights and biases in layers.
-from torch_geometric.nn.inits import reset
-
-# Import the base class for defining message-passing layers in graph neural networks (GNNs).
-from torch_geometric.nn.conv import MessagePassing
-
-# Import linear transformation utilities for creating dense representations in graph models.
-from torch_geometric.nn.dense.linear import Linear
-
-# Import typing utilities for defining adjacency matrices and tensor types specific to PyTorch Geometric.
-from torch_geometric.typing import Adj, OptTensor, PairTensor, SparseTensor
-
-# Import softmax function for normalizing attention scores in GNNs.
-from torch_geometric.utils import softmax
-
-# Import initialization utilities for weight initialization (e.g., Glorot initialization).
-from torch_geometric.nn.inits import glorot, zeros
-
-# Import F1 score metric from scikit-learn for evaluating model performance in binary/multi-class tasks.
-from sklearn.metrics import f1_score
-
-# Import JSON module for reading and writing JSON files, useful for storing configuration or ontology data.
+# Import json for reading and writing JSON-formatted files (useful for config or ontology structures)
 import json
 
-# Import Ontology class from DeepOnto for representing and manipulating ontologies in the pipeline.
+# Import pickle for serializing and deserializing Python objects (e.g., saving models or processed data)
+import pickle
+
+# Import warnings to control or suppress warning messages during runtime
+import warnings
+
+# Import gc (garbage collector) for managing memory manually when dealing with large datasets
+import gc
+
+# Ignore all warning messages to keep the output clean
+warnings.filterwarnings('ignore')
+```
+
+
+```python
+# Import PyTorch core library for tensor operations and model definition
+import torch
+
+# Import commonly used PyTorch components
+from torch import Tensor, optim  # Tensor type and optimization algorithms (e.g., SGD, Adam)
+
+# Import PyTorch's neural network module (base class for defining models)
+import torch.nn as nn
+
+# Import PyTorch's functional API for operations like activations and loss functions
+import torch.nn.functional as F
+
+# Import DataLoader utilities for batching and loading datasets during training
+from torch.utils.data import DataLoader, TensorDataset
+
+# === PyTorch Geometric (PyG) modules for graph-based learning ===
+
+# Basic graph data structure from PyG
+from torch_geometric.data import Data
+
+# PyG-specific DataLoader for batching graphs
+from torch_geometric.loader import DataLoader as GeoDataLoader
+
+# Import graph convolution layers and pooling functions from PyG
+from torch_geometric.nn import (
+    GCNConv,             # Graph Convolutional Network layer
+    GINConv,             # Graph Isomorphism Network convolution
+    global_mean_pool,    # Global mean pooling over node embeddings
+    global_add_pool,     # Global sum pooling over node embeddings
+    MessagePassing       # Base class for defining custom GNN layers
+)
+
+# Explicitly re-import MessagePassing (optional if already above)
+from torch_geometric.nn.conv import MessagePassing
+
+# Graph utility functions from PyG
+from torch_geometric.utils import (
+    to_undirected,       # Converts a directed graph to undirected
+    softmax              # Softmax over edges (e.g., for attention)
+)
+
+# Initialization utilities for GNN layers
+from torch_geometric.nn.inits import (
+    reset,               # Reset parameters
+    glorot,              # Glorot (Xavier) weight initialization
+    zeros                # Zero initialization
+)
+
+# Typing utilities from PyG for adjacency and tensor specifications
+from torch_geometric.typing import (
+    Adj, OptTensor, PairTensor, SparseTensor
+)
+
+# Dense linear transformation layer from PyG (alternative to torch.nn.Linear)
+from torch_geometric.nn.dense.linear import Linear
+
+# Additional PyTorch neural network components
+from torch.nn import (
+    Linear,             # Fully connected (dense) layer
+    PReLU,              # Parametric ReLU activation
+    Sequential,         # Layer container for building sequential models
+    BatchNorm1d,        # Batch normalization for 1D inputs
+    Dropout             # Dropout regularization
+)
+```
+
+
+```python
+# Import matplotlib for creating visualizations (e.g., loss curves, evaluation metrics, embedding projections)
+import matplotlib.pyplot as plt
+```
+
+
+```python
+# Import function to split data into training and testing sets
+from sklearn.model_selection import train_test_split
+
+# Import encoder to convert categorical labels into integer values (useful for classification tasks)
+from sklearn.preprocessing import LabelEncoder
+
+# Import evaluation metrics for classification and regression tasks
+from sklearn.metrics import (
+    f1_score,            # Harmonic mean of precision and recall; useful for imbalanced classification
+    precision_score,     # Measures the proportion of true positives among all predicted positives
+    accuracy_score,      # Measures overall correctness of predictions (classification)
+    mean_squared_error,  # Measures average squared difference between predicted and actual values (regression)
+    mean_absolute_error  # Measures average absolute difference between predicted and actual values (regression)
+)
+```
+
+
+```python
+# Import the Ontology class for loading and manipulating OWL ontologies
 from deeponto.onto import Ontology
 
-# Import tools from DeepOnto for handling Ontology Alignment Evaluation Initiative (OAEI) tasks.
+# Import all components related to OAEI (Ontology Alignment Evaluation Initiative) benchmarking
 from deeponto.align.oaei import *
 
-# Import evaluation tools from DeepOnto for assessing alignment results using metrics like precision, recall, and F1.
+# Import data structures for representing mappings between ontology entities
+from deeponto.align.mapping import EntityMapping, ReferenceMapping
+# - EntityMapping: represents a predicted alignment (one or more mappings)
+# - ReferenceMapping: represents the gold standard/reference alignments
+
+# Import the evaluator to compute Precision, Recall, and F1-score for alignments
 from deeponto.align.evaluation import AlignmentEvaluator
 
-# Import mapping utilities from DeepOnto for working with reference mappings and entity pairs.
-from deeponto.align.mapping import ReferenceMapping, EntityMapping
-
-# Import utility function for reading tables (e.g., TSV, CSV) from DeepOnto.
+# Utility function to read TSV/CSV tables as mapping or data frames
 from deeponto.utils import read_table
-
-# Importing the train_test_split function from sklearn's model_selection module.
-from sklearn.model_selection import train_test_split
 ```
 
     Please enter the maximum memory located to JVM [8g]: 8g
     
 
 
-# **Paths Definition**
-
 
 ```python
-# Importing the 'drive' module from Google Colab to interact with Google Drive
-from google.colab import drive
-
-# Mount the user's Google Drive to the Colab environment
-# After running this, a link will appear to authorize access, and Google Drive will be mounted at '/content/gdrive'
-drive.mount('/content/gdrive')
-
+# Import Optuna, a hyperparameter optimization framework for automating model tuning using strategies like Bayesian optimization
+import optuna
 ```
 
-    Mounted at /content/gdrive
 
+```python
+# Import the math module for mathematical functions (e.g., sqrt, log, exp)
+import math
+
+# Import the time module for measuring execution time of code blocks or functions
+import time
+
+# Import typing annotations for function signatures and code clarity
+from typing import Optional, Tuple, Union, Callable
+# - Optional[T]: denotes a value that could be of type T or None
+# - Tuple: fixed-size ordered collection of elements
+# - Union: allows multiple possible types (e.g., Union[int, str])
+# - Callable: represents a function or method type
+```
 
 
 ```python
+# Import Python's built-in random module for generating pseudo-random numbers
 import random
 
 # Set the seed for PyTorch's random number generator to ensure reproducibility
+import torch
 torch.manual_seed(42)
 
 # Set the seed for NumPy's random number generator to ensure reproducibility
+import numpy as np
 np.random.seed(42)
 
 # Set the seed for Python's built-in random module to ensure reproducibility
@@ -549,7 +681,7 @@ drive.mount('/content/gdrive')
 
 ```
 
-    Drive already mounted at /content/gdrive; to attempt to forcibly remount, call drive.mount("/content/gdrive", force_remount=True).
+    Mounted at /content/gdrive
 
 
 
@@ -562,9 +694,6 @@ tgt_ent = "fma.body"
 
 # Define the task name for this ontology matching process
 task = "body"
-
-# Define the similarity threshold for validating matches
-thres = 0.30
 ```
 
 
@@ -623,16 +752,13 @@ train_file = f"{data_dir}/{task}_train.csv"
 test_file = f"{dataset_dir}/refs_equiv/test.tsv"
 
 # Define the file path for the candidate mappings used during testing
-# This file includes the candidate pairs (source and target entities) for ranking and evaluation.
+# This file includes the candidate pairs (source and target entities) for ranking based metrics.
 test_cands = f"{dataset_dir}/refs_equiv/test.cands.tsv"
 
-# Define the file path for the candidate mappings between Source to Target entities
-# This file contains cleaned, combined, and encoded candidates used for predictions.
-candidates_Prediction = f"{data_dir}/{task}_candidates_prediction.csv"
-
-# Define the file path for the candidate mappings between Source to Target entities for ranking-based metrics
-# This file is used to compute ranking-based metrics like MRR and Hits@k.
-candidates_Rank = f"{data_dir}/{task}_candidates.csv"
+# Reformatted candidate file derived from test.cands.tsv
+# It contains the same mappings (SrcEntity, TgtEntity, CandidateTgtEntities),
+# but in a structure optimized for scoring (e.g., using FAISS or embedding-based similarity).
+cands_path = f"{data_dir}/{task}_cands.csv"
 
 # Define the path where the prediction results will be saved in TSV format
 # This file will store the final predictions (mappings) between source and target entities.
@@ -641,10 +767,6 @@ prediction_path = f"{results_dir}/{task}_matching_results.tsv"
 # Define the path where all prediction results will be saved in TSV format
 # This file will store detailed prediction results, including all candidate scores.
 all_predictions_path = f"{results_dir}/{task}_all_predictions.tsv"
-
-# Define the path where all ranking prediction results will be saved in TSV format
-# This file will store predictions sorted by rank based on their scores.
-all_predictions_path_ranked = f"{results_dir}/{task}_all_predictions_ranked.tsv"
 
 # Define the path where formatted ranking predictions will be saved in TSV format
 # This file will contain predictions formatted for evaluation using ranking-based metrics.
@@ -829,65 +951,44 @@ class RGIT_mod(torch.nn.Module):
 
 
 ```python
-class GatedCombination(nn.Module):
-    """
-    A neural network module for combining embeddings using a gating mechanism
-    and evaluating their similarity. This class is particularly useful for
-    ontology matching tasks.
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 
-    Args:
-        input_dim (int): Dimensionality of the input embeddings.
-    """
+class GatedCombination(nn.Module):
     def __init__(self, input_dim):
         super(GatedCombination, self).__init__()
-
-        # Fully connected layer for gating mechanism on the first embedding pair (x1, x2)
         self.gate_A_fc = nn.Linear(input_dim, input_dim)
-
-        # Fully connected layer for gating mechanism on the second embedding pair (x3, x4)
         self.gate_B_fc = nn.Linear(input_dim, input_dim)
-
-        # Fully connected layer for final similarity classification
         self.fc = nn.Linear(1, 1)
 
-    def forward(self, x1, x2, x3, x4, return_embeddings=False):
+    def euclidean_distance(self, a, b):
         """
-        Forward pass through the GatedCombination model.
-
+        Compute the Euclidean distance between two tensors.
         Args:
-            x1 (torch.Tensor): First set of embeddings (e.g., updated source embeddings).
-            x2 (torch.Tensor): Second set of embeddings (e.g., original source embeddings).
-            x3 (torch.Tensor): Third set of embeddings (e.g., updated target embeddings).
-            x4 (torch.Tensor): Fourth set of embeddings (e.g., original target embeddings).
-            return_embeddings (bool): Whether to return the intermediate combined embeddings (a, b).
-
+            a: Tensor of shape [batch, dim]
+            b: Tensor of shape [batch, dim]
         Returns:
-            torch.Tensor: Probability score for binary classification if return_embeddings is False.
-            Tuple[torch.Tensor, torch.Tensor]: Intermediate embeddings (a, b) if return_embeddings is True.
+            Tensor of shape [batch] representing the L2 distance.
         """
-        # Compute gating weights for the first pair of embeddings (x1, x2)
-        gate_values1 = torch.sigmoid(self.gate_A_fc(x1))
+        return torch.norm(a - b, p=2, dim=1)
 
-        # Blend x1 and x2 using the computed gating weights
+    def forward(self, x1, x2, x3, x4, return_embeddings=False):
+        gate_values1 = torch.sigmoid(self.gate_A_fc(x1))
         a = x1 * gate_values1 + x2 * (1 - gate_values1)
 
-        # Compute gating weights for the second pair of embeddings (x3, x4)
         gate_values2 = torch.sigmoid(self.gate_B_fc(x3))
-
-        # Blend x3 and x4 using the computed gating weights
         b = x3 * gate_values2 + x4 * (1 - gate_values2)
 
-        # If return_embeddings is True, return the intermediate blended embeddings
         if return_embeddings:
             return a, b
 
-        # Compute cosine similarity between the blended embeddings a and b
-        x = torch.cosine_similarity(a, b, dim=1)
+        # Utilisation de la distance Euclidienne
+        distance = self.euclidean_distance(a, b)
 
-        # Apply a fully connected layer and sigmoid activation for classification
-        out = torch.sigmoid(self.fc(x.unsqueeze(1)))
+        # Passage dans couche de classification
+        out = torch.sigmoid(self.fc(distance.unsqueeze(1)))
         return out
-
 
 ```
 
@@ -994,194 +1095,533 @@ def contrastive_loss(source_embeddings, target_embeddings, labels, margin=1.0):
 
 
 ```python
-def Prediction_with_candidates(model, X1_tt, X2_tt, X3_tt, X4_tt, src_entity_tensor_o, tgt_entity_tensor_o,
-                                   indexed_dict_src, indexed_dict_tgt, all_predictions_path):
+def save_gated_embeddings(gated_model, embeddings_src, x_src, embeddings_tgt, x_tgt,
+                          indexed_dict_src, indexed_dict_tgt,
+                          output_file_src, output_file_tgt):
     """
-    Evaluates the GatedCombination model using the given embeddings and candidate entity pairs.
-    Saves the predictions and evaluation results to a file.
+    Compute and save the final entity embeddings generated by the GatedCombination model
+    for both source and target ontologies. Outputs include entity URIs and their final vectors.
+    Measures and prints the execution time of the entire operation.
 
     Args:
-        model: Trained GatedCombination model.
-        X1_tt, X2_tt, X3_tt, X4_tt (torch.Tensor): Tensors of source and target entity embeddings (updated and original).
-        src_entity_tensor_o, tgt_entity_tensor_o (torch.Tensor): Tensors of source and target entity indices.
-        indexed_dict_src, indexed_dict_tgt (dict): Dictionaries mapping entity indices to URIs for source and target.
-        output_file (str): Path to save the predictions and results.
-        hits_at_k_values (list): List of k-values for which hits@k is evaluated.
-
-    Returns:
-        None
+        gated_model (nn.Module): The trained GatedCombination model.
+        embeddings_src (Tensor): Structural embeddings for the source ontology.
+        x_src (Tensor): Semantic embeddings for the source ontology.
+        embeddings_tgt (Tensor): Structural embeddings for the target ontology.
+        x_tgt (Tensor): Semantic embeddings for the target ontology.
+        indexed_dict_src (dict): Index-to-URI mapping for the source ontology.
+        indexed_dict_tgt (dict): Index-to-URI mapping for the target ontology.
+        output_file_src (str): Path to save source embeddings (TSV).
+        output_file_tgt (str): Path to save target embeddings (TSV).
     """
-    # Move the model to CPU and set it to evaluation mode
-    model = model.to("cpu")
-    model.eval()
+    import pandas as pd
+    import torch
+    import time
 
-    # Set batch size for evaluation
-    batch_size_test = 32
-
-    # Create a DataLoader for the evaluation data
-    test_dataset = TensorDataset(X1_tt, X2_tt, X3_tt, X4_tt)
-    test_dataloader = DataLoader(test_dataset, batch_size=batch_size_test)
-
-    # Prepare for collecting predictions and results
-    predictions = []
-    results = []
-    count_predictions = 0  # Counter for predictions above threshold (0.5)
-
-    # Measure prediction time
     start_time = time.time()
 
-    # Disable gradient computation for evaluation
+    # Use GPU if available
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    gated_model = gated_model.to(device)
+    gated_model.eval()
+
+    # Move inputs to the same device
+    embeddings_src = embeddings_src.to(device)
+    x_src = x_src.to(device)
+    embeddings_tgt = embeddings_tgt.to(device)
+    x_tgt = x_tgt.to(device)
+
     with torch.no_grad():
-        # Iterate over batches and compute model predictions
-        for batch_X1, batch_X2, batch_X3, batch_X4 in test_dataloader:
-            outputs = model(batch_X1, batch_X2, batch_X3, batch_X4)
-            predictions.extend(outputs.cpu().numpy())  # Collect predictions in CPU memory
+        # === Source ontology ===
+        gate_src = torch.sigmoid(gated_model.gate_A_fc(embeddings_src))
+        final_src = embeddings_src * gate_src + x_src * (1 - gate_src)
+        final_src = final_src.cpu().numpy()
 
-    end_time = time.time()
-    predicting_time = end_time - start_time
-    print(f"Predicting time: {predicting_time:.2f} seconds")
+        # === Target ontology ===
+        gate_tgt = torch.sigmoid(gated_model.gate_B_fc(embeddings_tgt))
+        final_tgt = embeddings_tgt * gate_tgt + x_tgt * (1 - gate_tgt)
+        final_tgt = final_tgt.cpu().numpy()
 
-    # Convert tensors to lists for easier iteration
-    src_indices = src_entity_tensor_o.tolist()
-    tgt_indices = tgt_entity_tensor_o.tolist()
+    # Create DataFrames with Concept URI and embedding values
+    df_src = pd.DataFrame(final_src)
+    df_src.insert(0, "Concept", [indexed_dict_src[i] for i in range(len(df_src))])
 
-    # Prepare results
-    for i in range(len(predictions)):
-        if predictions[i] >= 0.00:  # Consider only predictions greater than 0.5
-            count_predictions += 1  # Increment the counter
+    df_tgt = pd.DataFrame(final_tgt)
+    df_tgt.insert(0, "Concept", [indexed_dict_tgt[i] for i in range(len(df_tgt))])
 
-            # Map the source and target entity indices to their URIs
-            src_code = src_indices[i]
-            tgt_code = tgt_indices[i]
+    # Save embeddings to file
+    df_src.to_csv(output_file_src, sep='\t', index=False)
+    df_tgt.to_csv(output_file_tgt, sep='\t', index=False)
 
-            src_uri = indexed_dict_src.get(int(src_code), "Unknown URI")
-            tgt_uri = indexed_dict_tgt.get(int(tgt_code), "Unknown URI")
+    elapsed_time = time.time() - start_time
+    print(f"✅ Gated embeddings saved:\n- Source: {output_file_src}\n- Target: {output_file_tgt}")
+    print(f"⏱️ Execution time: {elapsed_time:.2f} seconds")
 
-            # Get the model's predicted score for the current pair
-            score = predictions[i]
-
-            # Append the results (with URIs instead of entity indices)
-            results.append({
-                'SrcEntity': src_uri,
-                'TgtEntity': tgt_uri,
-                'Score': score
-            })
-
-    # Convert the results into a pandas DataFrame
-    df_results = pd.DataFrame(results)
-
-    # Save the results to a TSV file
-    df_results.to_csv(all_predictions_path, sep='\t', index=False)
-
-    print(f"Predictions saved to {all_predictions_path}")
 ```
 
 
 ```python
-def filter_highest_predictions(input_file_path, output_file_path, threshold=thres):
-    # Load the all predictions file
-    df = pd.read_csv(input_file_path, sep='\t')
+import pandas as pd
 
-    # Extract the similarity score from the list in the 'Score' column
-    df['Score'] = df['Score'].apply(lambda x: float(x.strip('[]')))
+def format_ranked_predictions_for_mrr(reference_file, predicted_file, output_file):
+    """
+    Format predicted scores into ranked candidate lists per source entity,
+    in a structure compatible with MRR and Hits@k evaluation.
 
-    # Sorting the dataframe by similarity score in descending order
+    Args:
+        reference_file (str): Path to the reference test candidate file (e.g., 'test.cands.tsv'),
+                              with columns: SrcEntity, TgtEntity (gold), CandidateTgtEntities (list)
+        predicted_file (str): Path to the flat prediction file with columns: SrcEntity, TgtEntity, Score
+        output_file (str): Path to save the formatted ranked candidates (for evaluation)
+
+    Returns:
+        str: Path to the formatted output file (TSV with columns: SrcEntity, TgtEntity, TgtCandidates)
+    """
+
+    # Load reference candidates (test.cands.tsv format)
+    reference_data = pd.read_csv(reference_file, sep='\t').values.tolist()
+
+    # Load predictions and ensure scores are floats
+    predicted_data = pd.read_csv(predicted_file, sep="\t")
+    predicted_data["Score"] = predicted_data["Score"].apply(
+        lambda x: float(x.strip("[]")) if isinstance(x, str) else float(x)
+    )
+
+    # Build a dictionary for quick score lookup
+    score_lookup = {
+        (row["SrcEntity"], row["TgtEntity"]): row["Score"]
+        for _, row in predicted_data.iterrows()
+    }
+
+    ranking_results = []
+
+    # For each source entity, rank its candidate targets by predicted score
+    for src_entity, tgt_gold, tgt_cands in reference_data:
+        try:
+            raw = eval(tgt_cands)
+            candidates = list(raw) if isinstance(raw, (list, tuple)) else []
+        except:
+            candidates = []
+
+        # Score each candidate (default to very low score if missing)
+        scored_cands = [
+            (cand, score_lookup.get((src_entity, cand), -1e9))
+            for cand in candidates
+        ]
+
+        # Sort by score descending
+        ranked = sorted(scored_cands, key=lambda x: x[1], reverse=True)
+
+        # Append the ranking result
+        ranking_results.append((src_entity, tgt_gold, ranked))
+
+    # Save to TSV file (used later for MRR / Hits@k computation)
+    pd.DataFrame(ranking_results, columns=["SrcEntity", "TgtEntity", "TgtCandidates"]).to_csv(
+        output_file, sep="\t", index=False
+    )
+
+    print(f"✅ Ranked predictions saved for evaluation: {output_file}")
+    return output_file
+
+```
+
+
+```python
+import pandas as pd
+
+def filter_ignored_class(src_emb_path, tgt_emb_path, src_onto, tgt_onto):
+    """
+    Filters the source and target embedding files by removing concepts considered "ignored classes"
+    (e.g., owl:Thing, deprecated entities, etc.) based on both source and target ontologies.
+
+    Args:
+        src_emb_path (str): Path to the TSV file containing source embeddings with 'Concept' column.
+        tgt_emb_path (str): Path to the TSV file containing target embeddings with 'Concept' column.
+        src_onto (Ontology): Source ontology object loaded with DeepOnto.
+        tgt_onto (Ontology): Target ontology object loaded with DeepOnto.
+
+    Returns:
+        (str, str): Paths to the cleaned source and target embedding files.
+    """
+
+    # === Load the embedding files ===
+    df_src = pd.read_csv(src_emb_path, sep='\t', dtype=str)
+    print(f"🔍 Initial source file: {len(df_src)} rows")
+
+    df_tgt = pd.read_csv(tgt_emb_path, sep='\t', dtype=str)
+    print(f"🔍 Initial target file: {len(df_tgt)} rows")
+
+    # === Step 1: Retrieve ignored classes from both ontologies ===
+    ignored_class_index = get_ignored_class_index(src_onto)  # e.g., owl:Thing, non-usable classes
+    ignored_class_index.update(get_ignored_class_index(tgt_onto))  # Merge with target ontology's ignored classes
+    ignored_uris = set(str(uri).strip() for uri in ignored_class_index)
+
+    # === Step 2: Remove rows where the 'Concept' column matches ignored URIs ===
+    df_src_cleaned = df_src[~df_src['Concept'].isin(ignored_uris)].reset_index(drop=True)
+    df_tgt_cleaned = df_tgt[~df_tgt['Concept'].isin(ignored_uris)].reset_index(drop=True)
+
+    print(f"✅ Source after removing ignored classes: {len(df_src_cleaned)} rows")
+    print(f"✅ Target after removing ignored classes: {len(df_tgt_cleaned)} rows")
+
+    # === Step 3: Save the cleaned embedding files ===
+    output_file_src = src_emb_path.replace(".tsv", "_cleaned.tsv")
+    output_file_tgt = tgt_emb_path.replace(".tsv", "_cleaned.tsv")
+
+    df_src_cleaned.to_csv(output_file_src, sep='\t', index=False)
+    df_tgt_cleaned.to_csv(output_file_tgt, sep='\t', index=False)
+
+    print(f"📁 Cleaned source file saved to: {output_file_src}")
+    print(f"📁 Cleaned target file saved to: {output_file_tgt}")
+
+    return output_file_src, output_file_tgt
+```
+
+# **FAISS Similarity**
+
+
+```python
+import pandas as pd
+import numpy as np
+import faiss
+import time
+
+def load_embeddings(src_emb_path, tgt_emb_path):
+    """
+    Load the embeddings for the source and target ontologies from TSV files.
+
+    Args:
+        src_emb_path (str): Path to the source embeddings file.
+        tgt_emb_path (str): Path to the target embeddings file.
+
+    Returns:
+        uris_src (np.ndarray): URIs of source entities.
+        uris_tgt (np.ndarray): URIs of target entities.
+        src_vecs (np.ndarray): Embedding vectors for source entities.
+        tgt_vecs (np.ndarray): Embedding vectors for target entities.
+    """
+    df_src = pd.read_csv(src_emb_path, sep='\t')  # Read source embeddings
+    df_tgt = pd.read_csv(tgt_emb_path, sep='\t')  # Read target embeddings
+    uris_src = df_src["Concept"].values           # Extract source URIs
+    uris_tgt = df_tgt["Concept"].values           # Extract target URIs
+    src_vecs = df_src.drop(columns=["Concept"]).values.astype('float32')  # Extract and convert source vectors
+    tgt_vecs = df_tgt.drop(columns=["Concept"]).values.astype('float32')  # Extract and convert target vectors
+    return uris_src, uris_tgt, src_vecs, tgt_vecs
+
+def save_results(uris_src, uris_tgt, indices, scores, output_file, top_k):
+    """
+    Save the top-k mapping results to a TSV file.
+
+    Args:
+        uris_src (np.ndarray): URIs of source entities.
+        uris_tgt (np.ndarray): URIs of target entities.
+        indices (np.ndarray): Indices of top-k matched target entities.
+        scores (np.ndarray): Corresponding similarity scores.
+        output_file (str): Output TSV file path.
+        top_k (int): Number of top matches per source entity.
+    """
+    rows = []
+    for i, (ind_row, score_row) in enumerate(zip(indices, scores)):
+        src_uri = uris_src[i]
+        for j, tgt_idx in enumerate(ind_row):
+            tgt_uri = uris_tgt[tgt_idx]
+            score = score_row[j]
+            rows.append((src_uri, tgt_uri, score))  # Store each top-k match
+    df_result = pd.DataFrame(rows, columns=["SrcEntity", "TgtEntity", "Score"])
+    df_result.to_csv(output_file, sep='\t', index=False)  # Save to file
+    print(f"Top-{top_k} FAISS similarity results saved to: {output_file}")
+
+def topk_faiss_l2(src_emb_path, tgt_emb_path, top_k=15, output_file="topk_l2.tsv"):
+    """
+    Compute the top-k most similar target entities for each source entity using FAISS with L2 distance.
+
+    Args:
+        src_emb_path (str): Path to the source embeddings file.
+        tgt_emb_path (str): Path to the target embeddings file.
+        top_k (int): Number of top matches to retrieve.
+        output_file (str): Path to save the top-k results.
+    """
+    print("🔹 Using L2 (Euclidean) distance with FAISS")
+    start = time.time()  # Start timing
+
+    # Load embeddings
+    uris_src, uris_tgt, src_vecs, tgt_vecs = load_embeddings(src_emb_path, tgt_emb_path)
+
+    # Build FAISS index using L2 distance
+    dim = src_vecs.shape[1]
+    index = faiss.IndexFlatL2(dim)  # Create FAISS index for L2 distance
+    index.add(tgt_vecs)             # Add target vectors to index
+
+    # Perform nearest neighbor search
+    distances, indices = index.search(src_vecs, top_k)
+
+    # Convert distances to similarity scores (optional: inverse of distance)
+    similarity_scores = 1 / (1 + distances)
+
+    # Save the results
+    save_results(uris_src, uris_tgt, indices, similarity_scores, output_file, top_k)
+
+    # Display execution time
+    print(f"⏱️ Execution time: {time.time() - start:.2f} seconds")
+
+
+```
+
+# **Mappings Evaluation Functions**
+
+# **Precision, Recall, F1**
+
+### Evaluation Strategy and Filtering Justification
+
+### Filtering Justification
+
+To ensure that evaluation metrics such as Precision, Recall, and F1-score accurately reflect the model's true performance, we apply two carefully designed filtering steps in the evaluate_predictions function. These filters are specifically crafted to focus the evaluation on verifiable predictions without unnecessarily penalizing the model or distorting the top-k candidate structure.
+
+#### 1. Filtering Out Training-Only Entities
+
+We remove all predicted mappings that involve entities (either source or target) that are present exclusively in the training set and do not appear in the test set.
+
+This is a crucial step because:
+
+- In datasets like Bio-ML, entities often appear in both training and test sets but are aligned with different targets. Filtering based solely on mappings would eliminate valuable generalization examples.
+
+- Predictions involving entities that are not part of the test set cannot be evaluated and could unfairly skew precision and recall.
+
+Importantly, we do not remove all mappings seen during training. Instead, we only discard those that involve non-testable entities. This distinction ensures that we retain valuable mappings between shared entities that can still play a meaningful role during prediction and ranking.
+
+#### 2. Filtering on `SrcEntity` present in the test set
+
+The second step keeps only the predictions where the `SrcEntity` is included in the test reference set.
+
+- This eliminates **non-evaluable false positives**, i.e., predicted mappings for source entities that do not appear in the test set and therefore have no ground-truth correspondences. Including such predictions **unfairly penalizes precision and F1-score**, even though they are technically not verifiable errors.
+
+- It focuses the evaluation on entities with defined ground-truth mappings, which is critical for computing metrics such as :
+
+$P_{\text{test}} = \frac{|\mathcal{M}_{\text{out}} \cap \mathcal{M}_{\text{test}}|}{|\mathcal{M}_{\text{out}} \setminus (\mathcal{M}_{\text{ref}} \setminus \mathcal{M}_{\text{test}})|}$.
+
+---
+
+### 📌 Why This Works
+
+Let’s illustrate the rationale using a simplified **Bio-ML** scenario:
+
+| Dataset | Mappings                                      | Entities       |
+|---------|-----------------------------------------------|----------------|
+| Train   | (A:Cancer, B:Melanoma), (C:Radiation, D:Therapy) | A, B, C, D     |
+| Test    | (A:Cancer, E:Carcinoma), (F:Skin, B:Melanoma)    | A, B, E, F     |
+
+After applying our filtering strategy:
+
+- **Removed**: (C:Radiation, D:Therapy) → both `C` and `D` are exclusive to train
+- **Kept**: (A:Cancer, B:Melanoma) → `A` and `B` also appear in test
+
+This means we preserve mappings that involve entities **shared between train and test**, even if the specific mapping was seen during training and is not part of the test reference set.
+
+---
+
+### ✅ Key Advantages
+
+- **Preserves semantic context**  
+  Keeping *(A, B)* helps the model calibrate similarity scores for other test mappings involving `A` or `B`, such as *(A, E)* or *(F, B)*.
+
+- **Maintains fair competition in ranking**  
+  Removing all training mappings would delete useful distractors (e.g., *(A, B)*), which could **artificially promote** weaker candidates (e.g., *(A, E)*) to the top rank, simply due to lack of strong alternatives.
+
+---
+
+This strategy strikes a balance between **evaluation fairness** and **preservation of top-k integrity**, ensuring that the ranking dynamics remain realistic and reflective of the model’s true generalization ability.
+
+
+
+```python
+def select_best_candidates_per_src_with_margin(df, score_margin=0.01):
+    """
+    For each SrcEntity, retain all candidate mappings whose similarity score is
+    within 99% of the best score (default margin = 0.01).
+
+    Args:
+        df (pd.DataFrame): DataFrame containing columns ['SrcEntity', 'TgtEntity', 'Score'].
+        score_margin (float): Score margin. 0.01 means keep scores ≥ 99% of best score.
+
+    Returns:
+        pd.DataFrame: Filtered DataFrame with multiple high-quality candidates per SrcEntity.
+    """
+    selected_rows = []
+
+    for src, group in df.groupby("SrcEntity"):
+        group_sorted = group.sort_values(by="Score", ascending=False)
+        best_score = group_sorted.iloc[0]["Score"]
+        threshold = best_score * (1 - score_margin)
+
+        # Keep all target entities with score >= threshold
+        close_matches = group_sorted[group_sorted["Score"] >= threshold]
+        selected_rows.append(close_matches)
+
+    result_df = pd.concat(selected_rows).reset_index(drop=True)
+    print(f"🏆 Selected candidates within {(1 - score_margin) * 100:.1f}% of best score per SrcEntity: {len(result_df)} rows")
+    return result_df
+
+```
+
+
+```python
+import pandas as pd
+from sklearn.metrics import precision_recall_fscore_support
+
+def evaluate_predictions(
+    pred_file, train_file, test_file,
+    threshold=0.0, margin_ratio=0.997
+):
+    """
+    Evaluate predicted mappings by applying filtering, thresholding, top-1 selection with margin,
+    and computing precision, recall, and F1-score against the test set.
+    """
+
+    # Step 1: Load prediction, train, and test data
+    df = pd.read_csv(pred_file, sep='\t')
+    train_df = pd.read_csv(train_file, sep='\t')
+    test_df = pd.read_csv(test_file, sep='\t')
+
+    # ✅ Step 2: Remove entities that appear only in the training set
+    train_uris = set(train_df['SrcEntity']) | set(train_df['TgtEntity'])
+    test_uris = set(test_df['SrcEntity']) | set(test_df['TgtEntity'])
+    uris_to_exclude = train_uris - test_uris
+    df = df[~df['SrcEntity'].isin(uris_to_exclude) & ~df['TgtEntity'].isin(uris_to_exclude)]
+
+    # Step 3: Keep only predictions where SrcEntity is part of the test set
+    test_src_entities = set(test_df['SrcEntity'])
+    df = df[df['SrcEntity'].isin(test_src_entities)]
+
+    # Step 4: Apply a minimum score threshold
+    df = df[df["Score"] >= threshold]
+
+    # Step 5: Save filtered predictions to file
+    df.to_csv(all_predictions_path, sep='\t', index=False)
+
+    # Step 6: Select best predictions per SrcEntity using a relaxed top-1 margin
+    df_topk = select_best_candidates_per_src_with_margin(df, score_margin=0.005)
+
+    # Step 7: Save the top-1 filtered predictions
+    df_topk.to_csv(prediction_path, sep='\t', index=False)
+
+    print(f"   ➤ Mappings file:   {prediction_path}")
+
+    # === Step 8: Evaluate against reference mappings
+    preds = EntityMapping.read_table_mappings(prediction_path)
+    refs = ReferenceMapping.read_table_mappings(test_file)
+
+    preds_set = {p.to_tuple() for p in preds}
+    refs_set = {r.to_tuple() for r in refs}
+    correct = len(preds_set & refs_set)
+
+    results = AlignmentEvaluator.f1(preds, refs)
+
+    # === Step 9: Print evaluation metrics
+    print("\n🎯 Evaluation Summary:")
+    print(f"   - Correct mappings:     {correct}")
+    print(f"   - Total predictions:    {len(preds)}")
+    print(f"   - Total references:     {len(refs)}")
+    print(f"📊 Precision:              {results['P']:.3f}")
+    print(f"📊 Recall:                 {results['R']:.3f}")
+    print(f"📊 F1-score:               {results['F1']:.3f}\n")
+
+    return prediction_path, results, correct
+```
+
+# **Precision@k, Recall@k, F1@k**
+
+
+```python
+import pandas as pd
+from collections import defaultdict
+
+def evaluate_topk(topk_file, train_file, test_file, k=1, threshold=0.0):
+    """
+    Evaluate Top-K predictions using Precision, Recall, and F1-score,
+    after filtering out training-only URIs, keeping only test sources, and applying 1-1 constraint.
+
+    Args:
+        topk_file (str): Path to the top-k prediction file (TSV with SrcEntity, TgtEntity, Score)
+        train_file (str): Path to the training mappings file (TSV)
+        test_file (str): Path to the test mappings file (TSV)
+        k (int): Value of K for top-k evaluation
+        threshold (float): Minimum score to consider a prediction valid
+
+    Returns:
+        dict: Dictionary containing Precision@K, Recall@K, and F1@K
+    """
+
+    # === Step 1: Load input files ===
+    df = pd.read_csv(topk_file, sep='\t', dtype=str)
+    train_df = pd.read_csv(train_file, sep='\t', dtype=str)
+    test_df = pd.read_csv(test_file, sep='\t', dtype=str)
+
+    # === Step 2: Remove URIs only present in the training set ===
+    train_uris = set(train_df['SrcEntity']) | set(train_df['TgtEntity'])
+    test_uris = set(test_df['SrcEntity']) | set(test_df['TgtEntity'])
+    uris_to_exclude = train_uris - test_uris
+    df = df[~(df['SrcEntity'].isin(uris_to_exclude) | df['TgtEntity'].isin(uris_to_exclude))].reset_index(drop=True)
+
+    # === Step 3: Keep only source entities from the test set ===
+    src_entities_test = set(test_df['SrcEntity'])
+    df = df[df['SrcEntity'].isin(src_entities_test)].reset_index(drop=True)
+
+    # === Step 4: Convert score column to float and sort ===
+    df['Score'] = df['Score'].apply(lambda x: float(x.strip("[]")) if isinstance(x, str) else float(x))
     df_sorted = df.sort_values(by='Score', ascending=False).reset_index(drop=True)
 
-    # Initialize variables with threshold value
-    source_concepts = set(df_sorted['SrcEntity'])
-    target_concepts = set(df_sorted['TgtEntity'])
+    # === Step 5: Apply 1-to-1 constraint (greedy strategy with optional threshold)
     matched_sources = set()
     matched_targets = set()
     result = []
 
-    # Iterate through the sorted dataframe and find highest correspondences
     for _, row in df_sorted.iterrows():
-        source, target, similarity = row['SrcEntity'], row['TgtEntity'], row['Score']
+        src, tgt, score = row['SrcEntity'], row['TgtEntity'], row['Score']
+        if src not in matched_sources and tgt not in matched_targets and score >= threshold:
+            result.append((src, tgt, score))
+            matched_sources.add(src)
+            matched_targets.add(tgt)
 
-        # Check if the source or target has already been matched and if the similarity is above the threshold
-        if source not in matched_sources and target not in matched_targets and similarity >= threshold:
-            # Add the match to the result list
-            result.append((source, target, similarity))
-            # Mark the source and target as matched
-            matched_sources.add(source)
-            matched_targets.add(target)
+    # === Step 6: Create and save Top-K prediction dataframe
+    matching_results_df = pd.DataFrame(result, columns=['SrcEntity', 'TgtEntity', 'Score'])
+    output_file = topk_file.replace(".tsv", "_predictions.tsv")
+    matching_results_df.to_csv(output_file, sep='\t', index=False)
 
-    # Create a dataframe for the matching results with threshold applied
-    matching_results_df_threshold = pd.DataFrame(result, columns=['SrcEntity', 'TgtEntity', 'Score'])
+    # === Step 7: Build reference dictionary from test set
+    ref_dict = defaultdict(set)
+    for _, row in test_df.iterrows():
+        ref_dict[row['SrcEntity']].add(row['TgtEntity'])
 
-    # Save the matching results with the updated column names to a new TSV file
-    matching_results_df_threshold.to_csv(output_file_path, sep='\t', index=False)
+    # === Step 8: Select Top-K predictions for each source entity
+    matching_results_df['Score'] = matching_results_df['Score'].astype(float)
+    topk_df = matching_results_df.sort_values(by='Score', ascending=False).groupby('SrcEntity').head(k)
 
-    # Print the number of predictions saved
-    print(f"Number of Positive Predictions : {len(matching_results_df_threshold)}")
+    # === Step 9: Compute Precision@K, Recall@K, F1@K
+    total_tp = total_pred = total_ref = 0
 
-    return matching_results_df_threshold, len(matching_results_df_threshold)
-```
+    for src, group in topk_df.groupby('SrcEntity'):
+        predicted = set(group['TgtEntity'])
+        true = ref_dict.get(src, set())
+        tp = len(predicted & true)
+        total_tp += tp
+        total_pred += len(predicted)
+        total_ref += len(true)
 
+    precision = total_tp / total_pred if total_pred else 0.0
+    recall = total_tp / total_ref if total_ref else 0.0
+    f1 = 2 * precision * recall / (precision + recall + 1e-8) if precision + recall > 0 else 0.0
 
-```python
-def compute_mrr_and_hits(reference_file, predicted_file, output_file, k_values=[1, 5, 10]):
-    """
-    Compute MRR and Hits@k for ontology matching predictions based on a reference file.
+    # === Step 10: Print metrics
 
-    Args:
-        reference_file (str): Path to the reference file (test.cands.tsv format).
-        predicted_file (str): Path to the predictions file with scores.
-        output_file (str): Path to save the scored results.
-        k_values (list): List of k values for Hits@k.
+    print(f"📊 Precision@{k}:            {precision:.3f}")
+    print(f"📊 Recall@{k}:               {recall:.3f}")
+    print(f"📊 F1@{k}:                   {f1:.3f}\n")
 
-    Returns:
-        dict: A dictionary containing MRR and Hits@k metrics.
-    """
-    # Read the reference mappings
-    test_candidate_mappings = read_table(reference_file).values.tolist()
-    ranking_results = []
+    return {
+        f'Precision@{k}': round(precision, 3),
+        f'Recall@{k}': round(recall, 3),
+        f'F1@{k}': round(f1, 3)
+    }
 
-    # Read the predicted scores
-    predicted_data = pd.read_csv(predicted_file, sep="\t")
-    predicted_data["Score"] = predicted_data["Score"].apply(lambda x: float(x.strip("[]")))
-
-    # Create a lookup dictionary for predicted scores
-    score_lookup = {}
-    for _, row in predicted_data.iterrows():
-        score_lookup[(row["SrcEntity"], row["TgtEntity"])] = row["Score"]
-
-    for src_ref_class, tgt_ref_class, tgt_cands in test_candidate_mappings:
-        tgt_cands = eval(tgt_cands)  # Convert string to list of candidates
-        scored_cands = []
-        for tgt_cand in tgt_cands:
-            # Retrieve score for each candidate, defaulting to a very low score if not found
-            matching_score = score_lookup.get((src_ref_class, tgt_cand), -1e9)
-            scored_cands.append((tgt_cand, matching_score))
-
-        # Sort candidates by score in descending order
-        scored_cands = sorted(scored_cands, key=lambda x: x[1], reverse=True)
-        ranking_results.append((src_ref_class, tgt_ref_class, scored_cands))
-
-    # Save the ranked results to a file
-    pd.DataFrame(ranking_results, columns=["SrcEntity", "TgtEntity", "TgtCandidates"]).to_csv(output_file, sep="\t", index=False)
-
-    # Compute MRR and Hits@k
-    total_entities = len(ranking_results)
-    reciprocal_ranks = []
-    hits_at_k = {k: 0 for k in k_values}
-
-    for src_entity, tgt_ref_class, tgt_cands in ranking_results:
-        ranked_candidates = [candidate[0] for candidate in tgt_cands]
-        if tgt_ref_class in ranked_candidates:
-            rank = ranked_candidates.index(tgt_ref_class) + 1
-            reciprocal_ranks.append(1 / rank)
-            for k in k_values:
-                if rank <= k:
-                    hits_at_k[k] += 1
-        else:
-            reciprocal_ranks.append(0)
-
-    mrr = sum(reciprocal_ranks) / total_entities
-    hits_at_k = {k: hits / total_entities for k, hits in hits_at_k.items()}
-
-    return {"MRR": mrr, "Hits@k": hits_at_k}
 ```
 
 # **Main Code**
@@ -1390,115 +1830,115 @@ trained_model = train_model_gnn(
 )
 ```
 
-    Epoch [10/1000], Training Loss: 0.0010807407088577747
-    Epoch [20/1000], Training Loss: 0.0009215225582011044
-    Epoch [30/1000], Training Loss: 0.0007969978032633662
-    Epoch [40/1000], Training Loss: 0.0007213588105514646
-    Epoch [50/1000], Training Loss: 0.0006613766308873892
-    Epoch [60/1000], Training Loss: 0.0006100692553445697
-    Epoch [70/1000], Training Loss: 0.0005696147563867271
-    Epoch [80/1000], Training Loss: 0.0005341640207916498
-    Epoch [90/1000], Training Loss: 0.0005029486492276192
-    Epoch [100/1000], Training Loss: 0.00047573421034030616
-    Epoch [110/1000], Training Loss: 0.00045167762436904013
-    Epoch [120/1000], Training Loss: 0.00043058916344307363
-    Epoch [130/1000], Training Loss: 0.0004126144340261817
-    Epoch [140/1000], Training Loss: 0.0003971150435972959
-    Epoch [150/1000], Training Loss: 0.0003836388059426099
-    Epoch [160/1000], Training Loss: 0.0003723127883858979
-    Epoch [170/1000], Training Loss: 0.00036275957245379686
-    Epoch [180/1000], Training Loss: 0.00035465904511511326
-    Epoch [190/1000], Training Loss: 0.0003479798906482756
-    Epoch [200/1000], Training Loss: 0.0003423297603148967
-    Epoch [210/1000], Training Loss: 0.00033766234992071986
-    Epoch [220/1000], Training Loss: 0.00033363891998305917
-    Epoch [230/1000], Training Loss: 0.0003303326666355133
-    Epoch [240/1000], Training Loss: 0.0003276491188444197
-    Epoch [250/1000], Training Loss: 0.00032535786158405244
-    Epoch [260/1000], Training Loss: 0.0003234614559914917
-    Epoch [270/1000], Training Loss: 0.00032187928445637226
-    Epoch [280/1000], Training Loss: 0.0003205290122423321
-    Epoch [290/1000], Training Loss: 0.00031929253600537777
-    Epoch [300/1000], Training Loss: 0.0003182379005011171
-    Epoch [310/1000], Training Loss: 0.00031730683986097574
-    Epoch [320/1000], Training Loss: 0.00031648456933908165
-    Epoch [330/1000], Training Loss: 0.0003157555765938014
-    Epoch [340/1000], Training Loss: 0.00031510175904259086
-    Epoch [350/1000], Training Loss: 0.0003145697701256722
-    Epoch [360/1000], Training Loss: 0.00031411045347340405
-    Epoch [370/1000], Training Loss: 0.00031372063676826656
-    Epoch [380/1000], Training Loss: 0.0003133818390779197
-    Epoch [390/1000], Training Loss: 0.0003130748518742621
-    Epoch [400/1000], Training Loss: 0.00031276559457182884
-    Epoch [410/1000], Training Loss: 0.0003124802897218615
-    Epoch [420/1000], Training Loss: 0.000312142597977072
-    Epoch [430/1000], Training Loss: 0.00031177810160443187
-    Epoch [440/1000], Training Loss: 0.00031139134080149233
-    Epoch [450/1000], Training Loss: 0.0003110152902081609
-    Epoch [460/1000], Training Loss: 0.0003106617368757725
-    Epoch [470/1000], Training Loss: 0.0003103297494817525
-    Epoch [480/1000], Training Loss: 0.0003099937457591295
-    Epoch [490/1000], Training Loss: 0.0003096479340456426
-    Epoch [500/1000], Training Loss: 0.0003092505212407559
-    Epoch [510/1000], Training Loss: 0.00030879542464390397
-    Epoch [520/1000], Training Loss: 0.0003082790062762797
-    Epoch [530/1000], Training Loss: 0.00030775414779782295
-    Epoch [540/1000], Training Loss: 0.00030723068630322814
-    Epoch [550/1000], Training Loss: 0.00030673123546876013
-    Epoch [560/1000], Training Loss: 0.00030623734346590936
-    Epoch [570/1000], Training Loss: 0.0003057693538721651
-    Epoch [580/1000], Training Loss: 0.00030531652737408876
-    Epoch [590/1000], Training Loss: 0.0003048810758627951
-    Epoch [600/1000], Training Loss: 0.0003044512413907796
-    Epoch [610/1000], Training Loss: 0.0003040493174921721
-    Epoch [620/1000], Training Loss: 0.00030364026315510273
-    Epoch [630/1000], Training Loss: 0.00030324116232804954
-    Epoch [640/1000], Training Loss: 0.00030286109540611506
-    Epoch [650/1000], Training Loss: 0.00030249234987422824
-    Epoch [660/1000], Training Loss: 0.0003021212760359049
-    Epoch [670/1000], Training Loss: 0.0003017614653799683
-    Epoch [680/1000], Training Loss: 0.00030141149181872606
-    Epoch [690/1000], Training Loss: 0.00030107219936326146
-    Epoch [700/1000], Training Loss: 0.00030074457754381
-    Epoch [710/1000], Training Loss: 0.0003004187310580164
-    Epoch [720/1000], Training Loss: 0.000300083338515833
-    Epoch [730/1000], Training Loss: 0.0002997470728587359
-    Epoch [740/1000], Training Loss: 0.0002994275710079819
-    Epoch [750/1000], Training Loss: 0.0002991135115735233
-    Epoch [760/1000], Training Loss: 0.00029880082001909614
-    Epoch [770/1000], Training Loss: 0.00029849776183255017
-    Epoch [780/1000], Training Loss: 0.0002982093719765544
-    Epoch [790/1000], Training Loss: 0.0002979220589622855
-    Epoch [800/1000], Training Loss: 0.00029764100327156484
-    Epoch [810/1000], Training Loss: 0.0002973605296574533
-    Epoch [820/1000], Training Loss: 0.00029707609792239964
-    Epoch [830/1000], Training Loss: 0.0002967952750623226
-    Epoch [840/1000], Training Loss: 0.0002965113380923867
-    Epoch [850/1000], Training Loss: 0.00029624541639350355
-    Epoch [860/1000], Training Loss: 0.0002959767007268965
-    Epoch [870/1000], Training Loss: 0.00029571770573966205
-    Epoch [880/1000], Training Loss: 0.00029545981669798493
-    Epoch [890/1000], Training Loss: 0.000295209523756057
-    Epoch [900/1000], Training Loss: 0.0002949611807707697
-    Epoch [910/1000], Training Loss: 0.0002947059692814946
-    Epoch [920/1000], Training Loss: 0.0002944511652458459
-    Epoch [930/1000], Training Loss: 0.00029419976635836065
-    Epoch [940/1000], Training Loss: 0.00029395113233476877
-    Epoch [950/1000], Training Loss: 0.0002937085519079119
-    Epoch [960/1000], Training Loss: 0.00029346809606067836
-    Epoch [970/1000], Training Loss: 0.0002932291245087981
-    Epoch [980/1000], Training Loss: 0.00029299105517566204
-    Epoch [990/1000], Training Loss: 0.0002927504829131067
-    Epoch [1000/1000], Training Loss: 0.0002925179142039269
+    Epoch [10/1000], Training Loss: 0.0040840343572199345
+    Epoch [20/1000], Training Loss: 0.0030598363373428583
+    Epoch [30/1000], Training Loss: 0.002442134777083993
+    Epoch [40/1000], Training Loss: 0.002063985448330641
+    Epoch [50/1000], Training Loss: 0.0017889273585751653
+    Epoch [60/1000], Training Loss: 0.0015940309967845678
+    Epoch [70/1000], Training Loss: 0.0014410046860575676
+    Epoch [80/1000], Training Loss: 0.0013180315727367997
+    Epoch [90/1000], Training Loss: 0.0012168984394520521
+    Epoch [100/1000], Training Loss: 0.001131071476265788
+    Epoch [110/1000], Training Loss: 0.0010573812760412693
+    Epoch [120/1000], Training Loss: 0.0009939474985003471
+    Epoch [130/1000], Training Loss: 0.0009385589510202408
+    Epoch [140/1000], Training Loss: 0.0008896709769032896
+    Epoch [150/1000], Training Loss: 0.0008461311226710677
+    Epoch [160/1000], Training Loss: 0.0008072098717093468
+    Epoch [170/1000], Training Loss: 0.0007723559974692762
+    Epoch [180/1000], Training Loss: 0.0007407713565044105
+    Epoch [190/1000], Training Loss: 0.0007115775952115655
+    Epoch [200/1000], Training Loss: 0.0006846624310128391
+    Epoch [210/1000], Training Loss: 0.0006596634048037231
+    Epoch [220/1000], Training Loss: 0.0006365200388245285
+    Epoch [230/1000], Training Loss: 0.0006149557884782553
+    Epoch [240/1000], Training Loss: 0.0005945291486568749
+    Epoch [250/1000], Training Loss: 0.0005752769648097456
+    Epoch [260/1000], Training Loss: 0.0005570725188590586
+    Epoch [270/1000], Training Loss: 0.0005398315261118114
+    Epoch [280/1000], Training Loss: 0.0005234850104898214
+    Epoch [290/1000], Training Loss: 0.0005079930415377021
+    Epoch [300/1000], Training Loss: 0.0004932030569761992
+    Epoch [310/1000], Training Loss: 0.0004790392122231424
+    Epoch [320/1000], Training Loss: 0.00046553960419259965
+    Epoch [330/1000], Training Loss: 0.00045272946590557694
+    Epoch [340/1000], Training Loss: 0.00044043519301339984
+    Epoch [350/1000], Training Loss: 0.00042873778147622943
+    Epoch [360/1000], Training Loss: 0.00041756624705158174
+    Epoch [370/1000], Training Loss: 0.00040689436718821526
+    Epoch [380/1000], Training Loss: 0.00039661774644628167
+    Epoch [390/1000], Training Loss: 0.000386782776331529
+    Epoch [400/1000], Training Loss: 0.0003773423668462783
+    Epoch [410/1000], Training Loss: 0.00036827236181125045
+    Epoch [420/1000], Training Loss: 0.00035951987956650555
+    Epoch [430/1000], Training Loss: 0.0003510084643494338
+    Epoch [440/1000], Training Loss: 0.0003427531919442117
+    Epoch [450/1000], Training Loss: 0.0003348116879351437
+    Epoch [460/1000], Training Loss: 0.0003271807509008795
+    Epoch [470/1000], Training Loss: 0.00031984239467419684
+    Epoch [480/1000], Training Loss: 0.0003127559903077781
+    Epoch [490/1000], Training Loss: 0.00030591472750529647
+    Epoch [500/1000], Training Loss: 0.00029930536402389407
+    Epoch [510/1000], Training Loss: 0.00029291247483342886
+    Epoch [520/1000], Training Loss: 0.0002866857685148716
+    Epoch [530/1000], Training Loss: 0.0002807077544275671
+    Epoch [540/1000], Training Loss: 0.0002749419363681227
+    Epoch [550/1000], Training Loss: 0.0002694099093787372
+    Epoch [560/1000], Training Loss: 0.00026406353572383523
+    Epoch [570/1000], Training Loss: 0.0002589601499494165
+    Epoch [580/1000], Training Loss: 0.0002540266141295433
+    Epoch [590/1000], Training Loss: 0.00024933647364377975
+    Epoch [600/1000], Training Loss: 0.0002449070452712476
+    Epoch [610/1000], Training Loss: 0.00024072310770861804
+    Epoch [620/1000], Training Loss: 0.00023678093566559255
+    Epoch [630/1000], Training Loss: 0.00023304877686314285
+    Epoch [640/1000], Training Loss: 0.000229534154641442
+    Epoch [650/1000], Training Loss: 0.00022623577388003469
+    Epoch [660/1000], Training Loss: 0.00022309941414278
+    Epoch [670/1000], Training Loss: 0.0002201228926423937
+    Epoch [680/1000], Training Loss: 0.00021731082233600318
+    Epoch [690/1000], Training Loss: 0.00021460108109749854
+    Epoch [700/1000], Training Loss: 0.00021198662579990923
+    Epoch [710/1000], Training Loss: 0.00020945144933648407
+    Epoch [720/1000], Training Loss: 0.00020698996377177536
+    Epoch [730/1000], Training Loss: 0.00020458345534279943
+    Epoch [740/1000], Training Loss: 0.00020221176964696497
+    Epoch [750/1000], Training Loss: 0.00019991406588815153
+    Epoch [760/1000], Training Loss: 0.00019757371046580374
+    Epoch [770/1000], Training Loss: 0.0001955003390321508
+    Epoch [780/1000], Training Loss: 0.00019324217282701284
+    Epoch [790/1000], Training Loss: 0.0001908227422973141
+    Epoch [800/1000], Training Loss: 0.00018855478265322745
+    Epoch [810/1000], Training Loss: 0.00018662161892279983
+    Epoch [820/1000], Training Loss: 0.0001841381163103506
+    Epoch [830/1000], Training Loss: 0.00018149064271710813
+    Epoch [840/1000], Training Loss: 0.00017888877482619137
+    Epoch [850/1000], Training Loss: 0.0001764194166753441
+    Epoch [860/1000], Training Loss: 0.00017425802070647478
+    Epoch [870/1000], Training Loss: 0.0001713789242785424
+    Epoch [880/1000], Training Loss: 0.00016820331802591681
+    Epoch [890/1000], Training Loss: 0.0001650876074563712
+    Epoch [900/1000], Training Loss: 0.00016236628289334476
+    Epoch [910/1000], Training Loss: 0.00016014509310480207
+    Epoch [920/1000], Training Loss: 0.00015783769777044654
+    Epoch [930/1000], Training Loss: 0.00015506803174503148
+    Epoch [940/1000], Training Loss: 0.0001520834193797782
+    Epoch [950/1000], Training Loss: 0.00014941439440008253
+    Epoch [960/1000], Training Loss: 0.00014710731920786202
+    Epoch [970/1000], Training Loss: 0.0001452784490538761
+    Epoch [980/1000], Training Loss: 0.0001440636842744425
+    Epoch [990/1000], Training Loss: 0.00014242202450986952
+    Epoch [1000/1000], Training Loss: 0.00014053753693588078
 
 
 
     
-![png](output_37_1.png)
+![png](output_51_1.png)
     
 
 
-    Training complete! Total training time: 5240.67 seconds
+    Training complete! Total training time: 3742.77 seconds
 
 
 # GIT Application
@@ -1724,143 +2164,120 @@ trained_model = train_gated_combination_model(
 )
 ```
 
-    Epoch [1/120] Training Loss: 0.1918, F1 Score: 0.0445 | Validation Loss: 0.0765, F1 Score: 0.0000
-    Epoch [2/120] Training Loss: 0.0692, F1 Score: 0.0000 | Validation Loss: 0.0690, F1 Score: 0.0000
-    Epoch [3/120] Training Loss: 0.0631, F1 Score: 0.0000 | Validation Loss: 0.0627, F1 Score: 0.0000
-    Epoch [4/120] Training Loss: 0.0566, F1 Score: 0.0000 | Validation Loss: 0.0534, F1 Score: 0.0000
-    Epoch [5/120] Training Loss: 0.0438, F1 Score: 0.0000 | Validation Loss: 0.0377, F1 Score: 0.0000
-    Epoch [6/120] Training Loss: 0.0302, F1 Score: 0.0000 | Validation Loss: 0.0252, F1 Score: 0.0000
-    Epoch [7/120] Training Loss: 0.0201, F1 Score: 0.0733 | Validation Loss: 0.0167, F1 Score: 0.4883
-    Epoch [8/120] Training Loss: 0.0138, F1 Score: 0.7348 | Validation Loss: 0.0117, F1 Score: 0.8662
-    Epoch [9/120] Training Loss: 0.0102, F1 Score: 0.8974 | Validation Loss: 0.0090, F1 Score: 0.9181
-    Epoch [10/120] Training Loss: 0.0083, F1 Score: 0.9334 | Validation Loss: 0.0076, F1 Score: 0.9333
-    Epoch [11/120] Training Loss: 0.0072, F1 Score: 0.9450 | Validation Loss: 0.0069, F1 Score: 0.9450
-    Epoch [12/120] Training Loss: 0.0067, F1 Score: 0.9499 | Validation Loss: 0.0064, F1 Score: 0.9491
-    Epoch [13/120] Training Loss: 0.0064, F1 Score: 0.9525 | Validation Loss: 0.0061, F1 Score: 0.9533
-    Epoch [14/120] Training Loss: 0.0062, F1 Score: 0.9529 | Validation Loss: 0.0059, F1 Score: 0.9525
-    Epoch [15/120] Training Loss: 0.0061, F1 Score: 0.9529 | Validation Loss: 0.0059, F1 Score: 0.9532
-    Epoch [16/120] Training Loss: 0.0060, F1 Score: 0.9528 | Validation Loss: 0.0058, F1 Score: 0.9565
-    Epoch [17/120] Training Loss: 0.0060, F1 Score: 0.9529 | Validation Loss: 0.0058, F1 Score: 0.9580
-    Epoch [18/120] Training Loss: 0.0059, F1 Score: 0.9519 | Validation Loss: 0.0058, F1 Score: 0.9549
-    Epoch [19/120] Training Loss: 0.0059, F1 Score: 0.9536 | Validation Loss: 0.0058, F1 Score: 0.9597
-    Epoch [20/120] Training Loss: 0.0059, F1 Score: 0.9540 | Validation Loss: 0.0058, F1 Score: 0.9588
-    Epoch [21/120] Training Loss: 0.0059, F1 Score: 0.9540 | Validation Loss: 0.0058, F1 Score: 0.9573
-    Epoch [22/120] Training Loss: 0.0059, F1 Score: 0.9533 | Validation Loss: 0.0058, F1 Score: 0.9572
-    Epoch [23/120] Training Loss: 0.0059, F1 Score: 0.9543 | Validation Loss: 0.0058, F1 Score: 0.9628
-    Epoch [24/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0058, F1 Score: 0.9565
-    Epoch [25/120] Training Loss: 0.0059, F1 Score: 0.9533 | Validation Loss: 0.0057, F1 Score: 0.9604
-    Epoch [26/120] Training Loss: 0.0059, F1 Score: 0.9537 | Validation Loss: 0.0057, F1 Score: 0.9508
-    Epoch [27/120] Training Loss: 0.0059, F1 Score: 0.9537 | Validation Loss: 0.0059, F1 Score: 0.9541
-    Epoch [28/120] Training Loss: 0.0059, F1 Score: 0.9529 | Validation Loss: 0.0057, F1 Score: 0.9525
-    Epoch [29/120] Training Loss: 0.0059, F1 Score: 0.9522 | Validation Loss: 0.0058, F1 Score: 0.9549
-    Epoch [30/120] Training Loss: 0.0059, F1 Score: 0.9525 | Validation Loss: 0.0058, F1 Score: 0.9580
-    Epoch [31/120] Training Loss: 0.0059, F1 Score: 0.9522 | Validation Loss: 0.0058, F1 Score: 0.9565
-    Epoch [32/120] Training Loss: 0.0059, F1 Score: 0.9540 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [33/120] Training Loss: 0.0059, F1 Score: 0.9540 | Validation Loss: 0.0057, F1 Score: 0.9604
-    Epoch [34/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0058, F1 Score: 0.9580
-    Epoch [35/120] Training Loss: 0.0059, F1 Score: 0.9541 | Validation Loss: 0.0057, F1 Score: 0.9533
-    Epoch [36/120] Training Loss: 0.0059, F1 Score: 0.9530 | Validation Loss: 0.0057, F1 Score: 0.9541
-    Epoch [37/120] Training Loss: 0.0059, F1 Score: 0.9533 | Validation Loss: 0.0058, F1 Score: 0.9596
-    Epoch [38/120] Training Loss: 0.0059, F1 Score: 0.9540 | Validation Loss: 0.0058, F1 Score: 0.9541
-    Epoch [39/120] Training Loss: 0.0059, F1 Score: 0.9533 | Validation Loss: 0.0057, F1 Score: 0.9549
-    Epoch [40/120] Training Loss: 0.0059, F1 Score: 0.9536 | Validation Loss: 0.0057, F1 Score: 0.9557
-    Epoch [41/120] Training Loss: 0.0059, F1 Score: 0.9526 | Validation Loss: 0.0058, F1 Score: 0.9580
-    Epoch [42/120] Training Loss: 0.0059, F1 Score: 0.9540 | Validation Loss: 0.0057, F1 Score: 0.9557
-    Epoch [43/120] Training Loss: 0.0059, F1 Score: 0.9540 | Validation Loss: 0.0058, F1 Score: 0.9580
-    Epoch 00044: reducing learning rate of group 0 to 1.0000e-04.
-    Epoch [44/120] Training Loss: 0.0059, F1 Score: 0.9533 | Validation Loss: 0.0058, F1 Score: 0.9517
-    Epoch [45/120] Training Loss: 0.0059, F1 Score: 0.9537 | Validation Loss: 0.0057, F1 Score: 0.9565
-    Epoch [46/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9565
-    Epoch [47/120] Training Loss: 0.0059, F1 Score: 0.9540 | Validation Loss: 0.0058, F1 Score: 0.9565
-    Epoch [48/120] Training Loss: 0.0059, F1 Score: 0.9537 | Validation Loss: 0.0057, F1 Score: 0.9565
-    Epoch [49/120] Training Loss: 0.0059, F1 Score: 0.9541 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [50/120] Training Loss: 0.0059, F1 Score: 0.9537 | Validation Loss: 0.0057, F1 Score: 0.9565
-    Epoch [51/120] Training Loss: 0.0059, F1 Score: 0.9547 | Validation Loss: 0.0057, F1 Score: 0.9557
-    Epoch [52/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9580
-    Epoch [53/120] Training Loss: 0.0059, F1 Score: 0.9540 | Validation Loss: 0.0057, F1 Score: 0.9557
-    Epoch [54/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9580
-    Epoch 00055: reducing learning rate of group 0 to 1.0000e-05.
-    Epoch [55/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [56/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [57/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [58/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [59/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [60/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [61/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [62/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [63/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [64/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [65/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch 00066: reducing learning rate of group 0 to 1.0000e-06.
-    Epoch [66/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9565
-    Epoch [67/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [68/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [69/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [70/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [71/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [72/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [73/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [74/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [75/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [76/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch 00077: reducing learning rate of group 0 to 1.0000e-07.
-    Epoch [77/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [78/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [79/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [80/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [81/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [82/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [83/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [84/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [85/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [86/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [87/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch 00088: reducing learning rate of group 0 to 1.0000e-08.
-    Epoch [88/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [89/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [90/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [91/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [92/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [93/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [94/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [95/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [96/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [97/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [98/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [99/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [100/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [101/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [102/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [103/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [104/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [105/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [106/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [107/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [108/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [109/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [110/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [111/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [112/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [113/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [114/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [115/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [116/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [117/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [118/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [119/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
-    Epoch [120/120] Training Loss: 0.0059, F1 Score: 0.9544 | Validation Loss: 0.0057, F1 Score: 0.9573
+    Epoch [1/100] Training Loss: 0.0870, F1 Score: 0.0000 | Validation Loss: 0.0842, F1 Score: 0.0000
+    Epoch [2/100] Training Loss: 0.0731, F1 Score: 0.0574 | Validation Loss: 0.0714, F1 Score: 0.1405
+    Epoch [3/100] Training Loss: 0.0616, F1 Score: 0.3080 | Validation Loss: 0.0602, F1 Score: 0.5299
+    Epoch [4/100] Training Loss: 0.0519, F1 Score: 0.5880 | Validation Loss: 0.0502, F1 Score: 0.6497
+    Epoch [5/100] Training Loss: 0.0438, F1 Score: 0.7224 | Validation Loss: 0.0431, F1 Score: 0.8035
+    Epoch [6/100] Training Loss: 0.0374, F1 Score: 0.8011 | Validation Loss: 0.0366, F1 Score: 0.8209
+    Epoch [7/100] Training Loss: 0.0322, F1 Score: 0.8533 | Validation Loss: 0.0321, F1 Score: 0.8966
+    Epoch [8/100] Training Loss: 0.0280, F1 Score: 0.8864 | Validation Loss: 0.0277, F1 Score: 0.9018
+    Epoch [9/100] Training Loss: 0.0245, F1 Score: 0.9132 | Validation Loss: 0.0246, F1 Score: 0.9140
+    Epoch [10/100] Training Loss: 0.0217, F1 Score: 0.9296 | Validation Loss: 0.0221, F1 Score: 0.9300
+    Epoch [11/100] Training Loss: 0.0195, F1 Score: 0.9372 | Validation Loss: 0.0200, F1 Score: 0.9359
+    Epoch [12/100] Training Loss: 0.0176, F1 Score: 0.9474 | Validation Loss: 0.0179, F1 Score: 0.9473
+    Epoch [13/100] Training Loss: 0.0160, F1 Score: 0.9533 | Validation Loss: 0.0168, F1 Score: 0.9553
+    Epoch [14/100] Training Loss: 0.0146, F1 Score: 0.9580 | Validation Loss: 0.0154, F1 Score: 0.9655
+    Epoch [15/100] Training Loss: 0.0135, F1 Score: 0.9631 | Validation Loss: 0.0141, F1 Score: 0.9584
+    Epoch [16/100] Training Loss: 0.0125, F1 Score: 0.9660 | Validation Loss: 0.0132, F1 Score: 0.9592
+    Epoch [17/100] Training Loss: 0.0117, F1 Score: 0.9682 | Validation Loss: 0.0126, F1 Score: 0.9670
+    Epoch [18/100] Training Loss: 0.0110, F1 Score: 0.9703 | Validation Loss: 0.0119, F1 Score: 0.9678
+    Epoch [19/100] Training Loss: 0.0105, F1 Score: 0.9735 | Validation Loss: 0.0113, F1 Score: 0.9623
+    Epoch [20/100] Training Loss: 0.0100, F1 Score: 0.9735 | Validation Loss: 0.0109, F1 Score: 0.9623
+    Epoch [21/100] Training Loss: 0.0096, F1 Score: 0.9738 | Validation Loss: 0.0107, F1 Score: 0.9709
+    Epoch [22/100] Training Loss: 0.0092, F1 Score: 0.9756 | Validation Loss: 0.0100, F1 Score: 0.9762
+    Epoch [23/100] Training Loss: 0.0088, F1 Score: 0.9791 | Validation Loss: 0.0098, F1 Score: 0.9777
+    Epoch [24/100] Training Loss: 0.0085, F1 Score: 0.9798 | Validation Loss: 0.0092, F1 Score: 0.9724
+    Epoch [25/100] Training Loss: 0.0082, F1 Score: 0.9809 | Validation Loss: 0.0093, F1 Score: 0.9770
+    Epoch [26/100] Training Loss: 0.0080, F1 Score: 0.9809 | Validation Loss: 0.0088, F1 Score: 0.9747
+    Epoch [27/100] Training Loss: 0.0078, F1 Score: 0.9802 | Validation Loss: 0.0087, F1 Score: 0.9755
+    Epoch [28/100] Training Loss: 0.0076, F1 Score: 0.9826 | Validation Loss: 0.0085, F1 Score: 0.9747
+    Epoch [29/100] Training Loss: 0.0074, F1 Score: 0.9826 | Validation Loss: 0.0083, F1 Score: 0.9800
+    Epoch [30/100] Training Loss: 0.0072, F1 Score: 0.9829 | Validation Loss: 0.0082, F1 Score: 0.9747
+    Epoch [31/100] Training Loss: 0.0071, F1 Score: 0.9826 | Validation Loss: 0.0082, F1 Score: 0.9808
+    Epoch [32/100] Training Loss: 0.0070, F1 Score: 0.9829 | Validation Loss: 0.0077, F1 Score: 0.9777
+    Epoch [33/100] Training Loss: 0.0069, F1 Score: 0.9819 | Validation Loss: 0.0078, F1 Score: 0.9823
+    Epoch [34/100] Training Loss: 0.0067, F1 Score: 0.9847 | Validation Loss: 0.0082, F1 Score: 0.9739
+    Epoch [35/100] Training Loss: 0.0067, F1 Score: 0.9840 | Validation Loss: 0.0077, F1 Score: 0.9808
+    Epoch [36/100] Training Loss: 0.0066, F1 Score: 0.9833 | Validation Loss: 0.0078, F1 Score: 0.9800
+    Epoch [37/100] Training Loss: 0.0065, F1 Score: 0.9854 | Validation Loss: 0.0075, F1 Score: 0.9800
+    Epoch [38/100] Training Loss: 0.0064, F1 Score: 0.9854 | Validation Loss: 0.0073, F1 Score: 0.9831
+    Epoch [39/100] Training Loss: 0.0064, F1 Score: 0.9843 | Validation Loss: 0.0072, F1 Score: 0.9830
+    Epoch [40/100] Training Loss: 0.0063, F1 Score: 0.9861 | Validation Loss: 0.0072, F1 Score: 0.9808
+    Epoch [41/100] Training Loss: 0.0062, F1 Score: 0.9854 | Validation Loss: 0.0071, F1 Score: 0.9808
+    Epoch [42/100] Training Loss: 0.0061, F1 Score: 0.9864 | Validation Loss: 0.0075, F1 Score: 0.9823
+    Epoch [43/100] Training Loss: 0.0062, F1 Score: 0.9854 | Validation Loss: 0.0072, F1 Score: 0.9823
+    Epoch [44/100] Training Loss: 0.0061, F1 Score: 0.9881 | Validation Loss: 0.0070, F1 Score: 0.9808
+    Epoch [45/100] Training Loss: 0.0060, F1 Score: 0.9871 | Validation Loss: 0.0070, F1 Score: 0.9800
+    Epoch [46/100] Training Loss: 0.0061, F1 Score: 0.9861 | Validation Loss: 0.0071, F1 Score: 0.9815
+    Epoch [47/100] Training Loss: 0.0060, F1 Score: 0.9854 | Validation Loss: 0.0068, F1 Score: 0.9830
+    Epoch [48/100] Training Loss: 0.0059, F1 Score: 0.9857 | Validation Loss: 0.0067, F1 Score: 0.9838
+    Epoch [49/100] Training Loss: 0.0059, F1 Score: 0.9868 | Validation Loss: 0.0068, F1 Score: 0.9853
+    Epoch [50/100] Training Loss: 0.0060, F1 Score: 0.9871 | Validation Loss: 0.0068, F1 Score: 0.9815
+    Epoch [51/100] Training Loss: 0.0058, F1 Score: 0.9878 | Validation Loss: 0.0071, F1 Score: 0.9793
+    Epoch [52/100] Training Loss: 0.0058, F1 Score: 0.9881 | Validation Loss: 0.0070, F1 Score: 0.9831
+    Epoch [53/100] Training Loss: 0.0058, F1 Score: 0.9850 | Validation Loss: 0.0069, F1 Score: 0.9830
+    Epoch [54/100] Training Loss: 0.0057, F1 Score: 0.9871 | Validation Loss: 0.0071, F1 Score: 0.9793
+    Epoch [55/100] Training Loss: 0.0058, F1 Score: 0.9871 | Validation Loss: 0.0068, F1 Score: 0.9823
+    Epoch [56/100] Training Loss: 0.0057, F1 Score: 0.9854 | Validation Loss: 0.0066, F1 Score: 0.9860
+    Epoch [57/100] Training Loss: 0.0057, F1 Score: 0.9878 | Validation Loss: 0.0070, F1 Score: 0.9770
+    Epoch [58/100] Training Loss: 0.0057, F1 Score: 0.9861 | Validation Loss: 0.0067, F1 Score: 0.9831
+    Epoch [59/100] Training Loss: 0.0057, F1 Score: 0.9885 | Validation Loss: 0.0067, F1 Score: 0.9830
+    Epoch [60/100] Training Loss: 0.0057, F1 Score: 0.9881 | Validation Loss: 0.0066, F1 Score: 0.9838
+    Epoch [61/100] Training Loss: 0.0057, F1 Score: 0.9861 | Validation Loss: 0.0067, F1 Score: 0.9800
+    Epoch [62/100] Training Loss: 0.0056, F1 Score: 0.9885 | Validation Loss: 0.0065, F1 Score: 0.9845
+    Epoch [63/100] Training Loss: 0.0057, F1 Score: 0.9868 | Validation Loss: 0.0066, F1 Score: 0.9823
+    Epoch [64/100] Training Loss: 0.0057, F1 Score: 0.9850 | Validation Loss: 0.0067, F1 Score: 0.9808
+    Epoch [65/100] Training Loss: 0.0056, F1 Score: 0.9861 | Validation Loss: 0.0069, F1 Score: 0.9815
+    Epoch [66/100] Training Loss: 0.0057, F1 Score: 0.9868 | Validation Loss: 0.0066, F1 Score: 0.9831
+    Epoch [67/100] Training Loss: 0.0056, F1 Score: 0.9875 | Validation Loss: 0.0065, F1 Score: 0.9823
+    Epoch [68/100] Training Loss: 0.0056, F1 Score: 0.9878 | Validation Loss: 0.0064, F1 Score: 0.9823
+    Epoch [69/100] Training Loss: 0.0056, F1 Score: 0.9878 | Validation Loss: 0.0066, F1 Score: 0.9823
+    Epoch [70/100] Training Loss: 0.0056, F1 Score: 0.9874 | Validation Loss: 0.0072, F1 Score: 0.9808
+    Epoch [71/100] Training Loss: 0.0056, F1 Score: 0.9871 | Validation Loss: 0.0069, F1 Score: 0.9815
+    Epoch [72/100] Training Loss: 0.0056, F1 Score: 0.9871 | Validation Loss: 0.0067, F1 Score: 0.9793
+    Epoch [73/100] Training Loss: 0.0055, F1 Score: 0.9885 | Validation Loss: 0.0091, F1 Score: 0.9670
+    Epoch [74/100] Training Loss: 0.0055, F1 Score: 0.9892 | Validation Loss: 0.0065, F1 Score: 0.9808
+    Epoch [75/100] Training Loss: 0.0056, F1 Score: 0.9864 | Validation Loss: 0.0067, F1 Score: 0.9815
+    Epoch [76/100] Training Loss: 0.0056, F1 Score: 0.9871 | Validation Loss: 0.0063, F1 Score: 0.9853
+    Epoch [77/100] Training Loss: 0.0056, F1 Score: 0.9878 | Validation Loss: 0.0064, F1 Score: 0.9853
+    Epoch [78/100] Training Loss: 0.0057, F1 Score: 0.9881 | Validation Loss: 0.0071, F1 Score: 0.9762
+    Epoch [79/100] Training Loss: 0.0055, F1 Score: 0.9881 | Validation Loss: 0.0065, F1 Score: 0.9831
+    Epoch [80/100] Training Loss: 0.0055, F1 Score: 0.9875 | Validation Loss: 0.0065, F1 Score: 0.9838
+    Epoch [81/100] Training Loss: 0.0055, F1 Score: 0.9878 | Validation Loss: 0.0065, F1 Score: 0.9815
+    Epoch [82/100] Training Loss: 0.0055, F1 Score: 0.9874 | Validation Loss: 0.0067, F1 Score: 0.9800
+    Epoch [83/100] Training Loss: 0.0055, F1 Score: 0.9875 | Validation Loss: 0.0075, F1 Score: 0.9755
+    Epoch [84/100] Training Loss: 0.0055, F1 Score: 0.9868 | Validation Loss: 0.0064, F1 Score: 0.9838
+    Epoch [85/100] Training Loss: 0.0055, F1 Score: 0.9871 | Validation Loss: 0.0068, F1 Score: 0.9785
+    Epoch [86/100] Training Loss: 0.0056, F1 Score: 0.9871 | Validation Loss: 0.0068, F1 Score: 0.9846
+    Epoch [87/100] Training Loss: 0.0055, F1 Score: 0.9885 | Validation Loss: 0.0078, F1 Score: 0.9693
+    Epoch [88/100] Training Loss: 0.0051, F1 Score: 0.9881 | Validation Loss: 0.0062, F1 Score: 0.9830
+    Epoch [89/100] Training Loss: 0.0051, F1 Score: 0.9888 | Validation Loss: 0.0062, F1 Score: 0.9838
+    Epoch [90/100] Training Loss: 0.0051, F1 Score: 0.9895 | Validation Loss: 0.0062, F1 Score: 0.9838
+    Epoch [91/100] Training Loss: 0.0051, F1 Score: 0.9895 | Validation Loss: 0.0062, F1 Score: 0.9830
+    Epoch [92/100] Training Loss: 0.0051, F1 Score: 0.9895 | Validation Loss: 0.0062, F1 Score: 0.9838
+    Epoch [93/100] Training Loss: 0.0051, F1 Score: 0.9898 | Validation Loss: 0.0063, F1 Score: 0.9831
+    Epoch [94/100] Training Loss: 0.0051, F1 Score: 0.9892 | Validation Loss: 0.0062, F1 Score: 0.9831
+    Epoch [95/100] Training Loss: 0.0051, F1 Score: 0.9892 | Validation Loss: 0.0063, F1 Score: 0.9830
+    Epoch [96/100] Training Loss: 0.0051, F1 Score: 0.9892 | Validation Loss: 0.0062, F1 Score: 0.9823
+    Epoch [97/100] Training Loss: 0.0051, F1 Score: 0.9902 | Validation Loss: 0.0062, F1 Score: 0.9838
+    Epoch [98/100] Training Loss: 0.0051, F1 Score: 0.9899 | Validation Loss: 0.0063, F1 Score: 0.9823
+    Epoch [99/100] Training Loss: 0.0051, F1 Score: 0.9888 | Validation Loss: 0.0063, F1 Score: 0.9831
+    Epoch [100/100] Training Loss: 0.0051, F1 Score: 0.9892 | Validation Loss: 0.0063, F1 Score: 0.9830
 
 
 
     
-![png](output_44_1.png)
+![png](output_58_1.png)
     
 
 
-    Training complete! Total time: 3221.31 seconds
+    Training complete! Total time: 511.92 seconds
 
 
-# **Mappings Selector**
+# **Second Round Modifications**
+
+# **Generate Embeddings**
 
 
 ```python
@@ -1875,198 +2292,276 @@ indexed_dict_tgt = build_indexed_dict(tgt_class)
 
 
 ```python
-# Read the candidate pairs from a Candidates CSV file into a pandas DataFrame
-df_embbedings = pd.read_csv(candidates_Prediction, index_col=0)
+# Define output file paths for final embeddings of source and target ontologies
+output_file_src = f"{data_dir}/{src_ent}_final_embeddings.tsv"
+output_file_tgt = f"{data_dir}/{tgt_ent}_final_embeddings.tsv"
 
-# Extract the 'SrcEntity' column (source entity indices) and convert it to a NumPy array of integers
-tensor_term1 = df_embbedings['SrcEntity'].values.astype(int)
+# Save the final gated embeddings for all concepts in source and target ontologies
+save_gated_embeddings(
+    gated_model=trained_model,          # The trained GatedCombination model
+    embeddings_src=embeddings_src,      # GNN-transformed embeddings for source entities
+    x_src=x_src,                        # Initial semantic embeddings for source entities
+    embeddings_tgt=embeddings_tgt,      # GNN-transformed embeddings for target entities
+    x_tgt=x_tgt,                        # Initial semantic embeddings for target entities
+    indexed_dict_src=indexed_dict_src,  # Index-to-URI mapping for source ontology
+    indexed_dict_tgt=indexed_dict_tgt,  # Index-to-URI mapping for target ontology
+    output_file_src=output_file_src,    # Destination file path for source embeddings
+    output_file_tgt=output_file_tgt     # Destination file path for target embeddings
+)
 
-# Extract the 'TgtEntity' column (target entity indices) and convert it to a NumPy array of integers
-tensor_term2 = df_embbedings['TgtEntity'].values.astype(int)
-
-# Convert the source entity indices to a PyTorch LongTensor
-src_entity_tensor_o = torch.from_numpy(tensor_term1).type(torch.LongTensor)
-
-# Convert the target entity indices to a PyTorch LongTensor
-tgt_entity_tenso_or = torch.from_numpy(tensor_term2).type(torch.LongTensor)
 ```
+
+    ✅ Gated embeddings saved:
+    - Source: /content/gdrive/My Drive/BioGITOM-VLDB//body/Data/snomed.body_final_embeddings.tsv
+    - Target: /content/gdrive/My Drive/BioGITOM-VLDB//body/Data/fma.body_final_embeddings.tsv
+    ⏱️ Execution time: 116.64 seconds
+
+
+# **Filter No Used Concepts**
+
+
+
 
 
 ```python
-# Select rows from the updated source embeddings based on the indices in src_entity_tensor_o
-X1_tt = select_rows_by_index(embeddings_src, src_entity_tensor_o)
+# Call the function to filter out ignored concepts (e.g., owl:Thing, deprecated, etc.)
+# from the source and target ontology embeddings.
 
-# Select rows from the original source embeddings based on the indices in src_entity_tensor_o
-X2_tt = select_rows_by_index(x_src, src_entity_tensor_o)
+# Input:
+# - src_emb_path: Path to the TSV file containing embeddings for the source ontology
+# - tgt_emb_path: Path to the TSV file containing embeddings for the target ontology
+# - src_onto / tgt_onto: DeepOnto ontology objects used to identify ignored concepts
 
-# Select rows from the updated target embeddings based on the indices in tgt_entity_tenso_or
-X3_tt = select_rows_by_index(embeddings_tgt, tgt_entity_tenso_or)
+# Output:
+# - src_file: Path to the cleaned source embeddings (with ignored concepts removed)
+# - tgt_file: Path to the cleaned target embeddings (with ignored concepts removed)
 
-# Select rows from the original target embeddings based on the indices in tgt_entity_tenso_or
-X4_tt = select_rows_by_index(x_tgt, tgt_entity_tenso_or)
+src_file, tgt_file = filter_ignored_class(
+    src_emb_path=f"{data_dir}/{src_ent}_final_embeddings.tsv",
+    tgt_emb_path=f"{data_dir}/{tgt_ent}_final_embeddings.tsv",
+    src_onto=src_onto,
+    tgt_onto=tgt_onto
+
+)
+
 ```
+
+    🔍 Initial source file: 34554 rows
+    🔍 Initial target file: 89119 rows
+    ✅ Source after removing ignored classes: 24318 rows
+    ✅ Target after removing ignored classes: 64890 rows
+    📁 Cleaned source file saved to: /content/gdrive/My Drive/BioGITOM-VLDB//body/Data/snomed.body_final_embeddings_cleaned.tsv
+    📁 Cleaned target file saved to: /content/gdrive/My Drive/BioGITOM-VLDB//body/Data/fma.body_final_embeddings_cleaned.tsv
+
+
+# **Mappings Generation**
+
+# **Using faiss l2**
 
 
 ```python
-# Generate predictions for candidate mappings using the trained GatedCombination model
-Prediction_with_candidates(
-    model=trained_model,             # The trained GatedCombination model used to evaluate similarity
-    X1_tt=X1_tt,                     # Updated source embeddings (after applying the GIT model)
-    X2_tt=X2_tt,                     # Original source embeddings (before applying the GIT model)
-    X3_tt=X3_tt,                     # Updated target embeddings (after applying the GIT model)
-    X4_tt=X4_tt,                     # Original target embeddings (before applying the GIT model)
-    src_entity_tensor_o=src_entity_tensor_o,  # Tensor of source entity indices used for evaluation
-    tgt_entity_tensor_o=tgt_entity_tenso_or,  # Tensor of target entity indices used for evaluation
-    indexed_dict_src=indexed_dict_src,        # Dictionary mapping source entity indices to their URIs
-    indexed_dict_tgt=indexed_dict_tgt,        # Dictionary mapping target entity indices to their URIs
-    all_predictions_path=all_predictions_path # Path to save all predictions with similarity scores in TSV format
+# Compute the top-10 most similar mappings using l2 distance
+# between ResMLP-encoded embeddings of the source and target ontologies.
+# The input embeddings were previously encoded using the ResMLPEncoder,
+# and the similarity score is computed as the inverse of the l2 distance.
+# Results are saved in a TSV file with columns: SrcEntity, TgtEntity, Score.
+topk_faiss_l2(
+    src_emb_path=f"{data_dir}/{src_ent}_final_embeddings_cleaned.tsv",
+    tgt_emb_path=f"{data_dir}/{tgt_ent}_final_embeddings_cleaned.tsv",
+    top_k=2,
+    output_file=f"{results_dir}/{task}_top_2_mappings_faiss_l2.tsv"
 )
 ```
 
-    Predicting time: 24.55 seconds
-    Predictions saved to /content/gdrive/My Drive/BioGITOM-VLDB//body/Results/body_all_predictions.tsv
-
-
-
-```python
-
-```
-
-
-```python
-# Filter the highest scoring predictions from the predictions file and save the results to a new file
-matching_results_df = filter_highest_predictions(
-    all_predictions_path,  # Path to the file containing all predictions with scores for all candidate pairs
-    prediction_path        # Path where the filtered predictions with highest scores will be saved
-)
-```
-
-    Number of Positive Predictions : 4542
+    🔹 Using L2 (Euclidean) distance with FAISS
+    Top-2 FAISS similarity results saved to: /content/gdrive/My Drive/BioGITOM-VLDB//body/Results/body_top_2_mappings_faiss_l2.tsv
+    ⏱️ Execution time: 30.99 seconds
 
 
 # **Evaluation**
 
-# Global metrics calculation
+# **Global Metrics: Precision, Recall and F1 score**
 
 
 ```python
-# Retrieve the indices of the ignored classes (from source and target ontologies)
-ignored_class_index = get_ignored_class_index(src_onto)  # Get ignored class indices from source ontology
-ignored_class_index.update(get_ignored_class_index(tgt_onto))  # Update with ignored class indices from target ontology
+# Run the evaluation on the predicted top-1 mappings using a filtering and evaluation function.
 
-# Read the predicted mappings from the prediction results file
-preds = EntityMapping.read_table_mappings(prediction_path)
+output_file, metrics, correct = evaluate_predictions(
+    pred_file=f"{results_dir}/{task}_top_2_mappings_faiss_l2.tsv",
+    # Path to the TSV file containing predicted mappings with scores (before filtering).
 
-# Read the reference mappings from the ground truth test file
-refs = ReferenceMapping.read_table_mappings(f"{dataset_dir}/refs_equiv/test.tsv")
+    train_file=f"{dataset_dir}/refs_equiv/train.tsv",
+    # Path to the training reference file (used to exclude mappings involving train-only entities).
 
-# Filter the predicted mappings to remove any mappings that involve ignored classes
-preds = remove_ignored_mappings(preds, ignored_class_index)
+    test_file=f"{dataset_dir}/refs_equiv/test.tsv"
+)
 
-# Compute the precision, recall, and F1-score by comparing predictions with the reference mappings
-results = AlignmentEvaluator.f1(preds, refs)
+# This function returns:
+# - `output_file`: the path to the filtered and evaluated output file.
+# - `metrics`: a tuple containing (Precision, Recall, F1-score).
+# - `correct`: the number of correctly predicted mappings found in the gold standard.
 
-preds2 = [p.to_tuple() for p in preds]
-refs2 = [r.to_tuple() for r in refs]
-
-correct= len(set(preds2).intersection(set(refs2)))
-
-print(f"Number of Correct Predictions: {correct}")
-
-# Print the computed precision, recall, and F1-score metrics
-print(results)
 ```
 
-    Number of Correct Predictions: 3827
-    {'P': 0.843, 'R': 0.753, 'F1': 0.796}
+    🏆 Selected candidates within 99.5% of best score per SrcEntity: 4625 rows
+       ➤ Mappings file:   /content/gdrive/My Drive/BioGITOM-VLDB//body/Results/body_matching_results.tsv
+    
+    🎯 Evaluation Summary:
+       - Correct mappings:     3791
+       - Total predictions:    4625
+       - Total references:     5079
+    📊 Precision:              0.820
+    📊 Recall:                 0.746
+    📊 F1-score:               0.781
+    
 
 
-# Ranked-based metrics calculation
-
-
-```python
-# Read the candidate pairs from a Candidates CSV file into a pandas DataFrame
-df_embbedings = pd.read_csv(candidates_Rank, index_col=0)
-
-# Extract the 'SrcEntity' column (source entity indices) and convert it to a NumPy array of integers
-tensor_term1 = df_embbedings['SrcEntity'].values.astype(int)
-
-# Extract the 'TgtEntity' column (target entity indices) and convert it to a NumPy array of integers
-tensor_term2 = df_embbedings['TgtEntity'].values.astype(int)
-
-# Convert the source entity indices to a PyTorch LongTensor
-src_entity_tensor_o = torch.from_numpy(tensor_term1).type(torch.LongTensor)
-
-# Convert the target entity indices to a PyTorch LongTensor
-tgt_entity_tenso_or = torch.from_numpy(tensor_term2).type(torch.LongTensor)
-```
+# **Metrics@1**
 
 
 ```python
-# Select rows from the updated source embeddings based on the indices in src_entity_tensor_o
-X1_tt = select_rows_by_index(embeddings_src, src_entity_tensor_o)
-
-# Select rows from the original source embeddings based on the indices in src_entity_tensor_o
-X2_tt = select_rows_by_index(x_src, src_entity_tensor_o)
-
-# Select rows from the updated target embeddings based on the indices in tgt_entity_tenso_or
-X3_tt = select_rows_by_index(embeddings_tgt, tgt_entity_tenso_or)
-
-# Select rows from the original target embeddings based on the indices in tgt_entity_tenso_or
-X4_tt = select_rows_by_index(x_tgt, tgt_entity_tenso_or)
-```
-
-
-```python
-# Perform ranking-based predictions using the trained GatedCombination model
-# Generate predictions for candidate mappings using the trained GatedCombination model
-Prediction_with_candidates(
-    model=trained_model,             # The trained GatedCombination model used to evaluate similarity
-    X1_tt=X1_tt,                     # Updated source embeddings (after applying the GIT model)
-    X2_tt=X2_tt,                     # Original source embeddings (before applying the GIT model)
-    X3_tt=X3_tt,                     # Updated target embeddings (after applying the GIT model)
-    X4_tt=X4_tt,                     # Original target embeddings (before applying the GIT model)
-    src_entity_tensor_o=src_entity_tensor_o,  # Tensor of source entity indices used for evaluation
-    tgt_entity_tensor_o=tgt_entity_tenso_or,  # Tensor of target entity indices used for evaluation
-    indexed_dict_src=indexed_dict_src,        # Dictionary mapping source entity indices to their URIs
-    indexed_dict_tgt=indexed_dict_tgt,        # Dictionary mapping target entity indices to their URIs
-    all_predictions_path=all_predictions_path_ranked, # Path where the ranked predictions will be saved in TSV format
+# Compute the top-1 most similar mappings using l2 distance
+# and the similarity score is computed as the inverse of the l2 distance.
+# Results are saved in a TSV file with columns: SrcEntity, TgtEntity, Score.
+topk_faiss_l2(
+    src_emb_path=f"{data_dir}/{src_ent}_final_embeddings_cleaned.tsv",
+    tgt_emb_path=f"{data_dir}/{tgt_ent}_final_embeddings_cleaned.tsv",
+    top_k=1,
+    output_file=f"{results_dir}/{task}_top_1_mappings.tsv"
 )
 ```
 
-    Predicting time: 21.61 seconds
-    Predictions saved to /content/gdrive/My Drive/BioGITOM-VLDB//body/Results/body_all_predictions_ranked.tsv
+    🔹 Using L2 (Euclidean) distance with FAISS
+    Top-1 FAISS similarity results saved to: /content/gdrive/My Drive/BioGITOM-VLDB//body/Results/body_top_1_mappings.tsv
+    ⏱️ Execution time: 33.53 seconds
 
 
 
 ```python
-# Compute MRR and Hits@k metrics
-# This function evaluates the predicted rankings against the reference mappings
-results = compute_mrr_and_hits(
-    reference_file=test_cands,             # Reference file with true ranks
-    predicted_file=all_predictions_path_ranked,             # File containing predicted rankings
-    output_file=formatted_predictions_path,    # File path to save formatted predictions
-    k_values=[1, 5, 10]                        # Evaluate Hits@1, Hits@5, and Hits@10
-)
+# === Evaluate Top-1 Mappings ===
 
-# Display the computed metrics
-print("MRR and Hits@k Results:")
-print(results)  # Output the Mean Reciprocal Rank (MRR) and Hits@k metrics
+results = evaluate_topk(
+    topk_file=f"{results_dir}/{task}_top_1_mappings.tsv",
+    # Path to the file containing the predicted mappings with scores.
+    # This file may include unfiltered predictions (e.g., over all candidates).
+
+    train_file=f"{dataset_dir}/refs_equiv/train.tsv",
+    # Path to the training reference mappings file.
+    # Used to remove mappings that involve entities appearing only in training.
+
+    test_file=f"{dataset_dir}/refs_equiv/test.tsv",
+    # Path to the test reference mappings file.
+    # Ground-truth correspondences are extracted from this file for evaluation.
+
+    k=1  # Evaluate top-1 predictions per source entity.
+)
 ```
 
-    MRR and Hits@k Results:
-    {'MRR': 0.9021500310697433, 'Hits@k': {1: 0.8440637920850561, 5: 0.9742075211655837, 10: 0.991927544792282}}
+    📊 Precision@1:            0.863
+    📊 Recall@1:               0.783
+    📊 F1@1:                   0.821
+    
+
+
+# **Local MRR and Hit@k**
+
+
+```python
+import pandas as pd
+
+# === Step 1: Load input files ===
+
+# Define paths to cleaned embedding files
+src_emb_path = f"{data_dir}/{src_ent}_final_embeddings_cleaned.tsv"
+tgt_emb_path = f"{data_dir}/{tgt_ent}_final_embeddings_cleaned.tsv"
+
+# Load candidate mappings (SrcEntity, TgtEntity) and source/target embeddings
+df_cands = pd.read_csv(cands_path)
+src_emb_df = pd.read_csv(src_emb_path, sep="\t")
+tgt_emb_df = pd.read_csv(tgt_emb_path, sep="\t")
+
+# === Step 2: Extract unique source and target URIs from the candidate pairs ===
+
+# Keep only distinct source and target entities (URIs) for which embeddings are needed
+unique_src_df = pd.DataFrame(df_cands["SrcEntity"].unique(), columns=["Concept"])
+unique_tgt_df = pd.DataFrame(df_cands["TgtEntity"].unique(), columns=["Concept"])
+
+# === Step 3: Join embeddings for each concept based on the "Concept" URI ===
+
+# Merge source entities with their corresponding embeddings (if available)
+merged_src_df = pd.merge(unique_src_df, src_emb_df, on="Concept", how="left")
+
+# Merge target entities with their corresponding embeddings (if available)
+merged_tgt_df = pd.merge(unique_tgt_df, tgt_emb_df, on="Concept", how="left")
+
+# === Step 4: Save the merged results to TSV files ===
+
+# Save the source concepts and their embeddings to file
+merged_src_df.to_csv(f"{data_dir}/{src_ent}_cands_with_embeddings.tsv", sep="\t", index=False)
+
+# Save the target concepts and their embeddings to file
+merged_tgt_df.to_csv(f"{data_dir}/{tgt_ent}_cands_with_embeddings.tsv", sep="\t", index=False)
+```
+
+
+```python
+topk_faiss_l2(
+    # Path to the source entity embeddings (already filtered and linearly encoded)
+    src_emb_path=f"{data_dir}/{src_ent}_cands_with_embeddings.tsv",
+
+    # Path to the target entity embeddings (already filtered and linearly encoded)
+    tgt_emb_path=f"{data_dir}/{tgt_ent}_cands_with_embeddings.tsv",
+
+    # Number of top matches to retrieve per source entity (Top-K candidates)
+    top_k=200,
+
+    # Path to save the resulting Top-K mappings sorted by FAISS L2 distance (converted to similarity)
+    output_file=f"{results_dir}/{task}_top_200_mappings_mrr_hit.tsv"
+)
+
+```
+
+    🔹 Using L2 (Euclidean) distance with FAISS
+    Top-200 FAISS similarity results saved to: /content/gdrive/My Drive/BioGITOM-VLDB//body/Results/body_top_200_mappings_mrr_hit.tsv
+    ⏱️ Execution time: 16.26 seconds
 
 
 
 ```python
-# Call the ranking evaluation function, passing the path to the formatted predictions file.
-# Ks specifies the evaluation levels, checking if the correct target is within the top K candidates.
+# Format the prediction scores into ranked candidate lists per source entity,
+# using the gold standard candidate file as reference. This prepares the output
+# for MRR and Hits@k evaluation. The output is a TSV file with columns:
+# SrcEntity, TgtEntity (ground truth), and TgtCandidates (ranked list with scores).
+format_ranked_predictions_for_mrr(
+    reference_file=f"{dataset_dir}/refs_equiv/test.cands.tsv",        # Gold reference with candidate sets
+    predicted_file=f"{results_dir}/{task}_top_200_mappings_mrr_hit.tsv",  # Flat prediction scores (Src, Tgt, Score)
+    output_file=formatted_predictions_path                             # Output path for ranked candidate format
+)
+
+```
+
+    ✅ Ranked predictions saved for evaluation: /content/gdrive/My Drive/BioGITOM-VLDB//body/Results/body_formatted_predictions.tsv
+
+
+
+
+
+    '/content/gdrive/My Drive/BioGITOM-VLDB//body/Results/body_formatted_predictions.tsv'
+
+
+
+
+```python
+# Evaluate ranking performance using standard metrics like MRR and Hits@K
+# 'formatted_predictions_path' should point to a TSV file with columns: SrcEntity, TgtEntity, TgtCandidates
+# This function computes how well the true targets are ranked among the candidates
 results = ranking_eval(formatted_predictions_path, Ks=[1, 5, 10])
+
+# Print the evaluation results for Hits@1, Hits@5, and Hits@10
 print("Ranking Evaluation Results at K=1, 5, and 10:")
 print(results)
 ```
 
     Ranking Evaluation Results at K=1, 5, and 10:
-    {'MRR': 0.9021500310697433, 'Hits@1': 0.8440637920850561, 'Hits@5': 0.9742075211655837, 'Hits@10': 0.991927544792282}
+    {'MRR': 0.9081720454737758, 'Hits@1': 0.8513486906871431, 'Hits@5': 0.9807048631620398, 'Hits@10': 0.9938964363063595}
 
