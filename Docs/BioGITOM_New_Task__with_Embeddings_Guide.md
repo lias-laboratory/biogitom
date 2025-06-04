@@ -34,20 +34,24 @@ python biogitom/create_new_task_with_embeddings.py --task ncit2mondo
 ### 2. Upload Ontology Files
 During the setup, you will be prompted to upload the two ontologies required for the task:
 
-- The source ontology (e.g., `ncit.owl`)
-- The target ontology (e.g., `mondo.owl`)
+- The source ontology (e.g., ncit.owl)
+- 
+- The target ontology (e.g., mondo.owl)
 
-📦 **Format Requirements:** `.owl` (RDF/XML)
+📦 Format Requirements:
+
+- Each file must be in .owl (RDF/XML) format.
+
 
 These will be copied to:
+
 ```
 Datasets/<task_name>/
 ```
-
 ---
 
 ### 3. Upload Class Files (`_classes.json`)
-Upload one `.json` file per ontology:
+For each ontology (source and target), you need to upload a file named like:
 - `ncit_classes.json`
 - `mondo_classes.json`
 
@@ -58,46 +62,53 @@ Upload one `.json` file per ontology:
   "http://example.org/concept/002": ["Leukemia"]
 }
 ```
-
 Each key is a concept URI, and the value is a list of labels or synonyms.
-
----
-
-### 4. Upload Embedding Files
-You must upload one `.csv` file per ontology:
-- `ncit_emb.csv`
-- `mondo_emb.csv`
-
-**Format:**
-```csv
-,0,1,2,...,767
-0,0.12,0.05,0.33,...,0.09
-1,0.11,0.02,0.36,...,0.08
-```
-- The first column is an index (linked to `classes.json`)
-- Remaining columns are floating-point values representing the embedding vector
 
 Files are saved to:
 ```
 Tasks/<task_name>/Data/
 ```
+---
+
+### 4. Upload Embeddings Files
+For each ontology (source and target), you must provide a .csv file containing the embeddings.
+
+#### File Naming
+The file must follow the naming convention:
+ontologyname_emb.csv
+(e.g., ncit_emb.csv, mondo_emb.csv, doid_emb.csv)
+
+Each file will be automatically copied into the Tasks/<task_name>/Data/ folder created by the script.
+
+
+**Format:**
+The file must contain a header row with the following:
+- The first column is an index generated using one ot encoding corresponding to classe.json file.
+- Remaining columns must be floating-point values representing the embedding vector.
+
+Example:
+```csv
+,0,1,2,...,767
+0,0.12,0.05,0.33,...,0.09
+1,0.11,0.02,0.36,...,0.08
+```
 
 ---
 
 ### 5. Upload Training File
-Upload the `train.tsv` file containing known mappings:
+You will be prompted to upload the `train.tsv` file, containing known positive mappings.
 
-**Format:** Tab-separated with two columns:
+**Format:** Tab-separated file with at least two columns:
 ```
 SrcEntity<TAB>TgtEntity
 ```
-
 Example:
 ```
 http://ncit/123	http://mondo/987
 ```
 
-Saved to:
+It will be copied to:
+
 ```
 Datasets/<task_name>/refs_equiv/train.tsv
 ```
@@ -105,13 +116,16 @@ Datasets/<task_name>/refs_equiv/train.tsv
 ---
 
 ### 6. Encode and Generate Negatives
-The script automatically:
-- Encodes `SrcEntity` and `TgtEntity` to integer indices
-- Generates 50 random negatives per source entity
 
-Output:
-- `<task>_train.encoded.csv`
-- `<task>_train.csv`
+The script performs:
+
+* Encoding of `SrcEntity` and `TgtEntity` as integers using `classes.json`
+* Generation of 50 random negative mappings per source entity
+
+It produces:
+
+* `<task>_train.encoded.csv`
+* `<task>_train.csv` (positives + negatives)
 
 ---
 
@@ -132,13 +146,17 @@ This launches the full training pipeline for GIT and Gated Network.
 ---
 
 ### 9. Set the Value of k
-You will be prompted to enter a value for **k**:
-- Controls how many top target candidates are retrieved per source entity
-- Used by FAISS L2 for similarity computation
+You will be prompted to enter a value for k, which controls the number of top-ranked target candidates retrieved for each source concept based on embedding similarity.
+
+- The top-k candidates are selected using exact nearest neighbor search with FAISS, based on the L2 (Euclidean) distance between vectors.
+
+- This step is crucial for generating a manageable and relevant candidate set for alignment.
+
+- A larger k increases recall but may reduce precision or slow down further processing steps.
 
 ---
 
-## 10. Generate Mappings Using FAISS L2
+## 10. Generate top-k Candidate Mappings Using FAISS L2
 
 After training, top-k candidate mappings are generated:
 
@@ -146,7 +164,7 @@ After training, top-k candidate mappings are generated:
 
 ---
 
-## 11. Choose Mapping Strategy
+## 11.  Choose Mapping Selection Strategy
 You are prompted to choose from:
 
 - Greedy 1-to-1
@@ -154,6 +172,23 @@ You are prompted to choose from:
 - Both strategies (with optional evaluation if test set is available)
 
 ---
+
+## 12. Evaluate with Metrics@1
+
+The script automatically computes top-1 ranking metrics after generating final predictions:
+
+Precision@1
+
+Recall@1
+
+F1-score@1
+
+All generated mappings are saved to:
+
+```
+Tasks/<task_name>/Results/
+```
+ 
 
 This completes the end-to-end process for launching a new ontology matching task using BioGITOM with precomputed embeddings.
 
