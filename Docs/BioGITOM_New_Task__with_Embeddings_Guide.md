@@ -119,7 +119,6 @@ Output:
 A runnable script `Tasks/<task_name>/<task_name>.py` is created, filled with:
 - Task name
 - Source/target identifiers
-- Top-k value placeholder
 
 ---
 
@@ -128,7 +127,7 @@ The script then runs:
 ```bash
 python Tasks/<task_name>/<task_name>.py
 ```
-This launches the full training pipeline for GIT + GatedCombination.
+This launches the full training pipeline for GIT and Gated Network.
 
 ---
 
@@ -142,59 +141,17 @@ You will be prompted to enter a value for **k**:
 ## 10. Generate Mappings Using FAISS L2
 
 After training, top-k candidate mappings are generated:
-```python
-print("🛠️ Generating mappings...")
-topk_faiss_l2(
-    src_emb_path=Emb_final_src_cl,
-    tgt_emb_path=Emb_final_tgt_cl,
-    top_k=k_val,
-    output_file=all_predictions_path
-)
-```
+
 - Output saved to TSV with: `SrcEntity`, `TgtEntity`, `Score`
 
 ---
 
 ## 11. Choose Mapping Strategy
-You are prompted to run:
-```python
-generate_mappings(task=task, pred_file=all_predictions_path, refs_dir=refs_dir)
-```
-Choose from:
+You are prompted to choose from:
+
 - Greedy 1-to-1
 - Relaxed Top-1 (margin-based)
 - Both strategies (with optional evaluation if test set is available)
-
----
-
-## 12. Evaluate with Metrics@1
-Optionally, the script also computes top-1 ranking metrics:
-
-```python
-topk_faiss_l2(
-    src_emb_path=Emb_final_src_cl,
-    tgt_emb_path=Emb_final_tgt_cl,
-    top_k=1,
-    output_file=top_1_predictions
-)
-
-results = evaluate_topk(
-    task=task,
-    pred_file=top_1_predictions,
-    refs_dir=refs_dir,
-)
-```
-
-Metrics:
-- Precision@1
-- Recall@1
-- F1-score@1
-- MRR, Hits@k
-
-Results are saved to:
-```
-Tasks/<task_name>/Results/
-```
 
 ---
 
