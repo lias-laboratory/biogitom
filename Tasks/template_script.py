@@ -49,6 +49,8 @@ import numpy as np
 # Import time module for measuring execution time of code blocks.
 import time
 
+import shutil
+
 # Import typing module for specifying types in function arguments and return values.
 from typing import Optional, Tuple, Union, Callable
 
@@ -108,6 +110,9 @@ from deeponto.utils import read_table
 
 # Importing the train_test_split function from sklearn's model_selection module.
 from sklearn.model_selection import train_test_split
+from collections import defaultdict
+
+import faiss
 
 import random
 
@@ -132,13 +137,6 @@ tgt_ent = "tgt_name"
 
 # Define the task name for this ontology matching process
 task = "task_name"          # Used to name intermediate and output files
-
-# Set the value of top-k candidates to consider 
-k_v = "k_val"
-
-top_k = int(k_v)
-# Score margin used for relaxed top-1 selection
-score_margin = 0.007          # Minimum score difference required between top-1 and runner-up
 
 print(f"Matching {src_ent}.owl and {tgt_ent}.owl:")
 
@@ -220,13 +218,18 @@ cands_path = f"{data_dir}/{task}_cands.csv"
 # === Prediction Output Files ===
 
 # Final top-k predictions (e.g., from FAISS or ranking model)
-all_predictions_path = f"{results_dir}/{task}_top_{top_k}_mappings.tsv"
+all_predictions_path = f"{results_dir}/{task}_top_k_mappings.tsv"
 
 # Top-1 predictions (most likely mapping per source entity)
 top_1_predictions = f"{results_dir}/{task}_top_1_mappings.tsv"
 
-# Raw predictions (all mappings after scoring/ranking)
-prediction_path = f"{results_dir}/{task}_matching_results.tsv"
+# Greeedy predictions (all mappings after scoring/ranking)
+prediction_path_greedy_all = f"{results_dir}/{task}_matching_results_greedy.tsv"
+prediction_path_greedy_eval = f"{results_dir}/{task}_matching_results_greedy_eval.tsv"
+
+# Top1 Relaxed predictions (all mappings after scoring/ranking)
+prediction_path_top1_relaxed_all = f"{results_dir}/{task}_matching_results_top1_relaxed.tsv"
+prediction_path_top1_relaxed_eval = f"{results_dir}/{task}_matching_results_top1_relaxed_eval.tsv"
 
 # Ranked predictions formatted for MRR and Hits@k evaluation
 formatted_predictions_path = f"{results_dir}/{task}_formatted_predictions.tsv"
@@ -404,10 +407,6 @@ class RGIT_mod(torch.nn.Module):
 
 # **Gated Network Architecture**
 
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-
 class GatedCombination(nn.Module):
     def __init__(self, input_dim):
         """
@@ -578,10 +577,7 @@ def save_gated_embeddings(gated_model, embeddings_src, x_src, embeddings_tgt, x_
         output_file_src (str): Path to save source embeddings (TSV).
         output_file_tgt (str): Path to save target embeddings (TSV).
     """
-    import pandas as pd
-    import torch
-    import time
-
+  
     start_time = time.time()
 
     # Use GPU if available
@@ -621,9 +617,6 @@ def save_gated_embeddings(gated_model, embeddings_src, x_src, embeddings_tgt, x_
     print(f"✅ Gated embeddings saved:\n- Source: {Emb_final_src}\n- Target: {Emb_final_tgt}")
     print(f"⏱️ Execution time: {elapsed_time:.2f} seconds")
 
-import pandas as pd
-
-
 def filter_ignored_class(src_emb_path, tgt_emb_path, src_onto, tgt_onto, Emb_final_src_cl, Emb_final_tgt_cl):
     """
     Filters the source and target embedding files by removing concepts considered "ignored classes"
@@ -657,9 +650,6 @@ def filter_ignored_class(src_emb_path, tgt_emb_path, src_onto, tgt_onto, Emb_fin
     df_tgt_cleaned.to_csv(Emb_final_tgt_cl, sep='\t', index=False)
 
     return Emb_final_src_cl, Emb_final_tgt_cl
-
-
-import pandas as pd
 
 def format_ranked_predictions_for_mrr(reference_file, predicted_file, output_file):
     """
@@ -722,11 +712,6 @@ def format_ranked_predictions_for_mrr(reference_file, predicted_file, output_fil
     return output_file
 
 # **FAISS Similarity**
-
-import pandas as pd
-import numpy as np
-import faiss
-import time
 
 def load_embeddings(src_emb_path, tgt_emb_path):
     """
@@ -806,6 +791,80 @@ def topk_faiss_l2(src_emb_path, tgt_emb_path, top_k=15, output_file="topk_l2.tsv
     # Display execution time
     print(f"⏱️ Execution time: {time.time() - start:.2f} seconds")
 
+    
+def predictions_greedy(task, pred_file, threshold=0.0):
+    """
+    Generate ontology mappings using greedy 1-to-1 matching strategy 
+    (highest score per unique SrcEntity and TgtEntity pair).
+
+    Args:
+        task (str): Task name (used for file naming).
+        pred_file (str): Path to the file containing scored predictions (TSV).
+        refs_dir (str): Path to directory for saving results (not used here but kept for consistency).
+        threshold (float): Minimum score to include a mapping.
+
+    Returns:
+        str: Path to the saved greedy predictions file.
+    """
+
+    # === Load prediction scores ===
+    df = pd.read_csv(pred_file, sep='\t', encoding='utf-8')
+
+    # === Clean and sort ===
+    df['Score'] = df['Score'].apply(lambda x: float(str(x).strip("[]")))
+    df_sorted = df.sort_values(by='Score', ascending=False).reset_index(drop=True)
+
+    # === Greedy 1-to-1 matching ===
+    matched_sources, matched_targets, result = set(), set(), []
+    for _, row in df_sorted.iterrows():
+        src, tgt, score = row['SrcEntity'], row['TgtEntity'], row['Score']
+        if src not in matched_sources and tgt not in matched_targets and score >= threshold:
+            result.append((src, tgt, score))
+            matched_sources.add(src)
+            matched_targets.add(tgt)
+
+    # === Save filtered predictions
+    pd.DataFrame(result, columns=['SrcEntity', 'TgtEntity', 'Score']).to_csv(prediction_path_greedy_all, sep='\t', index=False)
+    print(f"✅ Saved greedy predictions to: {prediction_path_greedy_all}")
+
+    return prediction_path_greedy_all
+
+def predictions_top1_relaxed(task, pred_file, threshold=0.0, margin_ratio=0.005):
+    """
+    Generate ontology mappings using relaxed Top-1 strategy.
+    Keeps all target candidates whose score is within a margin of the best candidate per source entity.
+
+    Args:
+        task (str): Task name (used for output file naming).
+        pred_file (str): Path to the file containing scored predictions (TSV).
+        threshold (float): Minimum score to consider a mapping (optional, defaults to 0.0).
+        margin_ratio (float): Keep candidates with score ≥ (1 - margin_ratio) * best_score.
+
+    Returns:
+        str: Path to the saved relaxed top-1 predictions file.
+    """
+
+    # === Load prediction file ===
+    df = pd.read_csv(pred_file, sep='\t', encoding='utf-8')
+
+    # === Convert score column to float
+    df['Score'] = df['Score'].apply(lambda x: float(str(x).strip("[]")))
+
+    # Optional: filter by absolute threshold
+    if threshold > 0:
+        df = df[df['Score'] >= threshold].reset_index(drop=True)
+
+    # === Select relaxed top-1 candidates
+    df_topk = select_best_candidates_per_src_with_margin(df, score_margin=margin_ratio)
+
+
+    # Step 7: Save the top-1 filtered predictions
+    df_topk.to_csv(prediction_path_top1_relaxed_all, sep='\t', index=False)
+
+    print(f"✅ Relaxed Top-1 predictions saved to: {prediction_path_top1_relaxed_all}")
+    
+    return prediction_path_top1_relaxed_all
+
 """# **Mappings Evaluation Functions**
 
 # **Precision, Recall, F1**
@@ -871,7 +930,26 @@ This means we preserve mappings that involve entities **shared between train and
 This strategy strikes a balance between **evaluation fairness** and **preservation of top-k integrity**, ensuring that the ranking dynamics remain realistic and reflective of the model’s true generalization ability.
 """
 
-def select_best_candidates_per_src_with_margin(df, score_margin=0.01):
+def upload_test_file(refs_dir):
+    """
+    Prompt the user to upload a test.tsv file and copy it to the refs_equiv directory.
+    """
+    print("\n📄 Upload the test reference file (test.tsv)")
+    for attempt in range(3):
+        path = input("📄 Provide full path to test file (.tsv): ").strip()
+        if os.path.exists(path) and path.endswith(".tsv"):
+            dest_path = os.path.join(refs_dir, "test.tsv")
+            shutil.copy(path, dest_path)
+            print("✅ test.tsv copied to refs_equiv/")
+            return
+        else:
+            print("❌ File not found or invalid format (.tsv required).")
+            if attempt < 2 and input("Try again? (y/n): ").strip().lower() != "y":
+                exit(1)
+    print("🚫 Too many failed attempts.")
+    exit(1)
+    
+def select_best_candidates_per_src_with_margin(df, score_margin=0.005):
     """
     For each SrcEntity, retain all candidate mappings whose similarity score is
     within 99% of the best score (default margin = 0.01).
@@ -898,60 +976,62 @@ def select_best_candidates_per_src_with_margin(df, score_margin=0.01):
     print(f"🏆 Selected candidates within {(1 - score_margin) * 100:.1f}% of best score per SrcEntity: {len(result_df)} rows")
     return result_df
 
-import pandas as pd
-from sklearn.metrics import precision_recall_fscore_support
-
-def evaluate_predictions(
-    pred_file, train_file, test_file,
-    threshold=0.0, margin_ratio=0.997
-):
+def evaluate_predictions_greedy(task, pred_file, refs_dir, threshold=0.0, use_null_ref=True):
     """
-    Evaluate predicted mappings by applying filtering, thresholding, top-1 selection with margin,
-    and computing precision, recall, and F1-score against the test set.
+    Evaluate ontology mappings with greedy 1-to-1 matching and compute global metrics.
+
+    Args:
+        task (str): Task name.
+        pred_file (str): Path to the file containing scored predictions (TSV).
+        refs_dir (str): Directory containing test.tsv.
+        threshold (float): Minimum score to include a mapping.
+        use_null_ref (bool): Whether to exclude train-only URIs from evaluation.
+
+    Returns:
+        (str, dict, int): Path to final predictions file, evaluation metrics, number of correct mappings.
     """
 
-    # === Step 1: Load input files ===
+    # === Load data
     df = pd.read_csv(pred_file, sep='\t', encoding='utf-8')
-    df.columns = df.columns.str.strip()
-    
-    train_df = pd.read_csv(train_file, sep=",", dtype=str)
-    train_df.columns = train_df.columns.str.strip()
-     
+    train_file = os.path.join(refs_dir, "train.tsv")
+    train_df = pd.read_csv(train_file, sep="\t", encoding='utf-8')
+    test_file = os.path.join(refs_dir, "test.tsv")
     test_df = pd.read_csv(test_file, sep="\t", encoding='utf-8')
-    test_df.columns = test_df.columns.str.strip()
-  
-    # ✅ Step 2: Remove entities that appear only in the training set
+
+    # === Filtering
     train_uris = set(train_df['SrcEntity']) | set(train_df['TgtEntity'])
     test_uris = set(test_df['SrcEntity']) | set(test_df['TgtEntity'])
     uris_to_exclude = train_uris - test_uris
     df = df[~df['SrcEntity'].isin(uris_to_exclude) & ~df['TgtEntity'].isin(uris_to_exclude)]
-    
-    # Step 3: Keep only predictions where SrcEntity is part of the test set
-    test_src_entities = set(test_df['SrcEntity'])
-    df = df[df['SrcEntity'].isin(test_src_entities)]
-    
-    # Step 5: Save filtered predictions to file
-    df.to_csv(all_predictions_path, sep='\t', index=False)
-    
-    # Step 6: Select best predictions per SrcEntity using a relaxed top-1 margin
-    df_topk = select_best_candidates_per_src_with_margin(df, score_margin=score_margin)
 
-    # Step 7: Save the top-1 filtered predictions
-    df_topk.to_csv(prediction_path, sep='\t', index=False)
-   
-    print(f"   ➤ Mappings file:   {prediction_path}")
+    df = df[df['SrcEntity'].isin(test_df['SrcEntity'])].reset_index(drop=True)
 
-    # === Step 8: Evaluate against reference mappings
-    preds = EntityMapping.read_table_mappings(prediction_path)
+    # === Convert and sort by score
+    df['Score'] = df['Score'].apply(lambda x: float(str(x).strip("[]")))
+    df_sorted = df.sort_values(by='Score', ascending=False).reset_index(drop=True)
+
+    # === Greedy matching
+    matched_sources, matched_targets, result = set(), set(), []
+    for _, row in df_sorted.iterrows():
+        src, tgt, score = row['SrcEntity'], row['TgtEntity'], row['Score']
+        if src not in matched_sources and tgt not in matched_targets and score >= threshold:
+            result.append((src, tgt, score))
+            matched_sources.add(src)
+            matched_targets.add(tgt)
+
+    # === Save filtered predictions
+    pd.DataFrame(result, columns=['SrcEntity', 'TgtEntity', 'Score']).to_csv(prediction_path_greedy_eval, sep='\t', index=False)
+    print(f"✅ Saved greedy predictions to: {prediction_path_greedy_eval}")
+
+    # === Evaluate
+    preds = EntityMapping.read_table_mappings(prediction_path_greedy_eval)
     refs = ReferenceMapping.read_table_mappings(test_file)
-
     preds_set = {p.to_tuple() for p in preds}
     refs_set = {r.to_tuple() for r in refs}
     correct = len(preds_set & refs_set)
 
     results = AlignmentEvaluator.f1(preds, refs)
 
-    # === Step 9: Print evaluation metrics
     print("\n🎯 Evaluation Summary:")
     print(f"   - Correct mappings:     {correct}")
     print(f"   - Total predictions:    {len(preds)}")
@@ -960,22 +1040,196 @@ def evaluate_predictions(
     print(f"📊 Recall:                 {results['R']:.3f}")
     print(f"📊 F1-score:               {results['F1']:.3f}\n")
 
-    return prediction_path, results, correct
+    return prediction_path_greedy_eval, results, correct
+
+
+def evaluate_predictions_top1_relaxed(task, pred_file, refs_dir, threshold=0.0, margin_ratio=0.005):
+    """
+    Evaluate predicted mappings with relaxed Top-1 strategy (margin-based selection).
+    
+    Args:
+        task (str): Task name.
+        pred_file (str): Path to scored predictions (TSV).
+        refs_dir (str): Directory containing test.tsv.
+        threshold (float): Minimum score to consider a mapping.
+        margin_ratio (float): Score ratio threshold for relaxed top-1 selection.
+    
+    Returns:
+        (str, dict, int): Path to final predictions, evaluation metrics, number of correct mappings.
+    """
+    # === Step 1: Load files
+    df = pd.read_csv(pred_file, sep='\t', encoding='utf-8')
+    train_file = os.path.join(refs_dir, "train.tsv")
+    train_df = pd.read_csv(train_file, sep="\t", encoding='utf-8')
+    test_file = os.path.join(refs_dir, "test.tsv")
+    test_df = pd.read_csv(test_file, sep="\t", encoding='utf-8')
+
+    # === Step 2: Filter out train-only entities
+    train_uris = set(train_df['SrcEntity']) | set(train_df['TgtEntity'])
+    test_uris = set(test_df['SrcEntity']) | set(test_df['TgtEntity'])
+    uris_to_exclude = train_uris - test_uris
+    df = df[~df['SrcEntity'].isin(uris_to_exclude) & ~df['TgtEntity'].isin(uris_to_exclude)]
+
+    # === Step 3: Keep predictions where SrcEntity is in test set
+    test_src_entities = set(test_df['SrcEntity'])
+    df = df[df['SrcEntity'].isin(test_src_entities)].reset_index(drop=True)
+
+    # === Step 4: Save all filtered predictions
+    all_predictions_path = pred_file.replace(".tsv", "_filtered.tsv")
+    df.to_csv(all_predictions_path, sep='\t', index=False)
+
+    # === Step 5: Score normalization + relaxed top-1 selection
+    df['Score'] = df['Score'].apply(lambda x: float(str(x).strip("[]")))
+    df_topk = select_best_candidates_per_src_with_margin(df, score_margin=margin_ratio)
+
+
+    # Step 7: Save the top-1 filtered predictions
+    df_topk.to_csv(prediction_path_top1_relaxed_eval, sep='\t', index=False)
+
+    print(f"✅ Relaxed Top-1 predictions saved to: {prediction_path_top1_relaxed_eval}")
+    print("Calculating global evaluation metrics (precision, recall and F1-score) ....")
+
+    # === Step 8: Evaluate
+    preds = EntityMapping.read_table_mappings(prediction_path_top1_relaxed_eval)
+    refs = ReferenceMapping.read_table_mappings(test_file)
+    preds_set = {p.to_tuple() for p in preds}
+    refs_set = {r.to_tuple() for r in refs}
+    correct = len(preds_set & refs_set)
+
+    results = AlignmentEvaluator.f1(preds, refs)
+
+    print("\n🎯 Evaluation Summary:")
+    print(f"   - Correct mappings:     {correct}")
+    print(f"   - Total predictions:    {len(preds)}")
+    print(f"   - Total references:     {len(refs)}")
+    print(f"📊 Precision:              {results['P']:.3f}")
+    print(f"📊 Recall:                 {results['R']:.3f}")
+    print(f"📊 F1-score:               {results['F1']:.3f}\n")
+
+    return prediction_path_top1_relaxed_eval, results, correct
+
+def generate_mappings(task, pred_file, refs_dir, relaxed_margin=0.005):
+    print("\n🧭 Please choose the mapping selection strategy:")
+    print("1️⃣  Greedy 1-to-1 mappings")
+    print("2️⃣  Relaxed Top-1 selection with margin")
+    print("3️⃣  Run both and save results")
+
+    user_choice = input("👉 Enter your choice (1, 2 or 3): ").strip()
+
+    if user_choice == "1":
+        print("🔍 Generating greedy 1-to-1 predictions ...")
+        # Score will be saved to prediction_path_greedy
+        predictions_greedy(
+            task=task,
+            pred_file=pred_file,
+            threshold=0.0
+        )
+        print("\n📊 Do you want to evaluate the generated mappings now?")
+        evaluate_now = input("👉 Enter 'y' to proceed with evaluation or any other key to skip: ").strip().lower()
+
+        if evaluate_now == 'y':
+            test_file = upload_test_file(refs_dir)
+            print("🔍 Evaluating Greedy Predictions...")
+            evaluate_predictions_greedy(
+            task=task,
+            pred_file=all_predictions_path,
+            refs_dir=refs_dir,
+            threshold=0.0
+            )
+
+    elif user_choice == "2":
+        margin_input = input("🔧 Enter margin ratio for relaxed top-1 (default = 0.005): ").strip()
+        try:
+            margin_value = float(margin_input) if margin_input else relaxed_margin
+        except ValueError:
+            print("⚠️ Invalid input. Using default margin = 0.005")
+            margin_value = relaxed_margin
+
+        print("🔍 Generating relaxed top-1 predictions ...")
+        predictions_top1_relaxed(
+            task=task,
+            pred_file=pred_file,
+            threshold=0.0,
+            margin_ratio=margin_value
+        )
+        print("\n📊 Do you want to evaluate the generated mappings now?")
+        evaluate_now = input("👉 Enter 'y' to proceed with evaluation or any other key to skip: ").strip().lower()
+
+        if evaluate_now == 'y':
+            test_file = upload_test_file(refs_dir)
+            print("🔍 Evaluating relaxed top-1 predictions ...")
+            evaluate_predictions_top1_relaxed(
+            task=task,
+            pred_file=all_predictions_path,
+            refs_dir=refs_dir,
+            threshold=0.0
+            )
+
+    elif user_choice == "3":
+        print("🔁 Generating both greedy and relaxed mappings...\n")
+        predictions_greedy(task, pred_file, threshold=0.0)
+        margin_input = input("🔧 Enter margin ratio for relaxed top-1 (default = 0.005): ").strip()
+        try:
+            margin_value = float(margin_input) if margin_input else relaxed_margin
+        except ValueError:
+            print("⚠️ Invalid input. Using default margin = 0.005")
+            margin_value = relaxed_margin
+
+        predictions_top1_relaxed(task, pred_file, threshold=0.0, margin_ratio=margin_value)
+
+        print("\n📊 Do you want to evaluate the generated mappings now?")
+        evaluate_now = input("👉 Enter 'y' to proceed with evaluation or any other key to skip: ").strip().lower()
+
+        if evaluate_now == 'y':
+
+       # Greedy
+           test_file = upload_test_file(refs_dir)
+           print("🔹 Greedy 1-to-1 Matching Evaluation:")
+           output_file1, metrics1, correct1 = evaluate_predictions_greedy(
+           task=task,
+           pred_file=all_predictions_path,
+           refs_dir=refs_dir,
+           threshold=0.0
+           )
+    
+        # Relaxed
+           margin_input = input("🔧 Enter margin ratio for relaxed top-1 (default = 0.005): ").strip()
+           try:
+             margin_value = float(margin_input) if margin_input else 0.005
+           except ValueError:
+              print("⚠️ Invalid input. Using default margin = 0.005")
+              margin_value = 0.005
+
+           print("\n🔹 Relaxed Top-1 Matching Evaluation:")
+           output_file2, metrics2, correct2 = evaluate_predictions_top1_relaxed(
+           task=task,
+           pred_file=all_predictions_path,
+           refs_dir=refs_dir,
+           threshold=0.0,
+           margin_ratio=margin_value
+           )
+
+    # Comparison display
+           print("\n📊 🔬 Comparison of Evaluation Strategies:")
+           print(f"{'Metric':<15} | {'Greedy':<10} | {'Relaxed':<10}")
+           print("-" * 40)
+           for key in ['P', 'R', 'F1']:
+             print(f"{key:<15} | {metrics1[key]:<10.3f} | {metrics2[key]:<10.3f}")
+
+    else:
+        print("❌ Invalid choice. Please restart the script and select a valid option (1, 2 or 3).")
+
 
 
 """# **Precision@k, Recall@k, F1@k**"""
 
-import pandas as pd
-from collections import defaultdict
-
-def evaluate_topk(topk_file, train_file, test_file, k=1, threshold=0.0):
+def evaluate_topk(task, pred_file, refs_dir, k=1, threshold=0.0):
     """
     Evaluate Top-K predictions using Precision, Recall, and F1-score,
     after filtering out training-only URIs, keeping only test sources, and applying 1-1 constraint.
 
     Args:
         topk_file (str): Path to the top-k prediction file (TSV with SrcEntity, TgtEntity, Score)
-        train_file (str): Path to the training mappings file (TSV)
         test_file (str): Path to the test mappings file (TSV)
         k (int): Value of K for top-k evaluation
         threshold (float): Minimum score to consider a prediction valid
@@ -984,15 +1238,13 @@ def evaluate_topk(topk_file, train_file, test_file, k=1, threshold=0.0):
         dict: Dictionary containing Precision@K, Recall@K, and F1@K
     """
 
-        # === Step 1: Load input files ===
-    df = pd.read_csv(topk_file, sep='\t', encoding='utf-8')
-    df.columns = df.columns.str.strip()
+    # === Step 1: Load input files ===
+    df = pd.read_csv(pred_file, sep='\t', encoding='utf-8')
+    train_file = os.path.join(refs_dir, "train.tsv")
+    train_df = pd.read_csv(train_file, sep="\t", encoding='utf-8')
     
-    train_df = pd.read_csv(train_file, sep=",", dtype=str)
-    train_df.columns = train_df.columns.str.strip()
-     
+    test_file = os.path.join(refs_dir, "test.tsv")
     test_df = pd.read_csv(test_file, sep="\t", encoding='utf-8')
-    test_df.columns = test_df.columns.str.strip()
 
     # === Step 2: Remove URIs only present in the training set ===
     train_uris = set(train_df['SrcEntity']) | set(train_df['TgtEntity'])
@@ -1022,7 +1274,7 @@ def evaluate_topk(topk_file, train_file, test_file, k=1, threshold=0.0):
 
     # === Step 6: Create and save Top-K prediction dataframe
     matching_results_df = pd.DataFrame(result, columns=['SrcEntity', 'TgtEntity', 'Score'])
-    matching_results_df.to_csv(prediction_path, sep='\t', index=False)
+    matching_results_df.to_csv(top_1_predictions, sep='\t', index=False)
 
     # === Step 7: Build reference dictionary from test set
     ref_dict = defaultdict(set)
@@ -1509,40 +1761,41 @@ src_file, tgt_file = filter_ignored_class(
 # and the similarity score is computed as the inverse of the l2 distance.
 # Results are saved in a TSV file with columns: SrcEntity, TgtEntity, Score.
 
-print("Generate mappings...")
+# Ask for top-k value
+print("\n🔍 The value of k determines how many top target candidates will be retrieved for each source concept.")
+print("   These candidates are selected using exact nearest neighbor search with FAISS (L2 distance).")
+
+while True:
+    k_val = input("🔹 Please enter the value of k (positive integer): ").strip()
+    if k_val.isdigit() and int(k_val) > 0:
+        k_val = int(k_val)
+        print(f"✅ You selected k = {k_val}")
+        break
+    else:
+        print("❌ Invalid input. Please enter a positive integer.")
+
+print("🛠️ Generating mappings...")
 topk_faiss_l2(
     src_emb_path=Emb_final_src_cl,
     tgt_emb_path=Emb_final_tgt_cl,
-    top_k=top_k,
+    top_k=k_val,
     output_file=all_predictions_path
 )
 
-# # **Evaluation**
+# Path to the TSV file containing the similarity scores between source and target entities (generated by FAISS)
+pred_file = all_predictions_path
 
-# # **Global Metrics: Precision, Recall and F1 score**
+# Directory containing the reference mappings (e.g., train.tsv, test.tsv)
+refs_dir = os.path.join("Datasets", task, "refs_equiv")
 
-# Run the evaluation on the predicted mappings using evaluation function.
+# === Call the mapping generation function ===
 
-print("Calculating global evaluation metrics (precision, recall and F1-score) ....")
-
-output_file, metrics, correct = evaluate_predictions(
-    pred_file=all_predictions_path,
-    # Path to the TSV file containing predicted mappings with scores (before filtering).
-
-    train_file=train_file,
-    # Path to the training reference file (used to exclude mappings involving train-only entities).
-
-    test_file=test_file,
-    # Path to the test reference file (used as the gold standard for evaluation).
-)
-
-# This function returns:
-# - `output_file`: the path to the filtered and evaluated output file.
-# - `metrics`: a tuple containing (Precision, Recall, F1-score).
-# - `correct`: the number of correctly predicted mappings found in the gold standard.
+# This function will prompt the user to select a mapping strategy (greedy, relaxed top-1, or both),
+# generate the corresponding mappings, and optionally evaluate them if the user provides a test set.
+generate_mappings(task=task, pred_file=pred_file, refs_dir=refs_dir)
 
 
-# # **Metrics@1**
+# # **Evaluation with Metrics@1**
 
 # Compute the top-1 most similar mappings using l2 distance
 # and the similarity score is computed as the inverse of the l2 distance.
@@ -1559,17 +1812,11 @@ topk_faiss_l2(
 
 
 results = evaluate_topk(
-    topk_file=top_1_predictions,
+    task="task_name",
+    pred_file=top_1_predictions,
     # Path to the file containing the predicted mappings with scores.
     # This file may include unfiltered predictions (e.g., over all candidates).
-
-    train_file=train_file,
-    # Path to the training reference mappings file.
-    # Used to remove mappings that involve entities appearing only in training.
-
-    test_file=test_file
-    # Path to the test reference mappings file.
-    # Ground-truth correspondences are extracted from this file for evaluation.
+    refs_dir=refs_dir,
 )
 
 
