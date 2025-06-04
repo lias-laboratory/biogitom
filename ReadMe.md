@@ -6,9 +6,9 @@ To address these challenges, BioGITOM enhances domain-specific embeddings extrac
 
 ## Repository Structure
 
-- `Scripts/`: This directory contains scripts for candidate generation, training set construction, semantic embedding generation using SapBERT, and the implementation and training processes for the GIT and Gated Network architectures.
+- `Scripts/`: This directory contains scripts for training set construction, semantic embedding generation using Sentence-SapBERT, and the implementation and training -processes for the GIT and Gated Network architectures.
 - `Datasets/`: This folder includes the Bio-ML datasets, comprising ontologies and their corresponding reference alignments.
-- `Experiments/`: This section holds the experimental results, demonstrating the rationale behind the selection of the BERT model (i.e., SapBERT), the optimal number of negative examples in the training set, and findings from the ablation study.
+- `Experiments/`: This directory contains the experimental results that support the design decisions of the BioGITOM framework. It includes the justification for selecting the SapBERT model over alternative BERT variants, the empirical determination of the optimal number of negative examples in the training set, as well as insights from the ablation study. Additionally, it presents comparative analyses of top-k similarity search strategies—such as FAISS L2 and Inner Product—to validate the candidate retrieval methodology.
 - `Tasks/`: This directory contains the predefined tasks of the Bio-ML track, each organized into a dedicated subdirectory that includes:
    - Task-specific data files: Input data necessary for the task execution.
    - Scripts: Implementations provided in Python (.py) and Jupyter Notebook (.ipynb) formats, along with execution logs documented in Markdown (.md) files.
@@ -16,6 +16,12 @@ To address these challenges, BioGITOM enhances domain-specific embeddings extrac
 - `download_data.py`: This script automates the process of downloading, extracting, and organizing the required data for each task from a remote server. 
 - `run_biogitom.py`: This script serves as a central interface for executing task-specific Python scripts. Each task is organized in its designated subdirectory within the Tasks/ folder. The script dynamically identifies and executes the appropriate task script based on user-provided input parameters.
 - `requirements.txt`: This file lists all the Python packages and their specific versions required to run the BioGITOM framework. It ensures compatibility and consistency across environments.
+- `create_new_task.py`: Automates the full setup of a new BioGITOM task **with semantic embedding generation**. It:
+  - Uploads ontologies
+  - Runs the Concept Fearures Encoder (CFE) to generate embeddings, classes, and adjacency matrices
+  - Handles training alignment files
+  - Generates mappings
+- `create_new_task_with_embeddings.py`: Similar to `create_new_task.py` but assumes **precomputed embeddings, class files, and adjacency matrices** are provided manually by the user.
 - `dictionary.json`: This JSON maps ontology files to their respective namespace URIs and synonym properties, enabling standardized synonym extraction for ontology processing tasks.
 
 ## Installation
