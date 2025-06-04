@@ -199,6 +199,7 @@ tgt_class = f"{data_dir}/{tgt_ent}_classes.json"
 
 # Training file (e.g., positive/negative alignment pairs used to train the model)
 train_file = f"{data_dir}/{task}_train.csv"
+train_file_origin= f"{dataset_dir}/refs_equiv/train.tsv"
 
 # Test set with gold-standard reference mappings (used for evaluation)
 test_file = f"{dataset_dir}/refs_equiv/test.tsv"
@@ -1547,7 +1548,7 @@ output_file, metrics, correct = evaluate_predictions(
     pred_file=all_predictions_path,
     # Path to the TSV file containing predicted mappings with scores (before filtering).
 
-    train_file=train_file,
+    train_file=train_file_origin,
     # Path to the training reference file (used to exclude mappings involving train-only entities).
 
     test_file=test_file
@@ -1574,7 +1575,7 @@ results = evaluate_topk(
     # Path to the file containing the predicted mappings with scores.
     # This file may include unfiltered predictions (e.g., over all candidates).
 
-    train_file=train_file,
+    train_file=train_file_origin,
     # Path to the training reference mappings file.
     # Used to remove mappings that involve entities appearing only in training.
 
