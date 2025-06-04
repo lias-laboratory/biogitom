@@ -35,7 +35,6 @@ python biogitom/create_new_task_with_embeddings.py --task ncit2mondo
 During the setup, you will be prompted to upload the two ontologies required for the task:
 
 - The source ontology (e.g., ncit.owl)
-- 
 - The target ontology (e.g., mondo.owl)
 
 📦 Format Requirements:
