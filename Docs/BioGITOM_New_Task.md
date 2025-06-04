@@ -15,7 +15,7 @@ This version assumes that you will upload the source and target ontology files (
 
 - Launch the complete matching pipeline
 
-This workflow provides a streamlined setup for new ontology alignment tasks, ensuring consistency and scalability across experiments.
+This workflow provides a streamlined setup for new ontology alignment tasks.
 
 ---
 
@@ -46,38 +46,51 @@ python biogitom/create_new_task.py --task ncit2mondo
 
 ---
 
-### 2. Upload Ontologies
+### 2. Upload Ontology Files
+During the setup, you will be prompted to upload the two ontologies required for the task:
 
-You will be prompted to provide paths to:
+- The source ontology (e.g., ncit.owl)
 
-* The source ontology (e.g., `ncit.owl`)
-* The target ontology (e.g., `mondo.owl`)
+- The target ontology (e.g., mondo.owl)
+
+📦 Format Requirements:
+
+- Each file must be in .owl (RDF/XML) format.
+
 
 These will be copied to:
 
 ```
 Datasets/<task_name>/
 ```
-
 ---
 
-### 3.  Automatically Generate Embeddings
+### 3. Automatically Generate Embeddings
 
-Once the ontologies are uploaded, the script will automatically perform the following steps:
+Once the source and target ontologies are uploaded, a script will be automatically generated from a predefined template:
 
-- Generate semantic embeddings for all ontology concepts using a pretrained encoder (Sentence-SapBERT)
+- `Tasks/<task_name>/<task_name>_cfe.py`  
+  → This script launches the **Concept Feature Encoder (CFE)**, which generates the necessary input features for the matching model. Specifically, it performs the following operations:
 
-- Create adjacency matrices (CSV) based on subClassOf relations to train the GIT model
+#### 🔧 Automated Steps:
 
-- Extract class files (_classes.json) to map concept URIs to their labels/synonyms for encoding
+- **Semantic Embedding Generation:**  
+  Computes dense vector representations for all ontology concepts using the pretrained model **Sentence-SapBERT**.
 
-These files are generated and saved in:
+- **Adjacency Matrix Construction:**  
+  Builds CSV-formatted adjacency matrices based on `subClassOf` relationships, which are essential for the **Graph Isomorphism Transformer (GIT)** model.
+
+- **Class File Extraction:**  
+  Creates `*_classes.json` files that map each concept URI to its associated labels and synonyms, used for encoding.
+
+#### 📁 Output Location:
+All generated files are saved under:
 
 ```
 Tasks/<task_name>/Data/
 ```
 
-Note: This step may take a significant amount of time depending on the number of ontology concepts to process.
+ **Note:** This step may take a significant amount of time depending on the number of ontology concepts to process.
 
 ---
 
@@ -117,24 +130,20 @@ It produces:
 
 ---
 
-### 6. Set Top-k Value
+### 6. Auto-Generate Matching Script
 
-You will be asked to provide the value of **k**, used later for retrieving top-k candidates using FAISS.
+A Python script will be automatically generated:
 
----
+- `Tasks/<task_name>/<task_name>.py`  
+  → This script orchestrates the training pipeline for the ontology matching task. It includes:
 
-### 7. Auto-Generate Python Scripts
-
-Two scripts will be generated from templates:
-
-* `Tasks/<task_name>/<task_name>_cfe.py`
-* `Tasks/<task_name>/<task_name>.py`
-
-The placeholders in the templates will be automatically replaced.
+  - Training the **Graph Isomorphism Transformer (GIT)** model to capture structural features.
+  - Training the **GatedCombination** model to fuse semanctic and graph-enhanced embeddings.
+  - Generating mappings between source and target ontologies.
 
 ---
 
-### 8. Automatic Execution
+### 7. Automatic Execution
 
 The script will then run:
 
@@ -146,33 +155,72 @@ This launches the full pipeline including model training and evaluation.
 
 ---
 
-## Directory Structure
+### 8. Set the Value of k
+You will be prompted to enter a value for k, which controls the number of top-ranked target candidates retrieved for each source concept based on embedding similarity.
 
-```
-BioGITOM/
-├── Tasks/
-│   └── ncit2mondo/
-│       ├── Data/
-│       │   ├── ncit_emb.csv
-│       │   ├── ncit_classes.json
-│       │   ├── mondo_emb.csv
-│       │   ├── mondo_classes.json
-│       │   ├── ncit2mondo_train.csv
-│       │   └── ncit2mondo_train.encoded.csv
-│       ├── Results/
-│       ├── ncit2mondo.py
-│       └── ncit2mondo_cfe.py
-├── Datasets/
-│   └── ncit2mondo/
-│       ├── ncit.owl
-│       ├── mondo.owl
-│       └── refs_equiv/
-│           └── train.tsv
-└── biogitom/
-    └── create_new_task.py
-```
+- The top-k candidates are selected using exact nearest neighbor search with FAISS, based on the L2 (Euclidean) distance between vectors.
+
+- This step is crucial for generating a manageable and relevant candidate set for alignment.
+
+- A larger k increases recall but may reduce precision or slow down further processing steps.
 
 ---
+
+## 9. Generate top-k Candidate Mappings Using FAISS L2
+
+After training, top-k candidate mappings are generated:
+
+- Output saved to TSV with: `SrcEntity`, `TgtEntity`, `Score`
+
+---
+
+## 10.  Choose Mapping Selection Strategy
+You are prompted to choose from:
+
+- Greedy 1-to-1
+- Relaxed Top-1 (margin-based)
+- Both strategies (with optional evaluation if test set is available)
+
+
+All generated mappings are saved to:
+
+```
+Tasks/<task_name>/Results/
+```
+ 
+
+This completes the end-to-end process for launching a new ontology matching task using BioGITOM with precomputed embeddings.
+
+---
+
+## Example Directory Structure After Task Creation
+```
+BiogitomFolder/
+└── biogitom/
+    ├── Tasks/
+    │   └── ncit2mondo/
+    │       ├── Data/
+    │       │   ├── ncit_emb.csv
+    │       │   ├── ncit_classes.json
+    │       │   ├── mondo_emb.csv
+    │       │   ├── mondo_classes.json
+    │       │   ├── ncit_adjacence.csv
+    │       │   ├── mondo_adjacence.csv
+    │       │   ├── ncit2mondo_train.csv
+    │       │   └── ncit2mondo_train.encoded.csv
+    │       ├── Results/
+    │       └── ncit2mondo.py
+    ├── Datasets/
+    │   └── ncit2mondo/
+    │       ├── ncit.owl
+    │       ├── mondo.owl
+    │       └── refs_equiv/
+    │           └── train.tsv
+    └── create_new_task.py
+    └── create_new_task_with_embeddings.py
+
+```
+
 
 ## Notes
 
