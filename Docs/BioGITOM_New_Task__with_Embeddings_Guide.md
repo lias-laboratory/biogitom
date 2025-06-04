@@ -171,17 +171,6 @@ You are prompted to choose from:
 - Relaxed Top-1 (margin-based)
 - Both strategies (with optional evaluation if test set is available)
 
----
-
-## 12. Evaluate with Metrics@1
-
-The script automatically computes top-1 ranking metrics after generating final predictions:
-
-Precision@1
-
-Recall@1
-
-F1-score@1
 
 All generated mappings are saved to:
 
@@ -192,7 +181,7 @@ Tasks/<task_name>/Results/
 
 This completes the end-to-end process for launching a new ontology matching task using BioGITOM with precomputed embeddings.
 
-
+---
 
 ## Example Directory Structure After Task Creation
 ```
