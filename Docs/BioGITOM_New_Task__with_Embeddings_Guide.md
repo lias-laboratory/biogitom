@@ -1,7 +1,6 @@
-
 # Guide: Creating a New Ontology Matching Task in BioGITOM Using Precomputed Embeddings
 
-TThis guide describes how to create a new ontology matching task in BioGITOM using the script `create_new_task_with_embeddings.py`. This version assumes that you will upload the ontologies, class files, and embeddings manually.
+This guide describes how to create a new ontology matching task in BioGITOM using the script `create_new_task_with_embeddings.py`. This version assumes that you will upload the ontologies, class files, and embeddings manually.
 
 ---
 
@@ -12,7 +11,9 @@ Before running the script, ensure you have:
 * Source and target ontologies in `.owl` format
 * Class files in `.json` format mapping concept URIs to labels
 * Embedding files (`*_emb.csv`) for both source and target
-* A training file in `train.tsv` 
+* A training file in `train.tsv`
+
+---
 
 ## Step-by-Step Instructions
 
@@ -23,9 +24,7 @@ python biogitom/create_new_task_with_embeddings.py --task <task_name>
 ```
 Replace `<task_name>` with your task identifier, e.g., `ncit2mondo`.
 
----
 Example:
-
 ```bash
 python biogitom/create_new_task_with_embeddings.py --task ncit2mondo
 ```
@@ -35,17 +34,12 @@ python biogitom/create_new_task_with_embeddings.py --task ncit2mondo
 ### 2. Upload Ontology Files
 During the setup, you will be prompted to upload the two ontologies required for the task:
 
-- The source ontology (e.g., ncit.owl)
+- The source ontology (e.g., `ncit.owl`)
+- The target ontology (e.g., `mondo.owl`)
 
-- The target ontology (e.g., mondo.owl)
-
-📦 Format Requirements:
-
-- Each file must be in .owl (RDF/XML) format.
-
+📦 **Format Requirements:** `.owl` (RDF/XML)
 
 These will be copied to:
-
 ```
 Datasets/<task_name>/
 ```
@@ -53,7 +47,7 @@ Datasets/<task_name>/
 ---
 
 ### 3. Upload Class Files (`_classes.json`)
-For each ontology (source and target), you need to upload a file named like:
+Upload one `.json` file per ontology:
 - `ncit_classes.json`
 - `mondo_classes.json`
 
@@ -64,95 +58,149 @@ For each ontology (source and target), you need to upload a file named like:
   "http://example.org/concept/002": ["Leukemia"]
 }
 ```
+
 Each key is a concept URI, and the value is a list of labels or synonyms.
 
 ---
 
-### 4. Upload Embeddings Files
-For each ontology (source and target), you must provide a .csv file containing the embeddings.
-
-#### File Naming
-The file must follow the naming convention:
-ontologyname_emb.csv
-(e.g., ncit_emb.csv, mondo_emb.csv, doid_emb.csv)
-
-Each file will be automatically copied into the Tasks/<task_name>/Data/ folder created by the script.
-
+### 4. Upload Embedding Files
+You must upload one `.csv` file per ontology:
+- `ncit_emb.csv`
+- `mondo_emb.csv`
 
 **Format:**
-The file must contain a header row with the following:
-- The first column is an index generated using one ot encoding corresponding to classe.json file.
-- Remaining columns must be floating-point values representing the embedding vector.
-
-Example:
 ```csv
 ,0,1,2,...,767
 0,0.12,0.05,0.33,...,0.09
 1,0.11,0.02,0.36,...,0.08
 ```
+- The first column is an index (linked to `classes.json`)
+- Remaining columns are floating-point values representing the embedding vector
+
+Files are saved to:
+```
+Tasks/<task_name>/Data/
+```
 
 ---
 
 ### 5. Upload Training File
+Upload the `train.tsv` file containing known mappings:
 
-You will be prompted to upload the `train.tsv` file, containing known positive mappings.
-
-**Format:** Tab-separated file with at least two columns:
+**Format:** Tab-separated with two columns:
 ```
 SrcEntity<TAB>TgtEntity
 ```
+
 Example:
 ```
 http://ncit/123	http://mondo/987
 ```
 
-It will be copied to:
-
+Saved to:
 ```
 Datasets/<task_name>/refs_equiv/train.tsv
 ```
 
 ---
 
-### 6. Automatically Encodes Training Data & Generates Negatives
+### 6. Encode and Generate Negatives
+The script automatically:
+- Encodes `SrcEntity` and `TgtEntity` to integer indices
+- Generates 50 random negatives per source entity
 
-The script performs:
-
-* Encoding of `SrcEntity` and `TgtEntity` as integers using `classes.json`
-* Generation of 50 random negative mappings per source entity
-
-It produces:
-
-* `<task>_train.encoded.csv`
-* `<task>_train.csv` (positives + negatives)
+Output:
+- `<task>_train.encoded.csv`
+- `<task>_train.csv`
 
 ---
 
-### 7. Enter `k` Value
-You will be asked to provide the value of **k**, used later for retrieving top-k candidates using FAISS.
-
----
-
-### 8. Auto-Generate Task Script
-
-A file like `Tasks/<task>/<task>.py` is created from a template, automatically filled in with:
+### 7. Auto-Generate Task Script
+A runnable script `Tasks/<task_name>/<task_name>.py` is created, filled with:
 - Task name
-- Source and target names
-- The value of `k`
+- Source/target identifiers
+- Top-k value placeholder
 
 ---
 
-### 9. Auto-Launch the Task
-
-The script will then run:
-
+### 8. Launch the Task
+The script then runs:
 ```bash
 python Tasks/<task_name>/<task_name>.py
 ```
-
-This launches the full pipeline including model training and evaluation.
+This launches the full training pipeline for GIT + GatedCombination.
 
 ---
+
+### 9. Set the Value of k
+You will be prompted to enter a value for **k**:
+- Controls how many top target candidates are retrieved per source entity
+- Used by FAISS L2 for similarity computation
+
+---
+
+## 10. Generate Mappings Using FAISS L2
+
+After training, top-k candidate mappings are generated:
+```python
+print("🛠️ Generating mappings...")
+topk_faiss_l2(
+    src_emb_path=Emb_final_src_cl,
+    tgt_emb_path=Emb_final_tgt_cl,
+    top_k=k_val,
+    output_file=all_predictions_path
+)
+```
+- Output saved to TSV with: `SrcEntity`, `TgtEntity`, `Score`
+
+---
+
+## 11. Choose Mapping Strategy
+You are prompted to run:
+```python
+generate_mappings(task=task, pred_file=all_predictions_path, refs_dir=refs_dir)
+```
+Choose from:
+- Greedy 1-to-1
+- Relaxed Top-1 (margin-based)
+- Both strategies (with optional evaluation if test set is available)
+
+---
+
+## 12. Evaluate with Metrics@1
+Optionally, the script also computes top-1 ranking metrics:
+
+```python
+topk_faiss_l2(
+    src_emb_path=Emb_final_src_cl,
+    tgt_emb_path=Emb_final_tgt_cl,
+    top_k=1,
+    output_file=top_1_predictions
+)
+
+results = evaluate_topk(
+    task=task,
+    pred_file=top_1_predictions,
+    refs_dir=refs_dir,
+)
+```
+
+Metrics:
+- Precision@1
+- Recall@1
+- F1-score@1
+- MRR, Hits@k
+
+Results are saved to:
+```
+Tasks/<task_name>/Results/
+```
+
+---
+
+This completes the end-to-end process for launching a new ontology matching task using BioGITOM with precomputed embeddings.
+
+
 
 ## Example Directory Structure After Task Creation
 ```
