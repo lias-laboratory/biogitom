@@ -140,7 +140,7 @@ The script then runs:
 ```bash
 python Tasks/<task_name>/<task_name>.py
 ```
-This launches the full training pipeline for GIT and Gated Network.
+This launches the full training pipeline for GIT and Gated Network and generate mappings.
 
 ---
 
