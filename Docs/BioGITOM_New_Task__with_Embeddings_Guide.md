@@ -185,26 +185,30 @@ This completes the end-to-end process for launching a new ontology matching task
 
 ## Example Directory Structure After Task Creation
 ```
-BioGITOM/
-├── Tasks/
-│   └── ncit2mondo/
-│       ├── Data/
-│       │   ├── ncit_emb.csv
-│       │   ├── ncit_classes.json
-│       │   ├── mondo_emb.csv
-│       │   ├── mondo_classes.json
-│       │   ├── ncit2mondo_train.csv
-│       │   └── ncit2mondo_train.encoded.csv
-│       ├── Results/
-│       └── ncit2mondo.py
-├── Datasets/
-│   └── ncit2mondo/
-│       ├── ncit.owl
-│       ├── mondo.owl
-│       └── refs_equiv/
-│           └── train.tsv
+BiogitomFolder/
 └── biogitom/
+    ├── Tasks/
+    │   └── ncit2mondo/
+    │       ├── Data/
+    │       │   ├── ncit_emb.csv
+    │       │   ├── ncit_classes.json
+    │       │   ├── mondo_emb.csv
+    │       │   ├── mondo_classes.json
+    │       │   ├── ncit_adjacence.csv
+    │       │   ├── mondo_adjacence.csv
+    │       │   ├── ncit2mondo_train.csv
+    │       │   └── ncit2mondo_train.encoded.csv
+    │       ├── Results/
+    │       └── ncit2mondo.py
+    ├── Datasets/
+    │   └── ncit2mondo/
+    │       ├── ncit.owl
+    │       ├── mondo.owl
+    │       └── refs_equiv/
+    │           └── train.tsv
     └── create_new_task.py
+    └── create_new_task_with_embeddings.py
+
 ```
 
 ---
