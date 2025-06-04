@@ -18,7 +18,7 @@ To address these challenges, BioGITOM enhances domain-specific embeddings extrac
 - `requirements.txt`: This file lists all the Python packages and their specific versions required to run the BioGITOM framework. It ensures compatibility and consistency across environments.
 - `create_new_task.py`: Automates the full setup of a new BioGITOM task **with semantic embedding generation**. It:
   - Uploads ontologies
-  - Runs the Concept Fearures Encoder (CFE) to generate embeddings, classes, and adjacency matrices
+  - Runs the Concept Fearures Encoder (CFE) to generate semantic embeddings, classes, and adjacency matrices
   - Handles training alignment files
   - Generates mappings
 - `create_new_task_with_embeddings.py`: Similar to `create_new_task.py` but assumes **precomputed embeddings, class files, and adjacency matrices** are provided manually by the user.
