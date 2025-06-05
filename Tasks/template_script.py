@@ -1108,119 +1108,6 @@ def evaluate_predictions_top1_relaxed(task, pred_file, refs_dir, threshold=0.0, 
 
     return prediction_path_top1_relaxed_eval, results, correct
 
-def generate_mappings(task, pred_file, refs_dir, relaxed_margin=0.005):
-    print("\n🧭 Please choose the mapping selection strategy:")
-    print("1️⃣  Greedy 1-to-1 mappings")
-    print("2️⃣  Relaxed Top-1 selection with margin")
-    print("3️⃣  Run both and save results")
-
-    user_choice = input("👉 Enter your choice (1, 2 or 3): ").strip()
-
-    if user_choice == "1":
-        print("🔍 Generating greedy 1-to-1 predictions ...")
-        # Score will be saved to prediction_path_greedy
-        predictions_greedy(
-            task=task,
-            pred_file=pred_file,
-            threshold=0.0
-        )
-        print("\n📊 Do you want to evaluate the generated mappings now?")
-        evaluate_now = input("👉 Enter 'y' to proceed with evaluation or any other key to skip: ").strip().lower()
-
-        if evaluate_now == 'y':
-            test_file = upload_test_file(refs_dir)
-            print("🔍 Evaluating Greedy Predictions...")
-            evaluate_predictions_greedy(
-            task=task,
-            pred_file=all_predictions_path,
-            refs_dir=refs_dir,
-            threshold=0.0
-            )
-
-    elif user_choice == "2":
-        margin_input = input("🔧 Enter margin ratio for relaxed top-1 (default = 0.005): ").strip()
-        try:
-            margin_value = float(margin_input) if margin_input else relaxed_margin
-        except ValueError:
-            print("⚠️ Invalid input. Using default margin = 0.005")
-            margin_value = relaxed_margin
-
-        print("🔍 Generating relaxed top-1 predictions ...")
-        predictions_top1_relaxed(
-            task=task,
-            pred_file=pred_file,
-            threshold=0.0,
-            margin_ratio=margin_value
-        )
-        print("\n📊 Do you want to evaluate the generated mappings now?")
-        evaluate_now = input("👉 Enter 'y' to proceed with evaluation or any other key to skip: ").strip().lower()
-
-        if evaluate_now == 'y':
-            test_file = upload_test_file(refs_dir)
-            print("🔍 Evaluating relaxed top-1 predictions ...")
-            evaluate_predictions_top1_relaxed(
-            task=task,
-            pred_file=all_predictions_path,
-            refs_dir=refs_dir,
-            threshold=0.0
-            )
-
-    elif user_choice == "3":
-        print("🔁 Generating both greedy and relaxed mappings...\n")
-        predictions_greedy(task, pred_file, threshold=0.0)
-        margin_input = input("🔧 Enter margin ratio for relaxed top-1 (default = 0.005): ").strip()
-        try:
-            margin_value = float(margin_input) if margin_input else relaxed_margin
-        except ValueError:
-            print("⚠️ Invalid input. Using default margin = 0.005")
-            margin_value = relaxed_margin
-
-        predictions_top1_relaxed(task, pred_file, threshold=0.0, margin_ratio=margin_value)
-
-        print("\n📊 Do you want to evaluate the generated mappings now?")
-        evaluate_now = input("👉 Enter 'y' to proceed with evaluation or any other key to skip: ").strip().lower()
-
-        if evaluate_now == 'y':
-
-       # Greedy
-           test_file = upload_test_file(refs_dir)
-           print("🔹 Greedy 1-to-1 Matching Evaluation:")
-           output_file1, metrics1, correct1 = evaluate_predictions_greedy(
-           task=task,
-           pred_file=all_predictions_path,
-           refs_dir=refs_dir,
-           threshold=0.0
-           )
-    
-        # Relaxed
-           margin_input = input("🔧 Enter margin ratio for relaxed top-1 (default = 0.005): ").strip()
-           try:
-             margin_value = float(margin_input) if margin_input else 0.005
-           except ValueError:
-              print("⚠️ Invalid input. Using default margin = 0.005")
-              margin_value = 0.005
-
-           print("\n🔹 Relaxed Top-1 Matching Evaluation:")
-           output_file2, metrics2, correct2 = evaluate_predictions_top1_relaxed(
-           task=task,
-           pred_file=all_predictions_path,
-           refs_dir=refs_dir,
-           threshold=0.0,
-           margin_ratio=margin_value
-           )
-
-    # Comparison display
-           print("\n📊 🔬 Comparison of Evaluation Strategies:")
-           print(f"{'Metric':<15} | {'Greedy':<10} | {'Relaxed':<10}")
-           print("-" * 40)
-           for key in ['P', 'R', 'F1']:
-             print(f"{key:<15} | {metrics1[key]:<10.3f} | {metrics2[key]:<10.3f}")
-
-    else:
-        print("❌ Invalid choice. Please restart the script and select a valid option (1, 2 or 3).")
-
-
-
 """# **Precision@k, Recall@k, F1@k**"""
 
 def evaluate_topk(task, pred_file, refs_dir, k=1, threshold=0.0):
@@ -1312,6 +1199,162 @@ def evaluate_topk(task, pred_file, refs_dir, k=1, threshold=0.0):
         f'Recall@{k}': round(recall, 3),
         f'F1@{k}': round(f1, 3)
     }
+
+def generate_mappings(task, pred_file, refs_dir, relaxed_margin=0.005):
+    print("\n🧭 Please choose the mapping selection strategy:")
+    print("1️⃣  Greedy 1-to-1 mappings")
+    print("2️⃣  Relaxed Top-1 selection with margin")
+    print("3️⃣  Run both and save results")
+
+    user_choice = input("👉 Enter your choice (1, 2 or 3): ").strip()
+
+    if user_choice == "1":
+        print("🔍 Generating greedy 1-to-1 predictions ...")
+        # Score will be saved to prediction_path_greedy
+        predictions_greedy(
+            task=task,
+            pred_file=pred_file,
+            threshold=0.0
+        )
+        print("\n📊 Do you want to evaluate the generated mappings now?")
+        evaluate_now = input("👉 Enter 'y' to proceed with evaluation or any other key to skip: ").strip().lower()
+
+        if evaluate_now == 'y':
+            test_file = upload_test_file(refs_dir)
+            print("🔍 Evaluating Greedy Predictions...")
+            evaluate_predictions_greedy(
+            task=task,
+            pred_file=all_predictions_path,
+            refs_dir=refs_dir,
+            threshold=0.0
+            )
+            print("Calculating ranking metrics (precision@k, recall@k and F1-score@k) ....")
+
+            topk_faiss_l2(
+                src_emb_path=Emb_final_src_cl,
+                tgt_emb_path=Emb_final_tgt_cl,
+                top_k=1,
+                output_file=top_1_predictions
+            )
+
+            results = evaluate_topk(
+                task="task_name",
+                pred_file=top_1_predictions,
+                refs_dir=refs_dir,
+            )
+
+
+    elif user_choice == "2":
+        margin_input = input("🔧 Enter margin ratio for relaxed top-1 (default = 0.005): ").strip()
+        try:
+            margin_value = float(margin_input) if margin_input else relaxed_margin
+        except ValueError:
+            print("⚠️ Invalid input. Using default margin = 0.005")
+            margin_value = relaxed_margin
+
+        print("🔍 Generating relaxed top-1 predictions ...")
+        predictions_top1_relaxed(
+            task=task,
+            pred_file=pred_file,
+            threshold=0.0,
+            margin_ratio=margin_value
+        )
+        print("\n📊 Do you want to evaluate the generated mappings now?")
+        evaluate_now = input("👉 Enter 'y' to proceed with evaluation or any other key to skip: ").strip().lower()
+
+        if evaluate_now == 'y':
+            test_file = upload_test_file(refs_dir)
+            print("🔍 Evaluating relaxed top-1 predictions ...")
+            evaluate_predictions_top1_relaxed(
+            task=task,
+            pred_file=all_predictions_path,
+            refs_dir=refs_dir,
+            threshold=0.0
+            )
+            
+            print("Calculating ranking metrics (precision@k, recall@k and F1-score@k) ....")
+
+            topk_faiss_l2(
+                src_emb_path=Emb_final_src_cl,
+                tgt_emb_path=Emb_final_tgt_cl,
+                top_k=1,
+                output_file=top_1_predictions
+            )
+
+            results = evaluate_topk(
+                task="task_name",
+                pred_file=top_1_predictions,
+                refs_dir=refs_dir,
+            )
+
+
+    elif user_choice == "3":
+        print("🔁 Generating both greedy and relaxed mappings...\n")
+        predictions_greedy(task, pred_file, threshold=0.0)
+        margin_input = input("🔧 Enter margin ratio for relaxed top-1 (default = 0.005): ").strip()
+        try:
+            margin_value = float(margin_input) if margin_input else relaxed_margin
+        except ValueError:
+            print("⚠️ Invalid input. Using default margin = 0.005")
+            margin_value = relaxed_margin
+
+        predictions_top1_relaxed(task, pred_file, threshold=0.0, margin_ratio=margin_value)
+
+        print("\n📊 Do you want to evaluate the generated mappings now?")
+        evaluate_now = input("👉 Enter 'y' to proceed with evaluation or any other key to skip: ").strip().lower()
+
+        if evaluate_now == 'y':
+
+       # Greedy
+           test_file = upload_test_file(refs_dir)
+           print("🔹 Greedy 1-to-1 Matching Evaluation:")
+           output_file1, metrics1, correct1 = evaluate_predictions_greedy(
+           task=task,
+           pred_file=all_predictions_path,
+           refs_dir=refs_dir,
+           threshold=0.0
+           )
+       
+        # Relaxed
+           margin_input = input("🔧 Enter margin ratio for relaxed top-1 (default = 0.005): ").strip()
+           try:
+             margin_value = float(margin_input) if margin_input else 0.005
+           except ValueError:
+              print("⚠️ Invalid input. Using default margin = 0.005")
+              margin_value = 0.005
+
+           print("\n🔹 Relaxed Top-1 Matching Evaluation:")
+           output_file2, metrics2, correct2 = evaluate_predictions_top1_relaxed(
+           task=task,
+           pred_file=all_predictions_path,
+           refs_dir=refs_dir,
+           threshold=0.0,
+           margin_ratio=margin_value
+           )
+           print("Calculating ranking metrics (precision@k, recall@k and F1-score@k) ....")
+
+           topk_faiss_l2(
+                src_emb_path=Emb_final_src_cl,
+                tgt_emb_path=Emb_final_tgt_cl,
+                top_k=1,
+                output_file=top_1_predictions
+            )
+
+           results = evaluate_topk(
+                task="task_name",
+                pred_file=top_1_predictions,
+                refs_dir=refs_dir,
+            )
+
+    # Comparison display
+           print("\n📊 🔬 Comparison of Evaluation Strategies:")
+           print(f"{'Metric':<15} | {'Greedy':<10} | {'Relaxed':<10}")
+           print("-" * 40)
+           for key in ['P', 'R', 'F1']:
+             print(f"{key:<15} | {metrics1[key]:<10.3f} | {metrics2[key]:<10.3f}")
+
+    else:
+        print("❌ Invalid choice. Please restart the script and select a valid option (1, 2 or 3).")
 
 
 # Main Code
@@ -1793,30 +1836,5 @@ refs_dir = os.path.join("Datasets", task, "refs_equiv")
 # This function will prompt the user to select a mapping strategy (greedy, relaxed top-1, or both),
 # generate the corresponding mappings, and optionally evaluate them if the user provides a test set.
 generate_mappings(task=task, pred_file=pred_file, refs_dir=refs_dir)
-
-
-# # **Evaluation with Metrics@1**
-
-# Compute the top-1 most similar mappings using l2 distance
-# and the similarity score is computed as the inverse of the l2 distance.
-# Results are saved in a TSV file with columns: SrcEntity, TgtEntity, Score.
-
-print("Calculating ranking metrics (precision@k, recall@k and F1-score@k) ....")
-
-topk_faiss_l2(
-    src_emb_path=Emb_final_src_cl,
-    tgt_emb_path=Emb_final_tgt_cl,
-    top_k=1,
-    output_file=top_1_predictions
-)
-
-
-results = evaluate_topk(
-    task="task_name",
-    pred_file=top_1_predictions,
-    # Path to the file containing the predicted mappings with scores.
-    # This file may include unfiltered predictions (e.g., over all candidates).
-    refs_dir=refs_dir,
-)
 
 
