@@ -1347,10 +1347,10 @@ def generate_mappings(task, pred_file, refs_dir, relaxed_margin=0.005):
             )
 
     # Comparison display
-           print("\n📊 🔬 Comparison of Evaluation Strategies:")
+           print("\n📊 🔬 Comparison of Mapping Selection Strategies:")
            print(f"{'Metric':<15} | {'Greedy':<10} | {'Relaxed':<10}")
            print("-" * 40)
-           for key in ['P', 'R', 'F1']:
+           for key in ['Precision', 'Recall', 'F1-score']:
              print(f"{key:<15} | {metrics1[key]:<10.3f} | {metrics2[key]:<10.3f}")
 
     else:
