@@ -50,28 +50,6 @@ def upload_ontology(prompt, dataset_dir):
     print("🚘 Too many failed attempts.")
     exit(1)
 
-# ================================
-# 🔍 Locate Test File
-# ================================
-
-def upload_test_file(refs_dir):
-    """
-    Prompt the user to upload a test.tsv file and copy it to the refs_equiv directory.
-    """
-    print("\n📄 Upload the test reference file (test.tsv)")
-    for attempt in range(3):
-        path = input("📄 Provide full path to test file (.tsv): ").strip()
-        if os.path.exists(path) and path.endswith(".tsv"):
-            dest_path = os.path.join(refs_dir, "test.tsv")
-            shutil.copy(path, dest_path)
-            print("✅ test.tsv copied to refs_equiv/")
-            return
-        else:
-            print("❌ File not found or invalid format (.tsv required).")
-            if attempt < 2 and input("Try again? (y/n): ").strip().lower() != "y":
-                exit(1)
-    print("🚫 Too many failed attempts.")
-    exit(1)
 
 # ================================
 # 🔍 Locate Embeddings
@@ -194,7 +172,7 @@ def create_cfe_script(task_name, src_name, tgt_name):
         else:
             print("⚠️ Template script not found at Tasks/template_script.py. No script created.")
 
-def create_task_script(task_name, src_name, tgt_name, k_val):
+def create_task_script(task_name, src_name, tgt_name):
     """
     Create the training/evaluation script (from template) for the given task.
     """
@@ -207,7 +185,7 @@ def create_task_script(task_name, src_name, tgt_name, k_val):
                 content = content.replace("src_name", src_name)
                 content = content.replace("tgt_name", tgt_name)
                 content = content.replace("task_name", task_name)
-                content = content.replace("k_val", str(int(k_val)))
+                
             with open(script_path, "w", encoding="utf-8") as f:
                 f.write(content)
             print(f"🖍️ Created script: {script_path}")
@@ -235,20 +213,14 @@ def prepare_task(task_name):
     tgt_name = os.path.splitext(tgt_filename)[0]
 
     create_cfe_script(task_name, src_name, tgt_name)
+    
+    print(f"\n🚀 Running Concept Features Encoder (CFE): Launching script: Tasks/{task_name}/{task_name}_cfe.py")
 
-    print(f"\n🚀 Launching script: Tasks/{task_name}/{task_name}_cfe.py")
     os.system(f"python Tasks/{task_name}/{task_name}_cfe.py")
 
     upload_and_copy_train(refs_dir, task_name, data_dir, src_name, tgt_name)
-    upload_test_file(refs_dir)
-
-    # Ask for top-k value
-    print("\n🔍 The value of k determines how many top target candidates will be retrieved for each source concept.")
-    print("   These candidates are selected using exact nearest neighbor search with FAISS (L2 distance).")
-    k_val = input("🔹 Please enter the value of k: ").strip()
-    print(f"✅ You selected k = {k_val}")
-
-    create_task_script(task_name, src_name, tgt_name, k_val)
+ 
+    create_task_script(task_name, src_name, tgt_name)
 
     print(f"\n🚀 Launching script: Tasks/{task_name}/{task_name}.py")
     os.system(f"python Tasks/{task_name}/{task_name}.py")
