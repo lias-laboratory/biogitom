@@ -921,7 +921,7 @@ def evaluate_predictions(
     # === Step 1: Load input files ===
     df = pd.read_csv(pred_file, sep='\t', encoding='utf-8')
         
-    train_df = pd.read_csv(train_file, sep=",", dtype=str)
+    train_df = pd.read_csv(train_file, sep="\t", encoding='utf-8')
          
     test_df = pd.read_csv(test_file, sep="\t", encoding='utf-8')
    
@@ -994,7 +994,7 @@ def evaluate_topk(topk_file, train_file, test_file, k=1, threshold=0.0):
     df = pd.read_csv(topk_file, sep='\t', encoding='utf-8')
     df.columns = df.columns.str.strip()
     
-    train_df = pd.read_csv(train_file, sep=",", dtype=str)
+    train_df = pd.read_csv(train_file, sep="\t", encoding='utf-8')
     train_df.columns = train_df.columns.str.strip()
      
     test_df = pd.read_csv(test_file, sep="\t", encoding='utf-8')
