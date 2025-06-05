@@ -10,7 +10,7 @@ DATA_URL = "https://forge.lias-lab.fr/datasets/biogitom/data_biogitom.tar.gz"
 ZIP_FILE = "data_biogitom.tar.gz"
 TARGET_DIR = "temp"
 
-def download_file(url, dest, max_retries=3):
+def download_file(url, dest, max_retries=5):
     print("Downloading data files...")
     retries = 0
 
