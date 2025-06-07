@@ -1350,8 +1350,8 @@ def generate_mappings(task, pred_file, refs_dir, relaxed_margin=0.005):
            print("\n📊 🔬 Comparison of Mapping Selection Strategies:")
            print(f"{'Metric':<15} | {'Greedy':<10} | {'Relaxed':<10}")
            print("-" * 40)
-           for key in ['Precision', 'Recall', 'F1-score']:
-             print(f"{key:<15} | {metrics1[key]:<10.3f} | {metrics2[key]:<10.3f}")
+           for key, label in zip(['P', 'R', 'F1'], ['Precision', 'Recall', 'F1-score']):
+              print(f"{label:<15} | {metrics1[key]:<10.3f} | {metrics2[key]:<10.3f}")
 
     else:
         print("❌ Invalid choice. Please restart the script and select a valid option (1, 2 or 3).")
