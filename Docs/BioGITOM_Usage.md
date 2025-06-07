@@ -88,8 +88,6 @@ Executing a task generates the following output files in TSV format:
     
   - {task}_all-predictions: Includes all candidate mappings with their respective mapping scores.
   - {task}_matching_results: Contains the filtered mappings based on a predefined threshold.
-  - {task}_all_predictions_ranked: Lists all candidate mappings considered for rank-based metrics calculation, along with their mapping scores.
-  - {task}_formatted_predictions: Provides predictions reformatted specifically for calculating rank-based metrics.
 
 **Instructions for Evaluating Ontology Matching Results**
    
@@ -107,15 +105,4 @@ Executing a task generates the following output files in TSV format:
   ```bash
  python Scripts/Evaluation/evaluate_global_metrics.py --task omim2ordo --src_ent omim --tgt_ent ordo
   ```
-**Evaluating Local Ranked-Based Metrics (MRR and Hits@k)**: To assess the {task}_matching_results.tsv file in terms of ranked-based metrics such as Mean Reciprocal Rank (MRR) and Hits@k, use the following command:
-   
-```bash
-python Scripts/Evaluation/evaluate_ranked_based_metrics.py --task <task> --src_ent <src_ent> --tgt_ent <tgt_ent> 
-```
-Replace `<task>`, `<src_ent>`, and `<tgt_ent>` with the corresponding task name, source ontology name, and target ontology name.
-
-Example:
-```bash
-python Scripts/evaluate_ranked_based_metrics.py --task omim2ordo --src_ent omim --tgt_ent ordo
-```
 **Viewing Logs for a Specific Task :** Task execution logs can be found in the Tasks/<task> directory. Each task folder includes a file named Results_log_{task}.md, which contains detailed logs of the task's execution.
