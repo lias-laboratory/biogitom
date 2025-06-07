@@ -82,7 +82,7 @@ Each file will be automatically copied into the Tasks/<task_name>/Data/ folder c
 
 **Format:**
 The file must contain a header row with the following:
-- The first column is an index generated using one ot encoding corresponding to classe.json file.
+- The first column is an index generated using one-hot encoding corresponding to entries in the classes.json file.
 - Remaining columns must be floating-point values representing the embedding vector.
 
 Example:
@@ -216,7 +216,6 @@ BiogitomFolder/
 
 * Embeddings must have the same ordering as the keys in `classes.json`.
 * The encoded IDs correspond to row indices of embeddings.
-* Scripts are only generated if the target paths do not already exist.
 
 ---
 
