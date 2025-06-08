@@ -408,77 +408,39 @@ import torch.nn.functional as F
 
 class GatedCombination(nn.Module):
     def __init__(self, input_dim):
-        super().__init__()
-
-        # Linear layers to compute gating values for the source and target embeddings
+        super(GatedCombination, self).__init__()
         self.gate_A_fc = nn.Linear(input_dim, input_dim)
         self.gate_B_fc = nn.Linear(input_dim, input_dim)
-
-        # Final linear layer to map similarity score to prediction (sigmoid output)
         self.fc = nn.Linear(1, 1)
 
-    def faiss_l2(self, a, b):
+    def euclidean_distance(self, a, b):
         """
-        Compute L2 distances using FAISS (non-differentiable).
-        This function converts tensors to NumPy, builds a FAISS index, and performs a search.
-        Only use this during inference or evaluation — not for training.
-
+        Compute the Euclidean distance between two tensors.
         Args:
-            a (Tensor): Query vectors (batch_size x dim)
-            b (Tensor): Database vectors (batch_size x dim)
-
+            a: Tensor of shape [batch, dim]
+            b: Tensor of shape [batch, dim]
         Returns:
-            Tensor: L2 distances between aligned rows (one-to-one)
+            Tensor of shape [batch] representing the L2 distance.
         """
-        # Detach tensors from the computation graph and move to CPU
-        a_np = a.detach().cpu().numpy().astype(np.float32)
-        b_np = b.detach().cpu().numpy().astype(np.float32)
-
-        # Create a FAISS index for L2 distance
-        index = faiss.IndexFlatL2(a_np.shape[1])
-        index.add(b_np)
-
-        # Perform 1-NN search
-        distances, _ = index.search(a_np, 1)  # shape: (batch_size, 1)
-
-        # Convert back to PyTorch tensor on the original device
-        return torch.tensor(distances[:, 0], dtype=torch.float32, device=a.device)
+        return torch.norm(a - b, p=2, dim=1)
 
     def forward(self, x1, x2, x3, x4, return_embeddings=False):
-        """
-        Forward pass through the gated combination model.
-        Combines original and transformed embeddings using learned gates.
-
-        Args:
-            x1, x2: original and GNN-transformed embeddings for source entities
-            x3, x4: original and GNN-transformed embeddings for target entities
-            return_embeddings (bool): if True, return gated embeddings instead of prediction
-
-        Returns:
-            Tensor: similarity score (if return_embeddings=False)
-            OR
-            Tuple[Tensor, Tensor]: gated source and target embeddings (if return_embeddings=True)
-        """
-
-        # Compute gate for source embeddings
         gate_values1 = torch.sigmoid(self.gate_A_fc(x1))
         a = x1 * gate_values1 + x2 * (1 - gate_values1)
 
-        # Compute gate for target embeddings
         gate_values2 = torch.sigmoid(self.gate_B_fc(x3))
         b = x3 * gate_values2 + x4 * (1 - gate_values2)
 
         if return_embeddings:
             return a, b
 
-        # Compute non-differentiable distance with FAISS (1-to-1)
-        distance = self.faiss_l2(a, b)
+        # Utilisation de la distance Euclidienne
+        distance = self.euclidean_distance(a, b)
 
-        # Pass through a sigmoid layer for binary classification output
+        # Passage dans couche de classification
         out = torch.sigmoid(self.fc(distance.unsqueeze(1)))
-        return out    
+        return out
     
-
 # **Utility functions**
 
 def adjacency_matrix_to_undirected_edge_index(adjacency_matrix):
