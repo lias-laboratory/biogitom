@@ -16,7 +16,7 @@ git clone https://github.com/lias-laboratory/biogitom.git
 
 ### 2. Navigate to the Project Directory
 
-Change to the directory where the repository was cloned:
+Navigate to the directory where the repository was cloned:
 
 ```bash
 cd biogitom
