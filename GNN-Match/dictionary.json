@@ -1,0 +1,15 @@
+{
+        "doid.owl":["http://www.geneontology.org/formats/oboInOwl#" ,"hasExactSynonym"],
+        "ncit.owl":["http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#" ,"P90"],
+        "omim.owl":["http://www.w3.org/2004/02/skos/core#" ,"exactMatch"],
+        "ordo.owl":["http://www.ebi.ac.uk/efo/" ,"alternative_term"],
+        "fma.body.owl":["http://purl.org/sig/ont/fma/" ,"synonym"],
+        "ncit.neoplas.owl":["http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#" ,"P90"],
+        "ncit.pharm.owl":["http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#" ,"P90"],
+        "snomed.body.owl":["http://www.w3.org/2004/02/skos/core#" ,"altLabel"],
+        "snomed.neoplas.owl":["http://www.w3.org/2004/02/skos/core#" ,"altLabel"],
+        "snomed.pharm.owl":["http://www.w3.org/2004/02/skos/core#" ,"altLabel"], 
+        "human.owl":["http://www.geneontology.org/formats/oboInOwl#", "hasRelatedSynonym"],
+        "mouse.owl":["http://www.geneontology.org/formats/oboInOwl#", "hasRelatedSynonym"]
+
+    }

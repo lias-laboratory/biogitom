@@ -1,0 +1,8 @@
+*.csv
+*.tsv
+*.owl
+*.json
+!dictionary.json
+data_biogitom.tar.gz
+env/
+venv/
