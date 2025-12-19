@@ -68,7 +68,7 @@ This guide includes:
 
 All steps required to reproduce published results are detailed in:
 
-👉 **[Usage Guide](Docs\GNN-Match_Usage.md)**
+👉 **[Usage Guide](.\Docs\GNN-Match_Usage.md)**
 
 Includes:
 
