@@ -54,7 +54,7 @@ Maps ontology filenames to:
 
 For detailed setup instructions, please refer to:
 
-👉 **[Installation Guide](GNN-Match/Docs/GNN-Match_Installation.md)**
+👉 **[Installation Guide](/Docs/GNN-Match_Installation.md)**
 
 This guide includes:
 
